@@ -2,72 +2,26 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>KI-Sicherheit.jetzt – Startseite mit animierter Kugel</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SVG Test – KI-Sicherheit</title>
   <style>
     body {
-      font-family: 'Inter', sans-serif;
       margin: 0;
-      padding: 0;
-      background: #fff;
-      color: #1a1a1a;
+      background: #ffffff;
     }
     .sphere-container {
       position: fixed;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      z-index: 0;
-      opacity: 0.2;
-    }
-    .wrapper {
-      position: relative;
-      z-index: 1;
-      background: #fff;
-      max-width: 720px;
-      margin: auto;
-      padding: 3rem 1rem;
-    }
-    nav {
-      background:#f9f9f9;
-      border-bottom:1px solid #eee;
-      padding:1rem;
-      text-align:center;
-    }
-    nav a {
-      margin: 0 1rem;
-      text-decoration: none;
-      color: #1a1a1a;
-    }
-    .cta-button {
-      display: block;
-      text-align: center;
-      background: #1a1a1a;
-      color: #fff;
-      padding: 0.9rem 1.8rem;
-      margin: 2rem auto 0;
-      width: max-content;
-      border-radius: 6px;
-      text-decoration: none;
-      font-weight: 500;
-    }
-    ul {
-      padding-left: 1.2rem;
-    }
-    li {
-      margin-bottom: 0.6rem;
-    }
-    footer {
-      text-align: center;
-      font-size: 0.9rem;
-      color: #999;
-      padding-top: 2rem;
-      border-top: 1px solid #eee;
+      width: 300px;
+      opacity: 0.8;
     }
     .rotating {
       animation: spin 30s linear infinite;
+      width: 100%;
+      height: auto;
     }
     @keyframes spin {
       from { transform: rotate(0deg); }
@@ -76,9 +30,8 @@
   </style>
 </head>
 <body>
-
 <div class="sphere-container">
-  <svg class="rotating" width="300" height="300" viewBox="0 0 100 100">
+  <svg class="rotating" viewBox="0 0 100 100">
     <defs>
       <radialGradient id="grad1" cx="50%" cy="50%" r="50%">
         <stop offset="0%" style="stop-color:#00acc1;stop-opacity:1" />
@@ -98,36 +51,5 @@
     <line x1="70" y1="30" x2="30" y2="70" stroke="#fff" stroke-width="0.5"/>
   </svg>
 </div>
-
-<nav>
-  <a href="index.html">Start</a>
-  <a href="warum-jetzt.html">Warum jetzt?</a>
-  <a href="angebot.html">Angebot</a>
-  <a href="ueber-mich.html">Über mich</a>
-  <a href="kontakt.html">Kontakt</a>
-</nav>
-
-<div class="wrapper">
-  <header>
-    <h1>KI ist kein Tool.<br>Sondern eine Führungsfrage.</h1>
-    <p>Strategieberatung für verantwortungsvollen KI-Einsatz – rechtskonform, verständlich und menschlich.</p>
-    <a href="/whitepaper.pdf" class="cta-button">Whitepaper herunterladen</a>
-  </header>
-
-  <section>
-    <h2>Was Sie bei mir erwartet</h2>
-    <ul>
-      <li>✓ Risikobewertung nach DSGVO & EU AI Act</li>
-      <li>✓ Begleitung von KI-Projekten in Strategie & Umsetzung</li>
-      <li>✓ Beratung für Menschen ohne IT-Hintergrund</li>
-      <li>✓ Workshops, Schulung & klare Dokumentation</li>
-    </ul>
-  </section>
-
-  <footer>
-    &copy; 2025 KI-Sicherheit.jetzt
-  </footer>
-</div>
-
 </body>
 </html>
