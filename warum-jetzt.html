@@ -12,8 +12,28 @@
     h1 { font-size: 2rem; margin-bottom: 1rem; }
     footer { text-align: center; font-size: 0.9rem; color: #999; padding: 2rem 1rem 1rem; border-top: 1px solid #eee; }
   </style>
+
+<style>
+.rotating-logo {
+  animation: rotate 60s linear infinite;
+  opacity: 0.5;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+  pointer-events: none;
+  width: 400px;
+}
+@keyframes rotate {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+</style>
 </head>
 <body>
+<img src="logo.png" alt="Rotierendes Logo" class="rotating-logo">
+
 
 <nav style="background:#f9f9f9; border-bottom:1px solid #eee; padding:1rem; text-align:center;">
   <a href="index.html" style="margin:0 1rem; text-decoration:none; color:#1a1a1a;">Start</a>
