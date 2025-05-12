@@ -15,21 +15,26 @@
       font-family: 'Inter', sans-serif;
       overflow-x: hidden;
     }
-    .rotating {
-      animation: spin 30s linear infinite;
+    .sphere-wrapper {
       position: fixed;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
       width: 300px;
       height: 300px;
-      opacity: 0.25;
       z-index: 0;
+      opacity: 0.25;
       pointer-events: none;
     }
+    .rotating {
+      width: 100%;
+      height: 100%;
+      animation: spin 30s linear infinite;
+      transform-origin: center center;
+    }
     @keyframes spin {
-      from { transform: translate(-50%, -50%) rotate(0deg); }
-      to { transform: translate(-50%, -50%) rotate(360deg); }
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
     }
     .content {
       position: relative;
@@ -66,25 +71,27 @@
 </head>
 <body>
 
-<svg class="rotating" viewBox="0 0 100 100">
-  <defs>
-    <radialGradient id="grad1" cx="50%" cy="50%" r="50%">
-      <stop offset="0%" style="stop-color:#00acc1;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#006c8e;stop-opacity:1" />
-    </radialGradient>
-  </defs>
-  <circle cx="50" cy="50" r="48" fill="url(#grad1)" />
-  <circle cx="30" cy="30" r="2" fill="#fff"/>
-  <circle cx="70" cy="30" r="2" fill="#fff"/>
-  <circle cx="30" cy="70" r="2" fill="#fff"/>
-  <circle cx="70" cy="70" r="2" fill="#fff"/>
-  <line x1="30" y1="30" x2="70" y2="30" stroke="#fff" stroke-width="0.5"/>
-  <line x1="70" y1="30" x2="70" y2="70" stroke="#fff" stroke-width="0.5"/>
-  <line x1="70" y1="70" x2="30" y2="70" stroke="#fff" stroke-width="0.5"/>
-  <line x1="30" y1="70" x2="30" y2="30" stroke="#fff" stroke-width="0.5"/>
-  <line x1="30" y1="30" x2="70" y2="70" stroke="#fff" stroke-width="0.5"/>
-  <line x1="70" y1="30" x2="30" y2="70" stroke="#fff" stroke-width="0.5"/>
-</svg>
+<div class="sphere-wrapper">
+  <svg class="rotating" viewBox="0 0 100 100">
+    <defs>
+      <radialGradient id="grad1" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" style="stop-color:#00acc1;stop-opacity:1" />
+        <stop offset="100%" style="stop-color:#006c8e;stop-opacity:1" />
+      </radialGradient>
+    </defs>
+    <circle cx="50" cy="50" r="48" fill="url(#grad1)" />
+    <circle cx="30" cy="30" r="2" fill="#fff"/>
+    <circle cx="70" cy="30" r="2" fill="#fff"/>
+    <circle cx="30" cy="70" r="2" fill="#fff"/>
+    <circle cx="70" cy="70" r="2" fill="#fff"/>
+    <line x1="30" y1="30" x2="70" y2="30" stroke="#fff" stroke-width="0.5"/>
+    <line x1="70" y1="30" x2="70" y2="70" stroke="#fff" stroke-width="0.5"/>
+    <line x1="70" y1="70" x2="30" y2="70" stroke="#fff" stroke-width="0.5"/>
+    <line x1="30" y1="70" x2="30" y2="30" stroke="#fff" stroke-width="0.5"/>
+    <line x1="30" y1="30" x2="70" y2="70" stroke="#fff" stroke-width="0.5"/>
+    <line x1="70" y1="30" x2="30" y2="70" stroke="#fff" stroke-width="0.5"/>
+  </svg>
+</div>
 
 <nav>
   <a href="index.html">Start</a>
