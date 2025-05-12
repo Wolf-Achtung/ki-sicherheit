@@ -8,29 +8,92 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet"/>
   
 
+
 <style>
+body {
+  background: #fff;
+  color: #1a1a1a;
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
 .rotating-logo {
   animation: rotate3dall 90s linear infinite;
   opacity: 0.35;
   position: fixed;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate3d(-50%, -50%, 0);
   z-index: 0;
   pointer-events: none;
   width: 400px;
   transform-style: preserve-3d;
   backface-visibility: hidden;
+  will-change: transform;
 }
+
 @keyframes rotate3dall {
-  from { transform: translate(-50%, -50%) rotateX(0deg) rotateY(0deg) rotateZ(0deg); }
-  to { transform: translate(-50%, -50%) rotateX(360deg) rotateY(360deg) rotateZ(360deg); }
+  from {
+    transform: translate3d(-50%, -50%, 0) rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+  }
+  to {
+    transform: translate3d(-50%, -50%, 0) rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+  }
+}
+
+.wrapper {
+  position: relative;
+  z-index: 1;
+  background: #fff;
+  max-width: 720px;
+  margin: auto;
+  padding: 3rem 1rem;
+}
+nav {
+  background:#f9f9f9;
+  border-bottom:1px solid #eee;
+  padding:1rem;
+  text-align:center;
+}
+nav a {
+  margin: 0 1rem;
+  text-decoration: none;
+  color: #1a1a1a;
+}
+.cta-button {
+  display: block;
+  text-align: center;
+  background: #1a1a1a;
+  color: #fff;
+  padding: 0.9rem 1.8rem;
+  margin: 2rem auto 0;
+  width: max-content;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 500;
+}
+ul {
+  padding-left: 1.2rem;
+}
+li {
+  margin-bottom: 0.6rem;
+}
+footer {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #999;
+  padding-top: 2rem;
+  border-top: 1px solid #eee;
 }
 </style>
 
 
+
 </head>
 <body>
+<img src="logo.png" alt="Rotierendes Logo" class="rotating-logo">
+
 <img src="logo.png" alt="Rotierendes Logo" class="rotating-logo">
 
 
@@ -46,9 +109,9 @@
   <h1>Warum jetzt?</h1>
   <p>Der EU AI Act, wachsende Datenschutzpflichten und zunehmende gesellschaftliche Verantwortung verlangen von Organisationen eine neue Haltung zum Einsatz von KI.</p>
   <p>Ich helfe Ihnen, zwischen Überforderung und Unterregulierung den strategisch sinnvollen Weg zu finden.</p>
-</section>
+</section></div>
 <footer>
   &copy; 2025 KI-Sicherheit.jetzt
-</footer>
+</footer></div>
 </body>
 </html>
