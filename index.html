@@ -9,6 +9,7 @@
   
 
 
+
 <style>
 body {
   background: #fff;
@@ -24,21 +25,21 @@ body {
   position: fixed;
   top: 50%;
   left: 50%;
-  transform: translate3d(-50%, -50%, 0);
   z-index: 0;
   pointer-events: none;
   width: 400px;
   transform-style: preserve-3d;
   backface-visibility: hidden;
+  transform-origin: center center;
   will-change: transform;
 }
 
 @keyframes rotate3dall {
-  from {
-    transform: translate3d(-50%, -50%, 0) rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+  0% {
+    transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
   }
-  to {
-    transform: translate3d(-50%, -50%, 0) rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+  100% {
+    transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
   }
 }
 
@@ -87,6 +88,7 @@ footer {
   border-top: 1px solid #eee;
 }
 </style>
+
 
 
 
