@@ -2,40 +2,36 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>KI-Sicherheit.jetzt – Startseite</title>
+  <title>KI-Sicherheit.jetzt – Startseite (funktionierend)</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet"/>
   <style>
-    body {
-      font-family: 'Inter', sans-serif;
+    html, body {
       margin: 0;
-      background: #fff;
-      color: #1a1a1a;
+      padding: 0;
+      background: white;
+      font-family: 'Inter', sans-serif;
     }
-    .sphere-container {
+    .rotating {
+      animation: spin 30s linear infinite;
       position: fixed;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
       width: 300px;
-      opacity: 0.2;
+      opacity: 0.25;
       z-index: 0;
     }
-    .rotating {
-      animation: spin 30s linear infinite;
-      width: 100%;
-      height: auto;
-    }
     @keyframes spin {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
+      from { transform: translate(-50%, -50%) rotate(0deg); }
+      to { transform: translate(-50%, -50%) rotate(360deg); }
     }
-    .wrapper {
+    .content {
       position: relative;
       z-index: 1;
       max-width: 720px;
-      margin: auto;
+      margin: 0 auto;
       padding: 3rem 1rem;
       background: white;
     }
@@ -44,75 +40,46 @@
       border-bottom:1px solid #eee;
       padding:1rem;
       text-align:center;
-      position: relative;
       z-index: 2;
+      position: relative;
     }
     nav a {
       margin: 0 1rem;
       text-decoration: none;
       color: #1a1a1a;
-      font-weight: 500;
     }
     h1 {
-      font-size: 2.2rem;
       text-align: center;
-      margin-bottom: 1rem;
+      font-size: 2rem;
     }
-    p.lead {
-      font-size: 1.2rem;
+    p {
       text-align: center;
-      color: #444;
-    }
-    .cta-button {
-      display: block;
-      text-align: center;
-      background: #1a1a1a;
-      color: #fff;
-      padding: 0.9rem 1.8rem;
-      margin: 2rem auto 0;
-      width: max-content;
-      border-radius: 6px;
-      text-decoration: none;
-      font-weight: 500;
-    }
-    ul {
-      padding-left: 1.2rem;
-    }
-    li {
-      margin-bottom: 0.6rem;
-    }
-    footer {
-      text-align: center;
-      font-size: 0.9rem;
-      color: #999;
-      padding-top: 2rem;
-      border-top: 1px solid #eee;
+      font-size: 1.1rem;
+      color: #333;
     }
   </style>
 </head>
 <body>
 
-<div class="sphere-container">
-  <svg class="rotating" viewBox="0 0 100 100">
-    <defs>
-      <radialGradient id="grad1" cx="50%" cy="50%" r="50%">
-        <stop offset="0%" style="stop-color:#00acc1;stop-opacity:1" />
-        <stop offset="100%" style="stop-color:#006c8e;stop-opacity:1" />
-      </radialGradient>
-    </defs>
-    <circle cx="50" cy="50" r="48" fill="url(#grad1)" />
-    <circle cx="30" cy="30" r="2" fill="#fff"/>
-    <circle cx="70" cy="30" r="2" fill="#fff"/>
-    <circle cx="30" cy="70" r="2" fill="#fff"/>
-    <circle cx="70" cy="70" r="2" fill="#fff"/>
-    <line x1="30" y1="30" x2="70" y2="30" stroke="#fff" stroke-width="0.5"/>
-    <line x1="70" y1="30" x2="70" y2="70" stroke="#fff" stroke-width="0.5"/>
-    <line x1="70" y1="70" x2="30" y2="70" stroke="#fff" stroke-width="0.5"/>
-    <line x1="30" y1="70" x2="30" y2="30" stroke="#fff" stroke-width="0.5"/>
-    <line x1="30" y1="30" x2="70" y2="70" stroke="#fff" stroke-width="0.5"/>
-    <line x1="70" y1="30" x2="30" y2="70" stroke="#fff" stroke-width="0.5"/>
-  </svg>
-</div>
+<svg class="rotating" viewBox="0 0 100 100">
+  <defs>
+    <radialGradient id="grad1" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#00acc1;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#006c8e;stop-opacity:1" />
+    </radialGradient>
+  </defs>
+  <circle cx="50" cy="50" r="48" fill="url(#grad1)" />
+  <circle cx="30" cy="30" r="2" fill="#fff"/>
+  <circle cx="70" cy="30" r="2" fill="#fff"/>
+  <circle cx="30" cy="70" r="2" fill="#fff"/>
+  <circle cx="70" cy="70" r="2" fill="#fff"/>
+  <line x1="30" y1="30" x2="70" y2="30" stroke="#fff" stroke-width="0.5"/>
+  <line x1="70" y1="30" x2="70" y2="70" stroke="#fff" stroke-width="0.5"/>
+  <line x1="70" y1="70" x2="30" y2="70" stroke="#fff" stroke-width="0.5"/>
+  <line x1="30" y1="70" x2="30" y2="30" stroke="#fff" stroke-width="0.5"/>
+  <line x1="30" y1="30" x2="70" y2="70" stroke="#fff" stroke-width="0.5"/>
+  <line x1="70" y1="30" x2="30" y2="70" stroke="#fff" stroke-width="0.5"/>
+</svg>
 
 <nav>
   <a href="index.html">Start</a>
@@ -122,24 +89,9 @@
   <a href="kontakt.html">Kontakt</a>
 </nav>
 
-<div class="wrapper">
+<div class="content">
   <h1>KI ist kein Tool.<br>Sondern eine Führungsfrage.</h1>
-  <p class="lead">Strategieberatung für verantwortungsvollen KI-Einsatz – rechtskonform, verständlich und menschlich.</p>
-  <a href="/whitepaper.pdf" class="cta-button">Whitepaper herunterladen</a>
-
-  <section>
-    <h2>Was Sie bei mir erwartet</h2>
-    <ul>
-      <li>✓ Risikobewertung nach DSGVO & EU AI Act</li>
-      <li>✓ Begleitung von KI-Projekten in Strategie & Umsetzung</li>
-      <li>✓ Beratung für Menschen ohne IT-Hintergrund</li>
-      <li>✓ Workshops, Schulung & klare Dokumentation</li>
-    </ul>
-  </section>
-
-  <footer>
-    &copy; 2025 KI-Sicherheit.jetzt
-  </footer>
+  <p>Strategieberatung für verantwortungsvollen KI-Einsatz – rechtskonform, verständlich und menschlich.</p>
 </div>
 
 </body>
