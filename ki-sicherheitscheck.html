@@ -3,43 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>KI-Sicherheitscheck</title>
-<link rel="stylesheet" href="style.css">
-  <style>
-    body {
-      font-family: sans-serif;
-      background-color: #f9f9f9;
-      padding: 2rem;
-      max-width: 700px;
-      margin: auto;
-    }
-    h1 {
-      font-size: 1.8rem;
-      color: #222;
-    }
-    .question {
-      margin-bottom: 1.5rem;
-    }
-    button {
-      padding: 0.5rem 1rem;
-      margin: 0.5rem;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-    .yes { background-color: #4CAF50; color: white; }
-    .no { background-color: #f44336; color: white; }
-    #result {
-      margin-top: 2rem;
-      padding: 1rem;
-      border-left: 4px solid #222;
-      background: #fff;
-      display: none;
-    }
-  </style>
+  <title>KI-Sicherheitscheck – KI-Sicherheit.jetzt</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+<header class="site-header">
+  <img src="logo.png" alt="KI-Sicherheit Logo" class="logo">
+</header>
 
 <nav class="main-nav">
   <ul>
@@ -53,71 +24,79 @@
     <li><a href="datenschutz.html">Datenschutz</a></li>
   </ul>
 </nav>
-  <h1>KI-Sicherheitscheck: Brauchen Sie meine Unterstützung?</h1>
+
+<main class="container">
+  <section>
+    <h1>Selbstcheck: Wie sicher ist Ihre KI-Nutzung?</h1>
+    <p>Beantworten Sie 5 kurze Fragen – in weniger als 1 Minute – und erhalten Sie sofort eine erste Einschätzung:</p>
+  </section>
+
   <form id="quizForm">
     <div class="question" data-weight="2">
-      <p>1. Setzen Sie aktuell KI-Tools wie ChatGPT, Copilot oder Automatisierungssysteme ein?</p>
+      <p>1. Setzen Sie KI-Tools wie ChatGPT, Copilot oder automatisierte Systeme ein?</p>
       <button type="button" class="yes">Ja</button>
       <button type="button" class="no">Nein</button>
     </div>
     <div class="question" data-weight="3">
-      <p>2. Haben Sie bereits eine Datenschutzprüfung für Ihre KI-Systeme durchgeführt?</p>
+      <p>2. Haben Sie Ihre KI-Systeme auf DSGVO- oder AI-Act-Konformität geprüft?</p>
       <button type="button" class="yes">Ja</button>
       <button type="button" class="no">Nein</button>
     </div>
     <div class="question" data-weight="2">
-      <p>3. Wissen Sie, ob Ihre KI-Systeme unter den EU AI Act fallen?</p>
+      <p>3. Wissen Sie, ob Ihre KI unter „Hochrisiko“ fällt?</p>
       <button type="button" class="yes">Ja</button>
       <button type="button" class="no">Nein</button>
     </div>
     <div class="question" data-weight="2">
-      <p>4. Können Sie dokumentieren, wie Ihre KI zu Ergebnissen kommt?</p>
+      <p>4. Können Sie nachweisen, wie Ihre KI zu Entscheidungen kommt?</p>
       <button type="button" class="yes">Ja</button>
       <button type="button" class="no">Nein</button>
     </div>
     <div class="question" data-weight="1">
-      <p>5. Sind Ihre Mitarbeitenden zu KI, Datenschutz und Risiken geschult?</p>
+      <p>5. Haben Ihre Teams Schulungen zu KI-Sicherheit und Datenschutz erhalten?</p>
       <button type="button" class="yes">Ja</button>
       <button type="button" class="no">Nein</button>
     </div>
   </form>
 
-  <div id="result"></div>
+  <section id="result" class="highlight-box" style="display:none; margin-top:2rem;"></section>
+</main>
 
-  <script>
-    const form = document.getElementById("quizForm");
-    const resultBox = document.getElementById("result");
+<script>
+  const form = document.getElementById("quizForm");
+  const resultBox = document.getElementById("result");
 
-    form.addEventListener("click", function (e) {
-      if (!e.target.matches("button")) return;
+  form.addEventListener("click", function (e) {
+    if (!e.target.matches("button")) return;
 
-      const question = e.target.closest(".question");
-      question.dataset.answer = e.target.classList.contains("yes") ? "yes" : "no";
-      [...question.querySelectorAll("button")].forEach(btn => btn.disabled = true);
+    const question = e.target.closest(".question");
+    question.dataset.answer = e.target.classList.contains("yes") ? "yes" : "no";
+    [...question.querySelectorAll("button")].forEach(btn => btn.disabled = true);
 
-      const allAnswered = [...form.querySelectorAll(".question")].every(q => q.dataset.answer);
+    const allAnswered = [...form.querySelectorAll(".question")].every(q => q.dataset.answer);
 
-      if (allAnswered) {
-        let score = 0;
-        [...form.querySelectorAll(".question")].forEach(q => {
-          if (q.dataset.answer === "no") {
-            score += parseInt(q.dataset.weight);
-          }
-        });
-
-        let message = "";
-        if (score <= 2) {
-          message = "🟢 Ihre KI-Nutzung scheint gut aufgestellt zu sein. Gerne begleite ich Sie bei der strategischen Weiterentwicklung.";
-        } else if (score <= 5) {
-          message = "🟠 Es bestehen moderate Risiken. Ein gezielter Check lohnt sich, um rechtssicher zu bleiben.";
-        } else {
-          message = "🔴 Achtung: Ihre Antworten deuten auf ernsthafte Risiken hin. Lassen Sie uns dringend sprechen, bevor daraus ein Problem wird.";
+    if (allAnswered) {
+      let score = 0;
+      [...form.querySelectorAll(".question")].forEach(q => {
+        if (q.dataset.answer === "no") {
+          score += parseInt(q.dataset.weight);
         }
+      });
 
-        resultBox.textContent = message;
-        resultBox.style.display = "block";
+      let message = "";
+      if (score <= 2) {
+        message = "🟢 Ihre KI-Nutzung scheint gut aufgestellt zu sein. Sie möchten tiefer einsteigen? Ich begleite Sie gern.";
+      } else if (score <= 5) {
+        message = "🟠 Es bestehen moderate Risiken. Ein gezielter Check lohnt sich – für mehr Sicherheit und Vertrauen.";
+      } else {
+        message = "🔴 Achtung: Ihre Antworten deuten auf ernsthafte Risiken hin. Lassen Sie uns dringend sprechen, bevor daraus ein Problem wird.";
       }
-    });
-  </script>
+
+      resultBox.textContent = message;
+      resultBox.style.display = "block";
+    }
+  });
+</script>
+
 </body>
 </html>

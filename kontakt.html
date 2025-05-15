@@ -3,11 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kontakt – KI-Sicherheit</title>
-<link rel="stylesheet" href="style.css">
+  <title>Kontakt – KI-Sicherheit.jetzt</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
+<header class="site-header">
+  <img src="logo.png" alt="KI-Sicherheit Logo" class="logo">
+</header>
 
 <nav class="main-nav">
   <ul>
@@ -21,31 +24,37 @@
     <li><a href="datenschutz.html">Datenschutz</a></li>
   </ul>
 </nav>
-  <h1>Kontakt aufnehmen</h1>
-  <p>
-    Sie haben Fragen zu KI-Projekten, Datenschutz oder dem neuen EU AI Act?<br />
-    Sie möchten wissen, ob Ihr Unternehmen betroffen ist – oder wie Sie sich absichern können?
-  </p>
-  <p><strong>Sprechen wir persönlich – ohne Hürden, ohne Umwege.</strong></p>
 
-  <form action="#" method="post">
-    <label for="name">Name:</label><br />
-    <input type="text" id="name" name="name" required /><br />
+<main class="container">
 
-    <label for="company">Unternehmen:</label><br />
-    <input type="text" id="company" name="company" /><br />
+  <section>
+    <h1>Lassen Sie uns sprechen</h1>
+    <p>
+      Sie haben Fragen, möchten ein Projekt starten oder erst einmal herausfinden, ob Ihre KI-Nutzung sicher ist? Schreiben Sie mir – unverbindlich & persönlich.
+    </p>
+  </section>
 
-    <label for="email">E-Mail:</label><br />
-    <input type="email" id="email" name="email" required /><br />
+  <section class="highlight-box">
+    <p><strong>Ich antworte innerhalb von 48 Stunden.</strong> Keine automatisierten Mails – sondern persönliche Beratung mit Substanz.</p>
+  </section>
 
-    <label for="message">Nachricht:</label><br />
-    <textarea id="message" name="message"></textarea><br />
+  <form action="#" method="POST">
+    <label for="name">Name</label>
+    <input type="text" id="name" name="name" required>
 
-    <label><input type="checkbox" required /> Ich stimme der Verarbeitung meiner Daten laut DSGVO zu.</label><br /><br />
+    <label for="unternehmen">Unternehmen</label>
+    <input type="text" id="unternehmen" name="unternehmen">
 
-    <button type="submit">Absenden</button>
+    <label for="email">E-Mail-Adresse</label>
+    <input type="email" id="email" name="email" required>
+
+    <label for="nachricht">Ihre Nachricht</label>
+    <textarea id="nachricht" name="nachricht" rows="5" required></textarea>
+
+    <button type="submit" class="button">Nachricht senden</button>
   </form>
 
-  <p><strong>Ich melde mich persönlich und zeitnah bei Ihnen.</strong></p>
+</main>
+
 </body>
 </html>
