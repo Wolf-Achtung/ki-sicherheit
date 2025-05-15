@@ -21,18 +21,18 @@
     }
   </style>
 
-  <g class="net" stroke="#2d9cba" stroke-width="2" fill="none">
-    <circle cx="100" cy="100" r="6" fill="#1f506b"/>
-    <circle cx="300" cy="80" r="6" fill="#1f506b"/>
-    <circle cx="500" cy="120" r="6" fill="#1f506b"/>
-    <circle cx="700" cy="100" r="6" fill="#1f506b"/>
-    <circle cx="200" cy="300" r="6" fill="#2d9cba"/>
-    <circle cx="400" cy="320" r="6" fill="#2d9cba"/>
-    <circle cx="600" cy="300" r="6" fill="#2d9cba"/>
-    <circle cx="100" cy="500" r="6" fill="#1f506b"/>
-    <circle cx="300" cy="480" r="6" fill="#1f506b"/>
-    <circle cx="500" cy="500" r="6" fill="#1f506b"/>
-    <circle cx="700" cy="480" r="6" fill="#1f506b"/>
+  <g class="net" stroke="#157ea8" stroke-width="2" fill="none">
+    <circle cx="100" cy="100" r="6" fill="#0c4a74"/>
+    <circle cx="300" cy="80" r="6" fill="#0c4a74"/>
+    <circle cx="500" cy="120" r="6" fill="#0c4a74"/>
+    <circle cx="700" cy="100" r="6" fill="#0c4a74"/>
+    <circle cx="200" cy="300" r="6" fill="#157ea8"/>
+    <circle cx="400" cy="320" r="6" fill="#157ea8"/>
+    <circle cx="600" cy="300" r="6" fill="#157ea8"/>
+    <circle cx="100" cy="500" r="6" fill="#0c4a74"/>
+    <circle cx="300" cy="480" r="6" fill="#0c4a74"/>
+    <circle cx="500" cy="500" r="6" fill="#0c4a74"/>
+    <circle cx="700" cy="480" r="6" fill="#0c4a74"/>
 
     <line x1="100" y1="100" x2="300" y2="80"/>
     <line x1="300" y1="80" x2="500" y2="120"/>
