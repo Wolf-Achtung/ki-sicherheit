@@ -5,85 +5,94 @@
 \paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
-\f0\fs24 \cf0 body \{\
+\f0\fs24 \cf0 /* === Grundlayout === */\
+body \{\
   font-family: 'Inter', 'Segoe UI', sans-serif;\
-  background-color: #fff;\
-  color: #111;\
+  background-color: #ffffff;\
+  color: #222222;\
   margin: 0;\
   padding: 0;\
+  font-size: 16px;\
   line-height: 1.6;\
-  font-size: 1rem;\
 \}\
 \
+/* === Navigation === */\
 .main-nav ul \{\
   display: flex;\
-  gap: 1.5rem;\
+  flex-wrap: wrap;\
+  gap: 1rem;\
   list-style: none;\
   margin: 0;\
   padding: 1rem;\
-  background: #f4f4f4;\
-  border-bottom: 1px solid #ccc;\
+  background: #f9f9f9;\
+  border-bottom: 1px solid #eee;\
 \}\
 \
 .main-nav a \{\
   text-decoration: none;\
-  color: #0077cc;\
-  font-weight: bold;\
+  color: #2d9cba;\
+  font-weight: 600;\
+  transition: color 0.3s ease;\
 \}\
 \
 .main-nav a:hover \{\
+  color: #1f506b;\
   text-decoration: underline;\
-  color: #005999;\
 \}\
 \
+/* === \'dcberschriften === */\
 h1, h2, h3 \{\
-  color: #222;\
-  margin-top: 1.5rem;\
+  color: #1f506b;\
+  margin-top: 2rem;\
+  margin-bottom: 1rem;\
 \}\
 \
-p \{\
+/* === Abs\'e4tze und Listen === */\
+p, li \{\
   max-width: 700px;\
-  margin: 1rem 0;\
+  margin: 0.5rem 0;\
 \}\
 \
+/* === Buttons und Links === */\
 a.button \{\
   display: inline-block;\
-  padding: 0.5rem 1rem;\
-  background: #0077cc;\
+  padding: 0.6rem 1.2rem;\
+  background: #2d9cba;\
   color: white;\
   text-decoration: none;\
   border-radius: 4px;\
+  font-weight: 600;\
 \}\
 \
 a.button:hover \{\
-  background: #005999;\
-\}\
-.site-header \{\
-  display: flex;\
-  align-items: center;\
-  padding: 1rem;\
-  background-color: #ffffff;\
-  border-bottom: 1px solid #ddd;\
+  background: #1f506b;\
 \}\
 \
-.logo \{\
-  height: 48px;\
-  width: auto;\
+/* === Formulare & Inputfelder === */\
+input, textarea \{\
+  border: 1px solid #ccc;\
+  padding: 0.5rem;\
+  border-radius: 4px;\
+  width: 100%;\
+  max-width: 400px;\
+  margin-bottom: 1rem;\
 \}\
-.rotating-logo \{\
-  animation: rotate3d 10s linear infinite;\
-  transform-origin: 50% 50%;\
+\
+label \{\
   display: block;\
-  margin: 0 auto;\
+  margin-top: 1rem;\
+  margin-bottom: 0.5rem;\
+  font-weight: bold;\
+  color: #1f506b;\
 \}\
 \
-@keyframes rotate3d \{\
-  0% \{\
-    transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);\
-  \}\
-  100% \{\
-    transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);\
-  \}\
+/* === Footer (optional) === */\
+footer \{\
+  padding: 2rem;\
+  background-color: #f2f2f2;\
+  text-align: center;\
+  color: #777;\
+  font-size: 0.9rem;\
+  border-top: 1px solid #e1e1e1;\
 \}\
-\
 }
