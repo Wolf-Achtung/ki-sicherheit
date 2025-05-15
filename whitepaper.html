@@ -9,6 +9,7 @@
     html, body {
       height: 100%;
       margin: 0;
+      font-family: system-ui, sans-serif;
     }
     body {
       display: flex;
@@ -27,7 +28,6 @@
       z-index: -1;
       opacity: 0.06;
       pointer-events: none;
-      overflow: hidden;
     }
     .netz-hintergrund svg {
       width: 100%;
@@ -37,6 +37,24 @@
       max-width: 800px;
       margin: 0 auto;
       padding: 2rem;
+    }
+    h1, h2 {
+      color: #0c4a74;
+      margin-top: 2rem;
+    }
+    p {
+      line-height: 1.6;
+      margin-bottom: 1.2rem;
+    }
+    .button {
+      display: inline-block;
+      margin: 2rem 0;
+      padding: 0.8rem 1.6rem;
+      background-color: #0c4a74;
+      color: #fff;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: bold;
     }
     .footer-nav {
       background: #f7f9fc;
@@ -82,6 +100,7 @@
 </head>
 <body>
 
+<!-- SVG-Netzhintergrund -->
 <div class="netz-hintergrund">
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
     <g transform="rotate(0 400 300)">
@@ -117,27 +136,27 @@
 </div>
 
 <header class="site-header">
-  <img src="logo.png" alt="KI-Sicherheit Logo" class="logo">
+  <img src="logo.png" alt="KI-Sicherheit Logo" class="logo" style="width: 180px; float: right; margin: 1rem;">
 </header>
 
 <main class="container">
-  <h1>Whitepaper für Entscheider:innen</h1>
-  <p>Kompakte Leitfäden zu den wichtigsten Themen rund um KI-Compliance, Governance und Regulierung – verständlich, praxisnah, speziell für KMU.</p>
+  <h1>Whitepaper für Entscheider:innen im Mittelstand</h1>
 
-  <ul>
-    <li><strong>KI & DSGVO:</strong> Konflikte erkennen, rechtskonform handeln</li>
-    <li><strong>EU AI Act:</strong> Was jetzt auf Unternehmen zukommt</li>
-    <li><strong>KI-Governance:</strong> Standards für verantwortungsvolle Systeme</li>
-  </ul>
+  <p>Hier finden Sie exklusive Leitfäden rund um den sicheren und rechtskonformen Einsatz von KI. Kostenlos zum Download. Klar, praxisnah, strategisch.</p>
 
-  <p>📩 Sie möchten eines der Whitepaper als PDF erhalten?<br>
-  <a href="kontakt.html">Nehmen Sie Kontakt auf</a> oder laden Sie es im nächsten Schritt direkt herunter.</p>
+  <h2>📄 KI & DSGVO: Konflikte und Lösungen</h2>
+  <p>Wie lassen sich Datenschutz-Grundverordnung und KI-Einsatz vereinbaren? Das Whitepaper zeigt Risiken, juristische Fallstricke und Lösungen speziell für KMUs.</p>
+
+  <h2>📄 EU AI Act – Was auf den Mittelstand zukommt</h2>
+  <p>Der neue Rechtsrahmen für KI in Europa – verständlich erklärt. Mit Checklisten und ersten Maßnahmen für die Praxis.</p>
+
+  <h2>📄 KI-Governance: Standards für verantwortungsvolle Systeme</h2>
+  <p>Was bedeutet verantwortungsvoller KI-Einsatz? Welche Prinzipien gelten – und wie lassen sie sich in mittelständische Organisationen übertragen?</p>
+
+  <a href="kontakt.html" class="button">Whitepaper anfordern</a>
 </main>
 
 <button class="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">↑</button>
-
-<!-- Bitte ersetze den gesamten Inhalt von whitepaper.html mit dem vollständigen Code,
-wie er beim letzten Update unter 'whitepaper.html' erstellt wurde – mit diesem Footer: -->
 
 <footer class="footer-nav">
   <nav>
@@ -154,7 +173,6 @@ wie er beim letzten Update unter 'whitepaper.html' erstellt wurde – mit diesem
     🌐 Sprache: <a href="#">DE</a> | <a href="#">EN</a>
   </div>
 </footer>
-
 
 </body>
 </html>

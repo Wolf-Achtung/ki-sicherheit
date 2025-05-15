@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>KI-Sicherheit.jetzt – Start</title>
+  <title>KI-Sicherheit.jetzt – Beratung für Datenschutz & KI-Governance</title>
   <link rel="stylesheet" href="style.css" />
   <style>
     html, body {
@@ -14,6 +14,7 @@
       display: flex;
       flex-direction: column;
       min-height: 100vh;
+      font-family: system-ui, sans-serif;
     }
     main {
       flex: 1;
@@ -27,7 +28,6 @@
       z-index: -1;
       opacity: 0.06;
       pointer-events: none;
-      overflow: hidden;
     }
     .netz-hintergrund svg {
       width: 100%;
@@ -38,8 +38,30 @@
       margin: 0 auto;
       padding: 2rem;
     }
+    h1, h2 {
+      color: #0c4a74;
+      margin-top: 2rem;
+    }
+    p {
+      line-height: 1.6;
+      margin-bottom: 1.2rem;
+    }
     ul {
       padding-left: 1.2rem;
+      margin-bottom: 2rem;
+    }
+    li {
+      margin-bottom: 0.6rem;
+    }
+    .button {
+      display: inline-block;
+      margin: 2rem 0;
+      padding: 0.8rem 1.6rem;
+      background-color: #0c4a74;
+      color: #fff;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: bold;
     }
     .footer-nav {
       background: #f7f9fc;
@@ -80,6 +102,11 @@
     }
     .language-switcher {
       margin-top: 1rem;
+    }
+    header.site-header img.logo {
+      width: 180px;
+      float: right;
+      margin: 1rem;
     }
   </style>
 </head>
@@ -125,42 +152,37 @@
 </header>
 
 <main class="container">
-  <h1>KI kann ein Booster sein. Oder eine Haftungsfalle.</h1>
-  <p>Künstliche Intelligenz verändert die Wirtschaft – schneller, komplexer, tiefgreifender als jede technologische Innovation zuvor. Doch mit den Möglichkeiten wachsen auch die Risiken.</p>
-  <p>Ich helfe mittelständischen Unternehmen, KI sicher, nachvollziehbar und rechtskonform einzusetzen – ohne Fachjargon, aber mit Substanz.</p>
 
-  <hr>
+  <h1>KI kann ein Booster sein – oder eine Haftungsfalle.</h1>
+  <p>KI-Technologien verändern den Mittelstand radikal. Doch mit Geschwindigkeit kommt Verantwortung: Rechtskonformität, Datenschutz und Governance werden zum Erfolgsfaktor.</p>
+  <a href="ki-sicherheitscheck.html" class="button">→ Jetzt Selbstcheck starten</a>
 
-  <h2>Leistungsangebot</h2>
+  <h2>Deshalb KI-Sicherheit.jetzt</h2>
+  <p>Ich helfe Unternehmen, KI sicher, nachvollziehbar und gesetzeskonform einzusetzen – ohne Fachjargon, aber mit Tiefgang. Als zertifizierter KI-Manager mit 25 Jahren Erfahrung im Mittelstand verbinde ich Technologie, Verantwortung und Praxis.</p>
+
+  <h2>Meine Leistungen für Sie</h2>
   <ul>
-    <li>Audit & Risikoanalyse bestehender KI-Systeme</li>
-    <li>Beratung zur Umsetzung des EU AI Act</li>
-    <li>Datenschutz-Compliance für KI-Anwendungen (DSGVO & BDSG)</li>
-    <li>Entwicklung KI-sicherer Prozesse und Richtlinien</li>
-    <li>Workshops für Fachabteilungen und Entscheider:innen</li>
+    <li>🔍 Audit & Risikoanalyse bestehender KI-Systeme</li>
+    <li>⚖️ Beratung zur Umsetzung des EU AI Act</li>
+    <li>🔐 DSGVO-Compliance bei KI-Anwendungen</li>
+    <li>📑 Entwicklung interner KI-Leitlinien & Prozesse</li>
+    <li>👥 Workshops für Entscheider:innen und Fachabteilungen</li>
   </ul>
-
-  <p><a href="ki-sicherheitscheck.html" class="button">Selbstcheck durchführen</a></p>
-
-  <hr style="margin: 3rem 0;">
 
   <h2>Häufige Fragen</h2>
   <p><strong>Gilt der EU AI Act auch für kleinere Unternehmen?</strong><br>
-  Ja. Auch KMUs, die KI nutzen oder entwickeln, müssen die Vorschriften beachten – je nach Risikoklasse der Anwendung.</p>
+  Ja – unabhängig von Größe oder Branche. Entscheidend ist das Risiko der KI-Anwendung.</p>
 
   <p><strong>Was passiert bei Verstößen?</strong><br>
   Es drohen Bußgelder bis zu 35 Mio. € oder 7 % des globalen Umsatzes – ähnlich wie bei der DSGVO.</p>
 
-  <p><strong>Was muss ich konkret dokumentieren?</strong><br>
-  Alle Prozesse rund um die Nutzung, Schulung, Entscheidungen und Risiken von KI-Systemen – auch bei Drittanbieter-Tools wie GPT, Copilot etc.</p>
+  <p><strong>Wie finde ich heraus, ob mein Unternehmen betroffen ist?</strong><br>
+  <a href="ki-sicherheitscheck.html">→ Selbstcheck starten</a> oder ein unverbindliches Erstgespräch vereinbaren.</p>
 
-  <p><strong>Wie finde ich heraus, ob ich betroffen bin?</strong><br>
-  <a href="ki-sicherheitscheck.html">Nutzen Sie den Selbstcheck</a> oder vereinbaren Sie ein kurzes Analysegespräch.</p>
 </main>
 
 <button class="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">↑</button>
 
-<!-- 🔻 Neue Footer-Navigation -->
 <footer class="footer-nav">
   <nav>
     <ul>
