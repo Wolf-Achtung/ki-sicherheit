@@ -10,10 +10,13 @@
       height: 100%;
       margin: 0;
     }
+
     body {
       display: flex;
       flex-direction: column;
+      min-height: 100vh;
     }
+
     main {
       flex: 1;
     }
@@ -25,7 +28,7 @@
       width: 100vw;
       height: 100vh;
       z-index: -1;
-      opacity: 0.05;
+      opacity: 0.06;
       pointer-events: none;
       overflow: hidden;
     }
@@ -35,16 +38,10 @@
       height: 100%;
     }
 
-    .whitepaper-cta {
-      background-color: #f9f9f9;
-      border-left: 4px solid #157ea8;
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
       padding: 2rem;
-      margin-top: 2rem;
-      box-shadow: 0 0 10px rgba(0,0,0,0.03);
-    }
-
-    .whitepaper-cta h2 {
-      margin-top: 0;
     }
 
     .footer-nav {
@@ -92,49 +89,11 @@
     .language-switcher {
       margin-top: 1rem;
     }
-
-    .newsletter {
-      margin-top: 2rem;
-    }
-
-    .newsletter p {
-      margin-bottom: 0.5rem;
-    }
-
-    .newsletter form {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      justify-content: center;
-    }
-
-    .newsletter input[type="email"] {
-      padding: 0.4rem;
-      width: 250px;
-      max-width: 90%;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-    }
-
-    .newsletter button {
-      padding: 0.4rem 1rem;
-      background-color: #0c4a74;
-      color: white;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-
-    .container {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 2rem;
-    }
   </style>
 </head>
 <body>
 
-<!-- 🔵 SVG-Animation als dezenter Hintergrund -->
+<!-- SVG-Animation: vollständig -->
 <div class="netz-hintergrund">
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
     <g transform="rotate(0 400 300)">
@@ -177,18 +136,12 @@
   <h1>KI kann ein Booster sein. Oder eine Haftungsfalle.</h1>
   <p>Künstliche Intelligenz verändert die Wirtschaft – schneller, komplexer, tiefgreifender als jede technologische Innovation zuvor. Doch mit den Möglichkeiten wachsen auch die Risiken.</p>
   <p>Ich helfe mittelständischen Unternehmen, KI sicher, nachvollziehbar und rechtskonform einzusetzen – ohne Fachjargon, aber mit Substanz.</p>
-
-  <section class="whitepaper-cta">
-    <h2>📄 Kostenloses Whitepaper sichern</h2>
-    <p>Verstehen Sie, wie der EU AI Act und die DSGVO Ihr Unternehmen betreffen – mit kompakten, praxisnahen Leitfäden speziell für den Mittelstand.</p>
-    <a href="whitepaper.html" class="button">Whitepaper ansehen</a>
-  </section>
 </main>
 
-<!-- ⬆ Zurück nach oben -->
+<!-- Zurück nach oben -->
 <button class="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">↑</button>
 
-<!-- Footer -->
+<!-- Footer ohne Newsletter & ohne Kontakt -->
 <footer class="footer-nav">
   <nav>
     <ul>
@@ -197,7 +150,6 @@
       <li><a href="whitepaper.html">Whitepaper</a></li>
       <li><a href="angebot.html">Angebot</a></li>
       <li><a href="whitepaper-faq.html">FAQ</a></li>
-      <li><a href="kontakt.html">Kontakt</a></li>
       <li><a href="ueber-mich.html">Über mich</a></li>
       <li><a href="datenschutz.html">Datenschutz</a></li>
       <li><a href="impressum.html">Impressum</a></li>
@@ -206,14 +158,6 @@
 
   <div class="language-switcher">
     🌐 Sprache: <a href="#">DE</a> | <a href="#">EN</a>
-  </div>
-
-  <div class="newsletter">
-    <p><strong>Newsletter abonnieren:</strong></p>
-    <form>
-      <input type="email" placeholder="Ihre E-Mail-Adresse" required>
-      <button type="submit">Abonnieren</button>
-    </form>
   </div>
 </footer>
 

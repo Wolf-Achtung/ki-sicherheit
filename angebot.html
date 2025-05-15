@@ -13,11 +13,11 @@
     body {
       display: flex;
       flex-direction: column;
+      min-height: 100vh;
     }
     main {
       flex: 1;
     }
-
     .netz-hintergrund {
       position: fixed;
       top: 0;
@@ -25,7 +25,7 @@
       width: 100vw;
       height: 100vh;
       z-index: -1;
-      opacity: 0.05;
+      opacity: 0.06;
       pointer-events: none;
       overflow: hidden;
     }
@@ -33,13 +33,11 @@
       width: 100%;
       height: 100%;
     }
-
     .container {
       max-width: 800px;
       margin: 0 auto;
       padding: 2rem;
     }
-
     .footer-nav {
       background: #f7f9fc;
       padding: 2rem;
@@ -80,39 +78,12 @@
     .language-switcher {
       margin-top: 1rem;
     }
-    .newsletter {
-      margin-top: 2rem;
-    }
-    .newsletter p {
-      margin-bottom: 0.5rem;
-    }
-    .newsletter form {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      justify-content: center;
-    }
-    .newsletter input[type="email"] {
-      padding: 0.4rem;
-      width: 250px;
-      max-width: 90%;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-    }
-    .newsletter button {
-      padding: 0.4rem 1rem;
-      background-color: #0c4a74;
-      color: white;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-    }
   </style>
 </head>
 <body>
 
+<!-- SVG-Animation -->
 <div class="netz-hintergrund">
-  <!-- animiertes SVG -->
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
     <g transform="rotate(0 400 300)">
       <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="0 400 300" to="360 400 300" dur="90s" repeatCount="indefinite"/>
@@ -128,7 +99,6 @@
         <circle cx="300" cy="480" r="6" fill="#0c4a74"/>
         <circle cx="500" cy="500" r="6" fill="#0c4a74"/>
         <circle cx="700" cy="480" r="6" fill="#0c4a74"/>
-        <!-- Linien wie zuvor -->
         <line x1="100" y1="100" x2="300" y2="80"/>
         <line x1="300" y1="80" x2="500" y2="120"/>
         <line x1="500" y1="120" x2="700" y2="100"/>
@@ -156,11 +126,6 @@
 
   <p>Ich unterstütze Sie dabei, Ihre KI-Projekte rechtskonform, transparent und zukunftssicher zu gestalten. Von der Analyse bestehender KI-Systeme bis zur Entwicklung individueller Leitlinien für den Mittelstand.</p>
 
-  <section class="highlight-box">
-    <p><strong>Warum das wichtig ist:</strong><br>
-    Der EU AI Act wird Bußgelder bis zu 35 Mio. € oder 7 % des Umsatzes ermöglichen. KMUs und Mittelständler müssen spätestens jetzt handeln – mit klarem Fokus auf Compliance.</p>
-  </section>
-
   <h2>Leistungen im Überblick:</h2>
   <ul>
     <li>Audit & Risikoanalyse bestehender KI-Systeme</li>
@@ -170,13 +135,13 @@
     <li>Workshops für Fachabteilungen und Entscheider:innen</li>
   </ul>
 
-  <p><a href="kontakt.html" class="button">Unverbindlich Kontakt aufnehmen</a></p>
+  <p><a href="ki-sicherheitscheck.html" class="button">Selbstcheck durchführen</a></p>
 </main>
 
 <!-- Zurück nach oben -->
 <button class="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">↑</button>
 
-<!-- Footer -->
+<!-- Footer ohne Kontakt & Newsletter -->
 <footer class="footer-nav">
   <nav>
     <ul>
@@ -185,7 +150,6 @@
       <li><a href="whitepaper.html">Whitepaper</a></li>
       <li><a href="angebot.html">Angebot</a></li>
       <li><a href="whitepaper-faq.html">FAQ</a></li>
-      <li><a href="kontakt.html">Kontakt</a></li>
       <li><a href="ueber-mich.html">Über mich</a></li>
       <li><a href="datenschutz.html">Datenschutz</a></li>
       <li><a href="impressum.html">Impressum</a></li>
@@ -194,14 +158,6 @@
 
   <div class="language-switcher">
     🌐 Sprache: <a href="#">DE</a> | <a href="#">EN</a>
-  </div>
-
-  <div class="newsletter">
-    <p><strong>Newsletter abonnieren:</strong></p>
-    <form>
-      <input type="email" placeholder="Ihre E-Mail-Adresse" required>
-      <button type="submit">Abonnieren</button>
-    </form>
   </div>
 </footer>
 

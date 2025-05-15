@@ -13,11 +13,11 @@
     body {
       display: flex;
       flex-direction: column;
+      min-height: 100vh;
     }
     main {
       flex: 1;
     }
-
     .netz-hintergrund {
       position: fixed;
       top: 0;
@@ -25,7 +25,7 @@
       width: 100vw;
       height: 100vh;
       z-index: -1;
-      opacity: 0.05;
+      opacity: 0.06;
       pointer-events: none;
       overflow: hidden;
     }
@@ -33,13 +33,11 @@
       width: 100%;
       height: 100%;
     }
-
     .container {
       max-width: 800px;
       margin: 0 auto;
       padding: 2rem;
     }
-
     .footer-nav {
       background: #f7f9fc;
       padding: 2rem;
@@ -47,7 +45,6 @@
       font-size: 0.9rem;
       border-top: 1px solid #ddd;
     }
-
     .footer-nav ul {
       list-style: none;
       padding: 0;
@@ -57,17 +54,14 @@
       justify-content: center;
       gap: 1rem;
     }
-
     .footer-nav a {
       text-decoration: none;
       color: #0c4a74;
       font-weight: 500;
     }
-
     .footer-nav a:hover {
       text-decoration: underline;
     }
-
     .back-to-top {
       position: fixed;
       bottom: 20px;
@@ -81,61 +75,42 @@
       font-size: 0.9rem;
       z-index: 999;
     }
-
     .language-switcher {
       margin-top: 1rem;
-    }
-
-    .newsletter {
-      margin-top: 2rem;
-    }
-
-    .newsletter p {
-      margin-bottom: 0.5rem;
-    }
-
-    .newsletter form {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      justify-content: center;
-    }
-
-    .newsletter input[type="email"] {
-      padding: 0.4rem;
-      width: 250px;
-      max-width: 90%;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-    }
-
-    .newsletter button {
-      padding: 0.4rem 1rem;
-      background-color: #0c4a74;
-      color: white;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
     }
   </style>
 </head>
 <body>
 
-<!-- 🔵 Hintergrundstruktur -->
 <div class="netz-hintergrund">
-  <!-- dein SVG-Code hier -->
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
     <g transform="rotate(0 400 300)">
       <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="0 400 300" to="360 400 300" dur="90s" repeatCount="indefinite"/>
       <g stroke="#157ea8" stroke-width="2" fill="none">
-        <!-- Punkte & Linien wie gewohnt -->
         <circle cx="100" cy="100" r="6" fill="#0c4a74"/>
         <circle cx="300" cy="80" r="6" fill="#0c4a74"/>
         <circle cx="500" cy="120" r="6" fill="#0c4a74"/>
         <circle cx="700" cy="100" r="6" fill="#0c4a74"/>
-        <circle cx="400" cy="300" r="6" fill="#0c4a74"/>
+        <circle cx="200" cy="300" r="6" fill="#0c4a74"/>
+        <circle cx="400" cy="320" r="6" fill="#0c4a74"/>
         <circle cx="600" cy="300" r="6" fill="#0c4a74"/>
-        <!-- etc. -->
+        <circle cx="100" cy="500" r="6" fill="#0c4a74"/>
+        <circle cx="300" cy="480" r="6" fill="#0c4a74"/>
+        <circle cx="500" cy="500" r="6" fill="#0c4a74"/>
+        <circle cx="700" cy="480" r="6" fill="#0c4a74"/>
+        <line x1="100" y1="100" x2="300" y2="80"/>
+        <line x1="300" y1="80" x2="500" y2="120"/>
+        <line x1="500" y1="120" x2="700" y2="100"/>
+        <line x1="300" y1="80" x2="400" y2="320"/>
+        <line x1="100" y1="100" x2="200" y2="300"/>
+        <line x1="700" y1="100" x2="600" y2="300"/>
+        <line x1="200" y1="300" x2="400" y2="320"/>
+        <line x1="400" y1="320" x2="600" y2="300"/>
+        <line x1="200" y1="300" x2="300" y2="480"/>
+        <line x1="600" y1="300" x2="500" y2="500"/>
+        <line x1="100" y1="500" x2="300" y2="480"/>
+        <line x1="300" y1="480" x2="500" y2="500"/>
+        <line x1="500" y1="500" x2="700" y2="480"/>
       </g>
     </g>
   </svg>
@@ -147,50 +122,20 @@
 
 <main class="container">
   <h1>Whitepaper für Entscheider:innen</h1>
-  <p>Hier finden Sie kompakte Leitfäden zu den wichtigsten Themen rund um KI-Compliance, Governance und Regulierung – verständlich, praxisnah, speziell für KMU.</p>
+  <p>Kompakte Leitfäden zu den wichtigsten Themen rund um KI-Compliance, Governance und Regulierung – verständlich, praxisnah, speziell für KMU.</p>
 
-  <section class="whitepaper">
-    <h2>KI & DSGVO: Konflikte und Lösungen</h2>
-    <p>Was passiert, wenn KI auf Datenschutz trifft? Dieses Whitepaper erklärt die wichtigsten Stolpersteine – und wie Unternehmen sie sicher meistern.</p>
-  </section>
+  <ul>
+    <li><strong>KI & DSGVO:</strong> Konflikte erkennen, rechtskonform handeln</li>
+    <li><strong>EU AI Act:</strong> Was jetzt auf Unternehmen zukommt</li>
+    <li><strong>KI-Governance:</strong> Standards für verantwortungsvolle Systeme</li>
+  </ul>
 
-  <section class="whitepaper">
-    <h2>EU AI Act – Was auf den Mittelstand zukommt</h2>
-    <p>Was Sie jetzt wissen müssen, um KI künftig sicher und rechtskonform einzusetzen – inklusive Risikoklassen und Bußgeld-Szenarien.</p>
-  </section>
-
-  <section class="whitepaper">
-    <h2>KI-Governance: Standards für verantwortungsvolle Systeme</h2>
-    <p>Governance ist die Grundlage jeder vertrauenswürdigen KI. Dieses Whitepaper zeigt, wie Sie Verantwortlichkeiten, Standards und Prozesse implementieren.</p>
-  </section>
-
-  <h2>📩 Whitepaper anfordern</h2>
-  <form action="mailto:kontakt@ki-sicherheit.jetzt" method="post" enctype="text/plain">
-    <label for="name">Ihr Name:</label>
-    <input type="text" id="name" name="Name" required>
-
-    <label for="email">Ihre E-Mail:</label>
-    <input type="email" id="email" name="E-Mail" required>
-
-    <label for="interesse">Ich interessiere mich für:</label>
-    <select id="interesse" name="Whitepaper">
-      <option value="KI & DSGVO">KI & DSGVO</option>
-      <option value="EU AI Act">EU AI Act</option>
-      <option value="KI-Governance">KI-Governance</option>
-      <option value="Alle">Alle drei</option>
-    </select>
-
-    <label for="nachricht">Nachricht (optional):</label>
-    <textarea id="nachricht" name="Nachricht" rows="4"></textarea>
-
-    <button type="submit" class="button">Anfordern</button>
-  </form>
+  <p>📩 Sie möchten eines der Whitepaper als PDF erhalten?<br>
+  <a href="kontakt.html">Nehmen Sie Kontakt auf</a> oder laden Sie es im nächsten Schritt direkt herunter.</p>
 </main>
 
-<!-- ⬆ Zurück nach oben -->
 <button class="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">↑</button>
 
-<!-- Footer -->
 <footer class="footer-nav">
   <nav>
     <ul>
@@ -199,7 +144,6 @@
       <li><a href="whitepaper.html">Whitepaper</a></li>
       <li><a href="angebot.html">Angebot</a></li>
       <li><a href="whitepaper-faq.html">FAQ</a></li>
-      <li><a href="kontakt.html">Kontakt</a></li>
       <li><a href="ueber-mich.html">Über mich</a></li>
       <li><a href="datenschutz.html">Datenschutz</a></li>
       <li><a href="impressum.html">Impressum</a></li>
@@ -208,14 +152,6 @@
 
   <div class="language-switcher">
     🌐 Sprache: <a href="#">DE</a> | <a href="#">EN</a>
-  </div>
-
-  <div class="newsletter">
-    <p><strong>Newsletter abonnieren:</strong></p>
-    <form>
-      <input type="email" placeholder="Ihre E-Mail-Adresse" required>
-      <button type="submit">Abonnieren</button>
-    </form>
   </div>
 </footer>
 
