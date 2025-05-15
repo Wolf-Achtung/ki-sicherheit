@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KI-Sicherheitscheck</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background-color: #f9f9f9;
+      padding: 2rem;
+      max-width: 700px;
+      margin: auto;
+    }
+    h1 {
+      font-size: 1.8rem;
+      color: #222;
+    }
+    .question {
+      margin-bottom: 1.5rem;
+    }
+    button {
+      padding: 0.5rem 1rem;
+      margin: 0.5rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .yes { background-color: #4CAF50; color: white; }
+    .no { background-color: #f44336; color: white; }
+    #result {
+      margin-top: 2rem;
+      padding: 1rem;
+      border-left: 4px solid #222;
+      background: #fff;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>KI-Sicherheitscheck: Brauchen Sie meine Unterstützung?</h1>
+  <form id="quizForm">
+    <div class="question" data-weight="2">
+      <p>1. Setzen Sie aktuell KI-Tools wie ChatGPT, Copilot oder Automatisierungssysteme ein?</p>
+      <button type="button" class="yes">Ja</button>
+      <button type="button" class="no">Nein</button>
+    </div>
+    <div class="question" data-weight="3">
+      <p>2. Haben Sie bereits eine Datenschutzprüfung für Ihre KI-Systeme durchgeführt?</p>
+      <button type="button" class="yes">Ja</button>
+      <button type="button" class="no">Nein</button>
+    </div>
+    <div class="question" data-weight="2">
+      <p>3. Wissen Sie, ob Ihre KI-Systeme unter den EU AI Act fallen?</p>
+      <button type="button" class="yes">Ja</button>
+      <button type="button" class="no">Nein</button>
+    </div>
+    <div class="question" data-weight="2">
+      <p>4. Können Sie dokumentieren, wie Ihre KI zu Ergebnissen kommt?</p>
+      <button type="button" class="yes">Ja</button>
+      <button type="button" class="no">Nein</button>
+    </div>
+    <div class="question" data-weight="1">
+      <p>5. Sind Ihre Mitarbeitenden zu KI, Datenschutz und Risiken geschult?</p>
+      <button type="button" class="yes">Ja</button>
+      <button type="button" class="no">Nein</button>
+    </div>
+  </form>
+
+  <div id="result"></div>
+
+  <script>
+    const form = document.getElementById("quizForm");
+    const resultBox = document.getElementById("result");
+
+    form.addEventListener("click", function (e) {
+      if (!e.target.matches("button")) return;
+
+      const question = e.target.closest(".question");
+      question.dataset.answer = e.target.classList.contains("yes") ? "yes" : "no";
+      [...question.querySelectorAll("button")].forEach(btn => btn.disabled = true);
+
+      const allAnswered = [...form.querySelectorAll(".question")].every(q => q.dataset.answer);
+
+      if (allAnswered) {
+        let score = 0;
+        [...form.querySelectorAll(".question")].forEach(q => {
+          if (q.dataset.answer === "no") {
+            score += parseInt(q.dataset.weight);
+          }
+        });
+
+        let message = "";
+        if (score <= 2) {
+          message = "🟢 Ihre KI-Nutzung scheint gut aufgestellt zu sein. Gerne begleite ich Sie bei der strategischen Weiterentwicklung.";
+        } else if (score <= 5) {
+          message = "🟠 Es bestehen moderate Risiken. Ein gezielter Check lohnt sich, um rechtssicher zu bleiben.";
+        } else {
+          message = "🔴 Achtung: Ihre Antworten deuten auf ernsthafte Risiken hin. Lassen Sie uns dringend sprechen, bevor daraus ein Problem wird.";
+        }
+
+        resultBox.textContent = message;
+        resultBox.style.display = "block";
+      }
+    });
+  </script>
+</body>
+</html>
