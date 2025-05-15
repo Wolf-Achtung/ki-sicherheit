@@ -10,17 +10,14 @@
       height: 100%;
       margin: 0;
     }
-
     body {
       display: flex;
       flex-direction: column;
       min-height: 100vh;
     }
-
     main {
       flex: 1;
     }
-
     .netz-hintergrund {
       position: fixed;
       top: 0;
@@ -32,18 +29,18 @@
       pointer-events: none;
       overflow: hidden;
     }
-
     .netz-hintergrund svg {
       width: 100%;
       height: 100%;
     }
-
     .container {
       max-width: 800px;
       margin: 0 auto;
       padding: 2rem;
     }
-
+    ul {
+      padding-left: 1.2rem;
+    }
     .footer-nav {
       background: #f7f9fc;
       padding: 2rem;
@@ -51,7 +48,6 @@
       font-size: 0.9rem;
       border-top: 1px solid #ddd;
     }
-
     .footer-nav ul {
       list-style: none;
       padding: 0;
@@ -61,17 +57,14 @@
       justify-content: center;
       gap: 1rem;
     }
-
     .footer-nav a {
       text-decoration: none;
       color: #0c4a74;
       font-weight: 500;
     }
-
     .footer-nav a:hover {
       text-decoration: underline;
     }
-
     .back-to-top {
       position: fixed;
       bottom: 20px;
@@ -85,7 +78,6 @@
       font-size: 0.9rem;
       z-index: 999;
     }
-
     .language-switcher {
       margin-top: 1rem;
     }
@@ -136,18 +128,45 @@
   <h1>KI kann ein Booster sein. Oder eine Haftungsfalle.</h1>
   <p>Künstliche Intelligenz verändert die Wirtschaft – schneller, komplexer, tiefgreifender als jede technologische Innovation zuvor. Doch mit den Möglichkeiten wachsen auch die Risiken.</p>
   <p>Ich helfe mittelständischen Unternehmen, KI sicher, nachvollziehbar und rechtskonform einzusetzen – ohne Fachjargon, aber mit Substanz.</p>
+
+  <hr>
+
+  <h2>Leistungsangebot</h2>
+  <ul>
+    <li>Audit & Risikoanalyse bestehender KI-Systeme</li>
+    <li>Beratung zur Umsetzung des EU AI Act</li>
+    <li>Datenschutz-Compliance für KI-Anwendungen (DSGVO & BDSG)</li>
+    <li>Entwicklung KI-sicherer Prozesse und Richtlinien</li>
+    <li>Workshops für Fachabteilungen und Entscheider:innen</li>
+  </ul>
+
+  <p><a href="ki-sicherheitscheck.html" class="button">Selbstcheck durchführen</a></p>
+
+  <hr style="margin: 3rem 0;">
+
+  <h2>Häufige Fragen</h2>
+  <p><strong>Gilt der EU AI Act auch für kleinere Unternehmen?</strong><br>
+  Ja. Auch KMUs, die KI nutzen oder entwickeln, müssen die Vorschriften beachten – je nach Risikoklasse der Anwendung.</p>
+
+  <p><strong>Was passiert bei Verstößen?</strong><br>
+  Es drohen Bußgelder bis zu 35 Mio. € oder 7 % des globalen Umsatzes – ähnlich wie bei der DSGVO.</p>
+
+  <p><strong>Was muss ich konkret dokumentieren?</strong><br>
+  Alle Prozesse rund um die Nutzung, Schulung, Entscheidungen und Risiken von KI-Systemen – auch bei Drittanbieter-Tools wie GPT, Copilot etc.</p>
+
+  <p><strong>Wie finde ich heraus, ob ich betroffen bin?</strong><br>
+  <a href="ki-sicherheitscheck.html">Nutzen Sie den Selbstcheck</a> oder vereinbaren Sie ein kurzes Analysegespräch.</p>
 </main>
 
 <button class="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">↑</button>
 
-<!-- ✅ Neue Footer-Navigation (ohne FAQ) -->
+<!-- 🔻 Neue Footer-Navigation -->
 <footer class="footer-nav">
   <nav>
     <ul>
       <li><a href="index.html">Start</a></li>
       <li><a href="ki-sicherheitscheck.html">Selbstcheck</a></li>
       <li><a href="whitepaper.html">Whitepaper</a></li>
-      <li><a href="angebot.html">Angebot</a></li>
       <li><a href="ueber-mich.html">Über mich</a></li>
       <li><a href="datenschutz.html">Datenschutz</a></li>
       <li><a href="impressum.html">Impressum</a></li>
