@@ -1,28 +1,28 @@
+svg_code = """
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
   <style>
     .net {
-      animation: rotateZoom 20s infinite linear;
+      animation: rotateZoom 30s infinite linear;
       transform-origin: center center;
     }
 
     @keyframes rotateZoom {
       0% {
         transform: scale(1) rotate(0deg);
-        opacity: 0.03;
+        opacity: 0.02;
       }
       50% {
-        transform: scale(1.05) rotate(180deg);
-        opacity: 0.045;
+        transform: scale(1.03) rotate(180deg);
+        opacity: 0.04;
       }
       100% {
         transform: scale(1) rotate(360deg);
-        opacity: 0.03;
+        opacity: 0.02;
       }
     }
   </style>
 
   <g class="net" stroke="#2d9cba" stroke-width="2" fill="none">
-    <!-- Knoten -->
     <circle cx="100" cy="100" r="6" fill="#1f506b"/>
     <circle cx="300" cy="80" r="6" fill="#1f506b"/>
     <circle cx="500" cy="120" r="6" fill="#1f506b"/>
@@ -35,7 +35,6 @@
     <circle cx="500" cy="500" r="6" fill="#1f506b"/>
     <circle cx="700" cy="480" r="6" fill="#1f506b"/>
 
-    <!-- Verbindungen -->
     <line x1="100" y1="100" x2="300" y2="80"/>
     <line x1="300" y1="80" x2="500" y2="120"/>
     <line x1="500" y1="120" x2="700" y2="100"/>
@@ -51,3 +50,4 @@
     <line x1="500" y1="500" x2="700" y2="480"/>
   </g>
 </svg>
+"""
