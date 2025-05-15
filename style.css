@@ -58,4 +58,32 @@ a.button \{\
 a.button:hover \{\
   background: #005999;\
 \}\
+.site-header \{\
+  display: flex;\
+  align-items: center;\
+  padding: 1rem;\
+  background-color: #ffffff;\
+  border-bottom: 1px solid #ddd;\
+\}\
+\
+.logo \{\
+  height: 48px;\
+  width: auto;\
+\}\
+.rotating-logo \{\
+  animation: rotate3d 10s linear infinite;\
+  transform-origin: 50% 50%;\
+  display: block;\
+  margin: 0 auto;\
+\}\
+\
+@keyframes rotate3d \{\
+  0% \{\
+    transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);\
+  \}\
+  100% \{\
+    transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);\
+  \}\
+\}\
+\
 }
