@@ -22,24 +22,29 @@
       width: 100%;
       height: 100%;
     }
+
+    .whitepaper-cta {
+      background-color: #f9f9f9;
+      border-left: 4px solid #157ea8;
+      padding: 2rem;
+      margin-top: 2rem;
+      box-shadow: 0 0 10px rgba(0,0,0,0.03);
+    }
+
+    .whitepaper-cta h2 {
+      margin-top: 0;
+    }
   </style>
 </head>
 <body>
 
-<!-- 🔵 SVG als animierter Hintergrund – ohne CSS, mit <animateTransform> -->
+<!-- 🔵 SVG-Hintergrund -->
 <div class="netz-hintergrund">
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
     <g transform="rotate(0 400 300)">
-      <animateTransform attributeName="transform"
-        attributeType="XML"
-        type="rotate"
-        from="0 400 300"
-        to="360 400 300"
-        dur="90s"
-        repeatCount="indefinite"/>
-      
-      <!-- Netzstruktur -->
+      <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="0 400 300" to="360 400 300" dur="90s" repeatCount="indefinite"/>
       <g stroke="#157ea8" stroke-width="2" fill="none">
+        <!-- Punkte und Linien wie gehabt -->
         <circle cx="100" cy="100" r="6" fill="#0c4a74"/>
         <circle cx="300" cy="80" r="6" fill="#0c4a74"/>
         <circle cx="500" cy="120" r="6" fill="#0c4a74"/>
@@ -69,7 +74,6 @@
   </svg>
 </div>
 
-<!-- ✅ Deine Website beginnt hier -->
 <header class="site-header">
   <img src="logo.png" alt="KI-Sicherheit Logo" class="logo">
 </header>
@@ -80,6 +84,7 @@
     <li><a href="angebot.html">Angebot</a></li>
     <li><a href="ueber-mich.html">Über mich</a></li>
     <li><a href="whitepaper-faq.html">FAQ</a></li>
+    <li><a href="whitepaper.html">Whitepaper</a></li>
     <li><a href="ki-sicherheitscheck.html">Selbstcheck</a></li>
     <li><a href="kontakt.html">Kontakt</a></li>
     <li><a href="impressum.html">Impressum</a></li>
@@ -91,7 +96,13 @@
   <h1>KI kann ein Booster sein. Oder eine Haftungsfalle.</h1>
   <p>Künstliche Intelligenz verändert die Wirtschaft – schneller, komplexer, tiefgreifender als jede technologische Innovation zuvor. Doch mit den Möglichkeiten wachsen auch die Risiken.</p>
   <p>Ich helfe mittelständischen Unternehmen, KI sicher, nachvollziehbar und rechtskonform einzusetzen – ohne Fachjargon, aber mit Substanz.</p>
-  <a href="angebot.html" class="button">Zum Angebot</a>
+
+  <!-- 🎯 Whitepaper-CTA -->
+  <section class="whitepaper-cta">
+    <h2>📄 Kostenloses Whitepaper sichern</h2>
+    <p>Verstehen Sie, wie der EU AI Act und die DSGVO Ihr Unternehmen betreffen – mit kompakten, praxisnahen Leitfäden speziell für den Mittelstand.</p>
+    <a href="whitepaper.html" class="button">Whitepaper ansehen</a>
+  </section>
 </main>
 
 </body>
