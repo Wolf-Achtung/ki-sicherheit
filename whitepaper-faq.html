@@ -5,8 +5,61 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Whitepaper & FAQ – KI-Sicherheit.jetzt</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    .netz-hintergrund {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: -1;
+      opacity: 0.05;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .netz-hintergrund svg {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
 </head>
 <body>
+
+<!-- 🔵 SVG-Animation im Hintergrund -->
+<div class="netz-hintergrund">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+    <g transform="rotate(0 400 300)">
+      <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="0 400 300" to="360 400 300" dur="90s" repeatCount="indefinite"/>
+      <g stroke="#157ea8" stroke-width="2" fill="none">
+        <circle cx="100" cy="100" r="6" fill="#0c4a74"/>
+        <circle cx="300" cy="80" r="6" fill="#0c4a74"/>
+        <circle cx="500" cy="120" r="6" fill="#0c4a74"/>
+        <circle cx="700" cy="100" r="6" fill="#0c4a74"/>
+        <circle cx="200" cy="300" r="6" fill="#0c4a74"/>
+        <circle cx="400" cy="320" r="6" fill="#0c4a74"/>
+        <circle cx="600" cy="300" r="6" fill="#0c4a74"/>
+        <circle cx="100" cy="500" r="6" fill="#0c4a74"/>
+        <circle cx="300" cy="480" r="6" fill="#0c4a74"/>
+        <circle cx="500" cy="500" r="6" fill="#0c4a74"/>
+        <circle cx="700" cy="480" r="6" fill="#0c4a74"/>
+        <line x1="100" y1="100" x2="300" y2="80"/>
+        <line x1="300" y1="80" x2="500" y2="120"/>
+        <line x1="500" y1="120" x2="700" y2="100"/>
+        <line x1="300" y1="80" x2="400" y2="320"/>
+        <line x1="100" y1="100" x2="200" y2="300"/>
+        <line x1="700" y1="100" x2="600" y2="300"/>
+        <line x1="200" y1="300" x2="400" y2="320"/>
+        <line x1="400" y1="320" x2="600" y2="300"/>
+        <line x1="200" y1="300" x2="300" y2="480"/>
+        <line x1="600" y1="300" x2="500" y2="500"/>
+        <line x1="100" y1="500" x2="300" y2="480"/>
+        <line x1="300" y1="480" x2="500" y2="500"/>
+        <line x1="500" y1="500" x2="700" y2="480"/>
+      </g>
+    </g>
+  </svg>
+</div>
 
 <header class="site-header">
   <img src="logo.png" alt="KI-Sicherheit Logo" class="logo">
@@ -26,39 +79,26 @@
 </nav>
 
 <main class="container">
+  <h1>Whitepaper & FAQ</h1>
 
-  <section>
-    <h1>Wissen schützt: Whitepaper & häufige Fragen</h1>
-    <p>
-      Die Regulierung rund um KI wird komplexer – viele Unternehmen tappen im Nebel. Mein Whitepaper bringt Klarheit – kompakt, verständlich und praxisnah.
-    </p>
-  </section>
+  <p>Hier finden Sie vertiefende Inhalte, praxisnahe FAQs und Whitepaper rund um KI-Sicherheit, Datenschutz und den EU AI Act.</p>
 
-  <section class="highlight-box">
-    <p><strong>Whitepaper (PDF):</strong><br/>
-    „Die 5 größten KI-Risiken im Mittelstand – und wie Sie sie vermeiden“<br/>
-    ➤ DSGVO, EU AI Act, Haftung & Kontrollverlust</p>
-    <p><a href="whitepaper.pdf" class="button">Jetzt kostenlos herunterladen</a></p>
-  </section>
+  <h2>Whitepaper (PDF-Downloads):</h2>
+  <ul>
+    <li><a href="#">KI & DSGVO: Konflikte und Lösungen</a></li>
+    <li><a href="#">EU AI Act – Was auf den Mittelstand zukommt</a></li>
+    <li><a href="#">KI-Governance: Standards für verantwortungsvolle Systeme</a></li>
+  </ul>
 
-  <section>
-    <h2>Häufige Fragen (FAQ)</h2>
+  <h2>FAQ – häufige Fragen:</h2>
+  <p><strong>Was ist der EU AI Act?</strong><br>
+  Der European AI Act ist ein neues Gesetz zur Regulierung von KI-Systemen in Europa. Ziel ist es, Hochrisiko-Anwendungen zu identifizieren und klare Regeln für Transparenz, Haftung und Sicherheit zu schaffen.</p>
 
-    <h3>Was ist der Unterschied zwischen DSGVO und EU AI Act?</h3>
-    <p>Die DSGVO regelt den Umgang mit personenbezogenen Daten. Der EU AI Act betrifft den Einsatz von KI-Systemen – unabhängig davon, ob personenbezogene Daten verwendet werden. Beide Gesetze gelten parallel.</p>
+  <p><strong>Gilt das auch für kleine Unternehmen?</strong><br>
+  Ja. Auch KMUs und Mittelständler müssen sich vorbereiten – insbesondere bei Nutzung von KI-Tools in sensiblen Bereichen wie HR, Finanzen oder automatisierten Entscheidungen.</p>
 
-    <h3>Muss ich als KMU überhaupt etwas tun?</h3>
-    <p>Ja – sobald Sie KI-gestützte Tools (wie Chatbots, Text-Generatoren, Bildanalyse etc.) einsetzen, müssen Sie nachweisen, wie diese funktionieren. Unwissenheit schützt nicht vor Verantwortung.</p>
-
-    <h3>Was kostet Ihre Beratung?</h3>
-    <p>Ich arbeite modular, transparent und ohne Paketpflichten. Vom Einzelgespräch bis zur Projektbegleitung – alles planbar und auf Augenhöhe.</p>
-
-    <h3>Gibt es eine erste Einschätzung?</h3>
-    <p>Ja – mein <a href="ki-sicherheitscheck.html">interaktiver Selbstcheck</a> zeigt erste Risikofelder und dient als Gesprächsgrundlage.</p>
-  </section>
-
-  <p><a href="kontakt.html" class="button">Weitere Fragen? Jetzt Kontakt aufnehmen</a></p>
-
+  <p><strong>Was droht bei Nichtbeachtung?</strong><br>
+  Hohe Bußgelder bis zu 35 Mio. € oder 7 % des weltweiten Jahresumsatzes – vergleichbar mit der DSGVO.</p>
 </main>
 
 </body>

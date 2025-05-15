@@ -3,11 +3,65 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Leistungen – KI-Sicherheit.jetzt</title>
+  <title>Angebot – KI-Sicherheit.jetzt</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    .netz-hintergrund {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: -1;
+      opacity: 0.05;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .netz-hintergrund svg {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
 </head>
 <body>
 
+<!-- 🔵 SVG-Animation als Hintergrund (ohne CSS) -->
+<div class="netz-hintergrund">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+    <g transform="rotate(0 400 300)">
+      <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="0 400 300" to="360 400 300" dur="90s" repeatCount="indefinite"/>
+      <g stroke="#157ea8" stroke-width="2" fill="none">
+        <circle cx="100" cy="100" r="6" fill="#0c4a74"/>
+        <circle cx="300" cy="80" r="6" fill="#0c4a74"/>
+        <circle cx="500" cy="120" r="6" fill="#0c4a74"/>
+        <circle cx="700" cy="100" r="6" fill="#0c4a74"/>
+        <circle cx="200" cy="300" r="6" fill="#0c4a74"/>
+        <circle cx="400" cy="320" r="6" fill="#0c4a74"/>
+        <circle cx="600" cy="300" r="6" fill="#0c4a74"/>
+        <circle cx="100" cy="500" r="6" fill="#0c4a74"/>
+        <circle cx="300" cy="480" r="6" fill="#0c4a74"/>
+        <circle cx="500" cy="500" r="6" fill="#0c4a74"/>
+        <circle cx="700" cy="480" r="6" fill="#0c4a74"/>
+        <line x1="100" y1="100" x2="300" y2="80"/>
+        <line x1="300" y1="80" x2="500" y2="120"/>
+        <line x1="500" y1="120" x2="700" y2="100"/>
+        <line x1="300" y1="80" x2="400" y2="320"/>
+        <line x1="100" y1="100" x2="200" y2="300"/>
+        <line x1="700" y1="100" x2="600" y2="300"/>
+        <line x1="200" y1="300" x2="400" y2="320"/>
+        <line x1="400" y1="320" x2="600" y2="300"/>
+        <line x1="200" y1="300" x2="300" y2="480"/>
+        <line x1="600" y1="300" x2="500" y2="500"/>
+        <line x1="100" y1="500" x2="300" y2="480"/>
+        <line x1="300" y1="480" x2="500" y2="500"/>
+        <line x1="500" y1="500" x2="700" y2="480"/>
+      </g>
+    </g>
+  </svg>
+</div>
+
+<!-- ✅ Bestehender Seiteninhalt -->
 <header class="site-header">
   <img src="logo.png" alt="KI-Sicherheit Logo" class="logo">
 </header>
@@ -26,34 +80,27 @@
 </nav>
 
 <main class="container">
+  <h1>Beratung für KI-Sicherheit, Datenschutz & Governance</h1>
 
-  <section>
-    <h1>Meine Leistungen: Sicherheit für Ihre KI-Projekte</h1>
-    <p>
-      KI kann vieles – doch sie darf nicht alles. Ich helfe Ihnen, Ihre Projekte so zu gestalten, dass sie rechtskonform, nachvollziehbar und vertrauenswürdig sind.
-    </p>
-  </section>
+  <p>
+    Ich unterstütze Sie dabei, Ihre KI-Projekte rechtskonform, transparent und zukunftssicher zu gestalten. Von der Analyse bestehender KI-Systeme bis zur Entwicklung individueller Leitlinien für den Mittelstand.
+  </p>
 
   <section class="highlight-box">
-    <p><strong>Ab 2025:</strong> Wer KI-Systeme nutzt, muss sie dokumentieren, bewerten und erklären können – vor Behörden, Kunden und Gerichten.</p>
+    <p><strong>Warum das wichtig ist:</strong><br>
+    Der EU AI Act wird Bußgelder bis zu 35 Mio. € oder 7 % des Umsatzes ermöglichen. KMUs und Mittelständler müssen spätestens jetzt handeln – mit klarem Fokus auf Compliance.</p>
   </section>
 
-  <section>
-    <h2>Was ich für Sie tue</h2>
-    <ul>
-      <li><strong>🔍 KI-Risiko-Check</strong><br/> Bewertung Ihrer bestehenden oder geplanten KI-Systeme (DSGVO & AI Act)</li>
-      <li><strong>📄 Audit-Readiness</strong><br/> Vorbereitung auf regulatorische Prüfungen inkl. Dokumentation & Nachweispflichten</li>
-      <li><strong>🧭 Strategieberatung</strong><br/> Integration sicherer, ethischer KI in Ihre Prozesse</li>
-      <li><strong>🎓 Schulung & Sparring</strong><br/> Für Geschäftsleitung, Fachabteilungen und Datenschutzverantwortliche</li>
-    </ul>
-  </section>
+  <h2>Leistungen im Überblick:</h2>
+  <ul>
+    <li>Audit & Risikoanalyse bestehender KI-Systeme</li>
+    <li>Beratung zur Umsetzung des EU AI Act</li>
+    <li>Datenschutz-Compliance für KI-Anwendungen (DSGVO & BDSG)</li>
+    <li>Entwicklung KI-sicherer Prozesse und Richtlinien</li>
+    <li>Workshops für Fachabteilungen und Entscheider:innen</li>
+  </ul>
 
-  <section class="highlight-box">
-    <p><strong>Sie entscheiden:</strong> Einzelberatung, Workshop oder Projektbegleitung – modular, transparent, lösungsorientiert.</p>
-  </section>
-
-  <p><a href="kontakt.html" class="button">Jetzt Gespräch vereinbaren</a></p>
-
+  <p><a href="kontakt.html" class="button">Unverbindlich Kontakt aufnehmen</a></p>
 </main>
 
 </body>

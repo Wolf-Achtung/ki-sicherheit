@@ -5,8 +5,61 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Kontakt – KI-Sicherheit.jetzt</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    .netz-hintergrund {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: -1;
+      opacity: 0.05;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .netz-hintergrund svg {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
 </head>
 <body>
+
+<!-- 🔵 SVG-Animationshintergrund -->
+<div class="netz-hintergrund">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+    <g transform="rotate(0 400 300)">
+      <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="0 400 300" to="360 400 300" dur="90s" repeatCount="indefinite"/>
+      <g stroke="#157ea8" stroke-width="2" fill="none">
+        <circle cx="100" cy="100" r="6" fill="#0c4a74"/>
+        <circle cx="300" cy="80" r="6" fill="#0c4a74"/>
+        <circle cx="500" cy="120" r="6" fill="#0c4a74"/>
+        <circle cx="700" cy="100" r="6" fill="#0c4a74"/>
+        <circle cx="200" cy="300" r="6" fill="#0c4a74"/>
+        <circle cx="400" cy="320" r="6" fill="#0c4a74"/>
+        <circle cx="600" cy="300" r="6" fill="#0c4a74"/>
+        <circle cx="100" cy="500" r="6" fill="#0c4a74"/>
+        <circle cx="300" cy="480" r="6" fill="#0c4a74"/>
+        <circle cx="500" cy="500" r="6" fill="#0c4a74"/>
+        <circle cx="700" cy="480" r="6" fill="#0c4a74"/>
+        <line x1="100" y1="100" x2="300" y2="80"/>
+        <line x1="300" y1="80" x2="500" y2="120"/>
+        <line x1="500" y1="120" x2="700" y2="100"/>
+        <line x1="300" y1="80" x2="400" y2="320"/>
+        <line x1="100" y1="100" x2="200" y2="300"/>
+        <line x1="700" y1="100" x2="600" y2="300"/>
+        <line x1="200" y1="300" x2="400" y2="320"/>
+        <line x1="400" y1="320" x2="600" y2="300"/>
+        <line x1="200" y1="300" x2="300" y2="480"/>
+        <line x1="600" y1="300" x2="500" y2="500"/>
+        <line x1="100" y1="500" x2="300" y2="480"/>
+        <line x1="300" y1="480" x2="500" y2="500"/>
+        <line x1="500" y1="500" x2="700" y2="480"/>
+      </g>
+    </g>
+  </svg>
+</div>
 
 <header class="site-header">
   <img src="logo.png" alt="KI-Sicherheit Logo" class="logo">
@@ -26,34 +79,22 @@
 </nav>
 
 <main class="container">
+  <h1>Kontakt aufnehmen</h1>
 
-  <section>
-    <h1>Lassen Sie uns sprechen</h1>
-    <p>
-      Sie haben Fragen, möchten ein Projekt starten oder erst einmal herausfinden, ob Ihre KI-Nutzung sicher ist? Schreiben Sie mir – unverbindlich & persönlich.
-    </p>
-  </section>
+  <p>Sie möchten mehr über meine Beratung erfahren oder ein erstes Gespräch vereinbaren? Ich freue mich über Ihre Nachricht.</p>
 
-  <section class="highlight-box">
-    <p><strong>Ich antworte innerhalb von 48 Stunden.</strong> Keine automatisierten Mails – sondern persönliche Beratung mit Substanz.</p>
-  </section>
+  <form action="mailto:kontakt@ki-sicherheit.jetzt" method="post" enctype="text/plain">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="Name" required>
 
-  <form action="#" method="POST">
-    <label for="name">Name</label>
-    <input type="text" id="name" name="name" required>
+    <label for="email">E-Mail:</label>
+    <input type="email" id="email" name="E-Mail" required>
 
-    <label for="unternehmen">Unternehmen</label>
-    <input type="text" id="unternehmen" name="unternehmen">
+    <label for="message">Nachricht:</label>
+    <textarea id="message" name="Nachricht" rows="5" required></textarea>
 
-    <label for="email">E-Mail-Adresse</label>
-    <input type="email" id="email" name="email" required>
-
-    <label for="nachricht">Ihre Nachricht</label>
-    <textarea id="nachricht" name="nachricht" rows="5" required></textarea>
-
-    <button type="submit" class="button">Nachricht senden</button>
+    <button type="submit" class="button">Absenden</button>
   </form>
-
 </main>
 
 </body>

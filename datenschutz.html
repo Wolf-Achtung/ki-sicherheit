@@ -3,10 +3,63 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Datenschutzerklärung – KI-Sicherheit.jetzt</title>
+  <title>Datenschutz – KI-Sicherheit.jetzt</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    .netz-hintergrund {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: -1;
+      opacity: 0.05;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .netz-hintergrund svg {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
 </head>
 <body>
+
+<!-- 🔵 SVG-Animationsnetz im Hintergrund -->
+<div class="netz-hintergrund">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+    <g transform="rotate(0 400 300)">
+      <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="0 400 300" to="360 400 300" dur="90s" repeatCount="indefinite"/>
+      <g stroke="#157ea8" stroke-width="2" fill="none">
+        <circle cx="100" cy="100" r="6" fill="#0c4a74"/>
+        <circle cx="300" cy="80" r="6" fill="#0c4a74"/>
+        <circle cx="500" cy="120" r="6" fill="#0c4a74"/>
+        <circle cx="700" cy="100" r="6" fill="#0c4a74"/>
+        <circle cx="200" cy="300" r="6" fill="#0c4a74"/>
+        <circle cx="400" cy="320" r="6" fill="#0c4a74"/>
+        <circle cx="600" cy="300" r="6" fill="#0c4a74"/>
+        <circle cx="100" cy="500" r="6" fill="#0c4a74"/>
+        <circle cx="300" cy="480" r="6" fill="#0c4a74"/>
+        <circle cx="500" cy="500" r="6" fill="#0c4a74"/>
+        <circle cx="700" cy="480" r="6" fill="#0c4a74"/>
+        <line x1="100" y1="100" x2="300" y2="80"/>
+        <line x1="300" y1="80" x2="500" y2="120"/>
+        <line x1="500" y1="120" x2="700" y2="100"/>
+        <line x1="300" y1="80" x2="400" y2="320"/>
+        <line x1="100" y1="100" x2="200" y2="300"/>
+        <line x1="700" y1="100" x2="600" y2="300"/>
+        <line x1="200" y1="300" x2="400" y2="320"/>
+        <line x1="400" y1="320" x2="600" y2="300"/>
+        <line x1="200" y1="300" x2="300" y2="480"/>
+        <line x1="600" y1="300" x2="500" y2="500"/>
+        <line x1="100" y1="500" x2="300" y2="480"/>
+        <line x1="300" y1="480" x2="500" y2="500"/>
+        <line x1="500" y1="500" x2="700" y2="480"/>
+      </g>
+    </g>
+  </svg>
+</div>
 
 <header class="site-header">
   <img src="logo.png" alt="KI-Sicherheit Logo" class="logo">
@@ -26,51 +79,32 @@
 </nav>
 
 <main class="container">
+  <h1>Datenschutzerklärung</h1>
 
-  <section>
-    <h1>Datenschutzerklärung</h1>
-    <p>
-      Der Schutz Ihrer Daten ist mir wichtig. Ich verarbeite personenbezogene Daten vertraulich und im Einklang mit den gesetzlichen Datenschutzvorschriften (DSGVO, BDSG).
-    </p>
-  </section>
+  <p><strong>Allgemeiner Hinweis:</strong><br>
+  Der Schutz Ihrer persönlichen Daten ist mir wichtig. Diese Website verarbeitet personenbezogene Daten ausschließlich im Rahmen der gesetzlichen Bestimmungen der DSGVO.</p>
 
-  <section>
-    <h2>1. Verantwortliche Stelle</h2>
-    <p>
-      Max Mustermann<br>
-      Musterstraße 1<br>
-      12345 Musterstadt<br>
-      E-Mail: kontakt@ki-sicherheit.jetzt
-    </p>
-  </section>
+  <h2>Verantwortlicher</h2>
+  <p>Wolf Hohl<br>
+  Greifswalders. 224a<br>
+  10405 Berlin<br>
+  E-Mail: kontakt@ki-sicherheit.jetzt</p>
 
-  <section>
-    <h2>2. Hosting & Server-Logfiles</h2>
-    <p>
-      Die Website wird bei Netlify gehostet. Netlify speichert beim Besuch der Website automatisch Informationen wie IP-Adresse, Browsertyp und Zugriffszeit in sogenannten Server-Logfiles. Diese Daten dienen der Betriebssicherheit und Fehleranalyse.
-    </p>
-  </section>
+  <h2>Erhebung und Verarbeitung personenbezogener Daten</h2>
+  <p>Beim Besuch dieser Website werden Zugriffsdaten automatisch erhoben (z. B. IP-Adresse, Datum, Uhrzeit, angeforderte Seite). Diese Daten dienen ausschließlich der technischen Bereitstellung und werden nicht weitergegeben.</p>
 
-  <section>
-    <h2>3. Kontaktaufnahme</h2>
-    <p>
-      Wenn Sie mir per Kontaktformular oder E-Mail schreiben, werden Ihre Angaben zur Bearbeitung der Anfrage und für den Fall von Rückfragen gespeichert. Diese Daten gebe ich nicht ohne Ihre Einwilligung weiter.
-    </p>
-  </section>
+  <h2>Kontaktaufnahme</h2>
+  <p>Wenn Sie per Formular oder E-Mail Kontakt aufnehmen, werden Ihre Angaben allein zwecks Bearbeitung der Anfrage gespeichert - ohne Weitergabe.</p>
 
-  <section>
-    <h2>4. Ihre Rechte</h2>
-    <p>
-      Sie haben jederzeit das Recht auf Auskunft, Berichtigung oder Löschung Ihrer gespeicherten personenbezogenen Daten. Bitte kontaktieren Sie mich bei Anliegen oder Fragen.
-    </p>
-  </section>
+  <h2>Ihre Rechte</h2>
+  <ul>
+    <li>Auskunft über Ihre gespeicherten Daten</li>
+    <li>Berichtigung, Löschung oder Einschränkung der Verarbeitung</li>
+    <li>Widerruf einer erteilten Einwilligung</li>
+    <li>Beschwerde bei einer Datenschutz-Aufsichtsbehörde</li>
+  </ul>
 
-  <section class="highlight-box">
-    <p><strong>Keine Cookies. Kein Tracking. Keine versteckten Tools.</strong><br>Diese Website respektiert Ihre Privatsphäre – by design.</p>
-  </section>
-
-  <p>Stand: Mai 2025</p>
-
+  <p>Bei Fragen zum Datenschutz erreichen Sie mich unter kontakt@ki-sicherheit.jetzt</p>
 </main>
 
 </body>

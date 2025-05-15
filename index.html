@@ -5,9 +5,71 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>KI-Sicherheit.jetzt – Start</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    .netz-hintergrund {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: -1;
+      opacity: 0.05;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .netz-hintergrund svg {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
 </head>
 <body>
 
+<!-- 🔵 SVG als animierter Hintergrund – ohne CSS, mit <animateTransform> -->
+<div class="netz-hintergrund">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+    <g transform="rotate(0 400 300)">
+      <animateTransform attributeName="transform"
+        attributeType="XML"
+        type="rotate"
+        from="0 400 300"
+        to="360 400 300"
+        dur="90s"
+        repeatCount="indefinite"/>
+      
+      <!-- Netzstruktur -->
+      <g stroke="#157ea8" stroke-width="2" fill="none">
+        <circle cx="100" cy="100" r="6" fill="#0c4a74"/>
+        <circle cx="300" cy="80" r="6" fill="#0c4a74"/>
+        <circle cx="500" cy="120" r="6" fill="#0c4a74"/>
+        <circle cx="700" cy="100" r="6" fill="#0c4a74"/>
+        <circle cx="200" cy="300" r="6" fill="#0c4a74"/>
+        <circle cx="400" cy="320" r="6" fill="#0c4a74"/>
+        <circle cx="600" cy="300" r="6" fill="#0c4a74"/>
+        <circle cx="100" cy="500" r="6" fill="#0c4a74"/>
+        <circle cx="300" cy="480" r="6" fill="#0c4a74"/>
+        <circle cx="500" cy="500" r="6" fill="#0c4a74"/>
+        <circle cx="700" cy="480" r="6" fill="#0c4a74"/>
+        <line x1="100" y1="100" x2="300" y2="80"/>
+        <line x1="300" y1="80" x2="500" y2="120"/>
+        <line x1="500" y1="120" x2="700" y2="100"/>
+        <line x1="300" y1="80" x2="400" y2="320"/>
+        <line x1="100" y1="100" x2="200" y2="300"/>
+        <line x1="700" y1="100" x2="600" y2="300"/>
+        <line x1="200" y1="300" x2="400" y2="320"/>
+        <line x1="400" y1="320" x2="600" y2="300"/>
+        <line x1="200" y1="300" x2="300" y2="480"/>
+        <line x1="600" y1="300" x2="500" y2="500"/>
+        <line x1="100" y1="500" x2="300" y2="480"/>
+        <line x1="300" y1="480" x2="500" y2="500"/>
+        <line x1="500" y1="500" x2="700" y2="480"/>
+      </g>
+    </g>
+  </svg>
+</div>
+
+<!-- ✅ Deine Website beginnt hier -->
 <header class="site-header">
   <img src="logo.png" alt="KI-Sicherheit Logo" class="logo">
 </header>
@@ -26,36 +88,10 @@
 </nav>
 
 <main class="container">
-
-  <section>
-    <h1>KI kann ein Booster sein. Oder eine Haftungsfalle.</h1>
-    <p>
-      Künstliche Intelligenz verändert Geschäftsmodelle, Prozesse und Erwartungen. Wer sie nutzt, trägt Verantwortung – für Kunden, für Mitarbeitende, für die eigene Reputation.
-    </p>
-  </section>
-
-  <section class="highlight-box">
-    <p><strong>Der EU AI Act gilt ab 2025.</strong> Wer KI einsetzt, muss nachweisen, wie sie funktioniert – und haftet bei Fehlverhalten. Es drohen Bußgelder bis zu <strong>35 Millionen Euro</strong>.</p>
-  </section>
-
-  <section>
-    <h2>Ich sorge dafür, dass Sie vorbereitet sind</h2>
-    <p>
-      Als zertifizierter KI-Manager mit 25 Jahren Managementerfahrung begleite ich Unternehmen im Mittelstand dabei, KI sicher, rechtskonform und strategisch sinnvoll einzusetzen.
-    </p>
-    <ul>
-      <li>✓ Überblick über regulatorische Risiken und technologische Schwachstellen</li>
-      <li>✓ Konkrete Handlungsempfehlungen & Governance-Strategie</li>
-      <li>✓ Unabhängige Einschätzung statt Tool-Verkauf</li>
-    </ul>
-  </section>
-
-  <section class="highlight-box">
-    <p><strong>Ihre KI kann ein Vorteil sein.</strong> Wenn sie nachvollziehbar, verantwortbar und regelkonform gestaltet ist. Ich zeige Ihnen, wie.</p>
-  </section>
-
-  <p><a href="angebot.html" class="button">Mehr erfahren</a></p>
-
+  <h1>KI kann ein Booster sein. Oder eine Haftungsfalle.</h1>
+  <p>Künstliche Intelligenz verändert die Wirtschaft – schneller, komplexer, tiefgreifender als jede technologische Innovation zuvor. Doch mit den Möglichkeiten wachsen auch die Risiken.</p>
+  <p>Ich helfe mittelständischen Unternehmen, KI sicher, nachvollziehbar und rechtskonform einzusetzen – ohne Fachjargon, aber mit Substanz.</p>
+  <a href="angebot.html" class="button">Zum Angebot</a>
 </main>
 
 </body>

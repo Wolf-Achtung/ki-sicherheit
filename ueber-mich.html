@@ -5,9 +5,63 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Über mich – KI-Sicherheit.jetzt</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    .netz-hintergrund {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: -1;
+      opacity: 0.05;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .netz-hintergrund svg {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
 </head>
 <body>
 
+<!-- 🔵 SVG-Background mit animateTransform -->
+<div class="netz-hintergrund">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+    <g transform="rotate(0 400 300)">
+      <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="0 400 300" to="360 400 300" dur="90s" repeatCount="indefinite"/>
+      <g stroke="#157ea8" stroke-width="2" fill="none">
+        <circle cx="100" cy="100" r="6" fill="#0c4a74"/>
+        <circle cx="300" cy="80" r="6" fill="#0c4a74"/>
+        <circle cx="500" cy="120" r="6" fill="#0c4a74"/>
+        <circle cx="700" cy="100" r="6" fill="#0c4a74"/>
+        <circle cx="200" cy="300" r="6" fill="#0c4a74"/>
+        <circle cx="400" cy="320" r="6" fill="#0c4a74"/>
+        <circle cx="600" cy="300" r="6" fill="#0c4a74"/>
+        <circle cx="100" cy="500" r="6" fill="#0c4a74"/>
+        <circle cx="300" cy="480" r="6" fill="#0c4a74"/>
+        <circle cx="500" cy="500" r="6" fill="#0c4a74"/>
+        <circle cx="700" cy="480" r="6" fill="#0c4a74"/>
+        <line x1="100" y1="100" x2="300" y2="80"/>
+        <line x1="300" y1="80" x2="500" y2="120"/>
+        <line x1="500" y1="120" x2="700" y2="100"/>
+        <line x1="300" y1="80" x2="400" y2="320"/>
+        <line x1="100" y1="100" x2="200" y2="300"/>
+        <line x1="700" y1="100" x2="600" y2="300"/>
+        <line x1="200" y1="300" x2="400" y2="320"/>
+        <line x1="400" y1="320" x2="600" y2="300"/>
+        <line x1="200" y1="300" x2="300" y2="480"/>
+        <line x1="600" y1="300" x2="500" y2="500"/>
+        <line x1="100" y1="500" x2="300" y2="480"/>
+        <line x1="300" y1="480" x2="500" y2="500"/>
+        <line x1="500" y1="500" x2="700" y2="480"/>
+      </g>
+    </g>
+  </svg>
+</div>
+
+<!-- ✅ Standardinhalt -->
 <header class="site-header">
   <img src="logo.png" alt="KI-Sicherheit Logo" class="logo">
 </header>
@@ -26,37 +80,22 @@
 </nav>
 
 <main class="container">
+  <h1>Wer ich bin</h1>
 
-  <section>
-    <h1>Warum ich für KI-Sicherheit brenne</h1>
-    <p>
-      25 Jahre habe ich Unternehmen beim Markenaufbau, der digitalen Transformation und strategischen Entscheidungen begleitet – als Geschäftsführer, Berater und Sparringspartner.
-    </p>
-    <p>
-      Heute steht KI im Zentrum. Sie verändert alles – aber viele verstehen sie falsch. Für mich ist KI kein Tool, sondern eine Verantwortung.
-    </p>
-  </section>
+  <p>Als zertifizierter KI-Manager mit über 25 Jahren Erfahrung in Marketing, Management und digitaler Transformation unterstütze ich Unternehmen dabei, künstliche Intelligenz souverän, sicher und regelkonform einzusetzen.</p>
+
+  <p>Meine Perspektive ist unternehmerisch, meine Sprache klar. Ich spreche die Sprache von Geschäftsführung und Fachabteilungen – und bringe Komplexität auf den Punkt.</p>
 
   <section class="highlight-box">
-    <p><strong>Verantwortung beginnt da, wo Automatisierung auf Menschen trifft.</strong></p>
+    <p><strong>„KI-Sicherheit ist keine Technikfrage – es ist eine Führungsaufgabe.“</strong></p>
   </section>
 
-  <section>
-    <h2>Was mich auszeichnet</h2>
-    <ul>
-      <li>✓ Unternehmerischer Blick statt Technik-Fixierung</li>
-      <li>✓ Klare Kommunikation ohne Buzzword-Bingo</li>
-      <li>✓ Erfahrung in Strategie, Recht & Marketing</li>
-      <li>✓ Zertifizierter KI-Manager mit Fokus Datenschutz & Governance</li>
-    </ul>
-  </section>
-
-  <section class="highlight-box">
-    <p><strong>Ich bin kein Verkäufer von Tools.</strong> Ich bin Ihr Sicherheitsgurt – ehrlich, pragmatisch, auf Augenhöhe.</p>
-  </section>
-
-  <p><a href="kontakt.html" class="button">Kontakt aufnehmen</a></p>
-
+  <h2>Werte, die meine Arbeit leiten</h2>
+  <ul>
+    <li>Verständlichkeit & Praxisnähe statt Buzzwords</li>
+    <li>Sicherheit & Substanz statt Hype</li>
+    <li>Langfristiger Nutzen statt kurzfristiger Effekte</li>
+  </ul>
 </main>
 
 </body>
