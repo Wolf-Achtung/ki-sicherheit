@@ -17,88 +17,130 @@
       pointer-events: none;
       overflow: hidden;
     }
-
     .netz-hintergrund svg {
       width: 100%;
       height: 100%;
+    }
+    .footer-nav {
+      background: #f7f9fc;
+      padding: 2rem;
+      text-align: center;
+      font-size: 0.9rem;
+      margin-top: 3rem;
+      border-top: 1px solid #ddd;
+    }
+    .footer-nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+    }
+    .footer-nav a {
+      text-decoration: none;
+      color: #0c4a74;
+      font-weight: 500;
+    }
+    .footer-nav a:hover {
+      text-decoration: underline;
+    }
+    .back-to-top {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #157ea8;
+      color: #fff;
+      border: none;
+      padding: 0.6rem 1rem;
+      border-radius: 30px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      z-index: 999;
+    }
+    .language-switcher {
+      margin-top: 1rem;
+    }
+    .newsletter {
+      margin-top: 2rem;
+    }
+    .newsletter input[type="email"] {
+      padding: 0.4rem;
+      width: 250px;
+      max-width: 90%;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    .newsletter button {
+      padding: 0.4rem 1rem;
+      background-color: #0c4a74;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-left: 0.5rem;
     }
   </style>
 </head>
 <body>
 
-<!-- 🔵 SVG-Background mit animateTransform -->
 <div class="netz-hintergrund">
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
-    <g transform="rotate(0 400 300)">
-      <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="0 400 300" to="360 400 300" dur="90s" repeatCount="indefinite"/>
-      <g stroke="#157ea8" stroke-width="2" fill="none">
-        <circle cx="100" cy="100" r="6" fill="#0c4a74"/>
-        <circle cx="300" cy="80" r="6" fill="#0c4a74"/>
-        <circle cx="500" cy="120" r="6" fill="#0c4a74"/>
-        <circle cx="700" cy="100" r="6" fill="#0c4a74"/>
-        <circle cx="200" cy="300" r="6" fill="#0c4a74"/>
-        <circle cx="400" cy="320" r="6" fill="#0c4a74"/>
-        <circle cx="600" cy="300" r="6" fill="#0c4a74"/>
-        <circle cx="100" cy="500" r="6" fill="#0c4a74"/>
-        <circle cx="300" cy="480" r="6" fill="#0c4a74"/>
-        <circle cx="500" cy="500" r="6" fill="#0c4a74"/>
-        <circle cx="700" cy="480" r="6" fill="#0c4a74"/>
-        <line x1="100" y1="100" x2="300" y2="80"/>
-        <line x1="300" y1="80" x2="500" y2="120"/>
-        <line x1="500" y1="120" x2="700" y2="100"/>
-        <line x1="300" y1="80" x2="400" y2="320"/>
-        <line x1="100" y1="100" x2="200" y2="300"/>
-        <line x1="700" y1="100" x2="600" y2="300"/>
-        <line x1="200" y1="300" x2="400" y2="320"/>
-        <line x1="400" y1="320" x2="600" y2="300"/>
-        <line x1="200" y1="300" x2="300" y2="480"/>
-        <line x1="600" y1="300" x2="500" y2="500"/>
-        <line x1="100" y1="500" x2="300" y2="480"/>
-        <line x1="300" y1="480" x2="500" y2="500"/>
-        <line x1="500" y1="500" x2="700" y2="480"/>
-      </g>
-    </g>
-  </svg>
+  <!-- dein SVG-Background -->
 </div>
 
-<!-- ✅ Standardinhalt -->
 <header class="site-header">
   <img src="logo.png" alt="KI-Sicherheit Logo" class="logo">
 </header>
 
-<nav class="main-nav">
-  <ul>
-    <li><a href="index.html">Start</a></li>
-    <li><a href="angebot.html">Angebot</a></li>
-    <li><a href="ueber-mich.html">Über mich</a></li>
-    <li><a href="whitepaper-faq.html">FAQ</a></li>
-<li><a href="whitepaper.html">Whitepaper</a></li>
-
-    <li><a href="ki-sicherheitscheck.html">Selbstcheck</a></li>
-    <li><a href="kontakt.html">Kontakt</a></li>
-    <li><a href="impressum.html">Impressum</a></li>
-    <li><a href="datenschutz.html">Datenschutz</a></li>
-  </ul>
-</nav>
-
 <main class="container">
-  <h1>Wer ich bin</h1>
+  <h1>Über mich</h1>
 
-  <p>Als zertifizierter KI-Manager mit über 25 Jahren Erfahrung in Marketing, Management und digitaler Transformation unterstütze ich Unternehmen dabei, künstliche Intelligenz souverän, sicher und regelkonform einzusetzen.</p>
+  <p>Als zertifizierter KI-Manager mit 25 Jahren Erfahrung im Marketing und in der Geschäftsführung kenne ich nicht nur die Technologien, sondern auch die realen Herausforderungen mittelständischer Unternehmen.</p>
 
-  <p>Meine Perspektive ist unternehmerisch, meine Sprache klar. Ich spreche die Sprache von Geschäftsführung und Fachabteilungen – und bringe Komplexität auf den Punkt.</p>
+  <p>Ich helfe, Brücken zu bauen – zwischen Innovationsdruck und Verantwortung, zwischen Tech-Sprache und unternehmerischem Klartext, zwischen Vision und Sicherheit.</p>
 
-  <section class="highlight-box">
-    <p><strong>„KI-Sicherheit ist keine Technikfrage – es ist eine Führungsaufgabe.“</strong></p>
-  </section>
-
-  <h2>Werte, die meine Arbeit leiten</h2>
   <ul>
-    <li>Verständlichkeit & Praxisnähe statt Buzzwords</li>
-    <li>Sicherheit & Substanz statt Hype</li>
-    <li>Langfristiger Nutzen statt kurzfristiger Effekte</li>
+    <li>25 Jahre Erfahrung in leitenden Positionen</li>
+    <li>Zertifizierter KI-Manager</li>
+    <li>Spezialisiert auf Datenschutz, Compliance & KI-Governance</li>
+    <li>Unabhängig, persönlich, vertrauensvoll</li>
   </ul>
+
+  <p><a href="kontakt.html" class="button">Jetzt Kontakt aufnehmen</a></p>
 </main>
+
+<!-- ⬆ Zurück nach oben -->
+<button class="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">↑</button>
+
+<!-- Footer -->
+<footer class="footer-nav">
+  <nav>
+    <ul>
+      <li><a href="index.html">Start</a></li>
+      <li><a href="ki-sicherheitscheck.html">Selbstcheck</a></li>
+      <li><a href="whitepaper.html">Whitepaper</a></li>
+      <li><a href="angebot.html">Angebot</a></li>
+      <li><a href="whitepaper-faq.html">FAQ</a></li>
+      <li><a href="kontakt.html">Kontakt</a></li>
+      <li><a href="ueber-mich.html">Über mich</a></li>
+      <li><a href="datenschutz.html">Datenschutz</a></li>
+      <li><a href="impressum.html">Impressum</a></li>
+    </ul>
+  </nav>
+
+  <div class="language-switcher">
+    🌐 Sprache: <a href="#">DE</a> | <a href="#">EN</a>
+  </div>
+
+  <div class="newsletter">
+    <p><strong>Newsletter abonnieren:</strong></p>
+    <form>
+      <input type="email" placeholder="Ihre E-Mail-Adresse" required>
+      <button type="submit">Abonnieren</button>
+    </form>
+  </div>
+</footer>
 
 </body>
 </html>
