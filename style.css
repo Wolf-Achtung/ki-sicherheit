@@ -1,106 +1,90 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2575.6">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
-  </style>
-</head>
-<body>
-<p class="p1">/* === Grundlayout === */</p>
-<p class="p1">body {</p>
-<p class="p1"><span class="Apple-converted-space">  </span>font-family: 'Inter', 'Segoe UI', sans-serif;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>background-color: #ffffff;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>color: #222222;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>margin: 0;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>padding: 0;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>font-size: 16px;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>line-height: 1.6;</p>
-<p class="p1">}</p>
-<p class="p2"><br></p>
-<p class="p1">/* === Navigation === */</p>
-<p class="p1">.main-nav ul {</p>
-<p class="p1"><span class="Apple-converted-space">  </span>display: flex;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>flex-wrap: wrap;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>gap: 1rem;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>list-style: none;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>margin: 0;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>padding: 1rem;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>background: #f9f9f9;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>border-bottom: 1px solid #eee;</p>
-<p class="p1">}</p>
-<p class="p2"><br></p>
-<p class="p1">.main-nav a {</p>
-<p class="p1"><span class="Apple-converted-space">  </span>text-decoration: none;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>color: #2d9cba;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>font-weight: 600;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>transition: color 0.3s ease;</p>
-<p class="p1">}</p>
-<p class="p2"><br></p>
-<p class="p1">.main-nav a:hover {</p>
-<p class="p1"><span class="Apple-converted-space">  </span>color: #1f506b;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>text-decoration: underline;</p>
-<p class="p1">}</p>
-<p class="p2"><br></p>
-<p class="p1">/* === Überschriften === */</p>
-<p class="p1">h1, h2, h3 {</p>
-<p class="p1"><span class="Apple-converted-space">  </span>color: #1f506b;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>margin-top: 2rem;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>margin-bottom: 1rem;</p>
-<p class="p1">}</p>
-<p class="p2"><br></p>
-<p class="p1">/* === Absätze und Listen === */</p>
-<p class="p1">p, li {</p>
-<p class="p1"><span class="Apple-converted-space">  </span>max-width: 700px;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>margin: 0.5rem 0;</p>
-<p class="p1">}</p>
-<p class="p2"><br></p>
-<p class="p1">/* === Buttons und Links === */</p>
-<p class="p1">a.button {</p>
-<p class="p1"><span class="Apple-converted-space">  </span>display: inline-block;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>padding: 0.6rem 1.2rem;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>background: #2d9cba;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>color: white;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>text-decoration: none;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>border-radius: 4px;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>font-weight: 600;</p>
-<p class="p1">}</p>
-<p class="p2"><br></p>
-<p class="p1">a.button:hover {</p>
-<p class="p1"><span class="Apple-converted-space">  </span>background: #1f506b;</p>
-<p class="p1">}</p>
-<p class="p2"><br></p>
-<p class="p1">/* === Formulare &amp; Inputfelder === */</p>
-<p class="p1">input, textarea {</p>
-<p class="p1"><span class="Apple-converted-space">  </span>border: 1px solid #ccc;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>padding: 0.5rem;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>border-radius: 4px;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>width: 100%;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>max-width: 400px;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>margin-bottom: 1rem;</p>
-<p class="p1">}</p>
-<p class="p2"><br></p>
-<p class="p1">label {</p>
-<p class="p1"><span class="Apple-converted-space">  </span>display: block;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>margin-top: 1rem;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>margin-bottom: 0.5rem;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>font-weight: bold;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>color: #1f506b;</p>
-<p class="p1">}</p>
-<p class="p2"><br></p>
-<p class="p1">/* === Footer (optional) === */</p>
-<p class="p1">footer {</p>
-<p class="p1"><span class="Apple-converted-space">  </span>padding: 2rem;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>background-color: #f2f2f2;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>text-align: center;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>color: #777;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>font-size: 0.9rem;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>border-top: 1px solid #e1e1e1;</p>
-<p class="p1">}</p>
-</body>
-</html>
+/* === Grundlayout === */
+body {
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+  background-color: #ffffff;
+  color: #222222;
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* === Navigation === */
+.main-nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  list-style: none;
+  margin: 0;
+  padding: 1rem;
+  background: #f9f9f9;
+  border-bottom: 1px solid #eee;
+}
+
+.main-nav a {
+  text-decoration: none;
+  color: #2d9cba;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.main-nav a:hover {
+  color: #1f506b;
+  text-decoration: underline;
+}
+
+/* === Überschriften === */
+h1, h2, h3 {
+  color: #1f506b;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+/* === Absätze und Listen === */
+p, li {
+  max-width: 700px;
+  margin: 0.5rem 0;
+}
+
+/* === Buttons und Links === */
+a.button {
+  display: inline-block;
+  padding: 0.6rem 1.2rem;
+  background: #2d9cba;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+a.button:hover {
+  background: #1f506b;
+}
+
+/* === Formulare & Inputfelder === */
+input, textarea {
+  border: 1px solid #ccc;
+  padding: 0.5rem;
+  border-radius: 4px;
+  width: 100%;
+  max-width: 400px;
+  margin-bottom: 1rem;
+}
+
+label {
+  display: block;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  color: #1f506b;
+}
+
+/* === Footer (optional) === */
+footer {
+  padding: 2rem;
+  background-color: #f2f2f2;
+  text-align: center;
+  color: #777;
+  font-size: 0.9rem;
+  border-top: 1px solid #e1e1e1;
+}
