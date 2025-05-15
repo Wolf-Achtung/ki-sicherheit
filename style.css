@@ -9,28 +9,78 @@ body {
   line-height: 1.6;
 }
 
-/* === Navigation === */
+/* === Neuronaler Hintergrund === */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("netzstruktur.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  opacity: 0.03;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* === Sticky Navigation + Verlauf === */
+.main-nav {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: #ffffff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
 .main-nav ul {
   display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
+  justify-content: center;
+  gap: 1.2rem;
   list-style: none;
   margin: 0;
   padding: 1rem;
-  background: #f9f9f9;
-  border-bottom: 1px solid #eee;
 }
 
 .main-nav a {
   text-decoration: none;
   color: #2d9cba;
   font-weight: 600;
+  padding: 0.4rem 0.6rem;
+  position: relative;
   transition: color 0.3s ease;
 }
 
-.main-nav a:hover {
-  color: #1f506b;
-  text-decoration: underline;
+.main-nav a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(to right, #2d9cba, #1f506b);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.main-nav a:hover::after {
+  transform: scaleX(1);
+}
+
+/* === Logo rechts oben === */
+.site-header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 1rem 2rem;
+}
+
+.logo {
+  height: 64px;
+  width: auto;
 }
 
 /* === Überschriften === */
@@ -46,8 +96,30 @@ p, li {
   margin: 0.5rem 0;
 }
 
+/* === Container-Layout === */
+.container {
+  max-width: 720px;
+  margin: 2rem auto;
+  padding: 1rem;
+}
+
+/* === Highlight-Box === */
+.highlight-box {
+  background-color: #e6f6fa;
+  border-left: 5px solid #2d9cba;
+  padding: 1rem;
+  margin: 2rem 0;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  font-weight: 500;
+  color: #1f506b;
+}
+
+section {
+  margin-bottom: 3rem;
+}
+
 /* === Buttons und Links === */
-a.button {
+a.button, button.button {
   display: inline-block;
   padding: 0.6rem 1.2rem;
   background: #2d9cba;
@@ -55,9 +127,11 @@ a.button {
   text-decoration: none;
   border-radius: 4px;
   font-weight: 600;
+  transition: background 0.3s ease;
+  cursor: pointer;
 }
 
-a.button:hover {
+a.button:hover, button.button:hover {
   background: #1f506b;
 }
 
@@ -87,39 +161,4 @@ footer {
   color: #777;
   font-size: 0.9rem;
   border-top: 1px solid #e1e1e1;
-}
-/* === Gamechanger-Styling === */
-.container {
-  max-width: 720px;
-  margin: 2rem auto;
-  padding: 1rem;
-}
-
-.highlight-box {
-  background-color: #e6f6fa;
-  border-left: 5px solid #2d9cba;
-  padding: 1rem;
-  margin: 2rem 0;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-  font-weight: 500;
-  color: #1f506b;
-}
-
-section {
-  margin-bottom: 3rem;
-}
-
-.button {
-  display: inline-block;
-  padding: 0.6rem 1.2rem;
-  background: #2d9cba;
-  color: white;
-  text-decoration: none;
-  border-radius: 4px;
-  font-weight: 600;
-  transition: background 0.3s ease;
-}
-
-.button:hover {
-  background: #1f506b;
 }
