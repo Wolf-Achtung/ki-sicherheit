@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KI-Sicherheit.jetzt – Scrolling-Prototyp</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, sans-serif;
+      scroll-behavior: smooth;
+    }
+    section {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 3rem;
+      color: white;
+      text-align: center;
+      position: relative;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+    section::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: 0;
+    }
+    section > div {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+    }
+    h1, h2 {
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+    .scroll-indicator {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 1rem;
+      opacity: 0.8;
+    }
+    .btn {
+      margin-top: 2rem;
+      background: #00b4d8;
+      border: none;
+      color: white;
+      padding: 0.8rem 1.6rem;
+      border-radius: 25px;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+    footer {
+      background: #0c4a74;
+      color: white;
+      padding: 2rem;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Section 1 -->
+<section style="background-image: url('bild1.jpg')">
+  <div>
+    <h1>KI ist mächtig. Aber ohne Kontrolle wird sie zum Risiko.</h1>
+    <p>Ich helfe Unternehmen dabei, KI sicher, nachvollziehbar und regelkonform zu nutzen.</p>
+    <div class="scroll-indicator">⬇ Weiter scrollen</div>
+  </div>
+</section>
+
+<!-- Section 2 -->
+<section style="background-image: url('bild2.jpg')">
+  <div>
+    <h2>Der EU AI Act verändert alles.</h2>
+    <p>35 Mio. € Bußgeld oder 7 % Umsatz – auch für Mittelständler. Jetzt handeln, bevor es zu spät ist.</p>
+  </div>
+</section>
+
+<!-- Section 3 -->
+<section style="background-image: url('bild3.jpg')">
+  <div>
+    <h2>Ihr Vorteil: Strategische KI-Compliance</h2>
+    <p>Ob DSGVO, Risikobewertung oder interne Leitlinien: Ich bringe Klarheit und Handlungssicherheit.</p>
+    <button class="btn">Kostenloser Erstcheck</button>
+  </div>
+</section>
+
+<!-- Section 4 -->
+<section style="background-image: url('bild4.jpg')">
+  <div>
+    <h2>Erfahren Sie, ob Ihr Unternehmen betroffen ist</h2>
+    <p>Der Selbstcheck zeigt, wie KI bei Ihnen reguliert werden muss.</p>
+    <a href="ki-sicherheitscheck.html" class="btn">Jetzt starten</a>
+  </div>
+</section>
+
+<!-- Section 5 -->
+<section style="background-image: url('bild5.jpg')">
+  <div>
+    <h2>Über mich</h2>
+    <p>25 Jahre Erfahrung im Mittelstand, zertifizierter KI-Manager, praxisnah und unabhängig.</p>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <p>© 2025 KI-Sicherheit.jetzt – Datenschutz | Impressum</p>
+</footer>
+
+</body>
+</html>
