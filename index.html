@@ -6,6 +6,18 @@
   <title>KI-Sicherheit.jetzt – Start</title>
   <link rel="stylesheet" href="style.css" />
   <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+    }
+    body {
+      display: flex;
+      flex-direction: column;
+    }
+    main {
+      flex: 1;
+    }
+
     .netz-hintergrund {
       position: fixed;
       top: 0;
@@ -40,7 +52,6 @@
       padding: 2rem;
       text-align: center;
       font-size: 0.9rem;
-      margin-top: 3rem;
       border-top: 1px solid #ddd;
     }
 
@@ -86,6 +97,17 @@
       margin-top: 2rem;
     }
 
+    .newsletter p {
+      margin-bottom: 0.5rem;
+    }
+
+    .newsletter form {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      justify-content: center;
+    }
+
     .newsletter input[type="email"] {
       padding: 0.4rem;
       width: 250px;
@@ -101,13 +123,18 @@
       border: none;
       border-radius: 4px;
       cursor: pointer;
-      margin-left: 0.5rem;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem;
     }
   </style>
 </head>
 <body>
 
-<!-- 🔵 SVG-Hintergrund -->
+<!-- 🔵 SVG-Animation als dezenter Hintergrund -->
 <div class="netz-hintergrund">
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
     <g transform="rotate(0 400 300)">
@@ -161,7 +188,7 @@
 <!-- ⬆ Zurück nach oben -->
 <button class="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">↑</button>
 
-<!-- 🌐 Footer mit Navigation + Sprache + Newsletter -->
+<!-- Footer -->
 <footer class="footer-nav">
   <nav>
     <ul>

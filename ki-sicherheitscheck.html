@@ -6,6 +6,18 @@
   <title>Selbstcheck – KI-Sicherheit.jetzt</title>
   <link rel="stylesheet" href="style.css" />
   <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+    }
+    body {
+      display: flex;
+      flex-direction: column;
+    }
+    main {
+      flex: 1;
+    }
+
     .netz-hintergrund {
       position: fixed;
       top: 0;
@@ -21,14 +33,51 @@
       width: 100%;
       height: 100%;
     }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    label {
+      font-weight: 500;
+    }
+
+    select, input, textarea, button {
+      padding: 0.5rem;
+      font-size: 1rem;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      background-color: #0c4a74;
+      color: white;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #157ea8;
+    }
+
     .footer-nav {
       background: #f7f9fc;
       padding: 2rem;
       text-align: center;
       font-size: 0.9rem;
-      margin-top: 3rem;
       border-top: 1px solid #ddd;
     }
+
     .footer-nav ul {
       list-style: none;
       padding: 0;
@@ -38,14 +87,17 @@
       justify-content: center;
       gap: 1rem;
     }
+
     .footer-nav a {
       text-decoration: none;
       color: #0c4a74;
       font-weight: 500;
     }
+
     .footer-nav a:hover {
       text-decoration: underline;
     }
+
     .back-to-top {
       position: fixed;
       bottom: 20px;
@@ -59,12 +111,26 @@
       font-size: 0.9rem;
       z-index: 999;
     }
+
     .language-switcher {
       margin-top: 1rem;
     }
+
     .newsletter {
       margin-top: 2rem;
     }
+
+    .newsletter p {
+      margin-bottom: 0.5rem;
+    }
+
+    .newsletter form {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      justify-content: center;
+    }
+
     .newsletter input[type="email"] {
       padding: 0.4rem;
       width: 250px;
@@ -72,6 +138,7 @@
       border: 1px solid #ccc;
       border-radius: 4px;
     }
+
     .newsletter button {
       padding: 0.4rem 1rem;
       background-color: #0c4a74;
@@ -79,15 +146,26 @@
       border: none;
       border-radius: 4px;
       cursor: pointer;
-      margin-left: 0.5rem;
     }
   </style>
 </head>
 <body>
 
-<!-- 🔵 Hintergrund -->
+<!-- 🔵 SVG Hintergrund -->
 <div class="netz-hintergrund">
-  <!-- Dein SVG-Animationsnetz (bereits eingebunden oder verlinkt über CSS/JS) -->
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+    <g transform="rotate(0 400 300)">
+      <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="0 400 300" to="360 400 300" dur="90s" repeatCount="indefinite"/>
+      <g stroke="#157ea8" stroke-width="2" fill="none">
+        <circle cx="100" cy="100" r="6" fill="#0c4a74"/>
+        <circle cx="300" cy="80" r="6" fill="#0c4a74"/>
+        <circle cx="500" cy="120" r="6" fill="#0c4a74"/>
+        <circle cx="700" cy="100" r="6" fill="#0c4a74"/>
+        <circle cx="400" cy="300" r="6" fill="#0c4a74"/>
+        <circle cx="600" cy="300" r="6" fill="#0c4a74"/>
+      </g>
+    </g>
+  </svg>
 </div>
 
 <header class="site-header">
@@ -96,7 +174,6 @@
 
 <main class="container">
   <h1>Selbstcheck: Wie sicher ist Ihr KI-Einsatz?</h1>
-
   <p>Mit diesem kurzen Fragebogen können Sie vorab einschätzen, ob Ihr Unternehmen Risiken durch den Einsatz von KI-Systemen ausgesetzt ist – und ob eine Beratung sinnvoll sein könnte.</p>
 
   <form>
@@ -133,11 +210,11 @@
       <option>Noch nicht</option>
     </select>
 
-    <button type="submit" class="button">Auswertung anfordern</button>
+    <button type="submit">Auswertung anfordern</button>
   </form>
 </main>
 
-<!-- ⬆ Zurück nach oben -->
+<!-- Zurück nach oben -->
 <button class="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">↑</button>
 
 <!-- Footer -->
