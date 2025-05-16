@@ -132,6 +132,50 @@
     </ul>
   </div>
 </section>
+<!-- Selbstcheck -->
+<section id="selbstcheck" class="scroll-section">
+  <div class="content">
+    <h2>Selbstcheck: Welcher KI-Risikotyp ist Ihr Unternehmen?</h2>
+    <p>Beantworten Sie 4 kurze Fragen – und erhalten Sie sofort eine Einschätzung:</p>
+
+    <div id="quiz">
+      <div class="frage" id="frage1">
+        <h3>1. Wie setzen Sie KI aktuell ein?</h3>
+        <button onclick="nextFrage(1, 'basic')">Wir testen Tools wie ChatGPT</button>
+        <button onclick="nextFrage(1, 'aktiv')">Wir nutzen KI produktiv</button>
+        <button onclick="nextFrage(1, 'unsicher')">Noch gar nicht</button>
+      </div>
+
+      <div class="frage" id="frage2" style="display:none;">
+        <h3>2. Wer verantwortet den KI-Einsatz?</h3>
+        <button onclick="nextFrage(2, 'it')">IT-Abteilung</button>
+        <button onclick="nextFrage(2, 'chef')">Geschäftsführung</button>
+        <button onclick="nextFrage(2, 'keiner')">Noch ungeklärt</button>
+      </div>
+
+      <div class="frage" id="frage3" style="display:none;">
+        <h3>3. Dokumentieren Sie KI-Prozesse?</h3>
+        <button onclick="nextFrage(3, 'ja')">Ja, vollständig</button>
+        <button onclick="nextFrage(3, 'teilweise')">Teilweise</button>
+        <button onclick="nextFrage(3, 'nein')">Nein</button>
+      </div>
+
+      <div class="frage" id="frage4" style="display:none;">
+        <h3>4. Wissen Ihre Teams, wann der EU AI Act greift?</h3>
+        <button onclick="showErgebnis('vorreiter')">Ja, das ist bei uns Thema</button>
+        <button onclick="showErgebnis('orientierung')">Teils, teils</button>
+        <button onclick="showErgebnis('risikozone')">Noch gar nicht</button>
+      </div>
+    </div>
+
+    <div id="ergebnis" style="display:none; margin-top: 2rem;">
+      <h3 id="ergebnis-titel"></h3>
+      <p id="ergebnis-text"></p>
+      <a href="#whitepaper" class="btn">Whitepaper lesen</a>
+      <a href="#kontakt" class="btn" style="margin-left: 1rem;">Beratung anfragen</a>
+    </div>
+  </div>
+</section>
 
 <!-- Whitepaper -->
 <section id="whitepaper" class="scroll-section">
@@ -183,6 +227,31 @@
     <p><strong>Impressum:</strong> Verantwortlich gemäß § 5 TMG: Max Mustermann, Musterstraße 1, 12345 Musterstadt. E-Mail: kontakt@ki-sicherheit.jetzt</p>
   </div>
 </section>
+<script>
+  function nextFrage(frageNr, wert) {
+    document.getElementById("frage" + frageNr).style.display = "none";
+    document.getElementById("frage" + (frageNr + 1)).style.display = "block";
+  }
+
+  function showErgebnis(typ) {
+    document.querySelectorAll('.frage').forEach(f => f.style.display = "none");
+    const titel = document.getElementById("ergebnis-titel");
+    const text = document.getElementById("ergebnis-text");
+
+    if (typ === "vorreiter") {
+      titel.textContent = "Sie sind ein KI-Vorreiter.";
+      text.textContent = "Ihre Organisation geht gut vorbereitet mit KI um. Jetzt gilt es, das rechtlich abzusichern und dokumentiert auszubauen.";
+    } else if (typ === "orientierung") {
+      titel.textContent = "Sie sind auf dem Weg.";
+      text.textContent = "Ihr Unternehmen bewegt sich aktiv im KI-Feld, aber es fehlt noch an Governance, Klarheit und Verantwortlichkeit.";
+    } else {
+      titel.textContent = "Sie befinden sich in der Risikozone.";
+      text.textContent = "Es besteht akuter Handlungsbedarf. Der AI Act betrifft Sie sehr wahrscheinlich – ohne Compliance drohen empfindliche Strafen.";
+    }
+
+    document.getElementById("ergebnis").style.display = "block";
+  }
+</script>
 
 </body>
 </html>
