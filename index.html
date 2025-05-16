@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="KI-Sicherheit.jetzt – Beratung zu Datenschutz, DSGVO und EU AI Act im Mittelstand">
+  <meta name="author" content="KI-Sicherheit.jetzt">
+  <title>KI-Sicherheit.jetzt – Klarheit für Entscheider:innen</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, sans-serif;
+      scroll-behavior: smooth;
+    }
+    body {
+      background-color: #ffffff;
+    }
+    section.scroll-section {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 3rem;
+      color: white;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      transition: background-color 1s ease-in-out;
+    }
+    section > .content {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+      opacity: 0;
+      transform: translateY(50px);
+      animation: fadeInUp 1.2s forwards ease-in-out;
+    }
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .netz-hintergrund {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      opacity: 0.1;
+      pointer-events: none;
+    }
+    .netz-hintergrund svg {
+      width: 100%;
+      height: 100%;
+    }
+    h1, h2 {
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+    p {
+      font-size: 1.2rem;
+      line-height: 1.6;
+    }
+    ul {
+      text-align: left;
+      margin-top: 1rem;
+      font-size: 1.1rem;
+    }
+    li {
+      margin-bottom: 0.8rem;
+    }
+    .scroll-indicator {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 1rem;
+      opacity: 0.8;
+    }
+    .logo {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      width: 160px;
+      height: auto;
+      z-index: 10;
+    }
+    .btn {
+      margin-top: 2rem;
+      background: #2ca8b8;
+      border: none;
+      color: white;
+      padding: 0.8rem 1.6rem;
+      border-radius: 25px;
+      cursor: pointer;
+      font-size: 1rem;
+      text-decoration: none;
+    }
+    #cookie-banner {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: #123d4c;
+      color: white;
+      padding: 1rem;
+      font-size: 0.9rem;
+      text-align: center;
+      z-index: 9999;
+    }
+    #cookie-banner button {
+      margin-left: 1rem;
+      background: #2ca8b8;
+      border: none;
+      color: white;
+      padding: 0.4rem 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    @media (max-width: 600px) {
+      .scroll-section {
+        padding: 2rem 1rem;
+        height: auto;
+      }
+      .btn {
+        display: block;
+        margin: 1rem auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <img src="logo.png" alt="KI-Sicherheit Logo" class="logo">
+
+  <div id="cookie-banner">
+    Diese Website verwendet nur technisch notwendige Cookies. Tracking ist deaktiviert.
+    <button onclick="document.getElementById('cookie-banner').style.display='none'">Verstanden</button>
+  </div>
+
+  <!-- Abschnitt: Intro – Explodierender Knotenpunkt -->
+  <section class="scroll-section" style="background-color: #0c4a74;">
+    <div class="netz-hintergrund">
+      <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="200" cy="200" r="6" fill="#2ca8b8">
+          <animate attributeName="r" values="6;10;6" dur="5s" repeatCount="indefinite" />
+        </circle>
+        <line x1="200" y1="200" x2="200" y2="50" stroke="#5fc9cf" stroke-width="1">
+          <animate attributeName="x2" values="200;300;200" dur="6s" repeatCount="indefinite" />
+        </line>
+        <line x1="200" y1="200" x2="200" y2="350" stroke="#123d4c" stroke-width="1">
+          <animate attributeName="x2" values="200;100;200" dur="6s" repeatCount="indefinite" />
+        </line>
+      </svg>
+    </div>
+    <div class="content">
+      <h1>KI kann ein Booster sein – oder eine Haftungsfalle.</h1>
+      <p>KI-Technologien verändern den Mittelstand radikal. Doch mit Geschwindigkeit kommt Verantwortung: Rechtskonformität, Datenschutz und Governance werden zum Erfolgsfaktor.</p>
+      <div class="scroll-indicator">⬇</div>
+    </div>
+  </section>
+
+  <!-- Abschnitt: Deshalb KI-Sicherheit – Vertrauenskreis -->
+  <section class="scroll-section" style="background-color: #123d4c;">
+    <div class="netz-hintergrund">
+      <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="200,100 240,200 200,300 160,200" fill="none" stroke="#2ca8b8" stroke-width="2">
+          <animateTransform attributeName="transform" type="scale" values="1;1.1;1" dur="4s" repeatCount="indefinite" />
+        </polygon>
+        <circle cx="200" cy="200" r="120" stroke="#5fc9cf" stroke-width="2" fill="none" opacity="0.2">
+          <animate attributeName="r" values="120;130;120" dur="6s" repeatCount="indefinite" />
+        </circle>
+      </svg>
+    </div>
+    <div class="content">
+      <h2>Deshalb KI-Sicherheit.jetzt</h2>
+      <p>Ich helfe Unternehmen, KI sicher, nachvollziehbar und gesetzeskonform einzusetzen – ohne Fachjargon, aber mit Tiefgang.</p>
+      <p>Als zertifizierter KI-Manager mit 25 Jahren Erfahrung im Mittelstand verbinde ich Technologie, Verantwortung und Praxis.</p>
+    </div>
+  </section>
+
+  <!-- Abschnitt: Leistungen – Governance-Kristall -->
+  <section class="scroll-section" style="background-color: #2ca8b8;">
+    <div class="netz-hintergrund">
+      <svg viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="150,50 250,150 150,250 50,150" stroke="#123d4c" stroke-width="2" fill="none">
+          <animate attributeName="points" dur="8s" repeatCount="indefinite"
+            values="150,50 250,150 150,250 50,150;
+                    140,60 260,140 160,240 40,160;
+                    150,50 250,150 150,250 50,150" />
+        </polygon>
+      </svg>
+    </div>
+    <div class="content">
+      <h2>Meine Leistungen für Sie</h2>
+      <ul>
+        <li>🔍 Audit & Risikoanalyse bestehender KI-Systeme, auch für kleinere Unternehmen</li>
+        <li>⚖️ Beratung zur Umsetzung des EU AI Act, rechtzeitige Warnung vor möglichen Verstößen</li>
+        <li>🔐 DSGVO-Compliance bei KI-Anwendungen</li>
+        <li>📑 Entwicklung interner KI-Leitlinien & Prozesse</li>
+        <li>👥 Workshops für Entscheider:innen und Fachabteilungen</li>
+      </ul>
+    </div>
+  </section>
+
+<!-- Abschnitt: Selbstcheck – Datenschutz-Matrix -->
+<section class="scroll-section" style="background-color: #157ea8;">
+  <div class="netz-hintergrund">
+    <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+      <g id="netz">
+        <line x1="100" y1="100" x2="300" y2="100" stroke="#2ca8b8" stroke-width="1"/>
+        <line x1="300" y1="100" x2="500" y2="100" stroke="#5fc9cf" stroke-width="1"/>
+        <line x1="100" y1="200" x2="300" y2="200" stroke="#2ca8b8" stroke-width="1"/>
+        <line x1="300" y1="200" x2="500" y2="200" stroke="#5fc9cf" stroke-width="1"/>
+        <circle cx="100" cy="100" r="3" fill="#123d4c"/>
+        <circle cx="300" cy="100" r="3" fill="#2ca8b8"/>
+        <circle cx="500" cy="100" r="3" fill="#5fc9cf"/>
+        <circle cx="100" cy="200" r="3" fill="#123d4c"/>
+        <circle cx="300" cy="200" r="3" fill="#2ca8b8"/>
+        <circle cx="500" cy="200" r="3" fill="#5fc9cf"/>
+      </g>
+    </svg>
+  </div>
+  <div class="content">
+    <h2>Wie finde ich heraus, ob mein Unternehmen betroffen ist?</h2>
+    <p>Nutzen Sie unseren KI-Sicherheitscheck oder vereinbaren Sie ein unverbindliches Erstgespräch.</p>
+    <a href="ki-sicherheitscheck.html" class="btn">Selbstcheck starten</a>
+    <a href="kontakt.html" class="btn" style="margin-left: 1rem;">Gespräch vereinbaren</a>
+  </div>
+</section>
+
+<!-- Abschnitt: EU AI Act – Regelwelle -->
+<section class="scroll-section" style="background-color: #0c4a74;">
+  <div class="netz-hintergrund">
+    <svg viewBox="0 0 1440 200" xmlns="http://www.w3.org/2000/svg">
+      <path fill="none" stroke="#2ca8b8" stroke-width="2"
+        d="M0,100 C360,180 1080,20 1440,100">
+        <animate attributeName="d" dur="10s" repeatCount="indefinite"
+          values="
+            M0,100 C360,180 1080,20 1440,100;
+            M0,100 C360,60 1080,180 1440,100;
+            M0,100 C360,180 1080,20 1440,100" />
+      </path>
+    </svg>
+  </div>
+  <div class="content">
+    <h2>Der EU AI Act kommt – Sind Sie vorbereitet?</h2>
+    <p>Der neue Rechtsrahmen für künstliche Intelligenz betrifft auch kleine und mittlere Unternehmen – je nach Anwendung und Risiko.</p>
+    <p>Ich unterstütze Sie bei der Einordnung Ihrer Systeme, der Risikobewertung und der strategischen Umsetzung – bevor es teuer wird.</p>
+    <a href="whitepaper.html" class="btn">Whitepaper lesen</a>
+  </div>
+</section>
+
+<!-- Abschnitt: Whitepaper – Explodierender Knotenpunkt -->
+<section class="scroll-section" style="background-color: #123d4c;">
+  <div class="netz-hintergrund">
+    <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="200" cy="200" r="6" fill="#2ca8b8">
+        <animate attributeName="r" values="6;10;6" dur="5s" repeatCount="indefinite" />
+      </circle>
+      <line x1="200" y1="200" x2="200" y2="50" stroke="#5fc9cf" stroke-width="1">
+        <animate attributeName="x2" values="200;300;200" dur="6s" repeatCount="indefinite" />
+      </line>
+      <line x1="200" y1="200" x2="200" y2="350" stroke="#123d4c" stroke-width="1">
+        <animate attributeName="x2" values="200;100;200" dur="6s" repeatCount="indefinite" />
+      </line>
+    </svg>
+  </div>
+  <div class="content">
+    <h2>Whitepaper für Entscheider:innen</h2>
+    <p>Exklusiv für KMU: Drei kompakte Leitfäden zum sicheren und rechtskonformen Umgang mit KI.</p>
+    <ul>
+      <li>📄 <strong>KI & DSGVO:</strong> Konflikte und Lösungen</li>
+      <li>📄 <strong>EU AI Act:</strong> Was auf Unternehmen zukommt</li>
+      <li>📄 <strong>KI-Governance:</strong> Standards für verantwortungsvolle Systeme</li>
+    </ul>
+    <a href="whitepaper.html" class="btn">Whitepaper anfordern</a>
+  </div>
+</section>
+
+<!-- Abschnitt: FAQ – Fragmente und Verbindungspfade -->
+<section class="scroll-section" style="background-color: #157ea8;">
+  <div class="netz-hintergrund">
+    <svg viewBox="0 0 600 300" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="100" cy="150" r="4" fill="#5fc9cf" />
+      <circle cx="200" cy="100" r="4" fill="#2ca8b8" />
+      <circle cx="300" cy="180" r="4" fill="#123d4c" />
+      <circle cx="400" cy="90" r="4" fill="#2ca8b8" />
+      <circle cx="500" cy="150" r="4" fill="#5fc9cf" />
+      <line x1="100" y1="150" x2="200" y2="100" stroke="#2ca8b8" stroke-width="1" />
+      <line x1="200" y1="100" x2="300" y2="180" stroke="#123d4c" stroke-width="1" />
+      <line x1="300" y1="180" x2="400" y2="90" stroke="#2ca8b8" stroke-width="1" />
+      <line x1="400" y1="90" x2="500" y2="150" stroke="#5fc9cf" stroke-width="1" />
+    </svg>
+  </div>
+  <div class="content">
+    <h2>FAQ – Häufige Fragen</h2>
+    <p><strong>Gilt der EU AI Act auch für kleinere Unternehmen?</strong><br> Ja. Auch KMUs, die KI nutzen oder entwickeln, müssen die Vorschriften beachten – je nach Risikoklasse der Anwendung.</p>
+    <p><strong>Was passiert bei Verstößen?</strong><br> Es drohen Bußgelder bis zu 35 Mio. € oder 7 % des globalen Umsatzes – ähnlich wie bei der DSGVO.</p>
+    <p><strong>Was muss ich konkret dokumentieren?</strong><br> Alle Prozesse rund um Nutzung, Schulung, Entscheidung und Risiko – auch bei Tools wie GPT oder Copilot.</p>
+    <a href="whitepaper-faq.html" class="btn">Zur FAQ-Seite</a>
+  </div>
+</section>
+
+
+</body>
+</html>
+
