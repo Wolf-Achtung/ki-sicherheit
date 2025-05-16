@@ -39,56 +39,6 @@
         transform: translateY(0);
       }
     }
-    .netz-hintergrund {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 0;
-      opacity: 0.2;
-      pointer-events: none;
-    }
-    .netz-hintergrund svg {
-      width: 100%;
-      height: 100%;
-    }
-    h1, h2 {
-      font-weight: 700;
-      margin-bottom: 1rem;
-      color: #123d4c;
-    }
-    p {
-      font-size: 1.2rem;
-      line-height: 1.6;
-      color: #2ca8b8;
-    }
-    ul {
-      text-align: left;
-      margin-top: 1rem;
-      font-size: 1.1rem;
-      color: #0c4a74;
-    }
-    li {
-      margin-bottom: 0.8rem;
-    }
-    .scroll-indicator {
-      position: absolute;
-      bottom: 2rem;
-      left: 50%;
-      transform: translateX(-50%);
-      font-size: 1rem;
-      opacity: 0.8;
-      color: #2ca8b8;
-    }
-    .logo {
-      position: fixed;
-      top: 1rem;
-      right: 1rem;
-      width: 160px;
-      height: auto;
-      z-index: 10;
-    }
     .btn {
       margin-top: 2rem;
       background: #2ca8b8;
@@ -100,423 +50,139 @@
       font-size: 1rem;
       text-decoration: none;
     }
-    #cookie-banner {
+    nav.sticky-nav {
       position: fixed;
-      bottom: 0;
+      top: 0;
       left: 0;
       width: 100%;
-      background: #123d4c;
-      color: white;
-      padding: 1rem;
-      font-size: 0.9rem;
-      text-align: center;
+      background: #ffffff;
+      border-bottom: 1px solid #ccc;
       z-index: 9999;
     }
-    #cookie-banner button {
-      margin-left: 1rem;
-      background: #2ca8b8;
-      border: none;
-      color: white;
-      padding: 0.4rem 1rem;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-    @media (max-width: 600px) {
-      .scroll-section {
-        padding: 2rem 1rem;
-        height: auto;
-      }
-      .btn {
-        display: block;
-        margin: 1rem auto;
-      }
-    }
-  </style>
-<style>
-  nav.sticky-nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background: #ffffff;
-    border-bottom: 1px solid #ccc;
-    z-index: 9999;
-  }
-  nav .nav-inner {
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 0.5rem 1rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  nav .menu {
-    display: flex;
-    gap: 1.2rem;
-  }
-  nav .menu a {
-    text-decoration: none;
-    font-weight: bold;
-    color: #0c4a74;
-    padding: 0.3rem 0.5rem;
-    border-radius: 5px;
-  }
-  nav .menu a.active {
-    background: #2ca8b8;
-    color: white;
-  }
-  .menu-toggle {
-    display: none;
-    background: none;
-    border: none;
-    font-size: 1.5rem;
-    color: #0c4a74;
-  }
-  @media (max-width: 700px) {
-    .menu {
-      display: none;
-      flex-direction: column;
-      background: #ffffff;
-      padding: 1rem;
-      position: absolute;
-      top: 3.5rem;
-      right: 1rem;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    }
-    .menu.show {
+    nav .nav-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0.5rem 1rem;
       display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    nav .menu {
+      display: flex;
+      gap: 1.2rem;
+    }
+    nav .menu a {
+      text-decoration: none;
+      font-weight: bold;
+      color: #0c4a74;
+      padding: 0.3rem 0.5rem;
+      border-radius: 5px;
     }
     .menu-toggle {
-      display: block;
+      display: none;
     }
-  }
-</style>
-<script>
-  document.addEventListener(\"DOMContentLoaded\", function () {
-    const toggle = document.getElementById(\"toggle-menu\");
-    const menu = document.getElementById(\"menu\");
-    toggle.addEventListener(\"click\", () => menu.classList.toggle(\"show\")); 
-
-    const sections = document.querySelectorAll(\"section.scroll-section[id]\");
-    const navLinks = document.querySelectorAll(\"nav a\");
-    window.addEventListener(\"scroll\", () => {
-      let current = \"\";
-      sections.forEach((sec) => {
-        const top = window.scrollY;
-        const offset = sec.offsetTop - 100;
-        const height = sec.offsetHeight;
-        if (top >= offset && top < offset + height) current = sec.id;
-      });
-      navLinks.forEach((a) => {
-        a.classList.remove(\"active\");
-        if (a.getAttribute(\"href\") === \"#\" + current) {
-          a.classList.add(\"active\");
-        }
-      });
-    });
-  });
-</script>
-
+  </style>
 </head>
 <body>
+
+<!-- Navigation -->
 <nav class="sticky-nav">
   <div class="nav-inner">
-    <strong>☰</strong>
     <button id="toggle-menu" class="menu-toggle">☰</button>
     <div id="menu" class="menu">
-      <a href="#ueber-mich">Über mich</a>
-      <a href="#angebot">Angebot</a>
-      <a href="#whitepaper">Whitepaper</a>
-      <a href="#faq">FAQ</a>
-      <a href="#kontakt">Kontakt</a>
-      <a href="#rechtliches">Rechtliches</a>
+      <a href="#ueber-mich">Wer dahintersteht</a>
+      <a href="#leistungen">Meine Lösungen</a>
+      <a href="#whitepaper">Wissen & Whitepaper</a>
+      <a href="#faq">Fragen, die Sie sich gerade stellen</a>
+      <a href="#kontakt">Kontakt aufnehmen</a>
+      <a href="#rechtliches">Rechtliches & Datenschutz</a>
     </div>
   </div>
 </nav>
 
-  <img src="logo.png" alt="KI-Sicherheit Logo" class="logo">
-
-  <div id="cookie-banner">
-    Diese Website verwendet nur technisch notwendige Cookies. Tracking ist deaktiviert.
-    <button onclick="document.getElementById('cookie-banner').style.display='none'">Verstanden</button>
-  </div>
-
-  <!-- Abschnitt: Intro – Explodierender Knotenpunkt -->
-  <section class="scroll-section" style="background-color: #ffffff">
-    <div class="netz-hintergrund">
-      <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="200" cy="200" r="6" fill="#2ca8b8">
-          <animate attributeName="r" values="6;10;6" dur="5s" repeatCount="indefinite" />
-        </circle>
-        <line x1="200" y1="200" x2="200" y2="50" stroke="#5fc9cf" stroke-width="1">
-          <animate attributeName="x2" values="200;300;200" dur="6s" repeatCount="indefinite" />
-        </line>
-        <line x1="200" y1="200" x2="200" y2="350" stroke="#123d4c" stroke-width="1">
-          <animate attributeName="x2" values="200;100;200" dur="6s" repeatCount="indefinite" />
-        </line>
-      </svg>
-    </div>
-    <div class="content">
-      <h1>KI kann ein Booster sein – oder eine Haftungsfalle.</h1>
-      <p>KI-Technologien verändern den Mittelstand radikal. Doch mit Geschwindigkeit kommt Verantwortung: Rechtskonformität, Datenschutz und Governance werden zum Erfolgsfaktor.</p>
-      <div class="scroll-indicator">⬇</div>
-    </div>
-  </section>
-
-  <!-- Abschnitt: Deshalb KI-Sicherheit – Vertrauenskreis -->
-  <section class="scroll-section" style="background-color: #ffffff">
-    <div class="netz-hintergrund">
-      <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
-        <polygon points="200,100 240,200 200,300 160,200" fill="none" stroke="#2ca8b8" stroke-width="2">
-          <animateTransform attributeName="transform" type="scale" values="1;1.1;1" dur="4s" repeatCount="indefinite" />
-        </polygon>
-        <circle cx="200" cy="200" r="120" stroke="#5fc9cf" stroke-width="2" fill="none" opacity="0.2">
-          <animate attributeName="r" values="120;130;120" dur="6s" repeatCount="indefinite" />
-        </circle>
-      </svg>
-    </div>
-    <div class="content">
-      <h2>Deshalb KI-Sicherheit.jetzt</h2>
-      <p>Ich helfe Unternehmen, KI sicher, nachvollziehbar und gesetzeskonform einzusetzen – ohne Fachjargon, aber mit Tiefgang.</p>
-      <p>Als zertifizierter KI-Manager mit 25 Jahren Erfahrung im Mittelstand verbinde ich Technologie, Verantwortung und Praxis.</p>
-    </div>
-  </section>
-
-  <!-- Abschnitt: Leistungen – Governance-Kristall -->
-  <section class="scroll-section" style="background-color: #ffffff">
-    <div class="netz-hintergrund">
-      <svg viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
-        <polygon points="150,50 250,150 150,250 50,150" stroke="#123d4c" stroke-width="2" fill="none">
-          <animate attributeName="points" dur="8s" repeatCount="indefinite"
-            values="150,50 250,150 150,250 50,150;
-                    140,60 260,140 160,240 40,160;
-                    150,50 250,150 150,250 50,150" />
-        </polygon>
-      </svg>
-    </div>
-    <div class="content">
-      <h2>Meine Leistungen für Sie</h2>
-      <ul>
-        <li>🔍 Audit & Risikoanalyse bestehender KI-Systeme, auch für kleinere Unternehmen</li>
-        <li>⚖️ Beratung zur Umsetzung des EU AI Act, rechtzeitige Warnung vor möglichen Verstößen</li>
-        <li>🔐 DSGVO-Compliance bei KI-Anwendungen</li>
-        <li>📑 Entwicklung interner KI-Leitlinien & Prozesse</li>
-        <li>👥 Workshops für Entscheider:innen und Fachabteilungen</li>
-      </ul>
-    </div>
-  </section>
-
-<!-- Abschnitt: Selbstcheck – Datenschutz-Matrix -->
-<section class="scroll-section" style="background-color: #ffffff">
-  <div class="netz-hintergrund">
-    <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
-      <g id="netz">
-        <line x1="100" y1="100" x2="300" y2="100" stroke="#2ca8b8" stroke-width="1"/>
-        <line x1="300" y1="100" x2="500" y2="100" stroke="#5fc9cf" stroke-width="1"/>
-        <line x1="100" y1="200" x2="300" y2="200" stroke="#2ca8b8" stroke-width="1"/>
-        <line x1="300" y1="200" x2="500" y2="200" stroke="#5fc9cf" stroke-width="1"/>
-        <circle cx="100" cy="100" r="3" fill="#123d4c"/>
-        <circle cx="300" cy="100" r="3" fill="#2ca8b8"/>
-        <circle cx="500" cy="100" r="3" fill="#5fc9cf"/>
-        <circle cx="100" cy="200" r="3" fill="#123d4c"/>
-        <circle cx="300" cy="200" r="3" fill="#2ca8b8"/>
-        <circle cx="500" cy="200" r="3" fill="#5fc9cf"/>
-      </g>
-    </svg>
-  </div>
+<!-- Hero-Section -->
+<section id="hero" class="scroll-section">
   <div class="content">
-    <h2>Wie finde ich heraus, ob mein Unternehmen betroffen ist?</h2>
-    <p>Nutzen Sie unseren KI-Sicherheitscheck oder vereinbaren Sie ein unverbindliches Erstgespräch.</p>
-    <a href="ki-sicherheitscheck.html" class="btn">Selbstcheck starten</a>
-    <a href="kontakt.html" class="btn" style="margin-left: 1rem;">Gespräch vereinbaren</a>
+    <h1>KI verändert alles. Sorgen Sie dafür, dass Ihr Unternehmen nicht abgehängt – oder verklagt – wird.</h1>
+    <p>Als zertifizierter KI-Manager helfe ich mittelständischen Unternehmen, KI sicher, rechtssicher und zukunftsfähig einzusetzen – ganz ohne Fachchinesisch.</p>
+    <p>✅ EU AI Act verstehen · ✅ DSGVO bei KI einhalten · ✅ Risiken vermeiden</p>
   </div>
 </section>
 
-<!-- Abschnitt: EU AI Act – Regelwelle -->
-<section class="scroll-section" style="background-color: #ffffff">
-  <div class="netz-hintergrund">
-    <svg viewBox="0 0 1440 200" xmlns="http://www.w3.org/2000/svg">
-      <path fill="none" stroke="#2ca8b8" stroke-width="2"
-        d="M0,100 C360,180 1080,20 1440,100">
-        <animate attributeName="d" dur="10s" repeatCount="indefinite"
-          values="
-            M0,100 C360,180 1080,20 1440,100;
-            M0,100 C360,60 1080,180 1440,100;
-            M0,100 C360,180 1080,20 1440,100" />
-      </path>
-    </svg>
-  </div>
+<!-- Über mich -->
+<section id="ueber-mich" class="scroll-section">
   <div class="content">
-    <h2>Der EU AI Act kommt – Sind Sie vorbereitet?</h2>
-    <p>Der neue Rechtsrahmen für künstliche Intelligenz betrifft auch kleine und mittlere Unternehmen – je nach Anwendung und Risiko.</p>
-    <p>Ich unterstütze Sie bei der Einordnung Ihrer Systeme, der Risikobewertung und der strategischen Umsetzung – bevor es teuer wird.</p>
-    <a href="whitepaper.html" class="btn">Whitepaper lesen</a>
+    <h2>Wer dahintersteht</h2>
+    <p>Ich bin Ihr Sparringspartner für sichere KI-Nutzung im Mittelstand. Mit 25 Jahren Erfahrung im B2B-Umfeld weiß ich:</p>
+    <p><strong>Wirtschaftlichkeit und Verantwortung schließen sich nicht aus.</strong></p>
+    <p>Mein Ziel: <strong>KI-Vertrauen schaffen – mit Plan, Klartext und Verantwortung.</strong></p>
   </div>
 </section>
 
-<!-- Abschnitt: Whitepaper – Explodierender Knotenpunkt -->
-<section class="scroll-section" style="background-color: #ffffff">
-  <div class="netz-hintergrund">
-    <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="200" cy="200" r="6" fill="#2ca8b8">
-        <animate attributeName="r" values="6;10;6" dur="5s" repeatCount="indefinite" />
-      </circle>
-      <line x1="200" y1="200" x2="200" y2="50" stroke="#5fc9cf" stroke-width="1">
-        <animate attributeName="x2" values="200;300;200" dur="6s" repeatCount="indefinite" />
-      </line>
-      <line x1="200" y1="200" x2="200" y2="350" stroke="#123d4c" stroke-width="1">
-        <animate attributeName="x2" values="200;100;200" dur="6s" repeatCount="indefinite" />
-      </line>
-    </svg>
-  </div>
+<!-- Leistungen -->
+<section id="leistungen" class="scroll-section">
   <div class="content">
-    <h2>Whitepaper für Entscheider:innen</h2>
-    <p>Exklusiv für KMU: Drei kompakte Leitfäden zum sicheren und rechtskonformen Umgang mit KI.</p>
+    <h2>Meine Lösungen für Ihr Unternehmen</h2>
     <ul>
-      <li>📄 <strong>KI & DSGVO:</strong> Konflikte und Lösungen</li>
-      <li>📄 <strong>EU AI Act:</strong> Was auf Unternehmen zukommt</li>
-      <li>📄 <strong>KI-Governance:</strong> Standards für verantwortungsvolle Systeme</li>
+      <li>✅ Schnellcheck für Ihre aktuellen KI-Anwendungen</li>
+      <li>✅ Strategieberatung für sichere KI-Nutzung – inkl. DSGVO & AI Act</li>
+      <li>✅ Praxisnahe Leitlinien & Vorlagen für Ihr Unternehmen</li>
+      <li>✅ Workshops für Geschäftsführung & Fachabteilungen</li>
+      <li>✅ Individuelle Begleitung bei Governance & Compliance</li>
     </ul>
-    <a href="whitepaper.html" class="btn">Whitepaper anfordern</a>
   </div>
 </section>
 
-<!-- Abschnitt: FAQ – Fragmente und Verbindungspfade -->
-<section class="scroll-section" style="background-color: #ffffff">
-  <div class="netz-hintergrund">
-    <svg viewBox="0 0 600 300" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="100" cy="150" r="4" fill="#5fc9cf" />
-      <circle cx="200" cy="100" r="4" fill="#2ca8b8" />
-      <circle cx="300" cy="180" r="4" fill="#123d4c" />
-      <circle cx="400" cy="90" r="4" fill="#2ca8b8" />
-      <circle cx="500" cy="150" r="4" fill="#5fc9cf" />
-      <line x1="100" y1="150" x2="200" y2="100" stroke="#2ca8b8" stroke-width="1" />
-      <line x1="200" y1="100" x2="300" y2="180" stroke="#123d4c" stroke-width="1" />
-      <line x1="300" y1="180" x2="400" y2="90" stroke="#2ca8b8" stroke-width="1" />
-      <line x1="400" y1="90" x2="500" y2="150" stroke="#5fc9cf" stroke-width="1" />
-    </svg>
-  </div>
+<!-- Whitepaper -->
+<section id="whitepaper" class="scroll-section">
   <div class="content">
-    <h2>FAQ – Häufige Fragen</h2>
-    <p><strong>Gilt der EU AI Act auch für kleinere Unternehmen?</strong><br> Ja. Auch KMUs, die KI nutzen oder entwickeln, müssen die Vorschriften beachten – je nach Risikoklasse der Anwendung.</p>
-    <p><strong>Was passiert bei Verstößen?</strong><br> Es drohen Bußgelder bis zu 35 Mio. € oder 7 % des globalen Umsatzes – ähnlich wie bei der DSGVO.</p>
-    <p><strong>Was muss ich konkret dokumentieren?</strong><br> Alle Prozesse rund um Nutzung, Schulung, Entscheidung und Risiko – auch bei Tools wie GPT oder Copilot.</p>
-    <a href="whitepaper-faq.html" class="btn">Zur FAQ-Seite</a>
+    <h2>Whitepaper: Klarheit schaffen – statt Risiken eingehen</h2>
+    <p>Drei kompakte Leitfäden für Entscheider:innen im Mittelstand:</p>
+    <ul>
+      <li>📄 <strong>KI & Datenschutz:</strong> Konflikte & Lösungen</li>
+      <li>📄 <strong>EU AI Act:</strong> Was Unternehmen jetzt tun müssen</li>
+      <li>📄 <strong>Governance:</strong> Leitlinien & Checklisten für die Praxis</li>
+    </ul>
+    <form name="whitepaper" method="POST" data-netlify="true">
+      <input type="hidden" name="form-name" value="whitepaper">
+      <input type="email" name="email" placeholder="Ihre E-Mail" required style="padding:1rem;width:100%;">
+      <button type="submit" class="btn">Whitepaper erhalten</button>
+    </form>
   </div>
 </section>
 
-  <!-- Ab hier folgen die Scroll-Sektionen mit überführten Inhalten -->
-
-  <!-- Über mich -->
-  <section id="ueber-mich" class="scroll-section">
-    <div class="netz-hintergrund">
-      <svg viewBox="0 0 800 200" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
-        <circle cx="100" cy="100" r="6" fill="#123d4c" />
-        <circle cx="250" cy="100" r="6" fill="#2ca8b8" />
-        <circle cx="400" cy="100" r="6" fill="#5fc9cf" />
-        <circle cx="550" cy="100" r="6" fill="#2ca8b8" />
-        <circle cx="700" cy="100" r="6" fill="#123d4c" />
-      </svg>
-    </div>
-    <div class="content">
-      <h2>Über mich</h2>
-      <p>Ich bin zertifizierter KI-Manager mit über 25 Jahren Erfahrung in mittelständischen Unternehmen. Mein Ziel ist es, KI sicher und verantwortungsvoll in die Unternehmenspraxis zu integrieren – mit Augenmaß, Technologieverständnis und rechtlicher Klarheit.</p>
-    </div>
-  </section>
-
-  <!-- Angebot -->
-<section id="angebot" class="scroll-section">
-    <div class="netz-hintergrund">
-      <svg viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
-        <line x1="100" y1="50" x2="700" y2="50" stroke="#2ca8b8" stroke-width="2"/>
-        <line x1="100" y1="150" x2="700" y2="150" stroke="#5fc9cf" stroke-width="2"/>
-        <line x1="100" y1="250" x2="700" y2="250" stroke="#123d4c" stroke-width="2"/>
-      </svg>
-    </div>
-    <div class="content">
-      <h2>Mein Angebot</h2>
-      <ul>
-        <li>✔ Strategieberatung zur Einführung von KI-Anwendungen</li>
-        <li>✔ Unterstützung bei der Bewertung von KI-Risiken</li>
-        <li>✔ Interne Audits für KI-Compliance & Governance</li>
-        <li>✔ Workshops für Geschäftsführung und Fachabteilungen</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- Whitepaper -->
- <section id="white paper" class="scroll-section">
-    <div class="netz-hintergrund">
-      <svg viewBox="0 0 800 200" xmlns="http://www.w3.org/2000/svg">
-        <rect x="150" y="40" width="100" height="120" stroke="#2ca8b8" fill="none" stroke-width="2" />
-        <rect x="325" y="40" width="100" height="120" stroke="#5fc9cf" fill="none" stroke-width="2" />
-        <rect x="500" y="40" width="100" height="120" stroke="#123d4c" fill="none" stroke-width="2" />
-      </svg>
-    </div>
-    <div class="content">
-      <h2>Whitepaper</h2>
-      <p>Laden Sie unsere Leitfäden herunter – speziell für KMUs:</p>
-      <ul>
-        <li>📘 KI & DSGVO: Konflikte und Lösungen</li>
-        <li>📘 EU AI Act: Anforderungen frühzeitig verstehen</li>
-        <li>📘 Interne Leitlinien zur sicheren KI-Nutzung</li>
-      </ul>
-      <a href="whitepaper.html" class="btn">Whitepaper anfordern</a>
-    </div>
-  </section>
-
-  <!-- FAQ -->
+<!-- FAQ (optional einfügen) -->
 <section id="faq" class="scroll-section">
-    <div class="netz-hintergrund">
-      <svg viewBox="0 0 600 300" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
-        <circle cx="100" cy="150" r="5" fill="#2ca8b8" />
-        <circle cx="200" cy="90" r="5" fill="#5fc9cf" />
-        <circle cx="300" cy="210" r="5" fill="#123d4c" />
-        <circle cx="400" cy="110" r="5" fill="#2ca8b8" />
-        <circle cx="500" cy="170" r="5" fill="#5fc9cf" />
-      </svg>
-    </div>
-    <div class="content">
-      <h2>Häufige Fragen</h2>
-      <p><strong>Gilt der EU AI Act auch für kleinere Unternehmen?</strong><br> Ja, insbesondere wenn KI Systeme mit Risiko eingesetzt werden.</p>
-      <p><strong>Welche Risiken drohen bei Nichtbeachtung?</strong><br> Bis zu 35 Mio. € oder 7 % des Jahresumsatzes – ähnlich der DSGVO.</p>
-      <p><strong>Wie erkenne ich, ob ich betroffen bin?</strong><br> Nutzen Sie unseren Selbstcheck oder lassen Sie sich beraten.</p>
-      <a href="whitepaper-faq.html" class="btn">Zur FAQ-Seite</a>
-    </div>
-  </section>
+  <div class="content">
+    <h2>Fragen, die Sie sich gerade stellen</h2>
+    <p><strong>Gilt der EU AI Act auch für kleinere Unternehmen?</strong><br> Ja, besonders wenn KI mit Risiko eingesetzt wird.</p>
+    <p><strong>Was passiert bei Verstößen?</strong><br> Es drohen Bußgelder bis 35 Mio. € oder 7 % des Jahresumsatzes.</p>
+    <p><strong>Wie erkenne ich, ob ich betroffen bin?</strong><br> Nutzen Sie den Selbstcheck oder buchen Sie ein Gespräch.</p>
+  </div>
+</section>
 
-  <!-- Kontaktformular -->
+<!-- Kontakt -->
 <section id="kontakt" class="scroll-section">
-   <div class="netz-hintergrund">
-      <svg viewBox="0 0 600 200" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
-        <line x1="100" y1="100" x2="500" y2="100" stroke="#2ca8b8" stroke-width="3"/>
-        <circle cx="300" cy="100" r="8" fill="#123d4c" />
-      </svg>
-    </div>
-    <div class="content">
-      <h2>Kontakt aufnehmen</h2>
-      <form name="kontakt" method="POST" data-netlify="true">
-        <input type="hidden" name="form-name" value="kontakt">
-        <p><input type="text" name="name" placeholder="Ihr Name" required style="width:100%; padding:0.8rem;"></p>
-        <p><input type="email" name="email" placeholder="Ihre E-Mail" required style="width:100%; padding:0.8rem;"></p>
-        <p><textarea name="nachricht" placeholder="Ihre Nachricht" rows="6" required style="width:100%; padding:0.8rem;"></textarea></p>
-        <p><button type="submit" class="btn">Nachricht senden</button></p>
-      </form>
-    </div>
-  </section>
+  <div class="content">
+    <h2>Kontakt aufnehmen</h2>
+    <form name="kontakt" method="POST" data-netlify="true">
+      <input type="hidden" name="form-name" value="kontakt">
+      <p><input type="text" name="name" placeholder="Ihr Name" required style="width:100%; padding:0.8rem;"></p>
+      <p><input type="email" name="email" placeholder="Ihre E-Mail" required style="width:100%; padding:0.8rem;"></p>
+      <p><textarea name="nachricht" placeholder="Ihre Nachricht" rows="6" required style="width:100%; padding:0.8rem;"></textarea></p>
+      <p><button type="submit" class="btn">Nachricht senden</button></p>
+    </form>
+  </div>
+</section>
 
-  <!-- Datenschutz & Impressum -->
- <section id="rechtliches" class="scroll-section">
-   <div class="netz-hintergrund">
-      <svg viewBox="0 0 600 100" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
-        <line x1="0" y1="50" x2="600" y2="50" stroke="#5fc9cf" stroke-width="1"/>
-      </svg>
-    </div>
-    <div class="content">
-      <h2>Rechtliches</h2>
-      <p><strong>Datenschutz:</strong> Diese Website verwendet keine Tracking-Cookies und speichert keine personenbezogenen Daten ohne Ihre Zustimmung. Details finden Sie in unserer Datenschutzerklärung.</p>
-      <p><strong>Impressum:</strong> Verantwortlich gemäß § 5 TMG: Max Mustermann, Musterstraße 1, 12345 Musterstadt. E-Mail: kontakt@ki-sicherheit.jetzt</p>
-    </div>
-  </section>
+<!-- Rechtliches -->
+<section id="rechtliches" class="scroll-section">
+  <div class="content">
+    <h2>Rechtliches & Datenschutz</h2>
+    <p><strong>Datenschutz:</strong> Diese Website verwendet keine Tracking-Cookies. Es werden keine personenbezogenen Daten ohne Ihre Zustimmung gespeichert.</p>
+    <p><strong>Impressum:</strong> Verantwortlich gemäß § 5 TMG: Max Mustermann, Musterstraße 1, 12345 Musterstadt. E-Mail: kontakt@ki-sicherheit.jetzt</p>
+  </div>
+</section>
+
 </body>
 </html>
