@@ -12,8 +12,6 @@
       padding: 0;
       font-family: system-ui, sans-serif;
       scroll-behavior: smooth;
-    }
-    body {
       background-color: #ffffff;
     }
     section.scroll-section {
@@ -21,12 +19,11 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 3rem;
-      color: white;
+      padding: 4rem 2rem;
+      color: #0c4a74;
       text-align: center;
       position: relative;
       overflow: hidden;
-      transition: background-color 1s ease-in-out;
     }
     section > .content {
       position: relative;
@@ -49,7 +46,7 @@
       width: 100%;
       height: 100%;
       z-index: 0;
-      opacity: 0.1;
+      opacity: 0.2;
       pointer-events: none;
     }
     .netz-hintergrund svg {
@@ -59,15 +56,18 @@
     h1, h2 {
       font-weight: 700;
       margin-bottom: 1rem;
+      color: #123d4c;
     }
     p {
       font-size: 1.2rem;
       line-height: 1.6;
+      color: #2ca8b8;
     }
     ul {
       text-align: left;
       margin-top: 1rem;
       font-size: 1.1rem;
+      color: #0c4a74;
     }
     li {
       margin-bottom: 0.8rem;
@@ -79,6 +79,7 @@
       transform: translateX(-50%);
       font-size: 1rem;
       opacity: 0.8;
+      color: #2ca8b8;
     }
     .logo {
       position: fixed;
@@ -304,7 +305,120 @@
   </div>
 </section>
 
+ <!-- Ab hier folgen die Scroll-Sektionen mit überführten Inhalten -->
 
+  <!-- Über mich -->
+  <section class="scroll-section">
+    <div class="netz-hintergrund">
+      <svg viewBox="0 0 800 200" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="100" cy="100" r="6" fill="#123d4c" />
+        <circle cx="250" cy="100" r="6" fill="#2ca8b8" />
+        <circle cx="400" cy="100" r="6" fill="#5fc9cf" />
+        <circle cx="550" cy="100" r="6" fill="#2ca8b8" />
+        <circle cx="700" cy="100" r="6" fill="#123d4c" />
+      </svg>
+    </div>
+    <div class="content">
+      <h2>Über mich</h2>
+      <p>Ich bin zertifizierter KI-Manager mit über 25 Jahren Erfahrung in mittelständischen Unternehmen. Mein Ziel ist es, KI sicher und verantwortungsvoll in die Unternehmenspraxis zu integrieren – mit Augenmaß, Technologieverständnis und rechtlicher Klarheit.</p>
+    </div>
+  </section>
+
+  <!-- Angebot -->
+  <section class="scroll-section">
+    <div class="netz-hintergrund">
+      <svg viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
+        <line x1="100" y1="50" x2="700" y2="50" stroke="#2ca8b8" stroke-width="2"/>
+        <line x1="100" y1="150" x2="700" y2="150" stroke="#5fc9cf" stroke-width="2"/>
+        <line x1="100" y1="250" x2="700" y2="250" stroke="#123d4c" stroke-width="2"/>
+      </svg>
+    </div>
+    <div class="content">
+      <h2>Mein Angebot</h2>
+      <ul>
+        <li>✔ Strategieberatung zur Einführung von KI-Anwendungen</li>
+        <li>✔ Unterstützung bei der Bewertung von KI-Risiken</li>
+        <li>✔ Interne Audits für KI-Compliance & Governance</li>
+        <li>✔ Workshops für Geschäftsführung und Fachabteilungen</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Whitepaper -->
+  <section class="scroll-section">
+    <div class="netz-hintergrund">
+      <svg viewBox="0 0 800 200" xmlns="http://www.w3.org/2000/svg">
+        <rect x="150" y="40" width="100" height="120" stroke="#2ca8b8" fill="none" stroke-width="2" />
+        <rect x="325" y="40" width="100" height="120" stroke="#5fc9cf" fill="none" stroke-width="2" />
+        <rect x="500" y="40" width="100" height="120" stroke="#123d4c" fill="none" stroke-width="2" />
+      </svg>
+    </div>
+    <div class="content">
+      <h2>Whitepaper</h2>
+      <p>Laden Sie unsere Leitfäden herunter – speziell für KMUs:</p>
+      <ul>
+        <li>📘 KI & DSGVO: Konflikte und Lösungen</li>
+        <li>📘 EU AI Act: Anforderungen frühzeitig verstehen</li>
+        <li>📘 Interne Leitlinien zur sicheren KI-Nutzung</li>
+      </ul>
+      <a href="whitepaper.html" class="btn">Whitepaper anfordern</a>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="scroll-section">
+    <div class="netz-hintergrund">
+      <svg viewBox="0 0 600 300" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="100" cy="150" r="5" fill="#2ca8b8" />
+        <circle cx="200" cy="90" r="5" fill="#5fc9cf" />
+        <circle cx="300" cy="210" r="5" fill="#123d4c" />
+        <circle cx="400" cy="110" r="5" fill="#2ca8b8" />
+        <circle cx="500" cy="170" r="5" fill="#5fc9cf" />
+      </svg>
+    </div>
+    <div class="content">
+      <h2>Häufige Fragen</h2>
+      <p><strong>Gilt der EU AI Act auch für kleinere Unternehmen?</strong><br> Ja, insbesondere wenn KI Systeme mit Risiko eingesetzt werden.</p>
+      <p><strong>Welche Risiken drohen bei Nichtbeachtung?</strong><br> Bis zu 35 Mio. € oder 7 % des Jahresumsatzes – ähnlich der DSGVO.</p>
+      <p><strong>Wie erkenne ich, ob ich betroffen bin?</strong><br> Nutzen Sie unseren Selbstcheck oder lassen Sie sich beraten.</p>
+      <a href="whitepaper-faq.html" class="btn">Zur FAQ-Seite</a>
+    </div>
+  </section>
+
+  <!-- Kontaktformular -->
+  <section class="scroll-section">
+    <div class="netz-hintergrund">
+      <svg viewBox="0 0 600 200" xmlns="http://www.w3.org/2000/svg">
+        <line x1="100" y1="100" x2="500" y2="100" stroke="#2ca8b8" stroke-width="3"/>
+        <circle cx="300" cy="100" r="8" fill="#123d4c" />
+      </svg>
+    </div>
+    <div class="content">
+      <h2>Kontakt aufnehmen</h2>
+      <form name="kontakt" method="POST" data-netlify="true">
+        <input type="hidden" name="form-name" value="kontakt">
+        <p><input type="text" name="name" placeholder="Ihr Name" required style="width:100%; padding:0.8rem;"></p>
+        <p><input type="email" name="email" placeholder="Ihre E-Mail" required style="width:100%; padding:0.8rem;"></p>
+        <p><textarea name="nachricht" placeholder="Ihre Nachricht" rows="6" required style="width:100%; padding:0.8rem;"></textarea></p>
+        <p><button type="submit" class="btn">Nachricht senden</button></p>
+      </form>
+    </div>
+  </section>
+
+  <!-- Datenschutz & Impressum -->
+  <section class="scroll-section">
+    <div class="netz-hintergrund">
+      <svg viewBox="0 0 600 100" xmlns="http://www.w3.org/2000/svg">
+        <line x1="0" y1="50" x2="600" y2="50" stroke="#5fc9cf" stroke-width="1"/>
+      </svg>
+    </div>
+    <div class="content">
+      <h2>Rechtliches</h2>
+      <p><strong>Datenschutz:</strong> Diese Website verwendet keine Tracking-Cookies und speichert keine personenbezogenen Daten ohne Ihre Zustimmung. Details finden Sie in unserer Datenschutzerklärung.</p>
+      <p><strong>Impressum:</strong> Verantwortlich gemäß § 5 TMG: Max Mustermann, Musterstraße 1, 12345 Musterstadt. E-Mail: kontakt@ki-sicherheit.jetzt</p>
+    </div>
+  </section>
 </body>
 </html>
+
 
