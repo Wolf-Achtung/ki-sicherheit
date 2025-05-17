@@ -8,168 +8,179 @@
   <!-- Google Font: Inter -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
 
-  <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Inter', sans-serif;
-      background: #ffffff url('assets/img/netzstruktur.svg') no-repeat center top;
-      background-size: cover;
-      scroll-behavior: smooth;
-      color: #0c4a74;
-    }
+<style>
+  html, body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+    background: #ffffff url('assets/img/netzstruktur.svg') no-repeat center top;
+    background-size: cover;
+    scroll-behavior: smooth;
+    color: #0c4a74;
+  }
 
-    h1, h2, h3 {
-      margin-bottom: 1.2rem;
-      font-weight: 600;
-    }
+  h1, h2, h3 {
+    margin-bottom: 1.2rem;
+    font-weight: 600;
+  }
 
-    h1 {
-      font-size: 2rem;
-    }
+  h1 {
+    font-size: 2rem;
+  }
 
-    h2 {
-      font-size: 1.75rem;
-    }
+  h2 {
+    font-size: 1.75rem;
+  }
 
-    h3 {
-      font-size: 1.25rem;
-    }
+  h3 {
+    font-size: 1.25rem;
+  }
 
-    p {
-      font-size: 1.125rem;
-      line-height: 1.6;
-      margin-bottom: 1.5rem;
-    }
+  p {
+    font-size: 1.125rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    text-align: justify;
+  }
 
-    .scroll-section {
-      min-height: 100vh;
-      padding: 5rem 2rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      text-align: center;
-    }
+  .scroll-section {
+    min-height: 100vh;
+    padding: 5rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
 
-    .content {
-      max-width: 800px;
-      width: 100%;
-    }
+  .content {
+    max-width: 800px;
+    width: 100%;
+  }
 
-    .btn {
-      background-color: #0c4a74;
-      color: white;
-      padding: 0.8rem 1.6rem;
-      border: none;
-      border-radius: 25px;
-      font-size: 1rem;
-      margin-top: 1.5rem;
-      cursor: pointer;
-      text-decoration: none;
-      transition: background 0.2s ease-in-out;
-    }
+  .btn {
+    background-color: #0c4a74;
+    color: white;
+    padding: 0.8rem 1.6rem;
+    border: none;
+    border-radius: 25px;
+    font-size: 1rem;
+    margin-top: 1.5rem;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.2s ease-in-out;
+  }
 
-    .btn:hover {
-      background-color: #09395c;
-    }
+  .btn:hover {
+    background-color: #09395c;
+  }
 
-    /* Navigation */
-    .menu {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: center;
-      gap: 1rem;
-      padding: 1rem 2rem;
-      background: #ffffff;
-      border-bottom: 1px solid #ddd;
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
+  /* Navigation */
+  .menu {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 2rem;
+    background: #ffffff;
+    border-bottom: 1px solid #ddd;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    flex-direction: row;
+  }
 
-    .menu a {
-      text-decoration: none;
-      font-weight: 600;
-      color: #0c4a74;
-      padding: 0.4rem 0.8rem;
-      border-radius: 5px;
-    }
+  .menu a {
+    text-decoration: none;
+    font-weight: 600;
+    color: #0c4a74;
+    padding: 0.4rem 0.8rem;
+    border-radius: 5px;
+  }
 
-    .menu a:hover {
-      background-color: #e0f7fa;
-    }
+  .menu a:hover {
+    background-color: #e0f7fa;
+  }
 
-    .menu-logo {
-      height: 50px;
-    }
+  .menu-logo {
+    height: 70px;
+  }
 
-    ul {
-      text-align: left;
-      padding-left: 1.2rem;
-      margin: 1.5rem 0;
-    }
+  ul {
+    margin: 1.5rem 0;
+    padding: 1rem;
+    background: #0c4a74;
+    color: white;
+    border-radius: 8px;
+    list-style: disc;
+  }
 
-    ul li {
-      margin-bottom: 0.8rem;
-      line-height: 1.5;
-      list-style-type: disc;
-    }
+  ul li {
+    margin-bottom: 0.8rem;
+    line-height: 1.5;
+  }
 
-    .accordion {
-      border-top: 1px solid #ccc;
-      margin-top: 1rem;
-    }
+  .accordion {
+    border-top: 1px solid #ccc;
+    margin-top: 1rem;
+  }
 
-    .accordion-item {
-      border-bottom: 1px solid #ccc;
-    }
+  .accordion-item {
+    border-bottom: 1px solid #ccc;
+  }
 
-    .accordion-toggle {
-      background: none;
-      border: none;
-      width: 100%;
-      text-align: left;
-      padding: 1rem;
-      font-size: 1rem;
-      font-weight: bold;
-      color: #0c4a74;
-      cursor: pointer;
-      transition: background 0.2s ease-in-out;
-    }
+  .accordion-toggle {
+    background: none;
+    border: none;
+    width: 100%;
+    text-align: left;
+    padding: 1rem;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #0c4a74;
+    cursor: pointer;
+    transition: background 0.2s ease-in-out;
+  }
 
-    .accordion-toggle:hover {
-      background: #f0f8fa;
-    }
+  .accordion-toggle:hover {
+    background: #f0f8fa;
+  }
 
-    .accordion-content {
-      display: none;
-      padding: 0 1rem 1rem;
-      color: #123d4c;
-    }
+  .accordion-content {
+    display: none;
+    padding: 0 1rem 1rem;
+    color: #123d4c;
+  }
 
-    .accordion-item.open .accordion-content {
-      display: block;
-    }
-  </style>
+  .accordion-item.open .accordion-content {
+    display: block;
+  }
+
+  hr {
+    margin: 4rem 0 2rem;
+    border: none;
+    border-top: 2px solid #ccc;
+  }
+</style>
+
 </head>
 <body>
 
   <!-- Navigation -->
   <nav class="menu">
-    <div style="display: flex; flex-wrap: wrap; gap: 1rem;">
+    <div style="display: flex; flex-wrap: wrap; gap: 1rem; flex-grow: 1;">
       <a href="#ueber-mich">Profil &amp; Motivation</a>
       <a href="#leistungen">Leistungen &amp; Lösungen</a>
-      <a href="#wissen">Wissen &amp; Werkzeuge</a>
-      <a href="#faq">Fragen &amp; klare Antworten</a>
+      <a href="#wissen">Wissen &amp; Praxis</a>
+      <a href="#faq">Fragen &amp; Antworten</a>
       <a href="#kontakt">Kontakt &amp; Erstgespräch</a>
       <a href="#rechtliches">Rechtliches &amp; Transparenz</a>
     </div>
     <div>
-      <img src="assets/img/tuev-logo-transparent.png" alt="TÜV Austria zertifiziert" class="menu-logo">
+      <img src="assets/img/tuev-logo-transparent.png" alt="TÜV Austria zertifiziert" class="menu-logo" style="height: 90px;">
     </div>
   </nav>
+
 <!-- Hero / Einstieg -->
 <section id="start" class="scroll-section">
   <div class="content">
@@ -355,6 +366,7 @@
     Es werden keine personenbezogenen Daten ohne Ihre ausdrückliche Zustimmung verarbeitet.</p>
 
     <h3>Datenschutzerklärung</h3>
+
     <p><strong>Der Schutz Ihrer persönlichen Daten ist mir ein besonderes Anliegen.</strong> Ich verarbeite Ihre Daten daher ausschließlich auf Grundlage der gesetzlichen Bestimmungen (DSGVO, TMG).</p>
 
     <p><strong>1. Kontakt mit mir</strong><br>
@@ -363,18 +375,22 @@
     <p><strong>2. Cookies</strong><br>
     Meine Website verwendet keine Cookies zur Nachverfolgung oder Analyse. Es werden ausschließlich technisch notwendige Cookies verwendet, sofern überhaupt.</p>
 
-    <p><strong>3. Ihre Rechte</strong><br>
-    Sie haben jederzeit das Recht auf:
-      <ul>
-        <li>Auskunft, Berichtigung oder Löschung Ihrer Daten</li>
-        <li>Einschränkung der Verarbeitung</li>
-        <li>Datenübertragbarkeit</li>
-        <li>Widerruf erteilter Einwilligungen</li>
-        <li>Beschwerde bei der Datenschutzbehörde</li>
-      </ul>
-    Wenn Sie glauben, dass die Verarbeitung Ihrer Daten gegen das Datenschutzrecht verstößt oder Ihre datenschutzrechtlichen Ansprüche verletzt wurden, können Sie sich bei der Aufsichtsbehörde beschweren.</p>
+    <p><strong>3. Ihre Rechte</strong><br>Sie haben jederzeit das Recht auf:</p>
+
+    <ul>
+      <li>Auskunft, Berichtigung oder Löschung Ihrer Daten</li>
+      <li>Einschränkung der Verarbeitung</li>
+      <li>Datenübertragbarkeit</li>
+      <li>Widerruf erteilter Einwilligungen</li>
+      <li>Beschwerde bei der Datenschutzbehörde</li>
+    </ul>
+
+    <p>Wenn Sie glauben, dass die Verarbeitung Ihrer Daten gegen das Datenschutzrecht verstößt oder Ihre datenschutzrechtlichen Ansprüche verletzt wurden, können Sie sich bei der Aufsichtsbehörde beschweren.</p>
+
+    <hr>
 
     <h3>Impressum</h3>
+
     <p><strong>Angaben gemäß § 5 TMG</strong><br>
     Wolf Hohl<br>
     Greifswalder Str. 224a<br>
@@ -395,6 +411,7 @@
 
   </div>
 </section>
+
 <!-- Akkordeon-Funktion für FAQ -->
 <script>
   document.querySelectorAll('.accordion-toggle').forEach(button => {
@@ -407,3 +424,4 @@
 
 </body>
 </html>
+
