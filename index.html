@@ -13,13 +13,15 @@
       margin: 0;
       padding: 0;
       font-family: 'Inter', sans-serif;
+      background: #ffffff url('assets/img/netzstruktur.svg') no-repeat center top;
+      background-size: cover;
       scroll-behavior: smooth;
-      background-color: #ffffff;
       color: #0c4a74;
     }
 
     h1, h2, h3 {
       margin-bottom: 1.2rem;
+      font-weight: 600;
     }
 
     h1 {
@@ -31,7 +33,7 @@
     }
 
     h3 {
-      font-size: 1.3rem;
+      font-size: 1.25rem;
     }
 
     p {
@@ -56,7 +58,7 @@
     }
 
     .btn {
-      background-color: #2ca8b8;
+      background-color: #0c4a74;
       color: white;
       padding: 0.8rem 1.6rem;
       border: none;
@@ -65,14 +67,21 @@
       margin-top: 1.5rem;
       cursor: pointer;
       text-decoration: none;
+      transition: background 0.2s ease-in-out;
     }
 
+    .btn:hover {
+      background-color: #09395c;
+    }
+
+    /* Navigation */
     .menu {
       display: flex;
-      justify-content: center;
-      gap: 1.2rem;
       flex-wrap: wrap;
-      padding: 1rem;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem 2rem;
       background: #ffffff;
       border-bottom: 1px solid #ddd;
       position: sticky;
@@ -92,6 +101,10 @@
       background-color: #e0f7fa;
     }
 
+    .menu-logo {
+      height: 50px;
+    }
+
     ul {
       text-align: left;
       padding-left: 1.2rem;
@@ -101,16 +114,7 @@
     ul li {
       margin-bottom: 0.8rem;
       line-height: 1.5;
-      position: relative;
-      padding-left: 1.2rem;
-    }
-
-    ul li::before {
-      content: "✓";
-      position: absolute;
-      left: 0;
-      color: #2ca8b8;
-      font-weight: bold;
+      list-style-type: disc;
     }
 
     .accordion {
@@ -148,44 +152,32 @@
     .accordion-item.open .accordion-content {
       display: block;
     }
-.btn-darkblue {
-  background-color: #0c4a74;
-  color: #ffffff;
-}
-.btn-darkblue:hover {
-  background-color: #09395c;
-}
-nav img {
-  margin-left: 1rem;
-}
-
   </style>
 </head>
 <body>
 
   <!-- Navigation -->
- <nav class="menu" style="justify-content: space-between; align-items: center;">
-  <div style="display: flex; gap: 1.2rem; flex-wrap: wrap;">
-    <a href="#ueber-mich">Profil &amp; Motivation</a>
-    <a href="#leistungen">Leistungen &amp; Lösungen</a>
-    <a href="#wissen">Wissen &amp; Praxis</a>
-    <a href="#faq">Fragen &amp; Antworten</a>
-    <a href="#kontakt">Kontakt &amp; Erstgespräch</a>
-    <a href="#rechtliches">Rechtliches &amp; Transparenz</a>
-  </div>
-  <div>
-    <img src="assets/img/tuev-logo-transparent.png" alt="TÜV Austria zertifiziert" style="height: 40px;">
-  </div>
-</nav>
-
-  <!-- Hero / Einstieg -->
-  <section id="start" class="scroll-section">
-    <div class="content">
-      <h1>Sicherheit &amp; Klarheit beim Einsatz von KI</h1>
-      <p>Ich unterstütze mittelständische Unternehmen dabei, Künstliche Intelligenz verantwortungsvoll, rechtssicher und strategisch einzusetzen.</p>
-      <a href="#faq" class="btn">Mehr erfahren</a>
+  <nav class="menu">
+    <div style="display: flex; flex-wrap: wrap; gap: 1rem;">
+      <a href="#ueber-mich">Profil &amp; Motivation</a>
+      <a href="#leistungen">Leistungen &amp; Lösungen</a>
+      <a href="#wissen">Wissen &amp; Werkzeuge</a>
+      <a href="#faq">Fragen &amp; klare Antworten</a>
+      <a href="#kontakt">Kontakt &amp; Erstgespräch</a>
+      <a href="#rechtliches">Rechtliches &amp; Transparenz</a>
     </div>
-  </section>
+    <div>
+      <img src="assets/img/tuev-logo-transparent.png" alt="TÜV Austria zertifiziert" class="menu-logo">
+    </div>
+  </nav>
+<!-- Hero / Einstieg -->
+<section id="start" class="scroll-section">
+  <div class="content">
+    <h1>Sicherheit &amp; Klarheit beim Einsatz von KI</h1>
+    <p>Ich unterstütze mittelständische Unternehmen dabei, Künstliche Intelligenz verantwortungsvoll, rechtssicher und strategisch einzusetzen.</p>
+    <a href="#faq" class="btn">Mehr erfahren</a>
+  </div>
+</section>
 <!-- Über mich -->
 <section id="ueber-mich" class="scroll-section">
   <div class="content">
@@ -197,19 +189,12 @@ nav img {
 
     <p style="margin-top:2rem;">KI verändert Ihr Unternehmen. Doch mit Innovation kommt Verantwortung. Vertrauen Sie dabei nicht auf Meinungen – sondern auf geprüfte Kompetenz.</p>
 
-    <div style="display: flex; align-items: flex-start; gap: 2rem; flex-wrap: wrap; margin-top:2rem;">
-      <div style="flex: 1 1 400px;">
-        <ul style="list-style: none; padding-left: 0;">
-          <li><strong>Geprüfte Fachkenntnisse:</strong> KI-Strategie, Datenschutz, Governance, EU AI Act</li>
-          <li><strong>Verlässlicher Rahmen:</strong> Orientierung an Normen wie ISO/IEC 23894 &amp; DSGVO</li>
-          <li><strong>Entscheidungsfähigkeit:</strong> Ich gebe klare Empfehlungen – basierend auf Standards, nicht Bauchgefühl</li>
-          <li><strong>Weniger Risiko für Sie:</strong> Meine Beratung ist qualifiziert dokumentiert und nachvollziehbar</li>
-        </ul>
-      </div>
-      <div style="flex: 0 0 auto;">
-        <img src="assets/img/tuev-logo.png" alt="TÜV Austria Zertifiziert" style="height: 60px;">
-      </div>
-    </div>
+    <ul>
+      <li><strong>Geprüfte Fachkenntnisse:</strong> KI-Strategie, Datenschutz, Governance, EU AI Act</li>
+      <li><strong>Verlässlicher Rahmen:</strong> Orientierung an Normen wie ISO/IEC 23894 &amp; DSGVO</li>
+      <li><strong>Entscheidungsfähigkeit:</strong> Ich gebe klare Empfehlungen – basierend auf Standards, nicht Bauchgefühl</li>
+      <li><strong>Weniger Risiko für Sie:</strong> Meine Beratung ist qualifiziert dokumentiert und nachvollziehbar</li>
+    </ul>
 
     <p>Meine TÜV-Zertifizierung ist mehr als ein Siegel. Sie ist Ihr Sicherheitsnachweis dafür, dass Sie beim Einsatz von KI einen Partner an Ihrer Seite haben, der Technologie, Recht und Verantwortung zusammenbringt.</p>
   </div>
@@ -234,23 +219,23 @@ nav img {
 <!-- Wissen -->
 <section id="wissen" class="scroll-section">
   <div class="content">
-    <h2>Wissen &amp; Werkzeuge</h2>
+    <h2>Wissen &amp; Praxis</h2>
 
-    <p>Hier finden Sie praxisnahe Inhalte, die Klarheit schaffen und direkt in Ihrem Unternehmen nutzbar sind:</p>
+    <p>Gute Entscheidungen brauchen gutes Wissen – und die Fähigkeit, es in die Praxis zu übertragen. Deshalb stelle ich Ihnen Materialien zur Verfügung, die nicht im Theorieraum bleiben, sondern im Unternehmensalltag funktionieren.</p>
 
     <ul>
-      <li><strong>📄 Whitepaper:</strong> Leitfaden „KI & Datenschutz – was jetzt wichtig ist“</li>
-      <li><strong>🧩 Governance-Canvas:</strong> Die KI-Sicherheitsstrategie als strukturiertes Arbeitsblatt</li>
-      <li><strong>🎓 Checklisten:</strong> Für KI-Projekte, DSGVO-Bewertungen &amp; Projektverantwortung</li>
+      <li><strong>Whitepaper:</strong> Klar strukturierte Leitfäden zu KI &amp; Datenschutz, EU AI Act und Governance</li>
+      <li><strong>Canvas-Modelle:</strong> Praxisorientierte Visualisierungen wie der KI-Governance-Canvas</li>
+      <li><strong>Checklisten:</strong> Sofort nutzbar für interne Bewertung, Risikoabschätzung &amp; Compliance</li>
     </ul>
 
-    <p>Sie erhalten direktes Wissen, das Ihnen hilft, Entscheidungen sicherer zu treffen – und Ihre internen Prozesse professionell zu begleiten.</p>
+    <p>Sie erhalten keine lose Wissenssammlung – sondern Werkzeuge, mit denen Sie Verantwortung übernehmen und souverän entscheiden können.</p>
   </div>
 </section>
 <!-- FAQ & Whitepaper getrennt -->
 <section id="faq" class="scroll-section">
   <div class="content">
-    <h2>Fragen &amp; klare Antworten</h2>
+    <h2>Fragen &amp; Antworten</h2>
 
     <div class="accordion">
 
@@ -319,26 +304,19 @@ nav img {
 
     </div>
 
-    <!-- Whitepaper: mit Abstand -->
+    <!-- Whitepaper-Formular: deutlich später -->
     <div style="margin-top: 5rem;">
-      <h3>Whitepaper &amp; Tools</h3>
-      <p>Drei kompakte Leitfäden für Entscheider:innen im Mittelstand:</p>
-      <ul>
-        <li>📄 <strong>KI &amp; Datenschutz:</strong> Konflikte &amp; Lösungen</li>
-        <li>📄 <strong>EU AI Act:</strong> Was Unternehmen jetzt tun müssen</li>
-        <li>📄 <strong>Governance:</strong> Leitlinien &amp; Checklisten für die Praxis</li>
-      </ul>
+      <h3>Whitepaper anfordern</h3>
+      <p>Erhalten Sie kompaktes, fundiertes Wissen für Entscheider:innen – verständlich, umsetzbar und direkt einsetzbar im Unternehmen.</p>
       <form name="whitepaper" method="POST" data-netlify="true">
         <input type="hidden" name="form-name" value="whitepaper">
-        <input type="email" name="email" placeholder="Ihre E-Mail" required style="padding:1rem;width:100%;">
-        <button type="submit" class="btn btn-darkblue">Whitepaper erhalten</button>
-
+        <input type="email" name="email" placeholder="Ihre E-Mail" required style="padding:1rem;width:100%;margin-bottom:1rem;">
+        <button type="submit" class="btn">Whitepaper erhalten</button>
       </form>
     </div>
 
   </div>
 </section>
-
 <!-- Kontakt -->
 <section id="kontakt" class="scroll-section">
   <div class="content">
@@ -350,23 +328,23 @@ nav img {
     <p>Dann lassen Sie uns sprechen. In einem unverbindlichen Erstgespräch klären wir gemeinsam:</p>
 
     <ul>
-      <li>🔍 Wo in Ihrem Unternehmen KI heute schon (indirekt) wirkt</li>
-      <li>✅ Welche Risiken &amp; Pflichten für Sie relevant sind</li>
-      <li>📌 Welche nächsten Schritte sinnvoll, machbar &amp; bezahlbar sind</li>
+      <li>Wo in Ihrem Unternehmen KI heute schon (indirekt) wirkt</li>
+      <li>Welche Risiken &amp; Pflichten für Sie relevant sind</li>
+      <li>Welche nächsten Schritte sinnvoll, machbar &amp; bezahlbar sind</li>
     </ul>
 
-    <p>Ich freue mich auf Ihre Nachricht oder Anfrage – gern telefonisch, per Mail oder über das Formular.</p>
+    <p>Ich freue mich auf Ihre Nachricht – gerne per E-Mail oder direkt über dieses Formular:</p>
 
     <form name="kontakt" method="POST" data-netlify="true">
       <input type="hidden" name="form-name" value="kontakt">
       <input type="text" name="name" placeholder="Ihr Name" required style="padding:1rem;width:100%;margin-bottom:1rem;">
       <input type="email" name="email" placeholder="Ihre E-Mail" required style="padding:1rem;width:100%;margin-bottom:1rem;">
-      <textarea name="nachricht" placeholder="Ihre Nachricht oder Rückrufwunsch…" rows="5" required style="padding:1rem;width:100%;"></textarea>
+      <textarea name="nachricht" placeholder="Ihre Nachricht oder Rückrufwunsch…" rows="5" required style="padding:1rem;width:100%;margin-bottom:1rem;"></textarea>
       <button type="submit" class="btn">Nachricht senden</button>
     </form>
   </div>
 </section>
-<!-- Rechtliches -->
+<!-- Rechtliches & Transparenz -->
 <section id="rechtliches" class="scroll-section">
   <div class="content">
     <h2>Rechtliches &amp; Transparenz</h2>
@@ -376,15 +354,45 @@ nav img {
     <p>Diese Website wurde nach den Vorgaben der <strong>Datenschutz-Grundverordnung (DSGVO)</strong> sowie den Anforderungen des <strong>EU AI Act</strong> gestaltet.  
     Es werden keine personenbezogenen Daten ohne Ihre ausdrückliche Zustimmung verarbeitet.</p>
 
-    <p>Alle verwendeten Tools, Formulare und Trackinglösungen wurden datenschutzkonform implementiert. Ihre Daten werden weder analysiert, noch weitergegeben.</p>
+    <h3>Datenschutzerklärung</h3>
+    <p><strong>Der Schutz Ihrer persönlichen Daten ist mir ein besonderes Anliegen.</strong> Ich verarbeite Ihre Daten daher ausschließlich auf Grundlage der gesetzlichen Bestimmungen (DSGVO, TMG).</p>
 
-    <p><strong>Betreiber dieser Website:</strong><br>
-    Max Mustermann<br>
-    Beispielstraße 1<br>
-    12345 Musterstadt<br>
-    E-Mail: kontakt@ki-sicherheit.jetzt</p>
+    <p><strong>1. Kontakt mit mir</strong><br>
+    Wenn Sie per Formular auf der Website oder per E-Mail Kontakt mit mir aufnehmen, werden Ihre angegebenen Daten zwecks Bearbeitung der Anfrage und für den Fall von Anschlussfragen sechs Monate bei mir gespeichert. Diese Daten gebe ich nicht ohne Ihre Einwilligung weiter.</p>
 
-    <p><a href="/impressum.html">Impressum</a> | <a href="/datenschutz.html">Datenschutzerklärung</a></p>
+    <p><strong>2. Cookies</strong><br>
+    Meine Website verwendet keine Cookies zur Nachverfolgung oder Analyse. Es werden ausschließlich technisch notwendige Cookies verwendet, sofern überhaupt.</p>
+
+    <p><strong>3. Ihre Rechte</strong><br>
+    Sie haben jederzeit das Recht auf:
+      <ul>
+        <li>Auskunft, Berichtigung oder Löschung Ihrer Daten</li>
+        <li>Einschränkung der Verarbeitung</li>
+        <li>Datenübertragbarkeit</li>
+        <li>Widerruf erteilter Einwilligungen</li>
+        <li>Beschwerde bei der Datenschutzbehörde</li>
+      </ul>
+    Wenn Sie glauben, dass die Verarbeitung Ihrer Daten gegen das Datenschutzrecht verstößt oder Ihre datenschutzrechtlichen Ansprüche verletzt wurden, können Sie sich bei der Aufsichtsbehörde beschweren.</p>
+
+    <h3>Impressum</h3>
+    <p><strong>Angaben gemäß § 5 TMG</strong><br>
+    Wolf Hohl<br>
+    Greifswalder Str. 224a<br>
+    10405 Berlin<br>
+    Deutschland</p>
+
+    <p>Telefon: +49 (0)123 4567890<br>
+    E-Mail: info@ki-sicherheit.jetzt</p>
+
+    <p><strong>Verantwortlich für den Inhalt:</strong><br>
+    Wolf Hohl, Adresse wie oben.</p>
+
+    <p><strong>Haftungsausschluss:</strong><br>
+    Diese Website dient ausschließlich der Information. Trotz sorgfältiger Prüfung übernehme ich keine Haftung für die Inhalte externer Links. Für den Inhalt der verlinkten Seiten sind ausschließlich deren Betreiber verantwortlich.</p>
+
+    <p><strong>Urheberrecht:</strong><br>
+    Alle Inhalte dieser Website unterliegen dem deutschen Urheberrecht. Vervielfältigung, Bearbeitung oder Verwendung außerhalb der Grenzen des Urheberrechts bedürfen der schriftlichen Zustimmung.</p>
+
   </div>
 </section>
 <!-- Akkordeon-Funktion für FAQ -->
