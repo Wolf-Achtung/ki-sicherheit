@@ -74,7 +74,7 @@ position: relative;
   .scroll-section {
     min-height: 100vh;
     padding: 2rem 2rem; /* Weniger Leerraum oben */
-scroll-margin-top: 120px; /* sorgt für sichtbaren Abstand zur oberen Kante */
+scroll-margin-top: 150px; /* sorgt für sichtbaren Abstand zur oberen Kante */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -138,13 +138,13 @@ scroll-margin-top: 120px; /* sorgt für sichtbaren Abstand zur oberen Kante */
 
   /* List-Stil (keine Bullets mehr) */
   ul {
-    padding-left: 0;
-    list-style: none;
+    padding-left: 2rem;
+    list-style: disc;
     margin: 2rem 0;
   }
 
   ul li {
-    background: #f7f9fb;
+    background: #f0f8ff;
     padding: 1rem 1.2rem;
     margin-bottom: 1rem;
     border-radius: 8px;
@@ -389,11 +389,18 @@ display: inline-block;
   color: #0c4a74;
   white-space: nowrap;
   overflow: hidden;
-  border-right: 0.15em solid #0c4a74;
-  animation: blink-caret 0.75s step-end infinite;
+  border-right: 2px solid currentColor;
+  animation: typing 2s steps(30, end), blink 0.75s step-end infinite;
   max-width: 100%;
 }
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
 
+@keyframes blink {
+  50% { border-color: transparent }
+}
 @keyframes blink-caret {
   0%, 100% { border-color: transparent; }
   50% { border-color: #0c4a74; }
@@ -524,8 +531,7 @@ ul.custom-list li::before {
 <!-- Hero / Einstieg -->
 <section id="start" class="scroll-section fade-in-section">
   <div class="content">
-<h1 class="typing">KI verstehen. Risiken beherrschen. Vertrauen schaffen.</h1>
-
+    <h1 class="typing">KI verstehen. Risiken beherrschen. Vertrauen schaffen.</h1>
     <p>Ich unterstütze mittelständische Unternehmen dabei, Künstliche Intelligenz verantwortungsvoll, rechtssicher und strategisch einzusetzen.</p>
     <a href="#faq" class="btn">Mehr erfahren</a>
   </div>
@@ -534,7 +540,7 @@ ul.custom-list li::before {
 <!-- Über mich -->
 <section id="ueber-mich" class="scroll-section fade-in-section">
   <div class="content">
-    <h2 class="section-header">Profil &amp; Motivation</h2>
+    <h2 class="section-header typing">Profil &amp; Motivation</h2>
 
     <p>Ich bin Ihr Sparringspartner für sichere KI-Nutzung im Mittelstand. Mit 25 Jahren Erfahrung im B2B-Umfeld weiß ich:</p>
     <p><strong>Wirtschaftlichkeit und Verantwortung schließen sich nicht aus.</strong></p>
@@ -556,7 +562,7 @@ ul.custom-list li::before {
 <!-- Leistungen -->
 <section id="leistungen" class="scroll-section fade-in-section">
   <div class="content">
-    <h2 class="section-header">Leistungen &amp; Lösungen</h2>
+    <h2 class="section-header typing">Leistungen &amp; Lösungen</h2>
 
     <p>Ich unterstütze Sie dort, wo KI in Ihrem Unternehmen real wird – mit klaren Methoden, strukturierten Analysen und rechtssicherem Fokus.</p>
 
@@ -573,7 +579,7 @@ ul.custom-list li::before {
 <!-- KI-Risiko-Schnellcheck -->
 <section id="schnellcheck" class="scroll-section fade-in-section" style="margin-top: 4rem;">
   <div class="content">
-    <h2 class="section-header">Selbstcheck: Welcher KI-Risikotyp ist Ihr Unternehmen?</h2>
+    <h2 class="section-header typing">Schnell-Check: Welcher KI-Risikotyp ist Ihr Unternehmen?</h2>
     <p>Beantworten Sie 4 kurze Fragen – und erhalten Sie sofort eine Einschätzung:</p>
 
     <div id="quiz">
@@ -645,7 +651,7 @@ ul.custom-list li::before {
 <!-- Wissen -->
 <section id="wissen" class="scroll-section fade-in-section">
   <div class="content">
-    <h2 class="section-header">Wissen &amp; Praxis</h2>
+    <h2 class="section-header typing">Wissen &amp; Praxis</h2>
 
     <p>Gute Entscheidungen brauchen gutes Wissen – und die Fähigkeit, es in die Praxis zu übertragen. Deshalb stelle ich Ihnen Materialien zur Verfügung, die nicht im Theorieraum bleiben, sondern im Unternehmensalltag funktionieren.</p>
 
@@ -661,7 +667,7 @@ ul.custom-list li::before {
 <!-- Whitepaper & Leitfäden -->
 <section id="whitepaper" class="scroll-section fade-in-section">
   <div class="content">
-    <h2 class="section-header">Whitepaper &amp; Leitfäden</h2>
+    <h2 class="section-header typing">Whitepaper &amp; Leitfäden</h2>
     <p>Sie möchten Klarheit, Orientierung und Umsetzungssicherheit?  
     Hier finden Sie fundiertes Wissen – speziell für den Mittelstand aufbereitet.</p>
 
@@ -731,7 +737,7 @@ ul.custom-list li::before {
 <!-- FAQ & Whitepaper getrennt -->
 <section id="faq" class="scroll-section fade-in-section">
   <div class="content">
-    <h2 class="section-header">Fragen &amp; Antworten</h2>
+    <h2 class="section-header typing">Fragen &amp; Antworten</h2>
 
     <div class="accordion">
 
@@ -752,7 +758,7 @@ ul.custom-list li::before {
       <div class="accordion-item">
         <button class="accordion-toggle">Wie erkenne ich, ob ich betroffen bin?</button>
         <div class="accordion-content">
-          <p>Nutzen Sie den Selbstcheck oder buchen Sie ein Gespräch – gemeinsam schaffen wir Klarheit.</p>
+          <p>Nutzen Sie den Schnell-Check oder buchen Sie ein Gespräch – gemeinsam schaffen wir Klarheit.</p>
         </div>
       </div>
 
@@ -818,7 +824,7 @@ ul.custom-list li::before {
 <!-- Kontakt -->
 <section id="kontakt" class="scroll-section fade-in-section">
   <div class="content">
-    <h2 class="section-header">Kontakt &amp; Erstgespräch</h2>
+    <h2 class="section-header typing">Kontakt &amp; Erstgespräch</h2>
 
     <p>Sie möchten wissen, ob Ihr Unternehmen vom AI Act betroffen ist?  
     Oder Sie brauchen Klarheit, wie Sie KI sicher &amp; sinnvoll einsetzen?</p>
@@ -846,7 +852,7 @@ ul.custom-list li::before {
 <!-- Rechtliches & Transparenz -->
 <section id="rechtliches" class="scroll-section fade-in-section">
   <div class="content">
-    <h2 class="section-header">Rechtliches &amp; Transparenz</h2>
+    <h2 class="section-header typing">Rechtliches &amp; Transparenz</h2>
 
     <p>Der verantwortungsvolle Umgang mit Daten und Technologien ist für mich nicht nur Teil meines Angebots – sondern gelebter Standard.</p>
 
@@ -1011,7 +1017,7 @@ document.addEventListener("DOMContentLoaded", function () {
 <footer class="bottom-nav">
   <a href="#ueber-mich">Profil & Motivation</a>
   <a href="#leistungen">Leistungen & Lösungen</a>
-  <a href="#selbstcheck">Schnell-Check</a>
+  <a href="#schnellcheck">Schnell-Check</a>
   <a href="#wissen">Wissen & Praxis</a>
   <a href="#faq">Fragen & Antworten</a>
   <a href="#kontakt">Kontakt & Erstgespräch</a>
