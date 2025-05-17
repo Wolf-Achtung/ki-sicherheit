@@ -32,7 +32,25 @@
     border-radius: 20px; /* Jetzt abgerundet wie Button */
     margin-bottom: 2rem;
     text-align: left;
+position: relative;
+  overflow: hidden; /* sorgt dafür, dass Linie nicht übersteht */
   }
+/* Linie unter dem h2, die animiert einfährt */
+.section-header::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  width: 0%;
+  height: 3px;
+  background-color: #0c4a74;
+  transition: width 1s ease;
+}
+
+/* Sobald der Block sichtbar ist (durch Scroll-FadeIn), fährt Linie rein */
+.fade-in-section.visible .section-header::after {
+  width: 100%;
+}
 
   h1 {
     font-size: 2rem;
@@ -278,6 +296,108 @@ display: inline-block;
     text-align: center;
   }
 }
+#quiz .check-button {
+  display: block;
+  margin: 0.7rem 0;
+  background-color: #f5f9fc;
+  color: #003b60;
+  padding: 0.8rem 1rem;
+  border-radius: 8px;
+  border: 1px solid #c8dbe6;
+  font-weight: bold;
+  text-align: left;
+  width: 100%;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+#quiz .check-button:hover {
+  background-color: #e6f0f8;
+}
+.button-dark {
+  background-color: #0a4c76;
+  color: white;
+  padding: 0.6rem 1.4rem;
+  border: none;
+  border-radius: 999px;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+}
+.button-dark:hover {
+  background-color: #083a5d;
+}
+.fade-in-section {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  will-change: opacity, transform;
+}
+.fade-in-section.visible {
+  opacity: 1;
+  transform: none;
+}
+/* ✅ Einheitlicher Button-Hover-Effekt */
+.button-dark,
+.check-button,
+.btn,
+.menu a {
+  transition: all 0.25s ease-in-out;
+}
+
+.button-dark:hover,
+.check-button:hover,
+.btn:hover,
+.menu a:hover {
+  transform: scale(1.03);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* ✅ Accordion mit animiertem Pfeil */
+.accordion-toggle {
+  position: relative;
+  padding-right: 2.5rem;
+}
+
+.accordion-toggle::after {
+  content: "▶";
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%) rotate(0deg);
+  transition: transform 0.3s ease;
+}
+
+.accordion-item.open .accordion-toggle::after {
+  transform: translateY(-50%) rotate(90deg);
+}
+
+/* ✅ Fade-In bei Scroll (bereits enthalten – zur Sicherheit bereinigt) */
+.fade-in-section {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  will-change: opacity, transform;
+}
+.fade-in-section.visible {
+  opacity: 1;
+  transform: none;
+}
+.typing {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #0c4a74;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 0.15em solid #0c4a74;
+  animation: blink-caret 0.75s step-end infinite;
+  max-width: 100%;
+}
+
+@keyframes blink-caret {
+  0%, 100% { border-color: transparent; }
+  50% { border-color: #0c4a74; }
+}
 
 </style>
 
@@ -325,16 +445,16 @@ display: inline-block;
   </nav>
 
 <!-- Hero / Einstieg -->
-<section id="start" class="scroll-section">
+<section id="start" class="scroll-section fade-in-section">
   <div class="content">
-    <h1 class="section-header">Sicherheit &amp; Klarheit beim Einsatz von KI</h1>
+<h1 id="typing-headline" class="typing"></h1>
     <p>Ich unterstütze mittelständische Unternehmen dabei, Künstliche Intelligenz verantwortungsvoll, rechtssicher und strategisch einzusetzen.</p>
     <a href="#faq" class="btn">Mehr erfahren</a>
   </div>
 </section>
 
 <!-- Über mich -->
-<section id="ueber-mich" class="scroll-section">
+<section id="ueber-mich" class="scroll-section fade-in-section">
   <div class="content">
     <h2 class="section-header">Profil &amp; Motivation</h2>
 
@@ -356,7 +476,7 @@ display: inline-block;
 </section>
 
 <!-- Leistungen -->
-<section id="leistungen" class="scroll-section">
+<section id="leistungen" class="scroll-section fade-in-section">
   <div class="content">
     <h2 class="section-header">Leistungen &amp; Lösungen</h2>
 
@@ -373,24 +493,47 @@ display: inline-block;
   </div>
 </section>
 <!-- KI-Risiko-Schnellcheck -->
-<section id="schnellcheck" class="scroll-section">
+<section id="schnellcheck" class="scroll-section fade-in-section"> style="margin-top: 4rem;">
   <div class="content">
-    <h2 class="section-header">KI-Risiko-Schnellcheck</h2>
+    <h2 class="section-header">Selbstcheck: Welcher KI-Risikotyp ist Ihr Unternehmen?</h2>
+    <p>Beantworten Sie 4 kurze Fragen – und erhalten Sie sofort eine Einschätzung:</p>
 
-    <p>Beantworten Sie die folgenden Aussagen. Am Ende erhalten Sie direkt eine Einschätzung, ob Ihr Unternehmen aktiv werden sollte.</p>
+    <div id="quiz">
+      <div class="frage" id="frage1">
+        <h3>1. Wie setzen Sie KI aktuell ein?</h3>
+        <button class="check-button" onclick="nextFrage(1, 'basic')">Wir testen Tools wie ChatGPT</button>
+        <button class="check-button" onclick="nextFrage(1, 'aktiv')">Wir nutzen KI produktiv</button>
+        <button class="check-button" onclick="nextFrage(1, 'unsicher')">Noch gar nicht</button>
+      </div>
 
-    <form id="kiCheckForm">
-      <ul style="list-style: none; padding-left: 0;">
-        <li><label><input type="checkbox" name="frage" value="1"> Wir setzen KI-Systeme ein, die Entscheidungen über Menschen beeinflussen.</label></li>
-        <li><label><input type="checkbox" name="frage" value="1"> Die Herkunft und Qualität unserer Trainingsdaten ist nicht dokumentiert.</label></li>
-        <li><label><input type="checkbox" name="frage" value="1"> Mitarbeitende nutzen KI-Tools ohne klare Richtlinien.</label></li>
-        <li><label><input type="checkbox" name="frage" value="1"> Unsere KI trifft Entscheidungen, die wir nicht nachvollziehen können („Blackbox“).</label></li>
-        <li><label><input type="checkbox" name="frage" value="1"> Wir haben keine Risikoanalyse oder DSGVO-Prüfung für KI durchgeführt.</label></li>
-      </ul>
-      <button type="button" class="btn" onclick="auswertenCheck()">Jetzt auswerten</button>
-    </form>
+      <div class="frage" id="frage2" style="display:none;">
+        <h3>2. Wer verantwortet den KI-Einsatz?</h3>
+        <button class="check-button" onclick="nextFrage(2, 'it')">IT-Abteilung</button>
+        <button class="check-button" onclick="nextFrage(2, 'chef')">Geschäftsführung</button>
+        <button class="check-button" onclick="nextFrage(2, 'keiner')">Noch ungeklärt</button>
+      </div>
 
-    <div id="auswertung" style="display: none; margin-top: 2rem; padding: 1rem; background: #0c4a74; color: white; border-radius: 8px;"></div>
+      <div class="frage" id="frage3" style="display:none;">
+        <h3>3. Dokumentieren Sie KI-Prozesse?</h3>
+        <button class="check-button" onclick="nextFrage(3, 'ja')">Ja, vollständig</button>
+        <button class="check-button" onclick="nextFrage(3, 'teilweise')">Teilweise</button>
+        <button class="check-button" onclick="nextFrage(3, 'nein')">Nein</button>
+      </div>
+
+      <div class="frage" id="frage4" style="display:none;">
+        <h3>4. Wissen Ihre Teams, wann der EU AI Act greift?</h3>
+        <button class="check-button" onclick="showErgebnis('vorreiter')">Ja, das ist bei uns Thema</button>
+        <button class="check-button" onclick="showErgebnis('orientierung')">Teils, teils</button>
+        <button class="check-button" onclick="showErgebnis('risikozone')">Noch gar nicht</button>
+      </div>
+    </div>
+
+    <div id="ergebnis" style="display:none; margin-top: 2rem;">
+      <h3 id="ergebnis-titel"></h3>
+      <p id="ergebnis-text"></p>
+      <a href="#whitepaper" class="button-dark">Whitepaper lesen</a>
+      <a href="#kontakt" class="button-dark" style="margin-left: 1rem;">Beratung anfragen</a>
+    </div>
   </div>
 </section>
 
@@ -418,7 +561,7 @@ display: inline-block;
 </script>
 
 <!-- Wissen -->
-<section id="wissen" class="scroll-section">
+<section id="wissen" class="scroll-section fade-in-section">
   <div class="content">
     <h2 class="section-header">Wissen &amp; Praxis</h2>
 
@@ -434,7 +577,7 @@ display: inline-block;
   </div>
 </section>
 <!-- Whitepaper & Leitfäden -->
-<section id="whitepaper" class="scroll-section">
+<section id="whitepaper" class="scroll-section fade-in-section">
   <div class="content">
     <h2 class="section-header">Whitepaper &amp; Leitfäden</h2>
     <p>Sie möchten Klarheit, Orientierung und Umsetzungssicherheit?  
@@ -504,7 +647,7 @@ display: inline-block;
 </section>
 
 <!-- FAQ & Whitepaper getrennt -->
-<section id="faq" class="scroll-section">
+<section id="faq" class="scroll-section fade-in-section">
   <div class="content">
     <h2 class="section-header">Fragen &amp; Antworten</h2>
 
@@ -591,7 +734,7 @@ display: inline-block;
 </section>
 
 <!-- Kontakt -->
-<section id="kontakt" class="scroll-section">
+<section id="kontakt" class="scroll-section fade-in-section">
   <div class="content">
     <h2 class="section-header">Kontakt &amp; Erstgespräch</h2>
 
@@ -619,7 +762,7 @@ display: inline-block;
 </section>
 
 <!-- Rechtliches & Transparenz -->
-<section id="rechtliches" class="scroll-section">
+<section id="rechtliches" class="scroll-section fade-in-section">
   <div class="content">
     <h2 class="section-header">Rechtliches &amp; Transparenz</h2>
 
@@ -678,15 +821,7 @@ Weitere Infos unter <a href="https://www.tidio.com/privacy-policy/" target="_bla
 </section>
 
 
-<!-- Akkordeon-Funktion für FAQ -->
-<script>
-  document.querySelectorAll('.accordion-toggle').forEach(button => {
-    button.addEventListener('click', () => {
-      const item = button.parentElement;
-      item.classList.toggle('open');
-    });
-  });
-</script>
+
 <!-- Akkordeon-Script -->
 <script>
   document.querySelectorAll('.accordion-toggle').forEach(button => {
@@ -701,11 +836,77 @@ Weitere Infos unter <a href="https://www.tidio.com/privacy-policy/" target="_bla
 
 <!-- Tidio Chat Widget -->
 <script src="//code.tidio.co/vxd1gwrmgjq6d2djwqmlw3awekg53drf.js" async></script>
+<script>
+let antworten = [];
+
+function nextFrage(frageNummer, antwort) {
+  antworten.push(antwort);
+  document.getElementById(`frage${frageNummer}`).style.display = 'none';
+  const next = document.getElementById(`frage${frageNummer + 1}`);
+  if (next) next.style.display = 'block';
+}
+
+function showErgebnis(antwort) {
+  document.getElementById("frage4").style.display = "none";
+  document.getElementById("ergebnis").style.display = "block";
+
+  let titel = "";
+  let text = "";
+
+  switch (antwort) {
+    case "vorreiter":
+      titel = "Sie sind gut vorbereitet.";
+      text = "Ihr Unternehmen geht das Thema KI professionell an. Dennoch lohnt sich eine Validierung durch unabhängige Dritte.";
+      break;
+    case "orientierung":
+      titel = "Sie sind auf dem Weg.";
+      text = "Viele Grundlagen sind gelegt. Aber in Sachen Governance und Dokumentation gibt es noch Verbesserungspotenzial.";
+      break;
+    case "risikozone":
+      titel = "Achtung: Handlungsbedarf!";
+      text = "Ihr Unternehmen riskiert regulatorische und haftungsrechtliche Probleme. Jetzt ist ein Check empfehlenswert.";
+      break;
+  }
+
+  document.getElementById("ergebnis-titel").textContent = titel;
+  document.getElementById("ergebnis-text").textContent = text;
+}
+<script>
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-in-section').forEach(section => {
+    observer.observe(section);
+  });
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const text = "KI verstehen. Risiken beherrschen. Vertrauen schaffen.";
+  const speed = 45; // Geschwindigkeit pro Buchstabe (ms)
+  let i = 0;
+  const headline = document.getElementById("typing-headline");
+
+  function typeWriter() {
+    if (i < text.length) {
+      headline.textContent += text.charAt(i);
+      i++;
+      setTimeout(typeWriter, speed);
+    }
+  }
+
+  typeWriter();
+});
+</script>
 
 </body>
 </html>
 
-</body>
-</html>
+
 
 
