@@ -81,6 +81,28 @@
     .menu-toggle {
       display: none;
     }
+.accordion { border-top: 1px solid #ccc; margin-top: 1rem; }
+.accordion-item { border-bottom: 1px solid #ccc; }
+.accordion-toggle {
+  background: none;
+  border: none;
+  width: 100%;
+  text-align: left;
+  padding: 1rem;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #0c4a74;
+  cursor: pointer;
+  transition: background 0.2s ease-in-out;
+}
+.accordion-toggle:hover { background: #f0f8fa; }
+.accordion-content {
+  display: none;
+  padding: 0 1rem 1rem;
+  color: #123d4c;
+}
+.accordion-item.open .accordion-content { display: block; }
+
   </style>
 </head>
 <body>
@@ -112,24 +134,43 @@
 <!-- Über mich -->
 <section id="ueber-mich" class="scroll-section">
   <div class="content">
-    <h2>Wer dahintersteht</h2>
+    <h2>Profil &amp; Motivation</h2>
     <p>Ich bin Ihr Sparringspartner für sichere KI-Nutzung im Mittelstand. Mit 25 Jahren Erfahrung im B2B-Umfeld weiß ich:</p>
     <p><strong>Wirtschaftlichkeit und Verantwortung schließen sich nicht aus.</strong></p>
     <p>Mein Ziel: <strong>KI-Vertrauen schaffen – mit Plan, Klartext und Verantwortung.</strong></p>
+
+    <p style="margin-top:3rem;">KI verändert Ihr Unternehmen. Doch mit Innovation kommt Verantwortung. Vertrauen Sie dabei nicht auf Meinungen – sondern auf geprüfte Kompetenz.</p>
+
+    <div style="display: flex; align-items: flex-start; gap: 1.5rem; flex-wrap: wrap;">
+      <div style="flex: 1 1 400px;">
+        <ul style="list-style: none; padding-left: 0;">
+          <li> <strong>Geprüfte Fachkenntnisse:</strong> KI-Strategie, Datenschutz, Governance, EU AI Act</li>
+          <li> <strong>Verlässlicher Rahmen:</strong> Orientierung an Normen wie ISO/IEC 23894 & DSGVO</li>
+          <li> <strong>Entscheidungsfähigkeit:</strong> Ich gebe klare Empfehlungen – basierend auf Standards, nicht Bauchgefühl</li>
+          <li> <strong>Weniger Risiko für Sie:</strong> Meine Beratung ist qualifiziert dokumentiert und nachvollziehbar</li>
+        </ul>
+      </div>
+      <div style="flex: 0 0 auto;">
+        <img src="assets/img/tuev-logo.png" alt="TÜV Austria Zertifiziert" style="height: 60px;">
+      </div>
+    </div>
+
+    <p>Meine TÜV-Zertifizierung ist mehr als ein Siegel. Sie ist Ihr Sicherheitsnachweis dafür, dass Sie beim Einsatz von KI einen Partner an Ihrer Seite haben, der Technologie, Recht und Verantwortung zusammenbringt.</p>
   </div>
 </section>
+
 
 <!-- Leistungen -->
 <section id="leistungen" class="scroll-section">
   <div class="content">
     <h2>Meine Lösungen für Ihr Unternehmen</h2>
     <ul>
-      <li>✅ Schnellcheck für Ihre aktuellen KI-Anwendungen</li>
-      <li>✅ Strategieberatung für Ihre KI-Nutzung</li>
-<li>✅ Sicherheit garantiert – inkl. DSGVO & EU AI Act</li>
-      <li>✅ Praxisnahe Leitlinien & Vorlagen für Ihr Unternehmen</li>
-      <li>✅ Workshops für Geschäftsführung & Fachabteilungen</li>
-      <li>✅ Individuelle Begleitung bei Governance & Compliance</li>
+      <li>Schnellcheck für Ihre aktuellen KI-Anwendungen</li>
+      <li>Strategieberatung für künftige KI-Nutzung</li>
+<li>Sicherheit garantiert – inkl. DSGVO & EU AI Act</li>
+      <li>Praxisnahe Leitlinien & Vorlagen für Ihr Unternehmen</li>
+      <li>Workshops für Geschäftsführung & Fachabteilungen</li>
+      <li>Individuelle Begleitung bei Governance & Compliance</li>
     </ul>
   </div>
 </section>
@@ -196,15 +237,94 @@
   </div>
 </section>
 
-<!-- FAQ (optional einfügen) -->
+<!-- FAQ & Whitepaper kombiniert -->
 <section id="faq" class="scroll-section">
   <div class="content">
-    <h2>Fragen, die Sie sich gerade stellen</h2>
-    <p><strong>Gilt der EU AI Act auch für kleinere Unternehmen?</strong><br> Ja, besonders wenn KI mit Risiko eingesetzt wird.</p>
-    <p><strong>Was passiert bei Verstößen?</strong><br> Es drohen Bußgelder bis 35 Mio. € oder 7 % des Jahresumsatzes.</p>
-    <p><strong>Wie erkenne ich, ob ich betroffen bin?</strong><br> Nutzen Sie den Selbstcheck oder buchen Sie ein Gespräch.</p>
+    <h2>Fragen & klare Antworten</h2>
+
+    <h3>Whitepaper & Tools</h3>
+    <p>Drei kompakte Leitfäden für Entscheider:innen im Mittelstand:</p>
+    <ul>
+      <li>📄 <strong>KI & Datenschutz:</strong> Konflikte & Lösungen</li>
+      <li>📄 <strong>EU AI Act:</strong> Was Unternehmen jetzt tun müssen</li>
+      <li>📄 <strong>Governance:</strong> Leitlinien & Checklisten für die Praxis</li>
+    </ul>
+    <form name="whitepaper" method="POST" data-netlify="true">
+      <input type="hidden" name="form-name" value="whitepaper">
+      <input type="email" name="email" placeholder="Ihre E-Mail" required style="padding:1rem;width:100%;">
+      <button type="submit" class="btn">Whitepaper erhalten</button>
+    </form>
+
+    <h3 style="margin-top: 3rem;">Fragen & Antworten</h3>
+    <div class="accordion">
+
+      <div class="accordion-item">
+        <button class="accordion-toggle">Gilt der EU AI Act auch für kleinere Unternehmen?</button>
+        <div class="accordion-content">
+          <p>Ja, besonders wenn KI mit Risiko eingesetzt wird – z. B. bei Entscheidungsunterstützung, Scoring oder Kamera-gestützter Analyse.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-toggle">Was passiert bei Verstößen?</button>
+        <div class="accordion-content">
+          <p>Es drohen Bußgelder bis zu 35 Mio. € oder 7 % des weltweiten Jahresumsatzes – je nachdem, was höher ist.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-toggle">Wie erkenne ich, ob ich betroffen bin?</button>
+        <div class="accordion-content">
+          <p>Nutzen Sie den Selbstcheck oder buchen Sie ein Gespräch – gemeinsam schaffen wir Klarheit.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-toggle">Müssen wir unsere bestehenden KI-Systeme anpassen?</button>
+        <div class="accordion-content">
+          <p>Ja, viele Unternehmen müssen ihre Tools prüfen, dokumentieren und ggf. durch technische oder organisatorische Maßnahmen absichern.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-toggle">Was ist der Unterschied zwischen DSGVO und dem AI Act?</button>
+        <div class="accordion-content">
+          <p>Die DSGVO schützt personenbezogene Daten. Der AI Act regelt zusätzlich die <strong>Verwendung von KI-Systemen</strong> – unabhängig davon, ob Daten personenbezogen sind oder nicht.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-toggle">Gibt es eine Pflicht zur Dokumentation?</button>
+        <div class="accordion-content">
+          <p>Ja – besonders bei Hochrisiko-KI. Aber auch bei einfachen Tools ist eine interne Bewertung dringend zu empfehlen, um Compliance nachweisen zu können.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-toggle">Darf ich ChatGPT im Unternehmen einfach so einsetzen?</button>
+        <div class="accordion-content">
+          <p>Jein – ohne klare Regelung besteht das Risiko von Datenschutzverstößen, Datenabfluss oder unbeabsichtigten Fehlinformationen.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-toggle">Welche KI gilt als „Hochrisiko-KI“?</button>
+        <div class="accordion-content">
+          <p>Zum Beispiel Systeme, die Entscheidungen im Personalwesen, bei Krediten, im Gesundheitsbereich oder in sicherheitsrelevanten Bereichen unterstützen.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-toggle">Was kostet ein KI-Audit oder eine Risikobewertung?</button>
+        <div class="accordion-content">
+          <p>Das hängt vom Umfang ab – ich biete sowohl <strong>Quick Checks</strong> als auch umfassende Audits an. Sprechen Sie mich einfach an.</p>
+        </div>
+      </div>
+
+    </div>
   </div>
 </section>
+
 <section id="zertifizierung" class="scroll-section">
   <div class="content" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
     <h2 style="margin: 0;">Warum meine TÜV-Zertifizierung für Sie relevant ist</h2>
@@ -272,6 +392,15 @@
     document.getElementById("ergebnis").style.display = "block";
   }
 </script>
+<script>
+  document.querySelectorAll('.accordion-toggle').forEach(button => {
+    button.addEventListener('click', () => {
+      const item = button.parentElement;
+      item.classList.toggle('open');
+    });
+  });
+</script>
+
 
 </body>
 </html>
