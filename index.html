@@ -200,6 +200,82 @@ display: inline-block;
 .menu a:hover {
   cursor: pointer;
 }
+@media (max-width: 768px) {
+
+  /* Allgemeine Schriftgröße & Abstand */
+  body, p {
+    font-size: 1rem;
+    line-height: 1.5;
+    padding: 0 1rem;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  h2 {
+    font-size: 1.3rem;
+  }
+
+  h3 {
+    font-size: 1.1rem;
+  }
+
+  .scroll-section {
+    padding: 2rem 1rem;
+  }
+
+  .content {
+    max-width: 100%;
+    padding: 0;
+  }
+
+  /* Navigation – zweizeilig wird einspaltig */
+  .menu {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .menu a {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    text-align: left;
+    font-size: 1rem;
+    border-bottom: 1px solid #eee;
+  }
+
+  .menu-logo {
+    height: 60px;
+    align-self: flex-end;
+    margin-top: 1rem;
+  }
+
+  /* Whitepaper-Karten: untereinander */
+  section#whitepaper div[style*="grid-template-columns"] {
+    display: block !important;
+  }
+
+  section#whitepaper > .content > div > div {
+    margin-bottom: 2rem;
+  }
+
+  /* Formulareingaben */
+  input, textarea {
+    font-size: 1rem;
+  }
+
+  /* Akkordeon optimieren */
+  .accordion-toggle {
+    font-size: 1rem;
+    padding: 0.8rem 1rem;
+  }
+
+  .btn {
+    width: 100%;
+    text-align: center;
+  }
+}
+
 </style>
 
 </head>
@@ -573,7 +649,10 @@ display: inline-block;
     Diese Website dient ausschließlich der Information. Trotz sorgfältiger Prüfung übernehme ich keine Haftung für die Inhalte externer Links. Für den Inhalt der verlinkten Seiten sind ausschließlich deren Betreiber verantwortlich.</p>
 
     <p><strong>Urheberrecht:</strong><br>
-    Alle Inhalte dieser Website unterliegen dem deutschen Urheberrecht. Vervielfältigung, Bearbeitung oder Verwendung außerhalb der Grenzen des Urheberrechts bedürfen der schriftlichen Zustimmung.</p>
+    Alle Inhalte dieser Website unterliegen dem deutschen Urheberrecht. Vervielfältigung, Bearbeitung oder Verwendung außerhalb der Grenzen des Urheberrechts bedürfen der schriftlichen Zustimmung.</p><p>Diese Website nutzt Tidio, eine Live-Chat-Plattform. Anbieter ist Tidio LLC, USA.  
+Tidio verarbeitet Namen, E-Mail-Adressen und Nachrichteninhalte ausschließlich zur Kommunikation.  
+Weitere Infos unter <a href="https://www.tidio.com/privacy-policy/" target="_blank">tidio.com/privacy-policy</a>.</p>
+
   </div>
 </section>
 
@@ -587,6 +666,21 @@ display: inline-block;
     });
   });
 </script>
+<!-- Akkordeon-Script -->
+<script>
+  document.querySelectorAll('.accordion-toggle').forEach(button => {
+    button.addEventListener('click', () => {
+      const item = button.parentElement;
+      item.classList.toggle('open');
+    });
+  });
+</script>
+
+<!-- Tidio Chat Widget -->
+<script src="//code.tidio.co/vxd1gwrmgjq6d2djwqmlw3awekg53drf.js" async></script>
+
+</body>
+</html>
 
 </body>
 </html>
