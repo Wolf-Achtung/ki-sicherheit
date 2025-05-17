@@ -415,6 +415,57 @@ html {
   opacity: 0;
   transform: translateY(10px);
 }
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #ffffff;
+  border-top: 1px solid #ddd;
+  z-index: 1000;
+  box-shadow: 0 -2px 8px rgba(0,0,0,0.05);
+}
+
+.bottom-nav .menu {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  padding: 0.6rem 1rem;
+  gap: 0.4rem;
+}
+
+.bottom-nav .menu a {
+  font-weight: bold;
+  font-size: 1rem;
+  color: #0c4a74;
+  text-decoration: none;
+  padding: 0.5rem 0.8rem;
+  border-radius: 10px;
+  text-align: center;
+  line-height: 1.3;
+  white-space: nowrap;
+  transition: all 0.2s ease-in-out;
+}
+
+.bottom-nav .menu a:hover {
+  background-color: #0c4a74;
+  color: white;
+}
+
+/* Mobile-optimiert */
+@media (max-width: 768px) {
+  .bottom-nav .menu {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .bottom-nav .menu a {
+    width: 100%;
+    font-size: 1rem;
+    padding: 0.8rem 1rem;
+    border-bottom: 1px solid #eee;
+  }
+}
 
 </style>
 
@@ -422,44 +473,9 @@ html {
 
 <body>
 
-  <!-- Navigation -->
- <nav class="menu">
-  <div style="display: flex; flex-wrap: wrap; gap: 1rem; flex-grow: 1;">
-
-    <a href="#ueber-mich">
-      <strong>Profil &amp;</strong><br>Motivation
-    </a>
-
-    <a href="#leistungen">
-      <strong>Leistungen &amp;</strong><br>Lösungen
-    </a>
-
-    <a href="#schnellcheck">
-      <strong>Schnell-</strong><br>Check
-    </a>
-
-    <a href="#wissen">
-      <strong>Wissen &amp;</strong><br>Praxis
-    </a>
-
-    <a href="#faq">
-      <strong>Fragen &amp;</strong><br>Antworten
-    </a>
-
-    <a href="#kontakt">
-      <strong>Kontakt &amp;</strong><br>Erstgespräch
-    </a>
-
-    <a href="#rechtliches">
-      <strong>Rechtliches &amp;</strong><br>Transparenz
-    </a>
-
-  </div>
-
   <div>
       <img src="assets/img/tuev-logo-transparent.png" alt="TÜV Austria zertifiziert" class="menu-logo" style="height: 90px;">
     </div>
-  </nav>
 
 <!-- Hero / Einstieg -->
 <section id="start" class="scroll-section fade-in-section">
@@ -946,6 +962,19 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 </script>
+<div style="height: 120px;"></div>
+<footer class="bottom-nav">
+  <nav class="menu">
+    <a href="#profil">Profil &<br>Motivation</a>
+    <a href="#angebote">Leistungen &<br>Lösungen</a>
+    <a href="#selbstcheck">Schnell-<br>Check</a>
+    <a href="#wissen">Wissen &<br>Praxis</a>
+    <a href="#faq">Fragen &<br>Antworten</a>
+    <a href="#kontakt">Kontakt &<br>Erstgespräch</a>
+    <a href="#rechtliches">Rechtliches &<br>Transparenz</a>
+  </nav>
+</footer>
+
 
 </body>
 </html>
