@@ -148,19 +148,35 @@
     .accordion-item.open .accordion-content {
       display: block;
     }
+.btn-darkblue {
+  background-color: #0c4a74;
+  color: #ffffff;
+}
+.btn-darkblue:hover {
+  background-color: #09395c;
+}
+nav img {
+  margin-left: 1rem;
+}
+
   </style>
 </head>
 <body>
 
   <!-- Navigation -->
-  <nav class="menu">
+ <nav class="menu" style="justify-content: space-between; align-items: center;">
+  <div style="display: flex; gap: 1.2rem; flex-wrap: wrap;">
     <a href="#ueber-mich">Profil &amp; Motivation</a>
     <a href="#leistungen">Leistungen &amp; Lösungen</a>
-    <a href="#wissen">Wissen &amp; Werkzeuge</a>
-    <a href="#faq">Fragen &amp; klare Antworten</a>
+    <a href="#wissen">Wissen &amp; Praxis</a>
+    <a href="#faq">Fragen &amp; Antworten</a>
     <a href="#kontakt">Kontakt &amp; Erstgespräch</a>
     <a href="#rechtliches">Rechtliches &amp; Transparenz</a>
-  </nav>
+  </div>
+  <div>
+    <img src="assets/img/tuev-logo-transparent.png" alt="TÜV Austria zertifiziert" style="height: 40px;">
+  </div>
+</nav>
 
   <!-- Hero / Einstieg -->
   <section id="start" class="scroll-section">
@@ -231,25 +247,11 @@
     <p>Sie erhalten direktes Wissen, das Ihnen hilft, Entscheidungen sicherer zu treffen – und Ihre internen Prozesse professionell zu begleiten.</p>
   </div>
 </section>
-<!-- FAQ & Whitepaper kombiniert -->
+<!-- FAQ & Whitepaper getrennt -->
 <section id="faq" class="scroll-section">
   <div class="content">
     <h2>Fragen &amp; klare Antworten</h2>
 
-    <h3>Whitepaper &amp; Tools</h3>
-    <p>Drei kompakte Leitfäden für Entscheider:innen im Mittelstand:</p>
-    <ul>
-      <li>📄 <strong>KI &amp; Datenschutz:</strong> Konflikte &amp; Lösungen</li>
-      <li>📄 <strong>EU AI Act:</strong> Was Unternehmen jetzt tun müssen</li>
-      <li>📄 <strong>Governance:</strong> Leitlinien &amp; Checklisten für die Praxis</li>
-    </ul>
-    <form name="whitepaper" method="POST" data-netlify="true">
-      <input type="hidden" name="form-name" value="whitepaper">
-      <input type="email" name="email" placeholder="Ihre E-Mail" required style="padding:1rem;width:100%;">
-      <button type="submit" class="btn">Whitepaper erhalten</button>
-    </form>
-
-    <h3 style="margin-top: 3rem;">Fragen &amp; Antworten</h3>
     <div class="accordion">
 
       <div class="accordion-item">
@@ -316,8 +318,27 @@
       </div>
 
     </div>
+
+    <!-- Whitepaper: mit Abstand -->
+    <div style="margin-top: 5rem;">
+      <h3>Whitepaper &amp; Tools</h3>
+      <p>Drei kompakte Leitfäden für Entscheider:innen im Mittelstand:</p>
+      <ul>
+        <li>📄 <strong>KI &amp; Datenschutz:</strong> Konflikte &amp; Lösungen</li>
+        <li>📄 <strong>EU AI Act:</strong> Was Unternehmen jetzt tun müssen</li>
+        <li>📄 <strong>Governance:</strong> Leitlinien &amp; Checklisten für die Praxis</li>
+      </ul>
+      <form name="whitepaper" method="POST" data-netlify="true">
+        <input type="hidden" name="form-name" value="whitepaper">
+        <input type="email" name="email" placeholder="Ihre E-Mail" required style="padding:1rem;width:100%;">
+        <button type="submit" class="btn btn-darkblue">Whitepaper erhalten</button>
+
+      </form>
+    </div>
+
   </div>
 </section>
+
 <!-- Kontakt -->
 <section id="kontakt" class="scroll-section">
   <div class="content">
