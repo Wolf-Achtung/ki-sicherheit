@@ -398,6 +398,23 @@ display: inline-block;
   0%, 100% { border-color: transparent; }
   50% { border-color: #0c4a74; }
 }
+/* Page-Transition-Effekt für Sprung-Ziele */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Ziel-Elemente beim Ansteuern visuell leicht blenden */
+.scroll-section {
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Übergang kurz dämpfen (sichtbar bei Delay) */
+.scroll-section.scrolling-in {
+  opacity: 0;
+  transform: translateY(10px);
+}
 
 </style>
 
@@ -493,7 +510,7 @@ display: inline-block;
   </div>
 </section>
 <!-- KI-Risiko-Schnellcheck -->
-<section id="schnellcheck" class="scroll-section fade-in-section"> style="margin-top: 4rem;">
+<section id="schnellcheck" class="scroll-section fade-in-section" style="margin-top: 4rem;">
   <div class="content">
     <h2 class="section-header">Selbstcheck: Welcher KI-Risikotyp ist Ihr Unternehmen?</h2>
     <p>Beantworten Sie 4 kurze Fragen – und erhalten Sie sofort eine Einschätzung:</p>
@@ -534,6 +551,10 @@ display: inline-block;
       <a href="#whitepaper" class="button-dark">Whitepaper lesen</a>
       <a href="#kontakt" class="button-dark" style="margin-left: 1rem;">Beratung anfragen</a>
     </div>
+
+    <p class="form-hint">
+      <strong>Hinweis zum Datenschutz:</strong> Die Auswertung erfolgt rein lokal im Browser – es werden <strong>keine Daten gespeichert oder übertragen</strong>. Die Inhalte orientieren sich an den Anforderungen der DSGVO und des <strong>EU AI Acts</strong> und bieten eine erste Einschätzung, ersetzen aber keine individuelle Prüfung.
+    </p>
   </div>
 </section>
 
@@ -871,7 +892,6 @@ function showErgebnis(antwort) {
   document.getElementById("ergebnis-titel").textContent = titel;
   document.getElementById("ergebnis-text").textContent = text;
 }
-<script>
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -902,6 +922,29 @@ document.addEventListener("DOMContentLoaded", function () {
 
   typeWriter();
 });
+</script>
+<script>
+  // Soft-Fade beim Ansteuern von Sektionen per Navigation
+  const links = document.querySelectorAll('.menu a[href^="#"]');
+
+  links.forEach(link => {
+    link.addEventListener('click', function (e) {
+      const targetID = this.getAttribute('href');
+      const target = document.querySelector(targetID);
+      if (!target) return;
+
+      e.preventDefault(); // Standard-Sprung verhindern
+      target.classList.add('scrolling-in');
+
+      // Scrollen mit smooth behavior
+      target.scrollIntoView({ behavior: 'smooth' });
+
+      // Nach kurzer Zeit wieder normale Sichtbarkeit
+      setTimeout(() => {
+        target.classList.remove('scrolling-in');
+      }, 600);
+    });
+  });
 </script>
 
 </body>
