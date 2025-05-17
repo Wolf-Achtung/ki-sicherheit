@@ -517,6 +517,27 @@ ul.custom-list li::before {
     border-bottom: 1px solid #eee;
   }
 }
+/* Typing-Effekt nur auf Startseite */
+#start .typing {
+  white-space: nowrap;
+  overflow: hidden;
+  display: inline-block;
+  border-right: 2px solid currentColor;
+  font-size: 2rem;
+  font-weight: 600;
+  color: white;
+  animation: typing 3s steps(40, end), blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink-caret {
+  0%, 100% { border-color: transparent }
+  50% { border-color: white }
+}
 
 </style>
 
@@ -531,7 +552,9 @@ ul.custom-list li::before {
 <!-- Hero / Einstieg -->
 <section id="start" class="scroll-section fade-in-section">
   <div class="content">
-    <h1 class="typing">KI verstehen. Risiken beherrschen. Vertrauen schaffen.</h1>
+    <h1 class="section-header">
+      <span class="typing">KI verstehen. Risiken beherrschen. Vertrauen schaffen.</span>
+    </h1>
     <p>Ich unterstütze mittelständische Unternehmen dabei, Künstliche Intelligenz verantwortungsvoll, rechtssicher und strategisch einzusetzen.</p>
     <a href="#faq" class="btn">Mehr erfahren</a>
   </div>
