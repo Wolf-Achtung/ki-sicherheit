@@ -8,162 +8,186 @@
   <!-- Google Font: Inter -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
 
-<style>
-  html, body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Inter', sans-serif;
-    background: #ffffff url('assets/img/netzstruktur.svg') no-repeat center top;
-    background-size: cover;
-    scroll-behavior: smooth;
-    color: #0c4a74;
-  }
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
+      background: #ffffff url('assets/img/netzstruktur.svg') no-repeat center top;
+      background-size: cover;
+      scroll-behavior: smooth;
+      color: #0c4a74;
+    }
 
-  h1, h2, h3 {
-    margin-bottom: 1.2rem;
-    font-weight: 600;
-  }
+    h1, h2, h3 {
+      margin-bottom: 1.2rem;
+      font-weight: 600;
+      text-align: justify;
+    }
 
-  h1 {
-    font-size: 2rem;
-  }
+    .section-header {
+      background-color: #0c4a74;
+      color: white;
+      padding: 1rem 1.5rem;
+      border-radius: 6px;
+      margin-bottom: 2rem;
+      text-align: left;
+    }
 
-  h2 {
-    font-size: 1.75rem;
-  }
+    h1 {
+      font-size: 2rem;
+    }
 
-  h3 {
-    font-size: 1.25rem;
-  }
+    h2 {
+      font-size: 1.75rem;
+    }
 
-  p {
-    font-size: 1.125rem;
-    line-height: 1.6;
-    margin-bottom: 1.5rem;
-    text-align: justify;
-  }
+    h3 {
+      font-size: 1.25rem;
+    }
 
-  .scroll-section {
-    min-height: 100vh;
-    padding: 5rem 2rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-  }
+    p {
+      font-size: 1.125rem;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+      text-align: justify;
+    }
 
-  .content {
-    max-width: 800px;
-    width: 100%;
-  }
+    .scroll-section {
+      min-height: 100vh;
+      padding: 5rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
 
-  .btn {
-    background-color: #0c4a74;
-    color: white;
-    padding: 0.8rem 1.6rem;
-    border: none;
-    border-radius: 25px;
-    font-size: 1rem;
-    margin-top: 1.5rem;
-    cursor: pointer;
-    text-decoration: none;
-    transition: background 0.2s ease-in-out;
-  }
+    .content {
+      max-width: 800px;
+      width: 100%;
+    }
 
-  .btn:hover {
-    background-color: #09395c;
-  }
+    .btn {
+      background-color: #0c4a74;
+      color: white;
+      padding: 0.8rem 1.6rem;
+      border: none;
+      border-radius: 25px;
+      font-size: 1rem;
+      margin-top: 1.5rem;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.2s ease-in-out;
+    }
 
-  /* Navigation */
-  .menu {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    gap: 1rem;
-    padding: 1rem 2rem;
-    background: #ffffff;
-    border-bottom: 1px solid #ddd;
-    position: sticky;
-    top: 0;
-    z-index: 10;
-    flex-direction: row;
-  }
+    .btn:hover {
+      background-color: #09395c;
+    }
 
-  .menu a {
-    text-decoration: none;
-    font-weight: 600;
-    color: #0c4a74;
-    padding: 0.4rem 0.8rem;
-    border-radius: 5px;
-  }
+    /* Navigation */
+    .menu {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem 2rem;
+      background: #ffffff;
+      border-bottom: 1px solid #ddd;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
 
-  .menu a:hover {
-    background-color: #e0f7fa;
-  }
+    .menu a {
+      text-decoration: none;
+      font-weight: 600;
+      color: #0c4a74;
+      padding: 0.4rem 0.8rem;
+      border-radius: 5px;
+      white-space: normal;
+      text-align: center;
+    }
 
-  .menu-logo {
-    height: 70px;
-  }
+    .menu a:hover {
+      background-color: #e0f7fa;
+    }
 
-  ul {
-    margin: 1.5rem 0;
-    padding: 1rem;
-    background: #0c4a74;
-    color: white;
-    border-radius: 8px;
-    list-style: disc;
-  }
+    .menu-logo {
+      height: 90px;
+    }
 
-  ul li {
-    margin-bottom: 0.8rem;
-    line-height: 1.5;
-  }
+    /* List-Card-Stil */
+    ul {
+      padding-left: 0;
+      list-style: none;
+      margin: 2rem 0;
+    }
 
-  .accordion {
-    border-top: 1px solid #ccc;
-    margin-top: 1rem;
-  }
+    ul li {
+      background: #f7f9fb;
+      padding: 1rem 1.2rem;
+      margin-bottom: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+      position: relative;
+    }
 
-  .accordion-item {
-    border-bottom: 1px solid #ccc;
-  }
+    ul li::before {
+      content: "•";
+      position: absolute;
+      left: 0.8rem;
+      color: #0c4a74;
+      font-size: 1.4rem;
+      line-height: 1;
+      top: 1.2rem;
+    }
 
-  .accordion-toggle {
-    background: none;
-    border: none;
-    width: 100%;
-    text-align: left;
-    padding: 1rem;
-    font-size: 1rem;
-    font-weight: bold;
-    color: #0c4a74;
-    cursor: pointer;
-    transition: background 0.2s ease-in-out;
-  }
+    .accordion {
+      border-top: 1px solid #ccc;
+      margin-top: 1rem;
+    }
 
-  .accordion-toggle:hover {
-    background: #f0f8fa;
-  }
+    .accordion-item {
+      border-bottom: 1px solid #ccc;
+    }
 
-  .accordion-content {
-    display: none;
-    padding: 0 1rem 1rem;
-    color: #123d4c;
-  }
+    .accordion-toggle {
+      background: none;
+      border: none;
+      width: 100%;
+      text-align: left;
+      padding: 1rem;
+      font-size: 1rem;
+      font-weight: bold;
+      color: #0c4a74;
+      cursor: pointer;
+      transition: background 0.2s ease-in-out;
+    }
 
-  .accordion-item.open .accordion-content {
-    display: block;
-  }
+    .accordion-toggle:hover {
+      background: #0c4a74;
+      color: white;
+    }
 
-  hr {
-    margin: 4rem 0 2rem;
-    border: none;
-    border-top: 2px solid #ccc;
-  }
-</style>
+    .accordion-content {
+      display: none;
+      padding: 0 1rem 1rem;
+      color: #123d4c;
+    }
 
+    .accordion-item.open .accordion-content {
+      display: block;
+    }
+
+    hr {
+      margin: 4rem 0 2rem;
+      border: none;
+      border-top: 2px solid #ccc;
+    }
+  </style>
 </head>
+
 <body>
 
   <!-- Navigation -->
@@ -184,21 +208,22 @@
 <!-- Hero / Einstieg -->
 <section id="start" class="scroll-section">
   <div class="content">
-    <h1>Sicherheit &amp; Klarheit beim Einsatz von KI</h1>
+    <h1 class="section-header">Sicherheit &amp; Klarheit beim Einsatz von KI</h1>
     <p>Ich unterstütze mittelständische Unternehmen dabei, Künstliche Intelligenz verantwortungsvoll, rechtssicher und strategisch einzusetzen.</p>
     <a href="#faq" class="btn">Mehr erfahren</a>
   </div>
 </section>
+
 <!-- Über mich -->
 <section id="ueber-mich" class="scroll-section">
   <div class="content">
-    <h2>Profil &amp; Motivation</h2>
+    <h2 class="section-header">Profil &amp; Motivation</h2>
 
     <p>Ich bin Ihr Sparringspartner für sichere KI-Nutzung im Mittelstand. Mit 25 Jahren Erfahrung im B2B-Umfeld weiß ich:</p>
     <p><strong>Wirtschaftlichkeit und Verantwortung schließen sich nicht aus.</strong></p>
     <p>Mein Ziel: <strong>KI-Vertrauen schaffen – mit Plan, Klartext und Verantwortung.</strong></p>
 
-    <p style="margin-top:2rem;">KI verändert Ihr Unternehmen. Doch mit Innovation kommt Verantwortung. Vertrauen Sie dabei nicht auf Meinungen – sondern auf geprüfte Kompetenz.</p>
+    <p>KI verändert Ihr Unternehmen. Doch mit Innovation kommt Verantwortung. Vertrauen Sie dabei nicht auf Meinungen – sondern auf geprüfte Kompetenz.</p>
 
     <ul>
       <li><strong>Geprüfte Fachkenntnisse:</strong> KI-Strategie, Datenschutz, Governance, EU AI Act</li>
@@ -210,10 +235,11 @@
     <p>Meine TÜV-Zertifizierung ist mehr als ein Siegel. Sie ist Ihr Sicherheitsnachweis dafür, dass Sie beim Einsatz von KI einen Partner an Ihrer Seite haben, der Technologie, Recht und Verantwortung zusammenbringt.</p>
   </div>
 </section>
+
 <!-- Leistungen -->
 <section id="leistungen" class="scroll-section">
   <div class="content">
-    <h2>Leistungen &amp; Lösungen</h2>
+    <h2 class="section-header">Leistungen &amp; Lösungen</h2>
 
     <p>Ich unterstütze Sie dort, wo KI in Ihrem Unternehmen real wird – mit klaren Methoden, strukturierten Analysen und rechtssicherem Fokus.</p>
 
@@ -227,10 +253,11 @@
     <p>Ich bin an Ihrer Seite, wenn es darum geht, Chancen zu nutzen – ohne die Risiken zu übersehen.</p>
   </div>
 </section>
+
 <!-- Wissen -->
 <section id="wissen" class="scroll-section">
   <div class="content">
-    <h2>Wissen &amp; Praxis</h2>
+    <h2 class="section-header">Wissen &amp; Praxis</h2>
 
     <p>Gute Entscheidungen brauchen gutes Wissen – und die Fähigkeit, es in die Praxis zu übertragen. Deshalb stelle ich Ihnen Materialien zur Verfügung, die nicht im Theorieraum bleiben, sondern im Unternehmensalltag funktionieren.</p>
 
@@ -243,10 +270,11 @@
     <p>Sie erhalten keine lose Wissenssammlung – sondern Werkzeuge, mit denen Sie Verantwortung übernehmen und souverän entscheiden können.</p>
   </div>
 </section>
+
 <!-- FAQ & Whitepaper getrennt -->
 <section id="faq" class="scroll-section">
   <div class="content">
-    <h2>Fragen &amp; Antworten</h2>
+    <h2 class="section-header">Fragen &amp; Antworten</h2>
 
     <div class="accordion">
 
@@ -315,7 +343,7 @@
 
     </div>
 
-    <!-- Whitepaper-Formular: deutlich später -->
+    <!-- Whitepaper-Formular -->
     <div style="margin-top: 5rem;">
       <h3>Whitepaper anfordern</h3>
       <p>Erhalten Sie kompaktes, fundiertes Wissen für Entscheider:innen – verständlich, umsetzbar und direkt einsetzbar im Unternehmen.</p>
@@ -328,10 +356,11 @@
 
   </div>
 </section>
+
 <!-- Kontakt -->
 <section id="kontakt" class="scroll-section">
   <div class="content">
-    <h2>Kontakt &amp; Erstgespräch</h2>
+    <h2 class="section-header">Kontakt &amp; Erstgespräch</h2>
 
     <p>Sie möchten wissen, ob Ihr Unternehmen vom AI Act betroffen ist?  
     Oder Sie brauchen Klarheit, wie Sie KI sicher &amp; sinnvoll einsetzen?</p>
@@ -355,10 +384,11 @@
     </form>
   </div>
 </section>
+
 <!-- Rechtliches & Transparenz -->
 <section id="rechtliches" class="scroll-section">
   <div class="content">
-    <h2>Rechtliches &amp; Transparenz</h2>
+    <h2 class="section-header">Rechtliches &amp; Transparenz</h2>
 
     <p>Der verantwortungsvolle Umgang mit Daten und Technologien ist für mich nicht nur Teil meines Angebots – sondern gelebter Standard.</p>
 
@@ -408,9 +438,9 @@
 
     <p><strong>Urheberrecht:</strong><br>
     Alle Inhalte dieser Website unterliegen dem deutschen Urheberrecht. Vervielfältigung, Bearbeitung oder Verwendung außerhalb der Grenzen des Urheberrechts bedürfen der schriftlichen Zustimmung.</p>
-
   </div>
 </section>
+
 
 <!-- Akkordeon-Funktion für FAQ -->
 <script>
@@ -424,4 +454,5 @@
 
 </body>
 </html>
+
 
