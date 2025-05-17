@@ -1,549 +1,206 @@
+<!DOCTYPE html>
+<html lang="de">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="KI-Sicherheit.jetzt – Beratung zu Datenschutz, DSGVO und EU AI Act im Mittelstand" />
   <meta name="author" content="KI-Sicherheit.jetzt" />
   <title>KI-Sicherheit.jetzt – Klarheit für Entscheider:innen</title>
-
-  <!-- Google Font: Inter -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
 
   <style>
-  html, body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Inter', sans-serif;
-    background: #ffffff url('assets/img/netzstruktur.svg') no-repeat center top;
-    background-size: cover;
-    scroll-behavior: smooth;
-    color: #0c4a74;
-  }
-
-  h1, h2, h3 {
-    margin-bottom: 1.2rem;
-    font-weight: 600;
-    text-align: justify;
-  }
-
-  .section-header {
-    background-color: #0c4a74;
-    color: white;
-    padding: 1rem 1.5rem;
-    border-radius: 20px; /* Jetzt abgerundet wie Button */
-    margin-bottom: 2rem;
-    text-align: left;
-position: relative;
-  overflow: hidden; /* sorgt dafür, dass Linie nicht übersteht */
-  }
-/* Linie unter dem h2, die animiert einfährt */
-.section-header::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -10px;
-  width: 0%;
-  height: 3px;
-  background-color: #0c4a74;
-  transition: width 1s ease;
-}
-
-/* Sobald der Block sichtbar ist (durch Scroll-FadeIn), fährt Linie rein */
-.fade-in-section.visible .section-header::after {
-  width: 100%;
-}
-
-  h1 {
-    font-size: 2rem;
-  }
-
-  h2 {
-    font-size: 1.75rem;
-  }
-
-  h3 {
-    font-size: 1.25rem;
-  }
-
-  p {
-    font-size: 1.125rem;
-    line-height: 1.6;
-    margin-bottom: 1.5rem;
-    text-align: justify;
-  }
-
-  .scroll-section {
-    min-height: 100vh;
-    padding: 2rem 2rem; /* Weniger Leerraum oben */
-scroll-margin-top: 150px; /* sorgt für sichtbaren Abstand zur oberen Kante */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-  }
-
-  .content {
-    max-width: 800px;
-    width: 100%;
-  }
-
-  .btn {
-    background-color: #0c4a74;
-    color: white;
-    padding: 0.8rem 1.6rem;
-    border: none;
-    border-radius: 25px;
-    font-size: 1rem;
-    margin-top: 1.5rem;
-    cursor: pointer;
-    text-decoration: none;
-    transition: background 0.2s ease-in-out;
-  }
-
-  .btn:hover {
-    background-color: #09395c;
-  }
-
-  /* Navigation */
-  .menu {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    gap: 1rem;
-    padding: 1rem 2rem;
-    background: #ffffff;
-    border-bottom: 1px solid #ddd;
-    position: sticky;
-    top: 0;
-    z-index: 10;
-  }
-
-  .menu a {
-    text-decoration: none;
-    font-weight: 600;
-    color: #0c4a74;
-    padding: 0.4rem 0.8rem;
-    border-radius: 5px;
-    white-space: normal;
-    text-align: center;
-  }
-
-  .menu a:hover {
-    background-color: #e0f7fa;
-  }
-
-  .menu-logo {
-    height: 90px;
-  }
-
-  /* List-Stil (keine Bullets mehr) */
-  ul {
-    padding-left: 2rem;
-    list-style: disc;
-    margin: 2rem 0;
-  }
-
-  ul li {
-    background: #f0f8ff;
-    padding: 1rem 1.2rem;
-    margin-bottom: 1rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-  }
-
-  ul li::before {
-    content: none; /* entfernt alle Bullet-Dekos */
-  }
-
-  .accordion {
-    border-top: 1px solid #ccc;
-    margin-top: 1rem;
-  }
-
-  .accordion-item {
-    border-bottom: 1px solid #ccc;
-  }
-
-   .accordion-toggle {
-    background-color: #f0f4f7;
-    color: #0c4a74;
-    font-weight: bold;
-    border: none;
-    width: 100%;
-    text-align: left;
-    padding: 1rem;
-    margin-bottom: 0.5rem;
-    cursor: pointer;
-    border-radius: 8px;
-    transition: background 0.3s;
-  }
-
-  .accordion-toggle:hover {
-    background-color: #dfeaf3;
-  }
-
-  .accordion-content {
-    display: none;
-    padding: 1rem;
-    background-color: #f7f9fb;
-    border-radius: 0 0 8px 8px;
-    margin-bottom: 1rem;
-  }
-
-  .accordion-item.open .accordion-content {
-    display: block;
-  }
-
-  hr {
-    margin: 4rem 0 2rem;
-    border: none;
-    border-top: 2px solid #ccc;
-  }
-.menu a {
-  text-decoration: none;
-  font-weight: 600;
-  color: #0c4a74;
-  padding: 0.4rem 0.8rem;
-  border-radius: 5px;
-  white-space: normal;
-  text-align: center;
-  transition: all 0.2s ease-in-out;
-display: inline-block;
-  line-height: 1.3;
-  text-align: center;
-  min-width: 120px;
-}
-
-.menu a:hover {
-  background-color: #0c4a74;
-  color: white; /* ← Textfarbe ändert sich beim Hover */
-}
-.menu a:hover {
-  cursor: pointer;
-}
-@media (max-width: 768px) {
-
-  /* Allgemeine Schriftgröße & Abstand */
-  body, p {
-    font-size: 1rem;
-    line-height: 1.5;
-    padding: 0 1rem;
-  }
-
-  h1 {
-    font-size: 1.5rem;
-  }
-
-  h2 {
-    font-size: 1.3rem;
-  }
-
-  h3 {
-    font-size: 1.1rem;
-  }
-
-  .scroll-section {
-    padding: 2rem 1rem;
-  }
-
-  .content {
-    max-width: 100%;
-    padding: 0;
-  }
-
-  /* Navigation – zweizeilig wird einspaltig */
-  .menu {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .menu a {
-    width: 100%;
-    padding: 0.8rem 1rem;
-    text-align: left;
-    font-size: 1rem;
-    border-bottom: 1px solid #eee;
-  }
-
-  .menu-logo {
-    height: 60px;
-    align-self: flex-end;
-    margin-top: 1rem;
-  }
-
-  /* Whitepaper-Karten: untereinander */
-  section#whitepaper div[style*="grid-template-columns"] {
-    display: block !important;
-  }
-
-  section#whitepaper > .content > div > div {
-    margin-bottom: 2rem;
-  }
-
-  /* Formulareingaben */
-  input, textarea {
-    font-size: 1rem;
-  }
-
-  /* Akkordeon optimieren */
-  .accordion-toggle {
-    font-size: 1rem;
-    padding: 0.8rem 1rem;
-  }
-
-  .btn {
-    width: 100%;
-    text-align: center;
-  }
-}
-#quiz .check-button {
-  display: block;
-  margin: 0.7rem 0;
-  background-color: #f5f9fc;
-  color: #003b60;
-  padding: 0.8rem 1rem;
-  border-radius: 8px;
-  border: 1px solid #c8dbe6;
-  font-weight: bold;
-  text-align: left;
-  width: 100%;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
-}
-#quiz .check-button:hover {
-  background-color: #e6f0f8;
-}
-.button-dark {
-  background-color: #0a4c76;
-  color: white;
-  padding: 0.6rem 1.4rem;
-  border: none;
-  border-radius: 999px;
-  font-weight: bold;
-  cursor: pointer;
-  text-decoration: none;
-  display: inline-block;
-}
-.button-dark:hover {
-  background-color: #083a5d;
-}
-.fade-in-section {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-  will-change: opacity, transform;
-}
-.fade-in-section.visible {
-  opacity: 1;
-  transform: none;
-}
-/* ✅ Einheitlicher Button-Hover-Effekt */
-.button-dark,
-.check-button,
-.btn,
-.menu a {
-  transition: all 0.25s ease-in-out;
-}
-
-.button-dark:hover,
-.check-button:hover,
-.btn:hover,
-.menu a:hover {
-  transform: scale(1.03);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-/* ✅ Accordion mit animiertem Pfeil */
-.accordion-toggle {
-  position: relative;
-  padding-right: 2.5rem;
-}
-
-.accordion-toggle::after {
-  content: "▶";
-  position: absolute;
-  right: 1rem;
-  top: 50%;
-  transform: translateY(-50%) rotate(0deg);
-  transition: transform 0.3s ease;
-}
-
-.accordion-item.open .accordion-toggle::after {
-  transform: translateY(-50%) rotate(90deg);
-}
-
-/* ✅ Fade-In bei Scroll (bereits enthalten – zur Sicherheit bereinigt) */
-.fade-in-section {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-  will-change: opacity, transform;
-}
-.fade-in-section.visible {
-  opacity: 1;
-  transform: none;
-}
-.typing {
-  font-size: 2rem;
-  font-weight: 600;
-  color: #0c4a74;
-  white-space: nowrap;
-  overflow: hidden;
-  border-right: 2px solid currentColor;
-  animation: typing 2s steps(30, end), blink 0.75s step-end infinite;
-  max-width: 100%;
-}
-@keyframes typing {
-  from { width: 0 }
-  to { width: 100% }
-}
-
-@keyframes blink {
-  50% { border-color: transparent }
-}
-@keyframes blink-caret {
-  0%, 100% { border-color: transparent; }
-  50% { border-color: #0c4a74; }
-}
-/* Page-Transition-Effekt für Sprung-Ziele */
-html {
-  scroll-behavior: smooth;
-}
-
-/* Ziel-Elemente beim Ansteuern visuell leicht blenden */
-.scroll-section {
-  transition: opacity 0.6s ease, transform 0.6s ease;
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Übergang kurz dämpfen (sichtbar bei Delay) */
-.scroll-section.scrolling-in {
-  opacity: 0;
-  transform: translateY(10px);
-}
-.bottom-nav {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  background: #fff;
-  border-top: 1px solid #ccc;
-  display: flex;
-  justify-content: space-around;
-  padding: 0.5rem;
-  z-index: 100;
-}
-
-.bottom-nav a {
-  color: #0c4a74;
-  text-decoration: none;
-  font-weight: bold;
-  padding: 0.5rem 0.8rem;
-  border-radius: 8px;
-  transition: all 0.2s ease-in-out;
-  text-align: center;
-}
-
-.bottom-nav a:hover {
-  background-color: #0c4a74;
-  color: white;
-}
-
-.scroll-section {
-  scroll-margin-top: 150px;
-}
-
-ul.custom-list {
-  list-style: none;
-  padding: 0;
-}
-
-ul.custom-list li {
-  position: relative;
-  padding-left: 1.5rem;
-  margin-bottom: 1rem;
-  background: #f5faff;
-  border-radius: 8px;
-  padding: 1rem;
-}
-
-ul.custom-list li::before {
-  content: '✓';
-  color: #0c4a74;
-  font-weight: bold;
-  position: absolute;
-  left: 0.5rem;
-}
-
-
-.bottom-nav .menu {
-  display: flex;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
-  padding: 0.6rem 1rem;
-  gap: 0.4rem;
-}
-
-.bottom-nav .menu a {
-  font-weight: bold;
-  font-size: 1rem;
-  color: #0c4a74;
-  text-decoration: none;
-  padding: 0.5rem 0.8rem;
-  border-radius: 10px;
-  text-align: center;
-  line-height: 1.3;
-  white-space: nowrap;
-  transition: all 0.2s ease-in-out;
-}
-
-.bottom-nav .menu a:hover {
-  background-color: #0c4a74;
-  color: white;
-}
-
-/* Mobile-optimiert */
-@media (max-width: 768px) {
-  .bottom-nav .menu {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .bottom-nav .menu a {
-    width: 100%;
-    font-size: 1rem;
-    padding: 0.8rem 1rem;
-    border-bottom: 1px solid #eee;
-  }
-}
-/* Typing-Effekt nur auf Startseite */
-#start .typing {
-  white-space: nowrap;
-  overflow: hidden;
-  display: inline-block;
-  border-right: 2px solid currentColor;
-  font-size: 2rem;
-  font-weight: 600;
-  color: white;
-  animation: typing 3s steps(40, end), blink-caret 0.75s step-end infinite;
-}
-
-@keyframes typing {
-  from { width: 0 }
-  to { width: 100% }
-}
-
-@keyframes blink-caret {
-  0%, 100% { border-color: transparent }
-  50% { border-color: white }
-}
-
-</style>
-
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
+      background: #ffffff;
+      scroll-behavior: smooth;
+      color: #0c4a74;
+    }
+
+    .scroll-section {
+      min-height: 100vh;
+      padding: 2rem;
+      scroll-margin-top: 150px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+
+    .content {
+      max-width: 800px;
+      width: 100%;
+    }
+
+    h1, h2, h3 {
+      font-weight: 600;
+      margin-bottom: 1.2rem;
+      text-align: justify;
+    }
+
+    h1.typing {
+      font-size: 2rem;
+      font-weight: 700;
+      color: white;
+      background-color: #0c4a74;
+      padding: 1.2rem 1.5rem;
+      border-radius: 40px;
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 0.15em solid white;
+      animation: blink-caret 0.75s step-end infinite;
+      max-width: 100%;
+      text-align: center;
+    }
+
+    @keyframes blink-caret {
+      0%, 100% { border-color: transparent }
+      50% { border-color: white }
+    }
+
+    .section-header {
+      background-color: #0c4a74;
+      color: white;
+      padding: 1rem 1.5rem;
+      border-radius: 20px;
+      margin-bottom: 2rem;
+      position: relative;
+      overflow: hidden;
+      text-align: left;
+    }
+
+    .section-header::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -10px;
+      width: 0%;
+      height: 3px;
+      background-color: #0c4a74;
+      transition: width 1s ease;
+    }
+
+    .fade-in-section.visible .section-header::after {
+      width: 100%;
+    }
+
+    ul {
+      list-style: disc;
+      padding-left: 2rem;
+      margin: 2rem 0;
+    }
+
+    ul li {
+      background: #f0f8ff;
+      padding: 1rem 1.2rem;
+      margin-bottom: 1rem;
+      border-radius: 8px;
+    }
+
+    .btn {
+      background-color: #0c4a74;
+      color: white;
+      padding: 0.8rem 1.6rem;
+      border: none;
+      border-radius: 25px;
+      font-size: 1rem;
+      margin-top: 1.5rem;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.25s ease-in-out;
+    }
+
+    .btn:hover {
+      background-color: #09395c;
+      transform: scale(1.03);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .accordion {
+      border-top: 1px solid #ccc;
+      margin-top: 1rem;
+    }
+
+    .accordion-item {
+      border-bottom: 1px solid #ccc;
+    }
+
+    .accordion-toggle {
+      background-color: #f0f4f7;
+      color: #0c4a74;
+      font-weight: bold;
+      border: none;
+      width: 100%;
+      text-align: left;
+      padding: 1rem;
+      cursor: pointer;
+      border-radius: 8px;
+      transition: background 0.3s;
+      position: relative;
+    }
+
+    .accordion-toggle:hover {
+      background-color: #0c4a74;
+      color: white;
+    }
+
+    .accordion-toggle::after {
+      content: "▶";
+      position: absolute;
+      right: 1rem;
+      top: 50%;
+      transform: translateY(-50%) rotate(0deg);
+      transition: transform 0.3s ease;
+    }
+
+    .accordion-item.open .accordion-toggle::after {
+      transform: translateY(-50%) rotate(90deg);
+    }
+
+    .accordion-content {
+      display: none;
+      padding: 1rem;
+      background-color: #f7f9fb;
+      border-radius: 0 0 8px 8px;
+      margin-bottom: 1rem;
+    }
+
+    .accordion-item.open .accordion-content {
+      display: block;
+    }
+
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: #fff;
+      border-top: 1px solid #ccc;
+      display: flex;
+      justify-content: space-around;
+      padding: 0.5rem;
+      z-index: 100;
+    }
+
+    .bottom-nav a {
+      color: #0c4a74;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 0.5rem 0.8rem;
+      border-radius: 8px;
+      transition: all 0.2s ease-in-out;
+      text-align: center;
+    }
+
+    .bottom-nav a:hover {
+      background-color: #0c4a74;
+      color: white;
+    }
+  </style>
 </head>
-
 <body>
+
 
   <div>
       <img src="assets/img/tuev-logo-transparent.png" alt="TÜV Austria zertifiziert" class="menu-logo" style="height: 90px;">
@@ -552,13 +209,12 @@ ul.custom-list li::before {
 <!-- Hero / Einstieg -->
 <section id="start" class="scroll-section fade-in-section">
   <div class="content">
-    <h1 class="section-header">
-      <span class="typing">KI verstehen. Risiken beherrschen. Vertrauen schaffen.</span>
-    </h1>
+    <h1 id="typing-headline" class="typing"></h1>
     <p>Ich unterstütze mittelständische Unternehmen dabei, Künstliche Intelligenz verantwortungsvoll, rechtssicher und strategisch einzusetzen.</p>
     <a href="#faq" class="btn">Mehr erfahren</a>
   </div>
 </section>
+
 
 <!-- Über mich -->
 <section id="ueber-mich" class="scroll-section fade-in-section">
@@ -998,16 +654,17 @@ function showErgebnis(antwort) {
 <script>
 document.addEventListener("DOMContentLoaded", function () {
   const text = "KI verstehen. Risiken beherrschen. Vertrauen schaffen.";
-  const speed = 45; // Geschwindigkeit pro Buchstabe (ms)
   let i = 0;
-  const headline = document.getElementById("typing-headline");
-
+  const speed = 50;
   function typeWriter() {
+    const headline = document.getElementById("typing-headline");
     if (i < text.length) {
       headline.textContent += text.charAt(i);
       i++;
       setTimeout(typeWriter, speed);
     }
+  }
+  document.addEventListener("DOMContentLoaded", typeWriter);
   }
 
   typeWriter();
