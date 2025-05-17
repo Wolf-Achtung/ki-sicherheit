@@ -420,11 +420,55 @@ html {
   bottom: 0;
   left: 0;
   width: 100%;
-  background-color: #ffffff;
-  border-top: 1px solid #ddd;
-  z-index: 1000;
-  box-shadow: 0 -2px 8px rgba(0,0,0,0.05);
+  background: #fff;
+  border-top: 1px solid #ccc;
+  display: flex;
+  justify-content: space-around;
+  padding: 0.5rem;
+  z-index: 100;
 }
+
+.bottom-nav a {
+  color: #0c4a74;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 0.5rem 0.8rem;
+  border-radius: 8px;
+  transition: all 0.2s ease-in-out;
+  text-align: center;
+}
+
+.bottom-nav a:hover {
+  background-color: #0c4a74;
+  color: white;
+}
+
+.scroll-section {
+  scroll-margin-top: 150px;
+}
+
+ul.custom-list {
+  list-style: none;
+  padding: 0;
+}
+
+ul.custom-list li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 1rem;
+  background: #f5faff;
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+ul.custom-list li::before {
+  content: '✓';
+  color: #0c4a74;
+  font-weight: bold;
+  position: absolute;
+  left: 0.5rem;
+}
+
 
 .bottom-nav .menu {
   display: flex;
@@ -964,16 +1008,23 @@ document.addEventListener("DOMContentLoaded", function () {
 </script>
 <div style="height: 120px;"></div>
 <footer class="bottom-nav">
-  <nav class="menu">
-    <a href="#profil">Profil &<br>Motivation</a>
-    <a href="#angebote">Leistungen &<br>Lösungen</a>
-    <a href="#selbstcheck">Schnell-<br>Check</a>
-    <a href="#wissen">Wissen &<br>Praxis</a>
-    <a href="#faq">Fragen &<br>Antworten</a>
-    <a href="#kontakt">Kontakt &<br>Erstgespräch</a>
-    <a href="#rechtliches">Rechtliches &<br>Transparenz</a>
-  </nav>
+  <a href="#profil">Profil & Motivation</a>
+  <a href="#leistungen">Leistungen & Lösungen</a>
+  <a href="#selbstcheck">Schnell-Check</a>
+  <a href="#wissen">Wissen & Praxis</a>
+  <a href="#faq">Fragen & Antworten</a>
+  <a href="#kontakt">Kontakt & Erstgespräch</a>
+  <a href="#rechtliches">Rechtliches & Transparenz</a>
 </footer>
+
+<script>
+  document.querySelectorAll('.accordion-toggle').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.parentElement;
+      item.classList.toggle('open');
+    });
+  });
+</script>
 
 
 </body>
