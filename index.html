@@ -56,6 +56,7 @@
   .scroll-section {
     min-height: 100vh;
     padding: 2rem 2rem; /* Weniger Leerraum oben */
+scroll-margin-top: 120px; /* sorgt für sichtbaren Abstand zur oberen Kante */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -145,28 +146,30 @@
     border-bottom: 1px solid #ccc;
   }
 
-  .accordion-toggle {
-    background: none;
+   .accordion-toggle {
+    background-color: #f0f4f7;
+    color: #0c4a74;
+    font-weight: bold;
     border: none;
     width: 100%;
     text-align: left;
     padding: 1rem;
-    font-size: 1rem;
-    font-weight: bold;
-    color: #0c4a74;
+    margin-bottom: 0.5rem;
     cursor: pointer;
-    transition: background 0.2s ease-in-out;
+    border-radius: 8px;
+    transition: background 0.3s;
   }
 
   .accordion-toggle:hover {
-    background: #0c4a74;
-    color: white;
+    background-color: #dfeaf3;
   }
 
   .accordion-content {
     display: none;
-    padding: 0 1rem 1rem;
-    color: #123d4c;
+    padding: 1rem;
+    background-color: #f7f9fb;
+    border-radius: 0 0 8px 8px;
+    margin-bottom: 1rem;
   }
 
   .accordion-item.open .accordion-content {
@@ -374,28 +377,45 @@ display: inline-block;
   <div class="content">
     <h2 class="section-header">KI-Risiko-Schnellcheck</h2>
 
-    <p>Nutzen Sie diesen kompakten Selbsttest, um herauszufinden, ob Ihre KI-Anwendungen als risikobehaftet gelten – z. B. nach dem EU AI Act oder der DSGVO.</p>
+    <p>Beantworten Sie die folgenden Aussagen. Am Ende erhalten Sie direkt eine Einschätzung, ob Ihr Unternehmen aktiv werden sollte.</p>
 
-    <p>Bitte beantworten Sie ehrlich die folgenden Aussagen:</p>
+    <form id="kiCheckForm">
+      <ul style="list-style: none; padding-left: 0;">
+        <li><label><input type="checkbox" name="frage" value="1"> Wir setzen KI-Systeme ein, die Entscheidungen über Menschen beeinflussen.</label></li>
+        <li><label><input type="checkbox" name="frage" value="1"> Die Herkunft und Qualität unserer Trainingsdaten ist nicht dokumentiert.</label></li>
+        <li><label><input type="checkbox" name="frage" value="1"> Mitarbeitende nutzen KI-Tools ohne klare Richtlinien.</label></li>
+        <li><label><input type="checkbox" name="frage" value="1"> Unsere KI trifft Entscheidungen, die wir nicht nachvollziehen können („Blackbox“).</label></li>
+        <li><label><input type="checkbox" name="frage" value="1"> Wir haben keine Risikoanalyse oder DSGVO-Prüfung für KI durchgeführt.</label></li>
+      </ul>
+      <button type="button" class="btn" onclick="auswertenCheck()">Jetzt auswerten</button>
+    </form>
 
-    <ul>
-      <li>Wir setzen KI-Systeme ein, die Entscheidungen über Menschen beeinflussen (z. B. Kredite, Personal, Bewertung).</li>
-      <li>Die Herkunft und Qualität der Trainingsdaten ist nicht vollständig dokumentiert.</li>
-      <li>KI wird bei uns ohne klare Richtlinien oder Verantwortlichkeiten eingesetzt.</li>
-      <li>Es ist unklar, wie unsere eingesetzten KI-Systeme zu ihren Ergebnissen kommen („Blackbox-Effekt“).</li>
-      <li>Wir haben keine systematische Risikobewertung für KI-Tools vorgenommen.</li>
-      <li>Unsere Mitarbeiter:innen nutzen KI-Tools wie ChatGPT ohne feste Regeln.</li>
-      <li>Wir wissen nicht, ob wir unter den Anwendungsbereich des AI Act fallen.</li>
-    </ul>
-
-    <p><strong>Wenn Sie 2 oder mehr Aussagen mit „Ja“ beantworten:</strong></p>
-    <p>Dann ist es sehr wahrscheinlich, dass Ihr Unternehmen in der Pflicht steht – sei es rechtlich, technisch oder organisatorisch.</p>
-
-    <p>Ich helfe Ihnen, Klarheit zu schaffen – mit einem fundierten Risikoprofil und konkreten Empfehlungen für Ihre nächsten Schritte.</p>
-
-    <a href="#kontakt" class="btn">Kostenfreies Erstgespräch vereinbaren</a>
+    <div id="auswertung" style="display: none; margin-top: 2rem; padding: 1rem; background: #0c4a74; color: white; border-radius: 8px;"></div>
   </div>
 </section>
+
+<script>
+  function auswertenCheck() {
+    const fragen = document.querySelectorAll('input[name="frage"]:checked');
+    const ergebnis = document.getElementById('auswertung');
+    const anzahl = fragen.length;
+
+    let text = "";
+
+    if (anzahl === 0) {
+      text = "✅ Ihr Unternehmen scheint aktuell gut aufgestellt. Behalten Sie dennoch gesetzliche Entwicklungen im Blick.";
+    } else if (anzahl <= 2) {
+      text = "⚠️ Erste Anzeichen für Risiken. Es empfiehlt sich, Ihre KI-Anwendungen genauer zu überprüfen.";
+    } else {
+      text = "🚨 Dringender Handlungsbedarf. Eine fundierte Risikoanalyse nach AI Act und DSGVO ist zu empfehlen.";
+    }
+
+    text += "<br><br><a href='#faq' style='color: #fff; text-decoration: underline;'>→ Zu den häufigsten Fragen & Antworten</a>";
+
+    ergebnis.style.display = "block";
+    ergebnis.innerHTML = text;
+  }
+</script>
 
 <!-- Wissen -->
 <section id="wissen" class="scroll-section">
@@ -554,6 +574,7 @@ display: inline-block;
       </div>
 
     </div>
+  </div>
 
     <!-- Whitepaper-Formular -->
     <div style="margin-top: 5rem;">
@@ -671,7 +692,9 @@ Weitere Infos unter <a href="https://www.tidio.com/privacy-policy/" target="_bla
   document.querySelectorAll('.accordion-toggle').forEach(button => {
     button.addEventListener('click', () => {
       const item = button.parentElement;
-      item.classList.toggle('open');
+      const open = item.classList.contains('open');
+      document.querySelectorAll('.accordion-item').forEach(i => i.classList.remove('open'));
+      if (!open) item.classList.add('open');
     });
   });
 </script>
