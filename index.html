@@ -1,197 +1,137 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="KI-Sicherheit.jetzt – Beratung zu Datenschutz, DSGVO und EU AI Act im Mittelstand" />
+  <meta name="description" content="Beratung zu Datenschutz, DSGVO und EU AI Act im Mittelstand – Klarheit für Entscheider:innen" />
   <meta name="author" content="KI-Sicherheit.jetzt" />
-  <title>KI-Sicherheit.jetzt – Klarheit für Entscheider:innen</title>
+  <title>KI-Sicherheit.jetzt | Klarheit für Entscheider:innen</title>
+  <link rel="icon" type="image/svg+xml" href="assets/img/netzstruktur.svg" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
   <style>
-    * { box-sizing: border-box; }
-    html, body {
-      margin: 0;
-      padding: 0;
+    body {
+      background: #f9fafc;
+      color: #0c4a74;
       font-family: 'Inter', sans-serif;
-      background: #ffffff url('assets/img/netzstruktur.svg') no-repeat center top;
-      background-size: cover;
-      scroll-behavior: smooth;
-      color: #0c4a74;
-    }
-    header, section, footer, nav {
-      width: 100%;
-      margin: 0 auto;
-    }
-    .menu {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem 2rem;
-      background: #fff;
-      border-bottom: 1px solid #ddd;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-    .menu a {
-      text-decoration: none;
-      font-weight: 600;
-      color: #0c4a74;
-      padding: 0.5rem 1rem;
-      border-radius: 8px;
-      transition: all 0.2s;
-    }
-    .menu a:hover {
-      background-color: #0c4a74;
-      color: white;
-    }
-    .menu-logo {
-      height: 70px;
-    }
-    .scroll-section {
-      min-height: 100vh;
-      padding: 4rem 2rem;
-      scroll-margin-top: 100px;
-    }
-    .content {
-      max-width: 800px;
-      margin: 0 auto;
     }
     .typing {
       font-size: 2rem;
       font-weight: 600;
-      color: white;
       white-space: nowrap;
       overflow: hidden;
-      border-right: 2px solid white;
-      animation: typing 3s steps(40, end), blink 0.75s step-end infinite;
+      border-right: 2px solid #0c4a74;
+      animation: typing 4s steps(50, end) 1, blink 0.75s step-end infinite;
       display: inline-block;
+      opacity: 0;
+      animation-fill-mode: forwards;
     }
     @keyframes typing {
-      from { width: 0 }
-      to { width: 100% }
+      0% { width: 0; opacity: 0; }
+      10% { opacity: 1; }
+      100% { width: 100%; opacity: 1; }
     }
     @keyframes blink {
       0%, 100% { border-color: transparent }
-      50% { border-color: white }
+      50% { border-color: #0c4a74 }
     }
-    h1, h2, h3 {
-      font-weight: 600;
-      margin-bottom: 1.2rem;
+    .hero, .scroll-section .content {
+      background: linear-gradient(145deg, #ffffff, #eef2f8);
+      border-radius: 2rem;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.05);
+      padding: 4rem 2rem;
+      margin: 2rem auto;
+      max-width: 900px;
+      animation: fadeInUp 1s ease-out both;
     }
-    p {
-      font-size: 1.125rem;
-      line-height: 1.6;
-      margin-bottom: 1.5rem;
-    }
-    ul {
-      list-style: none;
-      padding: 0;
-    }
-    ul li {
-      background: #f0f8ff;
-      padding: 1rem;
-      margin-bottom: 1rem;
-      border-radius: 8px;
-      position: relative;
-    }
-    ul li::before {
-      content: '✓';
-      color: #0c4a74;
-      position: absolute;
-      left: 1rem;
-    }
-    form input, form textarea {
-      width: 100%;
-      padding: 1rem;
-      margin-bottom: 1rem;
-      font-size: 1rem;
-      border: 1px solid #ccc;
-      border-radius: 8px;
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
     }
     .btn {
       background-color: #0c4a74;
       color: white;
       padding: 0.8rem 1.6rem;
       border: none;
-      border-radius: 25px;
+      border-radius: 12px;
       font-size: 1rem;
       cursor: pointer;
       text-decoration: none;
+      transition: background 0.3s ease, transform 0.2s ease;
+      display: inline-block;
+      margin-top: 1rem;
     }
     .btn:hover {
       background-color: #09395c;
+      transform: scale(1.05);
+    }
+    h2.section-header {
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+    }
+    ul {
+      padding-left: 1.2rem;
+    }
+    ul li {
+      margin-bottom: 0.5rem;
+      list-style-type: disc;
     }
     footer {
       background: #0c4a74;
       color: white;
       text-align: center;
-      padding: 2rem;
+      padding: 3rem 1rem 6rem;
+      margin-top: 4rem;
+      border-top-left-radius: 2rem;
+      border-top-right-radius: 2rem;
+    }
+    nav.bottom-nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: #fff;
+      border-top: 1px solid #ddd;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      align-items: center;
+      padding: 0.8rem 1rem;
+      z-index: 999;
+    }
+    nav.bottom-nav a {
+      text-decoration: none;
+      font-weight: 600;
+      color: #0c4a74;
+      padding: 0.4rem 0.6rem;
+      text-align: center;
+      font-size: 0.85rem;
+      white-space: nowrap;
+      flex: 1 0 auto;
     }
     @media (max-width: 768px) {
-      .menu {
+      nav.bottom-nav {
         flex-direction: column;
-        align-items: flex-start;
+        align-items: stretch;
       }
-      .menu a {
+      nav.bottom-nav a {
         width: 100%;
-        padding: 0.8rem 1rem;
         border-bottom: 1px solid #eee;
-      }
-      .scroll-section {
-        padding: 2rem 1rem;
+        padding: 1rem;
       }
     }
-.bottom-nav {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  background: white;
-  border-top: 1px solid #ddd;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  align-items: center;
-  padding: 0.8rem 1rem;
-  z-index: 999;
-}
-
-.bottom-nav a {
-  text-decoration: none;
-  font-weight: 600;
-  color: #0c4a74;
-  padding: 0.4rem 0.6rem;
-  text-align: center;
-  font-size: 0.85rem;
-  white-space: nowrap;
-  flex: 1 0 auto;
-}
-
-@media (max-width: 768px) {
-  .bottom-nav {
-    flex-direction: column;
-    align-items: stretch;
-  }
-  .bottom-nav a {
-    width: 100%;
-    border-bottom: 1px solid #eee;
-    padding: 1rem;
-  }
-}
-
   </style>
 </head>
+
 <body>
  
-  <section id="start" class="scroll-section">
-    <div class="content">
-      <h1 class="typing">KI verstehen. Risiken beherrschen. Vertrauen schaffen.</h1>
-      <p>Ich unterstütze mittelständische Unternehmen dabei, Künstliche Intelligenz verantwortungsvoll, rechtssicher und strategisch einzusetzen.</p>
-      <a href="#faq" class="btn">Mehr erfahren</a>
-    </div>
-  </section>
+ <section id="start" class="scroll-section">
+  <div class="hero">
+    <h1 class="typing">Die KI ist bereit. Sind Sie es auch?</h1>
+    <p>Ich unterstütze mittelständische Unternehmen dabei, Künstliche Intelligenz verantwortungsvoll, rechtssicher und strategisch einzusetzen.</p>
+    <a href="#schnellcheck" class="btn">Jetzt Schnell-Check starten</a>
+  </div>
+</section>
+
 
   <!-- Weitere Sektionen wie ueber-mich, leistungen, schnellcheck, wissen, faq, kontakt folgen analog -->
 <section id="ueber-mich" class="scroll-section">
@@ -275,29 +215,6 @@
     </div>
   </div>
 </section>
-<section id="wissen" class="scroll-section">
-  <div class="content">
-    <h2 class="section-header">Wissen &amp; Praxis</h2>
-    <p>Gute Entscheidungen brauchen gutes Wissen – und die Fähigkeit, es in die Praxis zu übertragen.  
-    Deshalb stelle ich Ihnen Materialien zur Verfügung, die nicht im Theorieraum bleiben, sondern im Unternehmensalltag funktionieren.</p>
-
-    <ul>
-      <li><strong>Whitepaper:</strong> Klar strukturierte Leitfäden zu KI &amp; Datenschutz, EU AI Act und Governance</li>
-      <li><strong>Canvas-Modelle:</strong> Praxisorientierte Visualisierungen wie der KI-Governance-Canvas</li>
-      <li><strong>Checklisten:</strong> Sofort nutzbar für interne Bewertung, Risikoabschätzung &amp; Compliance</li>
-    </ul>
-
-    <p>Sie erhalten keine lose Wissenssammlung – sondern Werkzeuge, mit denen Sie Verantwortung übernehmen und souverän entscheiden können.</p>
-
-    <h3>Whitepaper anfordern</h3>
-    <p>Erhalten Sie kompaktes, fundiertes Wissen für Entscheider:innen – verständlich, umsetzbar und direkt einsetzbar im Unternehmen.</p>
-    
-    <form name="whitepaper" method="POST" data-netlify="true">
-      <input type="hidden" name="form-name" value="whitepaper">
-      <input type="email" name="email" placeholder="Ihre E-Mail-Adresse" required>
-      <button type="submit" class="btn">Whitepaper erhalten</button>
-    </form>
-  </div>
 </section>
 <section id="reifegrad" class="scroll-section">
   <div class="content">
@@ -331,6 +248,30 @@
     <a href="#kontakt" class="btn" style="margin-top: 1.5rem;">Beratung anfragen</a>
   </div>
 </section>
+<section id="wissen" class="scroll-section">
+  <div class="content">
+    <h2 class="section-header">Wissen &amp; Praxis</h2>
+    <p>Gute Entscheidungen brauchen gutes Wissen – und die Fähigkeit, es in die Praxis zu übertragen.  
+    Deshalb stelle ich Ihnen Materialien zur Verfügung, die nicht im Theorieraum bleiben, sondern im Unternehmensalltag funktionieren.</p>
+
+    <ul>
+      <li><strong>Whitepaper:</strong> Klar strukturierte Leitfäden zu KI &amp; Datenschutz, EU AI Act und Governance</li>
+      <li><strong>Canvas-Modelle:</strong> Praxisorientierte Visualisierungen wie der KI-Governance-Canvas</li>
+      <li><strong>Checklisten:</strong> Sofort nutzbar für interne Bewertung, Risikoabschätzung &amp; Compliance</li>
+    </ul>
+
+    <p>Sie erhalten keine lose Wissenssammlung – sondern Werkzeuge, mit denen Sie Verantwortung übernehmen und souverän entscheiden können.</p>
+
+    <h3>Whitepaper anfordern</h3>
+    <p>Erhalten Sie kompaktes, fundiertes Wissen für Entscheider:innen – verständlich, umsetzbar und direkt einsetzbar im Unternehmen.</p>
+    
+    <form name="whitepaper" method="POST" data-netlify="true">
+      <input type="hidden" name="form-name" value="whitepaper">
+      <input type="email" name="email" placeholder="Ihre E-Mail-Adresse" required>
+      <button type="submit" class="btn">Whitepaper erhalten</button>
+    </form>
+  </div>
+
 
 
 <section id="faq" class="scroll-section">
@@ -398,12 +339,14 @@
     </ul>
 
     <form name="kontakt" method="POST" data-netlify="true">
-      <input type="hidden" name="form-name" value="kontakt">
-      <input type="text" name="name" placeholder="Ihr Name" required>
-      <input type="email" name="email" placeholder="Ihre E-Mail-Adresse" required>
-      <textarea name="nachricht" rows="5" placeholder="Ihre Nachricht" required></textarea>
-      <button type="submit" class="btn">Nachricht senden</button>
-    </form>
+  <input type="hidden" name="form-name" value="kontakt">
+  <input type="text" name="name" placeholder="Ihr Name" required>
+  <input type="text" name="unternehmen" placeholder="Ihr Unternehmen">
+  <input type="email" name="email" placeholder="Ihre E-Mail-Adresse" required>
+  <textarea name="nachricht" rows="5" placeholder="Ihre Nachricht" required></textarea>
+  <button type="submit" class="btn">Nachricht senden</button>
+</form>
+
   </div>
 </section>
 
@@ -411,17 +354,46 @@
   <div class="content">
     <h2 class="section-header">Rechtliches &amp; Transparenz</h2>
 
-    <p><strong>Datenschutz:</strong> Ihre Daten werden ausschließlich zur Bearbeitung Ihrer Anfrage verwendet. Es erfolgt keine Weitergabe an Dritte. Diese Seite speichert keine Cookies und verwendet keine Tracker.</p>
+    <h3>Impressum</h3>
+    <p>Angaben gemäß § 5 TMG</p>
+    <address>
+      Wolf Hohl<br>
+      Greifswalder Str. 224a<br>
+      10405 Berlin<br><br>
+      E-Mail: <a href="mailto:info@ki-sicherheit.jetzt">info@ki-sicherheit.jetzt</a>
+    </address>
 
-    <p><strong>Impressum:</strong><br>
-    Wolf Hohl<br>
-    Greifswalder Str. 224a<br>
-    10405 Berlin<br>
-    E-Mail: info@ki-sicherheit.jetzt</p>
+    <h4>Verantwortlich für den Inhalt</h4>
+    <p>Wolf Hohl, Adresse wie oben.</p>
 
-    <p><strong>Technische Umsetzung:</strong> HTML5 & CSS – barrierearm, DSGVO-konform, ohne externe Frameworks.</p>
+    <h4>Haftungsausschluss</h4>
+    <p>Diese Website dient ausschließlich der Information. Trotz sorgfältiger Prüfung übernehme ich keine Haftung für die Inhalte externer Links. Für den Inhalt der verlinkten Seiten sind ausschließlich deren Betreiber verantwortlich.</p>
 
-    <p><strong>Chat-Funktion:</strong> Diese Seite verwendet Tidio zur Live-Kommunikation. Ihre Daten werden nur zur direkten Beantwortung gespeichert. Mehr dazu: <a href="https://www.tidio.com/privacy-policy/" target="_blank">Tidio Datenschutz</a></p>
+    <h4>Urheberrecht</h4>
+    <p>Alle Inhalte dieser Website unterliegen dem deutschen Urheberrecht. Vervielfältigung, Bearbeitung oder Verwertung außerhalb der Grenzen des Urheberrechts bedürfen der schriftlichen Zustimmung.</p>
+
+    <h4>Hinweis zum EU AI Act</h4>
+    <p>Diese Website informiert über Pflichten und Handlungsempfehlungen im Zusammenhang mit dem EU AI Act. Die Inhalte stellen keine Rechtsberatung dar, sondern dienen der Orientierung. Für individuelle Bewertungen und Maßnahmen wird eine persönliche Beratung empfohlen.</p>
+
+    <h3 style="margin-top:3rem;">Datenschutzerklärung</h3>
+    <p>Der Schutz Ihrer persönlichen Daten ist mir ein besonderes Anliegen. Ich verarbeite Ihre Daten daher ausschließlich auf Grundlage der gesetzlichen Bestimmungen (DSGVO, TMG, EU AI Act).</p>
+
+    <h4>1. Kontakt mit mir</h4>
+    <p>Wenn Sie per Formular auf der Website oder per E-Mail Kontakt mit mir aufnehmen, werden Ihre angegebenen Daten zwecks Bearbeitung der Anfrage und für den Fall von Anschlussfragen sechs Monate bei mir gespeichert. Diese Daten gebe ich nicht ohne Ihre Einwilligung weiter.</p>
+
+    <h4>2. Cookies</h4>
+    <p>Diese Website verwendet keine Cookies zur Nutzerverfolgung oder Analyse. Es werden ausschließlich technisch notwendige Cookies verwendet, sofern überhaupt.</p>
+
+    <h4>3. Ihre Rechte laut DSGVO</h4>
+    <ul>
+      <li>Auskunft, Berichtigung oder Löschung Ihrer Daten</li>
+      <li>Einschränkung der Verarbeitung</li>
+      <li>Datenübertragbarkeit</li>
+      <li>Widerruf erteilter Einwilligungen</li>
+      <li>Beschwerde bei der Datenschutzbehörde</li>
+    </ul>
+
+    <p>Wenn Sie glauben, dass die Verarbeitung Ihrer Daten gegen das Datenschutzrecht verstößt oder Ihre datenschutzrechtlichen Ansprüche verletzt worden sind, können Sie sich bei der zuständigen Aufsichtsbehörde beschweren.</p>
   </div>
 </section>
 
