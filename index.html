@@ -136,6 +136,30 @@
         padding: 1rem;
       }
     }
+.bewertung-box {
+  margin-top: 2rem;
+}
+.balken {
+  background: #eee;
+  border-radius: 30px;
+  height: 40px;
+  overflow: hidden;
+  position: relative;
+}
+.level {
+  height: 100%;
+  line-height: 40px;
+  padding-left: 1rem;
+  font-weight: 600;
+  color: white;
+  transition: width 1.5s ease;
+  display: flex;
+  align-items: center;
+}
+.green  { background-color: #28a745; width: 33.3%; }
+.yellow { background-color: #ffc107; color: #000; width: 66.6%; }
+.red    { background-color: #dc3545; width: 100%; }
+
   </style>
 </head>
 
@@ -237,23 +261,38 @@
 <section id="reifegrad" class="scroll-section">
   <div class="content">
     <h2 class="typing">Stand &amp; Empfehlung</h2>
+    <p>Basierend auf Ihrer Selbsteinschätzung zeigt die Auswertung Ihre aktuelle Position in fünf zentralen KI-Handlungsfeldern:</p>
 
-    <p>Wie gut ist Ihr Unternehmen auf den rechtskonformen Einsatz von KI vorbereitet? Diese Übersicht zeigt Ihnen auf einen Blick, wo Sie aktuell stehen – und welche Bereiche besonderes Augenmerk verdienen.</p>
+    <div class="bewertung-box">
+      <h3>🛠️ Governance</h3>
+      <div class="balken"><div class="level green">🟢 Stabil aufgestellt</div></div>
+    </div>
 
-    <div class="risk-bar" style="margin-top: 2rem;">
-      <div class="label">Ihre Selbsteinschätzung</div>
-      <div class="bar" id="balken-anzeige">
-        <div class="level low">Gering</div>
-        <div class="level medium">Mittel</div>
-        <div class="level high">Hoch</div>
-      </div>
+    <div class="bewertung-box">
+      <h3>📑 Dokumentation</h3>
+      <div class="balken"><div class="level yellow">🟡 Teilweise vorhanden</div></div>
+    </div>
+
+    <div class="bewertung-box">
+      <h3>👥 Verantwortung</h3>
+      <div class="balken"><div class="level red">🔴 Unklar geregelt</div></div>
+    </div>
+
+    <div class="bewertung-box">
+      <h3>📣 Kommunikation</h3>
+      <div class="balken"><div class="level yellow">🟡 Nur punktuell</div></div>
+    </div>
+
+    <div class="bewertung-box">
+      <h3>🔐 Datenschutz-Integration</h3>
+      <div class="balken"><div class="level green">🟢 DSGVO-konform</div></div>
     </div>
 
     <p style="margin-top:2rem;">
-      Diese Einschätzung basiert auf Ihrer Selbstauskunft im Schnell-Check. Für eine belastbare Bewertung – z. B. zur Vorlage bei Datenschutz, Geschäftsführung oder Auditor:innen – empfehle ich ein individuelles KI-Audit.
+      Diese Einschätzung basiert auf Ihrem Schnell-Check. Für eine fundierte Bewertung mit Nachweisfunktion – z. B. gegenüber Geschäftsführung, Datenschutz oder Auditor:innen – empfehle ich ein individuelles KI-Audit.
     </p>
 
-    <a href="#kontakt" class="btn" style="margin-top: 1.5rem;">Beratung anfragen</a>
+    <a href="#kontakt" class="btn" style="margin-top: 1.5rem;">Jetzt Beratung anfragen</a>
   </div>
 </section>
 
@@ -411,69 +450,13 @@
     &copy; 2025 KI-Sicherheit.jetzt | Impressum | Datenschutz
   </footer>
 <script>
-let antworten = [];
-
-function nextFrage(frageNummer, antwort) {
-  antworten.push(antwort);
-  document.getElementById(`frage${frageNummer}`).style.display = 'none';
-  const next = document.getElementById(`frage${frageNummer + 1}`);
-  if (next) next.style.display = 'block';
-}
-
-function showErgebnis(typ) {
-  document.getElementById("frage4").style.display = "none";
-  document.getElementById("ergebnis").style.display = "block";
-
-  let titel = "";
-  let text = "";
-
-  switch (typ) {
-    case "vorreiter":
-      titel = "Sie sind gut vorbereitet.";
-      text = "Ihr Unternehmen geht das Thema KI professionell an. Dennoch lohnt sich eine Validierung durch unabhängige Dritte.";
-      break;
-    case "orientierung":
-      titel = "Sie sind auf dem Weg.";
-      text = "Viele Grundlagen sind gelegt. Aber in Sachen Governance und Dokumentation gibt es noch Verbesserungspotenzial.";
-      break;
-    case "risikozone":
-      titel = "Achtung: Handlungsbedarf!";
-      text = "Ihr Unternehmen riskiert regulatorische und haftungsrechtliche Probleme. Jetzt ist ein Check empfehlenswert.";
-      break;
-  }
-
-  document.getElementById("ergebnis-titel").textContent = titel;
-  document.getElementById("ergebnis-text").textContent = text;
-
-  // Visuelle KI-Ampel anpassen (hier exemplarisch statisch)
-  document.getElementById("ampel-strategie").textContent = typ === 'vorreiter' ? '🟢' : typ === 'orientierung' ? '🟡' : '🔴';
-  document.getElementById("ampel-doku").textContent = typ === 'vorreiter' ? '🟢' : typ === 'orientierung' ? '🟡' : '🔴';
-  document.getElementById("ampel-verantwortung").textContent = typ === 'vorreiter' ? '🟢' : typ === 'orientierung' ? '🟡' : '🔴';
-}
-</script>
-<script>
-  document.querySelectorAll('.accordion-toggle').forEach(button => {
-    button.addEventListener('click', () => {
-      const item = button.parentElement;
-      const isOpen = item.classList.contains('open');
-      document.querySelectorAll('.accordion-item').forEach(i => i.classList.remove('open'));
-      if (!isOpen) item.classList.add('open');
-    });
-  });
-</script>
 let antworten = {};
 
 function nextFrage(nummer, wert) {
   antworten['frage' + nummer] = wert;
-
-  // aktuelle Frage ausblenden
   document.getElementById('frage' + nummer).style.display = 'none';
-
-  // nächste Frage anzeigen
   const next = document.getElementById('frage' + (nummer + 1));
-  if (next) {
-    next.style.display = 'block';
-  }
+  if (next) next.style.display = 'block';
 }
 
 function showErgebnis(risikotyp) {
@@ -485,9 +468,7 @@ function showErgebnis(risikotyp) {
 
   document.getElementById('ergebnis').style.display = 'block';
 
-  // Bewertungslogik
   let risikoLevel = 'low';
-
   if (
     antworten.frage1 === 'aktiv' ||
     antworten.frage2 === 'keiner' ||
@@ -504,7 +485,6 @@ function showErgebnis(risikotyp) {
     risikoLevel = 'medium';
   }
 
-  // Textausgabe je nach Typ
   if (risikoLevel === 'low') {
     ergebnisTitel.textContent = 'Geringes Risiko';
     ergebnisText.textContent = 'Ihr Unternehmen ist aktuell auf einem guten Weg. Weiter so!';
@@ -516,14 +496,22 @@ function showErgebnis(risikotyp) {
     ergebnisText.textContent = 'Achtung: Es bestehen akute Lücken in Strategie, Dokumentation oder Verantwortung.';
   }
 
-  // Balkenanzeige
   bar.innerHTML = '';
   const div = document.createElement('div');
   div.classList.add('level', risikoLevel);
   div.textContent = ergebnisTitel.textContent;
   bar.appendChild(div);
 }
+  document.querySelectorAll('.accordion-toggle').forEach(button => {
+    button.addEventListener('click', () => {
+      const item = button.parentElement;
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.accordion-item').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    });
+  });
 </script>
+
 
 
 
