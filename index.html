@@ -20,7 +20,7 @@
       white-space: nowrap;
       overflow: hidden;
       border-right: 2px solid #0c4a74;
-      animation: typing 4s steps(50, end) 1, blink 0.75s step-end infinite;
+      animation: typing 3s steps(40, end) 1, blink 0.75s step-end infinite;
       display: inline-block;
       opacity: 0;
       animation-fill-mode: forwards;
@@ -39,7 +39,7 @@
       border-radius: 2rem;
       box-shadow: 0 8px 24px rgba(0,0,0,0.05);
       padding: 4rem 2rem;
-      margin: 2rem auto;
+      margin: 4rem auto;
       max-width: 900px;
       animation: fadeInUp 1s ease-out both;
     }
@@ -64,17 +64,34 @@
       background-color: #09395c;
       transform: scale(1.05);
     }
-    h2.section-header {
+    h2.typing {
       font-size: 1.8rem;
       margin-bottom: 1.5rem;
     }
-    ul {
-      padding-left: 1.2rem;
+    .risk-bar {
+      margin-top: 2rem;
     }
-    ul li {
+    .risk-bar .label {
+      font-weight: 600;
       margin-bottom: 0.5rem;
-      list-style-type: disc;
     }
+    .risk-bar .bar {
+      display: flex;
+      height: 32px;
+      border-radius: 20px;
+      overflow: hidden;
+      margin-bottom: 1rem;
+    }
+    .level {
+      flex: 1;
+      color: white;
+      text-align: center;
+      line-height: 32px;
+      font-weight: 600;
+    }
+    .low { background: #28a745; }
+    .medium { background: #ffc107; color: #000; }
+    .high { background: #dc3545; }
     footer {
       background: #0c4a74;
       color: white;
@@ -122,6 +139,7 @@
   </style>
 </head>
 
+
 <body>
  
  <section id="start" class="scroll-section">
@@ -136,7 +154,7 @@
   <!-- Weitere Sektionen wie ueber-mich, leistungen, schnellcheck, wissen, faq, kontakt folgen analog -->
 <section id="ueber-mich" class="scroll-section">
   <div class="content">
-    <h2 class="section-header">Profil &amp; Motivation</h2>
+    <h2 class="typing">Profil &amp; Motivation</h2>
     <p>Ich bin Ihr Sparringspartner für sichere KI-Nutzung im Mittelstand. Mit 25 Jahren Erfahrung im B2B-Umfeld weiß ich:</p>
     <p><strong>Wirtschaftlichkeit und Verantwortung schließen sich nicht aus.</strong></p>
     <p>Mein Ziel: <strong>KI-Vertrauen schaffen – mit Plan, Klartext und Verantwortung.</strong></p>
@@ -154,7 +172,7 @@
 </section>
 <section id="leistungen" class="scroll-section">
   <div class="content">
-    <h2 class="section-header">Leistungen &amp; Lösungen</h2>
+    <h2 class="typing">Leistungen &amp; Lösungen</h2>
 
     <p>Ich unterstütze Sie dort, wo KI in Ihrem Unternehmen real wird – mit klaren Methoden, strukturierten Analysen und rechtssicherem Fokus.</p>
 
@@ -170,7 +188,7 @@
 </section>
 <section id="schnellcheck" class="scroll-section">
   <div class="content">
-    <h2 class="section-header">Schnell-Check: Welcher KI-Risikotyp ist Ihr Unternehmen?</h2>
+    <h2 class="typing">Schnell-Check: Welcher KI-Risikotyp ist Ihr Unternehmen?</h2>
     <p>Beantworten Sie 4 kurze Fragen – und erhalten Sie sofort eine Einschätzung:</p>
 
     <div id="quiz">
@@ -206,51 +224,42 @@
     <div id="ergebnis" style="display:none; margin-top: 2rem;">
       <h3 id="ergebnis-titel"></h3>
       <p id="ergebnis-text"></p>
-      <div id="ki-ampel" style="display: flex; gap: 1rem; justify-content: center; margin-top: 2rem;">
-        <div style="flex:1; background:#d4edda; padding:1rem; border-radius:8px;"><strong>Strategie</strong><br><span id="ampel-strategie">🟢</span></div>
-        <div style="flex:1; background:#fff3cd; padding:1rem; border-radius:8px;"><strong>Dokumentation</strong><br><span id="ampel-doku">🟡</span></div>
-        <div style="flex:1; background:#f8d7da; padding:1rem; border-radius:8px;"><strong>Verantwortung</strong><br><span id="ampel-verantwortung">🔴</span></div>
-      </div>
-      <a href="#kontakt" class="btn" style="margin-top:2rem;">Jetzt Klarheit schaffen</a>
+
+      <!-- Entfernte KI-Ampel, da redundant -->
+      <button onclick="document.getElementById('reifegrad').scrollIntoView({behavior:'smooth'})" class="btn">
+  Zu Ihrer Einschätzung
+</button>
+
     </div>
   </div>
 </section>
-</section>
+
 <section id="reifegrad" class="scroll-section">
   <div class="content">
-    <h2 class="section-header">Stand &amp; Empfehlung</h2>
+    <h2 class="typing">Stand &amp; Empfehlung</h2>
 
-    <p>Wie gut ist Ihr Unternehmen auf den rechtskonformen Einsatz von KI vorbereitet?  
-    Diese Übersicht zeigt Ihnen auf einen Blick, wo Sie aktuell stehen – und welche Bereiche besonderes Augenmerk verdienen.</p>
+    <p>Wie gut ist Ihr Unternehmen auf den rechtskonformen Einsatz von KI vorbereitet? Diese Übersicht zeigt Ihnen auf einen Blick, wo Sie aktuell stehen – und welche Bereiche besonderes Augenmerk verdienen.</p>
 
-    <div style="margin-top: 2rem;">
-      <h3>Governance</h3>
-      <div style="background:#eee; border-radius:30px; height:24px; overflow:hidden;">
-        <div style="width: 80%; background:#0c4a74; height:100%; transition:width 1s;"></div>
-      </div>
-
-      <h3 style="margin-top:2rem;">Dokumentation</h3>
-      <div style="background:#eee; border-radius:30px; height:24px; overflow:hidden;">
-        <div style="width: 60%; background:#0c4a74; height:100%; transition:width 1s;"></div>
-      </div>
-
-      <h3 style="margin-top:2rem;">Verantwortung</h3>
-      <div style="background:#eee; border-radius:30px; height:24px; overflow:hidden;">
-        <div style="width: 45%; background:#0c4a74; height:100%; transition:width 1s;"></div>
+    <div class="risk-bar" style="margin-top: 2rem;">
+      <div class="label">Ihre Selbsteinschätzung</div>
+      <div class="bar" id="balken-anzeige">
+        <div class="level low">Gering</div>
+        <div class="level medium">Mittel</div>
+        <div class="level high">Hoch</div>
       </div>
     </div>
 
     <p style="margin-top:2rem;">
-      Diese Einschätzung basiert auf Ihrer Selbstauskunft im Schnell-Check.  
-      Für eine belastbare Bewertung – z. B. zur Vorlage bei Datenschutz, Geschäftsführung oder Auditor:innen – empfehle ich ein individuelles KI-Audit.
+      Diese Einschätzung basiert auf Ihrer Selbstauskunft im Schnell-Check. Für eine belastbare Bewertung – z. B. zur Vorlage bei Datenschutz, Geschäftsführung oder Auditor:innen – empfehle ich ein individuelles KI-Audit.
     </p>
 
     <a href="#kontakt" class="btn" style="margin-top: 1.5rem;">Beratung anfragen</a>
   </div>
 </section>
+
 <section id="wissen" class="scroll-section">
   <div class="content">
-    <h2 class="section-header">Wissen &amp; Praxis</h2>
+    <h2 class="typing">Wissen &amp; Praxis</h2>
     <p>Gute Entscheidungen brauchen gutes Wissen – und die Fähigkeit, es in die Praxis zu übertragen.  
     Deshalb stelle ich Ihnen Materialien zur Verfügung, die nicht im Theorieraum bleiben, sondern im Unternehmensalltag funktionieren.</p>
 
@@ -276,7 +285,7 @@
 
 <section id="faq" class="scroll-section">
   <div class="content">
-    <h2 class="section-header">Fragen &amp; Antworten</h2>
+    <h2 class="typing">Fragen &amp; Antworten</h2>
 
     <div class="accordion">
 
@@ -327,7 +336,7 @@
 </section>
 <section id="kontakt" class="scroll-section">
   <div class="content">
-    <h2 class="section-header">Kontakt &amp; Erstgespräch</h2>
+    <h2 class="typing">Kontakt &amp; Erstgespräch</h2>
 
     <p>Sie möchten wissen, ob Ihr Unternehmen vom AI Act betroffen ist? Oder Sie brauchen Klarheit, wie Sie KI sicher &amp; sinnvoll einsetzen?</p>
     <p>Dann lassen Sie uns sprechen. In einem unverbindlichen Erstgespräch klären wir gemeinsam:</p>
@@ -352,7 +361,7 @@
 
 <section id="rechtliches" class="scroll-section">
   <div class="content">
-    <h2 class="section-header">Rechtliches &amp; Transparenz</h2>
+    <h2 class="typing">Rechtliches &amp; Transparenz</h2>
 
     <h3>Impressum</h3>
     <p>Angaben gemäß § 5 TMG</p>
@@ -452,6 +461,72 @@ function showErgebnis(typ) {
     });
   });
 </script>
+let antworten = {};
+
+function nextFrage(nummer, wert) {
+  antworten['frage' + nummer] = wert;
+
+  // aktuelle Frage ausblenden
+  document.getElementById('frage' + nummer).style.display = 'none';
+
+  // nächste Frage anzeigen
+  const next = document.getElementById('frage' + (nummer + 1));
+  if (next) {
+    next.style.display = 'block';
+  }
+}
+
+function showErgebnis(risikotyp) {
+  antworten['frage4'] = risikotyp;
+
+  const ergebnisTitel = document.getElementById('ergebnis-titel');
+  const ergebnisText = document.getElementById('ergebnis-text');
+  const bar = document.getElementById('balken-anzeige');
+
+  document.getElementById('ergebnis').style.display = 'block';
+
+  // Bewertungslogik
+  let risikoLevel = 'low';
+
+  if (
+    antworten.frage1 === 'aktiv' ||
+    antworten.frage2 === 'keiner' ||
+    antworten.frage3 === 'nein' ||
+    antworten.frage4 === 'risikozone'
+  ) {
+    risikoLevel = 'high';
+  } else if (
+    antworten.frage1 === 'basic' ||
+    antworten.frage2 === 'chef' ||
+    antworten.frage3 === 'teilweise' ||
+    antworten.frage4 === 'orientierung'
+  ) {
+    risikoLevel = 'medium';
+  }
+
+  // Textausgabe je nach Typ
+  if (risikoLevel === 'low') {
+    ergebnisTitel.textContent = 'Geringes Risiko';
+    ergebnisText.textContent = 'Ihr Unternehmen ist aktuell auf einem guten Weg. Weiter so!';
+  } else if (risikoLevel === 'medium') {
+    ergebnisTitel.textContent = 'Orientierungsbedarf';
+    ergebnisText.textContent = 'Sie haben bereits erste Strukturen – aber es gibt noch Klärungsbedarf.';
+  } else {
+    ergebnisTitel.textContent = 'Hohes Risiko';
+    ergebnisText.textContent = 'Achtung: Es bestehen akute Lücken in Strategie, Dokumentation oder Verantwortung.';
+  }
+
+  // Balkenanzeige
+  bar.innerHTML = '';
+  const div = document.createElement('div');
+  div.classList.add('level', risikoLevel);
+  div.textContent = ergebnisTitel.textContent;
+  bar.appendChild(div);
+}
+</script>
+
+
+
 
 <nav class="bottom-nav">
   <a href="#ueber-mich">Profil & Motivation</a>
