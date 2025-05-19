@@ -142,37 +142,43 @@
       }
     }
 .bewertung-box {
-  margin-top: 2rem;
+  margin-top: 3rem;
 }
+
 .balken {
   background: #eee;
   border-radius: 30px;
   height: 40px;
   overflow: hidden;
   position: relative;
+  margin-top: 0.5rem;
 }
+
 .level {
   height: 100%;
   line-height: 40px;
-  padding-left: 1rem;
   font-weight: 600;
-  color: white;
-  transition: width 1.5s ease;
   display: flex;
   align-items: center;
+  padding-left: 1.2rem;
+  border-radius: 30px;
+  transition: width 1.5s ease;
+  white-space: nowrap;
 }
-.green  { background-color: #28a745; width: 33.3%; }
-.yellow { background-color: #ffc107; color: #000; width: 66.6%; }
-.red    { background-color: #dc3545; width: 100%; }
+
+/* Farben */
+.green  { background-color: #28a745; color: #fff; }
+.yellow { background-color: #ffe564; color: #333; }
+.red    { background-color: #dc3545; color: #fff; }
 
 .scroll-section {
-  margin-bottom: 8rem;
-  scroll-margin-top: 6rem;
+  margin-bottom: 10rem;
+  scroll-margin-top: 7rem;
 }
 
 .scroll-section .content {
-  padding-top: 3rem;
-  padding-bottom: 3rem;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
 }
 
 .risiko-text {
@@ -182,6 +188,42 @@
   margin-bottom: 1rem;
   line-height: 1.5;
 }
+.typing {
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 2px solid #0c4a74;
+  display: inline-block;
+  opacity: 0;
+}
+
+.start-typing {
+  animation: typing 2.5s steps(30, end) forwards, blink 0.8s step-end infinite;
+  opacity: 1;
+}
+
+@keyframes typing {
+  0% { width: 0; }
+  100% { width: 100%; }
+}
+
+@keyframes blink {
+  0%, 100% { border-color: transparent }
+  50% { border-color: #0c4a74 }
+}
+.level {
+  height: 100%;
+  line-height: 40px;
+  padding-left: 1rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  border-radius: 30px;
+  transition: width 1.2s ease;
+}
+
+.green  { background-color: #28a745; color: #fff; }
+.yellow { background-color: #ffe564; color: #333; }
+.red    { background-color: #dc3545; color: #fff; }
 
   </style>
 </head>
@@ -286,36 +328,47 @@
     <h2 class="typing">Stand &amp; Empfehlung</h2>
     <p>Basierend auf Ihrer Selbsteinschätzung zeigt die Auswertung Ihre aktuelle Position in fünf zentralen KI-Handlungsfeldern:</p>
 
- <div class="bewertung-box">
-  <h3>🛠️ Governance</h3>
-  <div class="balken"><div class="level green">🟢 Stabil aufgestellt</div></div>
-  <p class="risiko-text">Sie haben klare Verantwortlichkeiten und Entscheidungsprozesse für den KI-Einsatz etabliert. Eine gute Grundlage für weiterführende Compliance-Anforderungen.</p>
-</div>
+    <div class="bewertung-box">
+      <h3>🛠️ Governance</h3>
+      <div class="balken">
+        <div class="level green" style="width: 33%;">🟢 Stabil aufgestellt</div>
+      </div>
+      <p class="risiko-text">Sie haben klare Verantwortlichkeiten und Entscheidungsprozesse für den KI-Einsatz etabliert. Eine gute Grundlage für weiterführende Compliance-Anforderungen.</p>
+    </div>
 
-<div class="bewertung-box">
-  <h3>📑 Dokumentation</h3>
-  <div class="balken"><div class="level yellow">🟡 Teilweise vorhanden</div></div>
-  <p class="risiko-text">Die Nachvollziehbarkeit Ihrer KI-Systeme ist teils dokumentiert. Ich unterstütze Sie dabei, vollständige Audit-Trails aufzubauen.</p>
-</div>
+    <div class="bewertung-box">
+      <h3>📑 Dokumentation</h3>
+      <div class="balken">
+        <div class="level yellow" style="width: 66%;">🟡 Teilweise vorhanden</div>
+      </div>
+      <p class="risiko-text">Die Nachvollziehbarkeit Ihrer KI-Systeme ist teils dokumentiert. Ich unterstütze Sie dabei, vollständige Audit-Trails aufzubauen.</p>
+    </div>
 
-<div class="bewertung-box">
-  <h3>👥 Verantwortung</h3>
-  <div class="balken"><div class="level red">🔴 Unklar geregelt</div></div>
-  <p class="risiko-text">Die Zuständigkeiten für KI im Unternehmen sind noch nicht eindeutig definiert. Dies kann zu Haftungsrisiken führen – insbesondere bei regulatorischen Vorgaben wie dem EU AI Act.</p>
-</div>
+    <div class="bewertung-box">
+      <h3>👥 Verantwortung</h3>
+      <div class="balken">
+        <div class="level red" style="width: 100%;">🔴 Unklar geregelt</div>
+      </div>
+      <p class="risiko-text">Die Zuständigkeiten für KI im Unternehmen sind noch nicht eindeutig definiert. Dies kann zu Haftungsrisiken führen – insbesondere bei regulatorischen Vorgaben wie dem EU AI Act.</p>
+    </div>
 
-<div class="bewertung-box">
-  <h3>📣 Kommunikation</h3>
-  <div class="balken"><div class="level yellow">🟡 Nur punktuell</div></div>
-  <p class="risiko-text">KI ist in der internen Kommunikation kein fest verankerter Bestandteil. Ich helfe Ihnen, Awareness & Schulung strategisch zu integrieren.</p>
-</div>
+    <div class="bewertung-box">
+      <h3>📣 Kommunikation</h3>
+      <div class="balken">
+        <div class="level yellow" style="width: 66%;">🟡 Nur punktuell</div>
+      </div>
+      <p class="risiko-text">KI ist in der internen Kommunikation kein fest verankerter Bestandteil. Ich helfe Ihnen, Awareness & Schulung strategisch zu integrieren.</p>
+    </div>
 
-<div class="bewertung-box">
-  <h3>🔐 Datenschutz-Integration</h3>
-  <div class="balken"><div class="level green">🟢 DSGVO-konform</div></div>
-  <p class="risiko-text">Ihre Datenprozesse sind weitgehend mit der DSGVO abgestimmt. Der Fokus liegt nun auf KI-spezifischen Ergänzungen.</p>
-</div>
-
+    <div class="bewertung-box">
+      <h3>🔐 Datenschutz-Integration</h3>
+      <div class="balken">
+        <div class="level green" style="width: 33%;">🟢 DSGVO-konform</div>
+      </div>
+      <p class="risiko-text">Ihre Datenprozesse sind weitgehend mit der DSGVO abgestimmt. Der Fokus liegt nun auf KI-spezifischen Ergänzungen.</p>
+    </div>
+  </div>
+</section>
 
     <p style="margin-top:2rem;">
       Diese Einschätzung basiert auf Ihrem Schnell-Check. Für eine fundierte Bewertung mit Nachweisfunktion – z. B. gegenüber Geschäftsführung, Datenschutz oder Auditor:innen – empfehle ich ein individuelles KI-Audit.
@@ -539,6 +592,24 @@ function showErgebnis(risikotyp) {
       if (!isOpen) item.classList.add('open');
     });
   });
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("start-typing");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  document.querySelectorAll(".typing").forEach(el => {
+    observer.observe(el);
+  });
+});
+</script>
+
 </script>
 
 
