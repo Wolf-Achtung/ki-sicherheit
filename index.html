@@ -34,17 +34,17 @@
       0%, 100% { border-color: transparent }
       50% { border-color: #0c4a74 }
     }
-    .hero, .scroll-section .content {
-      background: linear-gradient(145deg, #ffffff, #eef2f8);
-      border-radius: 2rem;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.05);
-      padding: 4rem 2rem;
-  margin-bottom: 8rem;
+   .hero, .scroll-section .content {
+  background: linear-gradient(145deg, #ffffff, #eef2f8);
+  border-radius: 2rem;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.05);
+  padding: 4rem 2rem;
+  margin: 4rem auto 8rem;
   scroll-margin-top: 6rem;
-      margin: 4rem auto;
-      max-width: 900px;
-      animation: fadeInUp 1s ease-out both;
-    }
+  max-width: 900px;
+  animation: fadeInUp 1s ease-out both;
+}
+
     @keyframes fadeInUp {
       0% { opacity: 0; transform: translateY(20px); }
       100% { opacity: 1; transform: translateY(0); }
@@ -243,6 +243,50 @@
 .level.high {
   background-color: #dc3545;
 }
+.accordion-item {
+  border-bottom: 1px solid #eee;
+  margin-bottom: 1rem;
+}
+
+.accordion-toggle {
+  background: #f1f5f9;
+  border: none;
+  padding: 0.8rem 1rem;
+  width: 100%;
+  text-align: left;
+  font-weight: 600;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  color: #0c4a74;
+}
+
+.accordion-content {
+  display: none;
+  padding: 1rem;
+  font-size: 0.95rem;
+  color: #0c4a74;
+}
+
+.accordion-item.open .accordion-content {
+  display: block;
+}
+input, textarea {
+  font-family: inherit;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  padding: 0.8rem 1rem;
+  background: #fff;
+  color: #0c4a74;
+  width: 100%;
+  box-sizing: border-box;
+}
+input:focus, textarea:focus {
+  outline: none;
+  border-color: #0c4a74;
+  box-shadow: 0 0 0 2px rgba(12, 74, 116, 0.2);
+}
 
   </style>
 </head>
@@ -427,14 +471,13 @@
 
 <section id="faq" class="scroll-section">
   <div class="content">
-    <h2 class="typing">Fragen &amp; Antworten</h2>
+    <h2 class="typing">Fragen & Antworten</h2>
 
     <div class="accordion">
-
       <div class="accordion-item">
         <button class="accordion-toggle">Gilt der EU AI Act auch für kleinere Unternehmen?</button>
         <div class="accordion-content">
-          <p>Ja, besonders wenn KI mit Risiko eingesetzt wird – z. B. bei Entscheidungsunterstützung, Scoring oder Kamera-gestützter Analyse.</p>
+          <p>Ja, besonders wenn KI mit Risiko eingesetzt wird – z. B. bei Entscheidungsunterstützung, Scoring oder kamera­gestützter Analyse.</p>
         </div>
       </div>
 
@@ -471,35 +514,34 @@
         <div class="accordion-content">
           <p>Ja – besonders bei Hochrisiko-KI. Aber auch bei einfachen Tools ist eine interne Bewertung dringend zu empfehlen, um Compliance nachweisen zu können.</p>
         </div>
-      </div>
-
     </div>
-  </div>
+</div>
 </section>
+
 <section id="kontakt" class="scroll-section">
   <div class="content">
-    <h2 class="typing">Kontakt &amp; Erstgespräch</h2>
+    <h2 class="typing">Kontakt & Erstgespräch</h2>
+    <p>Sie möchten wissen, ob Ihr Unternehmen vom AI Act betroffen ist? Oder Sie brauchen Klarheit, wie Sie KI sicher & sinnvoll einsetzen?</p>
 
-    <p>Sie möchten wissen, ob Ihr Unternehmen vom AI Act betroffen ist? Oder Sie brauchen Klarheit, wie Sie KI sicher &amp; sinnvoll einsetzen?</p>
     <p>Dann lassen Sie uns sprechen. In einem unverbindlichen Erstgespräch klären wir gemeinsam:</p>
-
     <ul>
       <li>Wo in Ihrem Unternehmen KI heute schon (indirekt) wirkt</li>
-      <li>Welche Risiken &amp; Pflichten für Sie relevant sind</li>
-      <li>Welche nächsten Schritte sinnvoll, machbar &amp; bezahlbar sind</li>
+      <li>Welche Risiken & Pflichten für Sie relevant sind</li>
+      <li>Welche nächsten Schritte sinnvoll, machbar & bezahlbar sind</li>
     </ul>
 
-    <form name="kontakt" method="POST" data-netlify="true">
-  <input type="hidden" name="form-name" value="kontakt">
-  <input type="text" name="name" placeholder="Ihr Name" required>
-  <input type="text" name="unternehmen" placeholder="Ihr Unternehmen">
-  <input type="email" name="email" placeholder="Ihre E-Mail-Adresse" required>
-  <textarea name="nachricht" rows="5" placeholder="Ihre Nachricht" required></textarea>
-  <button type="submit" class="btn">Nachricht senden</button>
-</form>
-
+    <form style="margin-top:2rem;">
+      <div style="display:flex; flex-wrap:wrap; gap:1rem;">
+        <input type="text" placeholder="Ihr Name" required style="flex:1;" />
+        <input type="text" placeholder="Ihr Unternehmen" required style="flex:1;" />
+        <input type="email" placeholder="Ihre E-Mail-Adresse" required style="flex:1;" />
+      </div>
+      <textarea placeholder="Ihre Nachricht" rows="4" required style="margin-top:1rem; width:100%; border-radius:12px; padding:1rem;"></textarea>
+      <button type="submit" class="btn" style="margin-top:1rem;">Nachricht senden</button>
+    </form>
   </div>
 </section>
+
 
 <section id="rechtliches" class="scroll-section">
   <div class="content">
@@ -618,6 +660,15 @@ document.addEventListener("DOMContentLoaded", () => {
     observer.observe(el);
   });
 });
+document.querySelectorAll('.accordion-toggle').forEach(button => {
+  button.addEventListener('click', () => {
+    const item = button.parentElement;
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.accordion-item').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  });
+});
+
 </script>
 
 
