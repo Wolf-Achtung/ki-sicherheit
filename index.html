@@ -224,6 +224,25 @@
 .green  { background-color: #28a745; color: #fff; }
 .yellow { background-color: #ffe564; color: #333; }
 .red    { background-color: #dc3545; color: #fff; }
+.risk-gesamtampel .level {
+  font-weight: 700;
+  padding: 1rem;
+  font-size: 1.1rem;
+  border-radius: 1rem;
+  color: white;
+  transition: background 0.5s ease;
+}
+
+.level.low {
+  background-color: #28a745;
+}
+.level.medium {
+  background-color: #ffc107;
+  color: #000;
+}
+.level.high {
+  background-color: #dc3545;
+}
 
   </style>
 </head>
@@ -310,14 +329,17 @@
       </div>
     </div>
 
-    <div id="ergebnis" style="display:none; margin-top: 2rem;">
-      <h3 id="ergebnis-titel"></h3>
-      <p id="ergebnis-text"></p>
+<div id="ergebnis" style="display:none; margin-top: 2rem;">
+  <h3 id="ergebnis-titel"></h3>
+  <p id="ergebnis-text"></p>
 
-      <!-- Entfernte KI-Ampel, da redundant -->
-      <button onclick="document.getElementById('reifegrad').scrollIntoView({behavior:'smooth'})" class="btn">
-  Zu Ihrer Einschätzung
-</button>
+  <div class="risk-gesamtampel" style="margin-top:2rem;">
+    <div id="risikoanzeige" class="level" style="width:100%; text-align:center;"></div>
+  </div>
+
+  <button onclick="document.getElementById('reifegrad').scrollIntoView({behavior:'smooth'})" class="btn">
+    Zu Ihrer Einschätzung
+  </button>
 
     </div>
   </div>
@@ -546,54 +568,43 @@ function showErgebnis(risikotyp) {
 
   const ergebnisTitel = document.getElementById('ergebnis-titel');
   const ergebnisText = document.getElementById('ergebnis-text');
-  const bar = document.getElementById('balken-anzeige');
+  const risikoBox = document.getElementById('risikoanzeige');
 
   document.getElementById('ergebnis').style.display = 'block';
 
+  let punkte = 0;
+  if (antworten.frage1 === 'aktiv') punkte += 2;
+  if (antworten.frage1 === 'basic') punkte += 1;
+
+  if (antworten.frage2 === 'keiner') punkte += 2;
+  if (antworten.frage2 === 'chef') punkte += 1;
+
+  if (antworten.frage3 === 'nein') punkte += 2;
+  if (antworten.frage3 === 'teilweise') punkte += 1;
+
+  if (antworten.frage4 === 'risikozone') punkte += 2;
+  if (antworten.frage4 === 'orientierung') punkte += 1;
+
   let risikoLevel = 'low';
-  if (
-    antworten.frage1 === 'aktiv' ||
-    antworten.frage2 === 'keiner' ||
-    antworten.frage3 === 'nein' ||
-    antworten.frage4 === 'risikozone'
-  ) {
-    risikoLevel = 'high';
-  } else if (
-    antworten.frage1 === 'basic' ||
-    antworten.frage2 === 'chef' ||
-    antworten.frage3 === 'teilweise' ||
-    antworten.frage4 === 'orientierung'
-  ) {
+  let text = 'Ihr Unternehmen ist aktuell auf einem guten Weg. Weiter so!';
+  if (punkte >= 4 && punkte < 7) {
     risikoLevel = 'medium';
+    text = 'Sie haben bereits erste Strukturen – aber es gibt noch Klärungsbedarf.';
+  } else if (punkte >= 7) {
+    risikoLevel = 'high';
+    text = 'Achtung: Es bestehen akute Lücken in Strategie, Dokumentation oder Verantwortung.';
   }
 
-  if (risikoLevel === 'low') {
-    ergebnisTitel.textContent = 'Geringes Risiko';
-    ergebnisText.textContent = 'Ihr Unternehmen ist aktuell auf einem guten Weg. Weiter so!';
-  } else if (risikoLevel === 'medium') {
-    ergebnisTitel.textContent = 'Orientierungsbedarf';
-    ergebnisText.textContent = 'Sie haben bereits erste Strukturen – aber es gibt noch Klärungsbedarf.';
-  } else {
-    ergebnisTitel.textContent = 'Hohes Risiko';
-    ergebnisText.textContent = 'Achtung: Es bestehen akute Lücken in Strategie, Dokumentation oder Verantwortung.';
-  }
+  ergebnisTitel.textContent = `Gesamtrisiko: ${risikoLevel === 'low' ? 'Gering' : risikoLevel === 'medium' ? 'Mittel' : 'Hoch'}`;
+  ergebnisText.textContent = text;
 
-  bar.innerHTML = '';
-  const div = document.createElement('div');
-  div.classList.add('level', risikoLevel);
-  div.textContent = ergebnisTitel.textContent;
-  bar.appendChild(div);
+  risikoBox.className = 'level ' + risikoLevel;
+  risikoBox.textContent = risikoLevel === 'low' ? '🟢 Geringes Risiko' :
+                          risikoLevel === 'medium' ? '🟡 Mittleres Risiko' :
+                          '🔴 Hohes Risiko';
 }
-  document.querySelectorAll('.accordion-toggle').forEach(button => {
-    button.addEventListener('click', () => {
-      const item = button.parentElement;
-      const isOpen = item.classList.contains('open');
-      document.querySelectorAll('.accordion-item').forEach(i => i.classList.remove('open'));
-      if (!isOpen) item.classList.add('open');
-    });
-  });
 
-<script>
+// Scroll-Animation für Headlines
 document.addEventListener("DOMContentLoaded", () => {
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
@@ -610,7 +621,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 </script>
 
-</script>
+
 
 
 
