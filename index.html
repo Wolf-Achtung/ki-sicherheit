@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>KI-Sicherheit für den Mittelstand</title>
+  <meta charset="UTF-8">
+  <title>KI-Sicherheit.jetzt – Zukunft mit Verantwortung</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
     body {
@@ -11,195 +11,253 @@
       background: #f9fafc;
       color: #0c4a74;
       margin: 0;
-      padding: 0;
+      padding-bottom: 6rem;
     }
-
-    .scroll-section {
-      padding: 4rem 1rem;
-      margin: 0 auto 6rem;
-      max-width: 900px;
-    }
-
     h1, h2, h3 {
       font-weight: 600;
     }
-
+    .section {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 4rem 1rem;
+    }
     .typing {
-      font-size: 2rem;
-      font-weight: 600;
+      opacity: 0;
       white-space: nowrap;
       overflow: hidden;
       border-right: 2px solid #0c4a74;
       display: inline-block;
-      opacity: 0;
     }
-
     .start-typing {
-      animation: typing 2.5s steps(30, end) forwards, blink 0.8s step-end infinite;
-      opacity: 1;
+      animation: typing 2s steps(40, end) forwards, blink 0.75s step-end infinite;
     }
-
     @keyframes typing {
-      0% { width: 0; }
-      100% { width: 100%; }
+      0% { width: 0; opacity: 1; }
+      100% { width: 100%; opacity: 1; }
     }
-
     @keyframes blink {
-      0%, 100% { border-color: transparent }
-      50% { border-color: #0c4a74 }
+      0%, 100% { border-color: transparent; }
+      50% { border-color: #0c4a74; }
     }
-
-    .btn {
+    .timeline {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+    }
+    .flip-card {
+      background-color: transparent;
+      width: 280px;
+      height: 360px;
+      perspective: 1000px;
+    }
+    .flip-card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      transition: transform 0.6s;
+      transform-style: preserve-3d;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.1);
+      border-radius: 12px;
+    }
+    .flip-card:hover .flip-card-inner {
+      transform: rotateY(180deg);
+    }
+    .flip-card-front, .flip-card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .flip-card-front img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .flip-card-back {
       background-color: #0c4a74;
       color: white;
-      padding: 0.8rem 1.6rem;
-      border: none;
-      border-radius: 12px;
-      font-size: 1rem;
-      cursor: pointer;
-      text-decoration: none;
-      display: inline-block;
-      margin-top: 1.5rem;
-    }
-
-    .balken {
-      background: #eee;
-      border-radius: 30px;
-      height: 40px;
-      overflow: hidden;
-      margin-top: 0.5rem;
-    }
-
-    .level {
-      height: 100%;
-      line-height: 40px;
-      font-weight: 600;
       display: flex;
       align-items: center;
-      padding-left: 1.2rem;
-      border-radius: 30px;
-      transition: width 1.5s ease;
-      white-space: nowrap;
+      justify-content: center;
+      padding: 1rem;
+      transform: rotateY(180deg);
     }
-
-    .green  { background-color: #28a745; color: #fff; width: 33%; }
-    .yellow { background-color: #ffe564; color: #333; width: 66%; }
-    .red    { background-color: #dc3545; color: #fff; width: 100%; }
-
-    .tooltip-term {
-      border-bottom: 1px dotted #0c4a74;
-      cursor: help;
-      position: relative;
+    .caption {
+      font-size: 0.95rem;
     }
-
-    .tooltip-term:hover::after {
-      content: attr(title);
-      position: absolute;
-      background: #0c4a74;
-      color: #fff;
-      padding: 0.5rem 1rem;
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      background: #fff;
+      border-top: 1px solid #ddd;
+      display: flex;
+      justify-content: space-around;
+      padding: 0.6rem 0;
+      z-index: 999;
+    }
+    .bottom-nav a {
+      color: #0c4a74;
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+    form input, form textarea {
+      display: block;
+      width: 100%;
+      max-width: 500px;
+      margin: 0.5rem 0;
+      padding: 0.8rem;
       border-radius: 8px;
-      top: 120%;
-      left: 0;
-      white-space: nowrap;
-      font-size: 0.85rem;
-      z-index: 10;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+      border: 1px solid #ccc;
+      font-size: 1rem;
     }
-.bottom-nav {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  background: white;
-  border-top: 1px solid #ccc;
-  display: flex;
-  justify-content: space-around;
-  padding: 0.6rem 1rem;
-  z-index: 999;
-  font-size: 0.85rem;
-}
-
-.bottom-nav a {
-  color: #0c4a74;
-  text-decoration: none;
-  font-weight: 600;
-}
-
-.bottom-nav a:hover {
-  text-decoration: underline;
-}
-
+    .btn {
+      display: inline-block;
+      margin-top: 1.5rem;
+      background: #0c4a74;
+      color: white;
+      padding: 0.8rem 1.6rem;
+      border-radius: 10px;
+      text-decoration: none;
+    }
   </style>
 </head>
 <body>
-
- 
- <section id="start" class="scroll-section">
-  <div class="hero">
-    <h1 class="typing">Die KI ist bereit. Sind Sie es auch?</h1>
-    <p>Ich unterstütze mittelständische Unternehmen dabei, Künstliche Intelligenz verantwortungsvoll, rechtssicher und strategisch einzusetzen – im Einklang mit dem <span class="tooltip-term" title="EU-Verordnung zur Regulierung von KI – verbindlich ab 2025.">EU AI Act</span>.</p>
-    <a href="#schnellcheck" class="btn">Jetzt Schnell-Check starten</a>
-  </div>
+<section class="section" id="start">
+  <h1 class="typing">Die Zukunft war eine Vision. Heute ist sie ein Gesetz.</h1>
+  <p>KI-Systeme verändern unsere Welt. Doch während Science-Fiction uns Träume schickte, bringt der <strong>EU AI Act</strong> klare Pflichten für Unternehmen.</p>
+  <p>Ich helfe Ihnen, diese neuen Anforderungen zu verstehen – und in einen Wettbewerbsvorteil zu verwandeln.</p>
 </section>
+<section class="section" id="flip-timeline">
+  <h2 class="typing">Zukunft trifft Verantwortung</h2>
+  <div class="timeline">
 
-
- <section id="ueber-mich" class="scroll-section">
-  <div class="content">
-    <h2 class="typing">Über mich &amp; Angebot</h2>
-    <p>Ich bin zertifizierter <span class="tooltip-term" title="TÜV-zertifizierter KI-Berater mit Fokus auf Mittelstand">KI-Manager (TÜV)</span> und strategischer Partner für mittelständische Unternehmen.</p>
-    <ul>
-      <li><strong>Risikoanalyse & Audit:</strong> nach <span class="tooltip-term" title="Datenschutz-Grundverordnung">DSGVO</span>, <span class="tooltip-term" title="Verbindliche EU-Verordnung zur KI – gilt ab 2025">AI Act</span> und ISO</li>
-      <li><strong>Governance & Verantwortung:</strong> Klarheit über Rollen und Pflichten</li>
-      <li><strong>Schulung & Strategie:</strong> Für Management, Datenschutz, Teams</li>
-    </ul>
-    <p><strong>Vertrauen in KI wird belohnt:</strong> 70 % der Entscheider:innen setzen laut Accenture auf transparente KI-Kommunikation.</p>
-  </div>
-</section>
-<section id="schnellcheck" class="scroll-section">
-  <div class="content">
-    <h2 class="typing">Schnell-Check & Empfehlung</h2>
-    <p>Wie steht es um Ihre KI-Reife? Beantworten Sie 4 Fragen und erhalten Sie eine Einschätzung:</p>
-
-    <!-- Hier kommen deine vorhandenen Frageblöcke -->
-
-    <div id="ergebnis" style="display:none;">
-      <h3 id="ergebnis-titel"></h3>
-      <p id="ergebnis-text"></p>
-      <div class="balken">
-        <div id="risikoanzeige" class="level">Ergebnis folgt …</div>
+    <!-- Karte 1 -->
+    <div class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <img src="assets/img/14.png" alt="Retro-Raumschiff-Medizinstation">
+        </div>
+        <div class="flip-card-back">
+          <div class="caption">Damals: Maschinen heilen Menschen. <br>Heute: KI in der Medizin erfordert klare Dokumentation & Risikobewertung.</div>
+        </div>
       </div>
     </div>
+
+    <!-- Karte 2 -->
+    <div class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <img src="assets/img/07.png" alt="Retro-Videokonferenz">
+        </div>
+        <div class="flip-card-back">
+          <div class="caption">Damals: Kommunikation mit Bild war Magie. <br>Heute: KI filtert Bewerbungen – das braucht klare Regeln.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Karte 3 -->
+    <div class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <img src="assets/img/01.png" alt="Rettungskapsel mit Pilot">
+        </div>
+        <div class="flip-card-back">
+          <div class="caption">Damals: Notfall = Technikversagen. <br>Heute: Wer haftet bei KI-Fehlverhalten?</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Karte 4 -->
+    <div class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <img src="assets/img/02.png" alt="Steuerzentrale mit Monitoren">
+        </div>
+        <div class="flip-card-back">
+          <div class="caption">Damals: Kontrolle aus der Zentrale. <br>Heute: Governance und Verantwortlichkeiten bei KI müssen geregelt sein.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Karte 5 -->
+    <div class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <img src="assets/img/05.png" alt="Maschinenkonferenz">
+        </div>
+        <div class="flip-card-back">
+          <div class="caption">Damals: Die Maschine entscheidet. <br>Heute: KI muss nachvollziehbar und auditierbar sein.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Karte 6 -->
+    <div class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <img src="assets/img/13.png" alt="Erde in Glaskapsel">
+        </div>
+        <div class="flip-card-back">
+          <div class="caption">Damals: Alles unter Kontrolle. <br>Heute: Der AI Act macht Sicherheitskonzepte verbindlich.</div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
-<section id="reifegrad" class="scroll-section">
-  <div class="content">
-    <h2 class="typing">Stand &amp; Empfehlung</h2>
-    <div class="balken">
-      <div class="level green" title="Niedriges Risiko – gut vorbereitet.">Stabil aufgestellt</div>
-    </div>
-    <div class="balken">
-      <div class="level yellow" title="Mittleres Risiko – teils unvollständig.">Teilweise vorhanden</div>
-    </div>
-    <div class="balken">
-      <div class="level red" title="Hohes Risiko – sofortiger Handlungsbedarf.">Unklar geregelt</div>
-    </div>
-  </div>
+<section class="section" id="angebot">
+  <h2 class="typing">Mein Angebot für Ihr Unternehmen</h2>
+  <p>Als zertifizierter <strong>KI-Manager (TÜV)</strong> unterstütze ich Sie beim sicheren und rechtskonformen Einsatz von KI – speziell für den Mittelstand.</p>
+  <ul>
+    <li><strong>✅ Reifegrad-Check:</strong> Schnell erkennen, wo Handlungsbedarf besteht</li>
+    <li><strong>✅ Dokumentation & Governance:</strong> Für Datenschutz, AI Act & Geschäftsführung</li>
+    <li><strong>✅ Strategie & Verantwortung:</strong> Klare Zuständigkeiten & Compliance-Stärke</li>
+  </ul>
+  <p>Ich arbeite transparent, strukturiert und ohne Fachchinesisch – aber mit dem Blick aufs Wesentliche: Ihre Sicherheit & Handlungsfähigkeit.</p>
+  <a href="#kontakt" class="btn">Jetzt Gespräch anfragen</a>
 </section>
-<section id="wissen" class="scroll-section">
-  <div class="content">
-    <h2 class="typing">Wissen &amp; Orientierung</h2>
-    <p>Verstehen Sie, was der <span class="tooltip-term" title="EU-Gesetz zur Regulierung von KI-Systemen">AI Act</span> für Ihr Unternehmen bedeutet.</p>
-    <ul>
-      <li>Checklisten, Whitepaper & Praxisbeispiele</li>
-    </ul>
-    <form name="whitepaper" method="POST" data-netlify="true">
-      <input type="hidden" name="form-name" value="whitepaper" />
-      <input type="email" name="email" placeholder="Ihre E-Mail-Adresse" required />
-      <button class="btn" type="submit">Whitepaper anfordern</button>
-    </form>
-  </div>
+<section class="section" id="kontakt">
+  <h2 class="typing">Kontakt & Whitepaper anfordern</h2>
+  <p>Sie möchten wissen, ob und wie der <strong>EU AI Act</strong> Ihr Unternehmen betrifft? Oder mein Whitepaper erhalten?</p>
+
+  <form name="kontakt" method="POST" data-netlify="true">
+    <input type="hidden" name="form-name" value="kontakt">
+
+    <label for="name">Ihr Name:</label>
+    <input type="text" name="name" id="name" placeholder="Max Mustermann" required>
+
+    <label for="unternehmen">Ihr Unternehmen:</label>
+    <input type="text" name="unternehmen" id="unternehmen" placeholder="Muster GmbH">
+
+    <label for="email">Ihre E-Mail-Adresse:</label>
+    <input type="email" name="email" id="email" placeholder="name@beispiel.de" required>
+
+    <label for="nachricht">Ihre Nachricht:</label>
+    <textarea name="nachricht" id="nachricht" rows="5" placeholder="Ich interessiere mich für ..."></textarea>
+
+    <label style="margin-top:1rem; display: block;">
+      <input type="checkbox" required>
+      Ich stimme der DSGVO-konformen Verarbeitung meiner Daten zu.
+    </label>
+
+    <button type="submit" class="btn">Nachricht senden & Whitepaper erhalten</button>
+  </form>
 </section>
+<!-- 🔗 STICKY-NAVIGATION -->
+<nav class="bottom-nav">
+  <a href="#start">Start</a>
+  <a href="#flip-timeline">Vision & Realität</a>
+  <a href="#angebot">Angebot</a>
+  <a href="#kontakt">Kontakt</a>
+</nav>
+
+<!-- 🧠 SCRIPT: Typing-Effekt bei Sichtbarkeit -->
 <script>
 document.addEventListener("DOMContentLoaded", () => {
   const observer = new IntersectionObserver(entries => {
@@ -214,13 +272,5 @@ document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll(".typing").forEach(el => observer.observe(el));
 });
 </script>
-<nav class="bottom-nav" aria-label="Seiten-Navigation">
-  <a href="#start">Start</a>
-  <a href="#ueber-mich">Über mich</a>
-  <a href="#schnellcheck">Schnell-Check</a>
-  <a href="#wissen">Wissen</a>
-  <a href="#kontakt">Kontakt</a>
-</nav>
-
 </body>
 </html>
