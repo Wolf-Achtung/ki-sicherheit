@@ -75,6 +75,20 @@
       padding: 0.8rem 1rem;
     }
   }
+/* Visuelles Feedback für gewählte Schnell-Check-Antworten */
+.popupQuiz .btn.selected {
+  background-color: #0c3a74 !important;
+  color: #fff !important;
+  border: 2px solid #0a2d5c;
+}
+
+/* FAQ: nur eine Antwort gleichzeitig sichtbar */
+.faq-answer {
+  display: none;
+}
+.faq-item.open .faq-answer {
+  display: block;
+}
 </style>
 
   </style>
@@ -105,22 +119,25 @@
   </div>
 </section>
 
-<!-- LEISTUNGEN -->
+<!-- LEISTUNGEN & LÖSUNGEN -->
 <section id="leistungen" class="scroll-section">
   <div class="two-column">
     <div class="image-box">
-      <img src="img/02.png" alt="Technik im Alltag" />
-      <p class="caption">Zukunft beginnt heute</p>
+      <img src="img/02.png" alt="Zukunft wird Realität" />
+      <p class="caption">Zukunft wird Realität</p>
     </div>
     <div class="text-box">
       <h2 class="typing" data-animate="glow">Leistungen & Lösungen</h2>
+      <p>Ich begleite Ihr Unternehmen bei der Einführung und dem sicheren Betrieb von KI-Anwendungen – strukturiert, normenkonform und immer mit Blick auf den wirtschaftlichen Mehrwert.</p>
       <ul>
-        <li><strong>Strategie:</strong> Entwicklung & Einbindung in Ihre Prozesse</li>
-        <li><strong>Recht & Sicherheit:</strong> DSGVO & EU AI Act pragmatisch umsetzen</li>
-        <li><strong>Governance:</strong> Strukturen, Zuständigkeiten, Transparenz schaffen</li>
-        <li><strong>Dokumentation:</strong> Prozesse nachvollziehbar gestalten</li>
-        <li><strong>Auditvorbereitung:</strong> Nachweise und Standards erfüllen</li>
+        <li><strong>KI-Strategie:</strong> Entwicklung & Einbindung von KI in Ihre Geschäftsprozesse</li>
+        <li><strong>Datenschutz & AI Act:</strong> Beratung entlang aktueller Vorschriften</li>
+        <li><strong>Dokumentation & Governance:</strong> Aufbau nachvollziehbarer KI-Prozesse</li>
+        <li><strong>Schulungen & Workshops:</strong> Sensibilisierung Ihrer Teams für Chancen und Risiken</li>
+        <li><strong>Auditvorbereitung:</strong> Unterstützung bei Prüffähigkeit & Nachweisführung</li>
       </ul>
+      <p><strong>Fördermöglichkeiten & Finanzierung:</strong> Ich unterstütze Sie gezielt bei der Identifikation, Beantragung und Abwicklung relevanter Förderprogramme für Ihre KI-Projekte – um Sicherheit mit Wirtschaftlichkeit zu verbinden.</p>
+      <p>Meine Beratung ist individuell, praxisnah und vollständig dokumentierbar – perfekt vorbereitet auf die kommenden Pflichten durch den EU AI Act.</p>
     </div>
   </div>
 </section>
@@ -287,6 +304,45 @@
     </div>
   </div>
 </section>
+<!-- RECHTLICHES & TRANSPARENZ -->
+<section id="rechtliches" class="scroll-section">
+  <div class="two-column">
+    <div class="image-box">
+      <img src="img/11.png" alt="Recht & Ordnung" />
+      <p class="caption">Recht & Ordnung</p>
+    </div>
+    <div class="text-box">
+      <h2 class="typing" data-animate="glow">Rechtliches & Transparenz</h2>
+      <h3>Impressum</h3>
+      <p>Angaben gemäß § 5 TMG</p>
+      <p>Wolf Hohl<br>Greifswalder Str. 224a<br>10405 Berlin<br>E-Mail: info@ki-sicherheit.jetzt</p>
+      <h4>Verantwortlich für den Inhalt</h4>
+      <p>Wolf Hohl, Adresse wie oben.</p>
+      <h4>Haftungsausschluss</h4>
+      <p>Diese Website dient ausschließlich der Information. Trotz sorgfältiger Prüfung übernehme ich keine Haftung für die Inhalte externer Links. Für den Inhalt der verlinkten Seiten sind ausschließlich deren Betreiber verantwortlich.</p>
+      <h4>Urheberrecht</h4>
+      <p>Alle Inhalte dieser Website unterliegen dem deutschen Urheberrecht. Vervielfältigung, Bearbeitung oder Verwertung außerhalb der Grenzen des Urheberrechts bedürfen der schriftlichen Zustimmung.</p>
+      <h4>Hinweis zum EU AI Act</h4>
+      <p>Diese Website informiert über Pflichten und Handlungsempfehlungen im Zusammenhang mit dem EU AI Act. Die Inhalte stellen keine Rechtsberatung dar, sondern dienen der Orientierung. Für individuelle Bewertungen und Maßnahmen wird eine persönliche Beratung empfohlen.</p>
+      <h3>Datenschutzerklärung</h3>
+      <p><strong>Der Schutz Ihrer persönlichen Daten ist mir ein besonderes Anliegen.</strong> Ich verarbeite Ihre Daten daher ausschließlich auf Grundlage der gesetzlichen Bestimmungen (DSGVO, TMG, EU AI Act).</p>
+      <h4>1. Kontakt mit mir</h4>
+      <p>Wenn Sie per Formular auf der Website oder per E-Mail Kontakt mit mir aufnehmen, werden Ihre angegebenen Daten zwecks Bearbeitung der Anfrage und für den Fall von Anschlussfragen sechs Monate bei mir gespeichert. Diese Daten gebe ich nicht ohne Ihre Einwilligung weiter.</p>
+      <h4>2. Cookies</h4>
+      <p>Diese Website verwendet keine Cookies zur Nutzerverfolgung oder Analyse. Es werden ausschließlich technisch notwendige Cookies verwendet, sofern überhaupt.</p>
+      <h4>3. Ihre Rechte laut DSGVO</h4>
+      <ul>
+        <li>Auskunft, Berichtigung oder Löschung Ihrer Daten</li>
+        <li>Einschränkung der Verarbeitung</li>
+        <li>Datenübertragbarkeit</li>
+        <li>Widerruf erteilter Einwilligungen</li>
+        <li>Beschwerde bei der Datenschutzbehörde</li>
+      </ul>
+      <p>Wenn Sie glauben, dass die Verarbeitung Ihrer Daten gegen das Datenschutzrecht verstößt oder Ihre datenschutzrechtlichen Ansprüche verletzt worden sind, können Sie sich bei der zuständigen Aufsichtsbehörde beschweren.</p>
+    </div>
+  </div>
+</section>
+
 
 <!-- DATENSCHUTZ POPUP -->
 <div id="datenschutzModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); z-index:9999;">
@@ -326,10 +382,33 @@
 </footer>
 
 <!-- JS-FUNKTIONEN -->
+
 <script>
-function toggleFaq(header) {
-  const answer = header.nextElementSibling;
-  answer.style.display = (answer.style.display === "block") ? "none" : "block";
+// Schnell-Check Antwort-Buttons klickbar gestalten
+const checkButtons = document.querySelectorAll("#popupQuiz .btn");
+checkButtons.forEach(button => {
+  button.addEventListener("click", () => {
+    const siblings = button.parentElement.querySelectorAll(".btn");
+    siblings.forEach(b => b.classList.remove("selected"));
+    button.classList.add("selected");
+  });
+});
+
+// FAQ: Nur eine Antwort gleichzeitig öffnen
+function toggleFaq(el) {
+  document.querySelectorAll(".faq-item").forEach(item => {
+    if (item !== el.parentElement) item.classList.remove("open");
+  });
+  el.parentElement.classList.toggle("open");
+}
+
+// Navigation reparieren (Scroll zu Pop-up)
+document.querySelectorAll("a[href='#schnellcheck']").forEach(link => {
+  link.addEventListener("click", e => {
+    e.preventDefault();
+    document.getElementById("popupCheck").style.display = "block";
+  });
+});
 }
 function openDatenschutz() {
   document.getElementById('datenschutzModal').style.display = 'block';
