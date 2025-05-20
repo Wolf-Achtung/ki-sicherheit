@@ -1,232 +1,53 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>KI-Sicherheit.jetzt</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KI-Sicherheit.jetzt – Vorschau</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    body { font-family: 'Inter', sans-serif; margin: 0; background: #f9f9fb; color: #0c3a5f; line-height: 1.6; }
-    .scroll-section { padding: 5rem 1rem; max-width: 960px; margin: 0 auto; }
-    .typing[data-animate="glow"] { font-size: 1.8rem; font-weight: bold; position: relative; display: inline-block; }
-    .typing[data-animate="glow"]::after { content: ""; position: absolute; bottom: -2px; left: 0; width: 100%; height: 3px; background: linear-gradient(90deg, #0c4a74, #ff0040, #0c4a74); animation: glowingLine 4s linear infinite; }
-    @keyframes glowingLine { 0% { background-position: 0% } 100% { background-position: 100% } }
-    .tooltip { position: relative; border-bottom: 1px dotted #0c4a74; cursor: help; }
-    .tooltip::after { content: attr(data-tooltip); position: absolute; bottom: 120%; left: 0; background: #0c4a74; color: #fff; padding: 0.4rem 0.8rem; font-size: 0.8rem; white-space: nowrap; border-radius: 5px; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; }
-    .tooltip:hover::after { opacity: 1; }
-    .balken { background: #eee; border-radius: 20px; height: 20px; overflow: hidden; margin-bottom: 0.5rem; }
-    .balken-bar { height: 100%; width: 0%; transition: width 1s ease-in-out; border-radius: 20px; }
-    .balken-bar.rot { background: #c0392b; }
-    .balken-bar.gelb { background: #f39c12; }
-    .balken-bar.gruen { background: #27ae60; }
-    .btn { background-color: #0c4a74; color: white; padding: 0.8rem 1.4rem; border: none; border-radius: 10px; font-size: 1rem; cursor: pointer; transition: all 0.3s ease; }
-    .btn:hover { background-color: #09395c; transform: scale(1.05); }
-    .pulse-button { animation: pulse 3s ease-in-out infinite; }
-    @keyframes pulse { 0%, 100% { box-shadow: 0 0 0 rgba(12, 74, 116, 0.3); } 50% { box-shadow: 0 0 12px rgba(12, 74, 116, 0.6); } }
-    .two-column { display: flex; flex-wrap: wrap; gap: 2rem; align-items: flex-start; }
-    .image-box img { max-width: 280px; border-radius: 12px; }
-    .caption { font-size: 0.85rem; color: #666; }
-    .text-box { flex: 1; min-width: 300px; }
-    .faq-item h3 { cursor: pointer; background: #eee; padding: 1rem; border-radius: 8px; }
-    .faq-answer { padding: 1rem; background: #f7f7f7; border-left: 4px solid #0c4a74; border-radius: 0 0 8px 8px; margin-bottom: 1rem; }
-    nav a { margin: 0 0.7rem; text-decoration: none; color: inherit; }
+    body {
+      margin: 0;
+      padding: 0;
+      background: radial-gradient(circle at center, #0c3a5f 0%, #000 100%);
+      font-family: 'Inter', sans-serif;
+      color: #fff;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      flex-direction: column;
+    }
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    .typing {
+      border-right: .1em solid #fff;
+      white-space: nowrap;
+      overflow: hidden;
+      width: 0;
+      animation: typing 4s steps(40, end) forwards, blink .7s step-end infinite;
+    }
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 100% }
+    }
+    @keyframes blink {
+      from, to { border-color: transparent }
+      50% { border-color: white; }
+    }
+    footer {
+      position: absolute;
+      bottom: 1rem;
+      font-size: 0.8rem;
+      color: #aaa;
+    }
   </style>
 </head>
 <body>
-
-<!-- START -->
-<section id="start" class="scroll-section">
-  <h1 class="typing" data-animate="glow">Die KI ist bereit. Sind Sie es auch?</h1>
-  <p>Ich unterstütze Unternehmen dabei, <span class="tooltip" data-tooltip="Künstliche Intelligenz – maschinelles Lernen mit Daten">moderne Technologien</span> verantwortungsvoll, rechtssicher und zukunftsorientiert einzusetzen.</p>
-  <button class="btn pulse-button" onclick="document.getElementById('popupCheck').style.display='block'">Schnell-Check im Pop-up starten</button>
-</section>
-<!-- PROFIL -->
-<section id="profil" class="scroll-section">
-  <div class="two-column">
-    <div class="image-box">
-      <img src="img/01.png" alt="Retro-Raumfahrt" />
-      <p class="caption">Vision wird greifbar</p>
-    </div>
-    <div class="text-box">
-      <h2 class="typing" data-animate="glow">Profil & Motivation</h2>
-      <p>Ich bin Ihr zertifizierter <span class="tooltip" data-tooltip="Anerkannter Qualifikationsnachweis für verantwortungsvolle KI-Beratung">KI-Manager (TÜV Austria)</span> und strategischer Partner, wenn es darum geht, moderne Systeme sicher, verantwortungsvoll und zukunftsfähig einzusetzen.</p>
-      <blockquote class="highlight-box">Wirtschaftlichkeit und Verantwortung schließen sich nicht aus.</blockquote>
-      <p>Der <span class="tooltip" data-tooltip="Verbindliches EU-Gesetz zur Regulierung von automatisierten Systemen">EU AI Act</span> schafft erstmals ein verbindliches Regelwerk. Ich helfe Ihnen, diese Vorgaben nicht nur einzuhalten, sondern gezielt zu nutzen – für mehr Sicherheit, Vertrauen und Effizienz.</p>
-    </div>
-  </div>
-</section>
-
-<!-- LEISTUNGEN -->
-<section id="leistungen" class="scroll-section">
-  <div class="two-column">
-    <div class="image-box">
-      <img src="img/02.png" alt="Technik im Alltag" />
-      <p class="caption">Zukunft beginnt heute</p>
-    </div>
-    <div class="text-box">
-      <h2 class="typing" data-animate="glow">Leistungen & Lösungen</h2>
-      <ul>
-        <li><strong>Strategie:</strong> Entwicklung & Einbindung in Ihre Prozesse</li>
-        <li><strong>Recht & Sicherheit:</strong> DSGVO & EU AI Act pragmatisch umsetzen</li>
-        <li><strong>Governance:</strong> Strukturen, Zuständigkeiten, Transparenz schaffen</li>
-        <li><strong>Dokumentation:</strong> Prozesse nachvollziehbar gestalten</li>
-        <li><strong>Auditvorbereitung:</strong> Nachweise und Standards erfüllen</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<!-- SCHNELL-CHECK POPUP -->
-<div id="popupCheck" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); z-index:9999;">
-  <div style="background:white; max-width:700px; margin:5% auto; padding:2rem; border-radius:12px; position:relative; color:#0c3a5f;">
-    <button onclick="document.getElementById('popupCheck').style.display='none'" style="position:absolute; top:1rem; right:1rem; background:none; border:none; font-size:1.5rem; cursor:pointer;">&times;</button>
-    <h2>Schnell-Check starten</h2>
-    <p>Beantworten Sie 7 Fragen für Ihre Risikoeinschätzung.</p>
-    <div id="popupQuiz">
-      <!-- Fragenblock wird bei Bedarf dynamisch eingebettet oder direkt ersetzt -->
-      <p style="font-size: 0.9rem;">Hinweis: Der Check erscheint nach Integration.</p>
-    </div>
-  </div>
-</div>
-
-<!-- WISSEN -->
-<section id="wissen" class="scroll-section">
-  <div class="two-column">
-    <div class="image-box">
-      <img src="img/05.png" alt="Hintergrundwissen" />
-      <p class="caption">Verstehen als Grundlage</p>
-    </div>
-    <div class="text-box">
-      <h2 class="typing" data-animate="glow">Wissen & Hintergrund</h2>
-      <p>Der sichere Einsatz von KI ist kein Zufall – sondern das Ergebnis fundierten Know-hows und strukturierter Vorbereitung. Mit dem EU AI Act verpflichtet sich der Mittelstand zu Transparenz, Nachvollziehbarkeit und Verantwortung im Umgang mit KI.</p>
-      <p>Viele Unternehmen unterschätzen den Aufwand für eine KI-konforme Umsetzung. Es braucht Wissen über technische Risiken, regulatorische Anforderungen und organisatorische Maßnahmen. Nur dann können Sie vermeiden, dass Ihnen KI zur rechtlichen oder reputativen Belastung wird.</p>
-      <ul>
-        <li>Welche Risiken birgt generative KI im Tagesgeschäft?</li>
-        <li>Was bedeutet Risikoeinstufung nach EU AI Act konkret?</li>
-        <li>Welche Pflichten haben Mittelständler heute schon?</li>
-        <li>Welche Chancen ergeben sich aus guter Vorbereitung?</li>
-      </ul>
-      <p>Ich mache dieses Wissen zugänglich – durch Beratung, Dokumentation und individuelle Risikoanalysen. Klar, verständlich und auditierbar.</p>
-    </div>
-  </div>
-</section>
-<!-- VERTRAUEN & NACHWEISE -->
-<section id="trust" class="scroll-section">
-  <div class="two-column">
-    <div class="image-box">
-      <img src="img/07.png" alt="Vertrauenssiegel" />
-      <p class="caption">Verlässlichkeit zählt</p>
-    </div>
-    <div class="text-box">
-      <h2 class="typing" data-animate="glow">Vertrauen & Nachweise</h2>
-      <p>Meine Beratung ist nachvollziehbar, dokumentiert und auf echte Nachweise ausgelegt. Kein Marketing – sondern Struktur, Sicherheit und Rechtssicherheit.</p>
-      <ul>
-        <li><strong>TÜV-Zertifizierung:</strong> KI-Manager (TÜV Austria)</li>
-        <li><strong>DSGVO-konforme Beratung</strong></li>
-        <li><strong>Praxisorientierte Umsetzung des EU AI Acts</strong></li>
-        <li><strong>Konform mit ISO/IEC 23894</strong> (Risikomanagement für KI)</li>
-      </ul>
-      <div style="display: flex; gap: 1.5rem; margin-top: 1rem; align-items: center;">
-        <img src="img/tuev-logo-transparent.png" alt="TÜV" style="height: 60px;" />
-        <img src="img/dsgvo.svg" alt="DSGVO" style="height: 60px;" />
-        <img src="img/eu-ai.svg" alt="EU AI Act" style="height: 60px;" />
-      </div>
-    </div>
-  </div>
-</section>
-<!-- FAQ -->
-<section id="faq" class="scroll-section">
-  <h2 class="typing" data-animate="glow">Fragen & Antworten</h2>
-  <div class="faq-item">
-    <h3 onclick="toggleFaq(this)">Was ist der EU AI Act?</h3>
-    <div class="faq-answer" style="display:none;">Der EU AI Act ist ein Gesetz der Europäischen Union, das klare Regeln für den Einsatz von KI vorgibt – je nach Risikokategorie.</div>
-  </div>
-  <div class="faq-item">
-    <h3 onclick="toggleFaq(this)">Welche Risiken bestehen im Alltag?</h3>
-    <div class="faq-answer" style="display:none;">Fehleinschätzungen, automatisierte Vorurteile, rechtliche Verstöße oder Vertrauensverlust sind typische Risiken bei unkontrolliertem KI-Einsatz.</div>
-  </div>
-  <div class="faq-item">
-    <h3 onclick="toggleFaq(this)">Was passiert bei Verstößen?</h3>
-    <div class="faq-answer" style="display:none;">Es drohen hohe Bußgelder, Reputationsverlust und rechtliche Folgen bei Nichteinhaltung des AI Acts.</div>
-  </div>
-</section>
-
-<!-- KONTAKT -->
-<section id="kontakt" class="scroll-section">
-  <div class="two-column">
-    <div class="image-box">
-      <img src="img/08.png" alt="Kontaktaufnahme" />
-      <p class="caption">Weg zur Verbindung</p>
-    </div>
-    <div class="text-box">
-      <h2 class="typing" data-animate="glow">Kontakt & Erstgespräch</h2>
-      <p>Sie möchten wissen, ob Ihr Unternehmen vorbereitet ist? Ich helfe Ihnen weiter – vertrauensvoll, verständlich, zertifiziert.</p>
-      <form method="post" action="#" style="display: grid; gap: 1rem; margin-top: 1.5rem;">
-        <input type="text" name="name" placeholder="Ihr Name" required class="btn" style="background:white; color:#0c3a5f;" />
-        <input type="text" name="unternehmen" placeholder="Ihr Unternehmen" class="btn" style="background:white; color:#0c3a5f;" />
-        <input type="email" name="email" placeholder="Ihre E-Mail-Adresse" required class="btn" style="background:white; color:#0c3a5f;" />
-        <textarea name="nachricht" placeholder="Ihre Nachricht" rows="5" required class="btn" style="background:white; color:#0c3a5f;"></textarea>
-        <label style="font-size: 0.9rem;">
-          <input type="checkbox" required />
-          Ich stimme der <a href="#" onclick="openDatenschutz(); return false;">Datenschutzerklärung</a> zu.
-        </label>
-        <button type="submit" class="btn pulse-button">Kostenloses Erstgespräch anfragen</button>
-      </form>
-    </div>
-  </div>
-</section>
-
-<!-- DATENSCHUTZ POPUP -->
-<div id="datenschutzModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); z-index:9999;">
-  <div style="background:white; color:#0c3a5f; max-width:700px; margin:5% auto; padding:2rem; border-radius:12px; position:relative;">
-    <button onclick="closeDatenschutz()" style="position:absolute; top:1rem; right:1rem; background:none; border:none; font-size:1.5rem; cursor:pointer;">&times;</button>
-    <h2>Datenschutzerklärung</h2>
-    <p>Der Schutz Ihrer persönlichen Daten ist mir ein besonderes Anliegen. Ich verarbeite Ihre Daten daher ausschließlich auf Grundlage der gesetzlichen Bestimmungen (DSGVO, TMG).</p>
-    <h3>1. Kontakt mit mir</h3>
-    <p>Wenn Sie per Formular auf der Website oder per E-Mail Kontakt mit mir aufnehmen, werden Ihre angegebenen Daten zwecks Bearbeitung der Anfrage und für den Fall von Anschlussfragen sechs Monate gespeichert. Diese Daten gebe ich nicht ohne Ihre Einwilligung weiter.</p>
-    <h3>2. Cookies</h3>
-    <p>Meine Website verwendet keine Cookies zur Nachverfolgung oder Analyse. Es werden ausschließlich technisch notwendige Cookies verwendet, sofern überhaupt.</p>
-    <h3>3. Ihre Rechte</h3>
-    <ul>
-      <li>Auskunft, Berichtigung oder Löschung Ihrer Daten</li>
-      <li>Einschränkung der Verarbeitung</li>
-      <li>Datenübertragbarkeit</li>
-      <li>Widerruf erteilter Einwilligungen</li>
-      <li>Beschwerde bei der Datenschutzbehörde</li>
-    </ul>
-    <p>Wenn Sie glauben, dass die Verarbeitung Ihrer Daten gegen das Datenschutzrecht verstößt oder Ihre datenschutzrechtlichen Ansprüche verletzt worden sind, können Sie sich bei der Aufsichtsbehörde beschweren.</p>
-  </div>
-</div>
-
-
-<!-- NAVIGATION IN FOOTER + POPUP-SCHNITT folgt in Teil 5 -->
-<!-- FOOTER -->
-<footer style="background:#0c4a74; color:white; text-align:center; padding:2rem 1rem; margin-top:4rem; border-top-left-radius:1.5rem; border-top-right-radius:1.5rem;">
-  <nav style="margin-bottom:1rem;">
-    <a href="#start">Start</a>
-    <a href="#profil">Profil</a>
-    <a href="#leistungen">Leistungen</a>
-    <a href="#popupCheck" onclick="document.getElementById('popupCheck').style.display='block'; return false;">Schnell-Check</a>
-    <a href="#wissen">Wissen</a>
-    <a href="#faq">FAQ</a>
-    <a href="#kontakt">Kontakt</a>
-  </nav>
-  <p style="font-size: 0.85rem;">&copy; 2025 Wolf Hohl · KI-Sicherheit.jetzt · Alle Rechte vorbehalten</p>
-</footer>
-
-<!-- JS-FUNKTIONEN -->
-<script>
-function toggleFaq(header) {
-  const answer = header.nextElementSibling;
-  answer.style.display = (answer.style.display === "block") ? "none" : "block";
-}
-function openDatenschutz() {
-  document.getElementById('datenschutzModal').style.display = 'block';
-}
-function closeDatenschutz() {
-  document.getElementById('datenschutzModal').style.display = 'none';
-}
-</script>
+  <h1 class="typing">Demnächst hier: KI-Sicherheit für Ihr Unternehmen</h1>
+  <footer>&copy; 2025 Wolf Hohl · KI-Sicherheit.jetzt</footer>
 </body>
 </html>
-
