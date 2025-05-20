@@ -30,6 +30,53 @@
     .faq-item h3 { cursor: pointer; background: #eee; padding: 1rem; border-radius: 8px; }
     .faq-answer { padding: 1rem; background: #f7f7f7; border-left: 4px solid #0c4a74; border-radius: 0 0 8px 8px; margin-bottom: 1rem; }
     nav a { margin: 0 0.7rem; text-decoration: none; color: inherit; }
+<style>
+  footer.bottom-nav {
+    background: #ffffff;
+    border-top: 1px solid #ccc;
+    padding: 0.8rem 1rem;
+    font-size: 0.95rem;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  footer.bottom-nav .menu {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+  }
+
+  footer.bottom-nav .menu a {
+    font-weight: bold;
+    color: #0c3a74;
+    text-decoration: none;
+    padding: 0.5rem 0.8rem;
+    border-radius: 10px;
+    text-align: center;
+    transition: all 0.2s ease-in-out;
+  }
+
+  footer.bottom-nav .menu a:hover {
+    background-color: #0c3a74;
+    color: #ffffff;
+  }
+
+  @media (max-width: 768px) {
+    footer.bottom-nav .menu {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    footer.bottom-nav .menu a {
+      width: 100%;
+      font-size: 1rem;
+      padding: 0.8rem 1rem;
+    }
+  }
+</style>
+
   </style>
 </head>
 <body>
@@ -265,18 +312,17 @@
 
 
 <!-- NAVIGATION IN FOOTER + POPUP-SCHNITT folgt in Teil 5 -->
-<!-- FOOTER -->
-<footer style="background:#0c4a74; color:white; text-align:center; padding:2rem 1rem; margin-top:4rem; border-top-left-radius:1.5rem; border-top-right-radius:1.5rem;">
-  <nav style="margin-bottom:1rem;">
-    <a href="#start">Start</a>
-    <a href="#profil">Profil</a>
-    <a href="#leistungen">Leistungen</a>
-    <a href="#popupCheck" onclick="document.getElementById('popupCheck').style.display='block'; return false;">Schnell-Check</a>
-    <a href="#wissen">Wissen</a>
-    <a href="#faq">FAQ</a>
-    <a href="#kontakt">Kontakt</a>
-  </nav>
-  <p style="font-size: 0.85rem;">&copy; 2025 Wolf Hohl · KI-Sicherheit.jetzt · Alle Rechte vorbehalten</p>
+<!-- Footer überarbeitet -->
+<footer class="bottom-nav">
+  <div class="menu">
+    <a href="#profil">Profil & Motivation</a>
+    <a href="#leistungen">Leistungen & Lösungen</a>
+    <a href="#schnellcheck">Schnell-Check</a>
+    <a href="#wissen">Wissen & Praxis</a>
+    <a href="#faq">Fragen & Antworten</a>
+    <a href="#kontakt">Kontakt & Erstgespräch</a>
+    <a href="#rechtliches">Rechtliches & Transparenz</a>
+  </div>
 </footer>
 
 <!-- JS-FUNKTIONEN -->
