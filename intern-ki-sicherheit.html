@@ -65,7 +65,7 @@
 
 <!-- Navigation (nur im Footer, siehe später) -->
 
-<!-- START -->
+<!-- START -Schnell-Check->
 <section id="start" class="scroll-section">
   <div class="section-img">
     <img src="img/01.png" alt="Technologie mit Weitblick">
@@ -120,6 +120,78 @@
     <button onclick="document.getElementById('schnellcheck-popup').style.display='none'" style="position:absolute; top:1rem; right:1rem; background:#ccc; border:none; padding:0.5rem 1rem; border-radius:6px;">Schließen</button>
     <!-- Hier kommt der Schnell-Check-Code (aus deiner bestehenden Datei) -->
     <div id="quiz">
+<!-- Schnell-Check: Fragen -->
+<div class="frage" id="frage1">
+  <h3>1. Wie setzen Sie KI aktuell ein?</h3>
+  <button onclick="nextFrage(1, 'aktiv')">Wir nutzen KI aktiv</button>
+  <button onclick="nextFrage(1, 'basic')">Wir testen erste Tools</button>
+  <button onclick="nextFrage(1, 'unsicher')">Wir sind noch unsicher</button>
+</div>
+<div class="frage" id="frage2" style="display: none;">
+  <h3>2. Wer verantwortet den Einsatz?</h3>
+  <button onclick="nextFrage(2, 'chef')">Die Geschäftsführung</button>
+  <button onclick="nextFrage(2, 'it')">Die IT-Abteilung</button>
+  <button onclick="nextFrage(2, 'keiner')">Niemand konkret</button>
+</div>
+<div class="frage" id="frage3" style="display: none;">
+  <h3>3. Dokumentieren Sie Entscheidungen?</h3>
+  <button onclick="nextFrage(3, 'ja')">Ja, klar dokumentiert</button>
+  <button onclick="nextFrage(3, 'teilweise')">Teilweise</button>
+  <button onclick="nextFrage(3, 'nein')">Noch gar nicht</button>
+</div>
+<div class="frage" id="frage4" style="display: none;">
+  <h3>4. Wie steht es um Ihren Datenschutz?</h3>
+  <button onclick="nextFrage(4, 'vorreiter')">Wir sind Vorreiter</button>
+  <button onclick="nextFrage(4, 'orientierung')">Wir orientieren uns</button>
+  <button onclick="nextFrage(4, 'risikozone')">Wir sind im Graubereich</button>
+</div>
+<div class="frage" id="frage5" style="display: none;">
+  <h3>5. Was würde passieren, wenn Ihr Unternehmen gegen den EU AI Act verstößt?</h3>
+  <button onclick="nextFrage(5, 'bewusst')">Uns ist das bewusst</button>
+  <button onclick="nextFrage(5, 'vage')">Wir wissen es ungefähr</button>
+  <button onclick="nextFrage(5, 'ahnungslos')">Wir sind uns nicht sicher</button>
+</div>
+<div class="frage" id="frage6" style="display: none;">
+  <h3>6. Wie gehen Sie mit Fehlern im System um?</h3>
+  <button onclick="nextFrage(6, 'dokumentiert')">Wir dokumentieren das</button>
+  <button onclick="nextFrage(6, 'situativ')">Wir reagieren situativ</button>
+  <button onclick="nextFrage(6, 'ignoriert')">Wir haben dazu nichts geregelt</button>
+</div>
+<div class="frage" id="frage7" style="display: none;">
+  <h3>7. Wer prüft neue KI-Systeme bei Ihnen?</h3>
+  <button onclick="nextFrage(7, 'team')">Ein internes Team</button>
+  <button onclick="nextFrage(7, 'einzelperson')">Eine verantwortliche Person</button>
+  <button onclick="nextFrage(7, 'niemand')">Niemand</button>
+</div>
+
+<!-- Ergebnis-Balken -->
+<div style="margin-top: 3rem;">
+  <h3>Governance</h3>
+  <div class="balken"><div id="balken-governance" class="balken-bar"></div></div>
+  <p id="text-governance">Ergebnis wird berechnet...</p>
+
+  <h3>Dokumentation</h3>
+  <div class="balken"><div id="balken-doku" class="balken-bar"></div></div>
+  <p id="text-doku">Ergebnis wird berechnet...</p>
+
+  <h3>Verantwortung</h3>
+  <div class="balken"><div id="balken-verantwortung" class="balken-bar"></div></div>
+  <p id="text-verantwortung">Ergebnis wird berechnet...</p>
+
+  <h3>Kommunikation</h3>
+  <div class="balken"><div id="balken-kommunikation" class="balken-bar"></div></div>
+  <p id="text-kommunikation">Ergebnis wird berechnet...</p>
+
+  <h3>Datenschutz-Integration</h3>
+  <div class="balken"><div id="balken-datenschutz" class="balken-bar"></div></div>
+  <p id="text-datenschutz">Ergebnis wird berechnet...</p>
+</div>
+
+<!-- Reset-Button -->
+<div style="text-align:center; margin-top:2rem;">
+  <button class="btn pulse-button" onclick="resetQuiz()">Schnell-Check erneut starten</button>
+</div>
+
       <!-- Fragen 1–7 und JS kommen in Teil 4 -->
       <p style="text-align:center;">Der Schnell-Check wird hier geladen …</p>
     </div>
@@ -258,6 +330,93 @@
 
 <!-- INTERAKTION: FAQ-Logik -->
 <script>
+<script>
+let antworten = {};
+
+function nextFrage(frageNummer, wert) {
+  antworten["frage" + frageNummer] = wert;
+  document.getElementById("frage" + frageNummer).style.display = "none";
+  const next = document.getElementById("frage" + (frageNummer + 1));
+  if (next) {
+    next.style.display = "block";
+  } else {
+    auswertungStarten();
+  }
+}
+
+function resetQuiz() {
+  for (let i = 1; i <= 7; i++) {
+    const frage = document.getElementById("frage" + i);
+    if (frage) frage.style.display = i === 1 ? "block" : "none";
+  }
+  antworten = {};
+  const felder = ["governance", "doku", "verantwortung", "kommunikation", "datenschutz"];
+  felder.forEach(feld => {
+    document.getElementById("balken-" + feld).style.width = "0%";
+    document.getElementById("balken-" + feld).classList.remove("rot", "gelb", "gruen");
+    document.getElementById("text-" + feld).innerText = "Ergebnis wird berechnet...";
+  });
+}
+
+function auswertungStarten() {
+  let punkte = { governance: 0, dokumentation: 0, verantwortung: 0, kommunikation: 0, datenschutz: 0 };
+  switch (antworten.frage1) {
+    case "aktiv": punkte.governance += 30; punkte.kommunikation += 25; break;
+    case "basic": punkte.governance += 15; break;
+    case "unsicher": punkte.governance += 5; break;
+  }
+  switch (antworten.frage2) {
+    case "chef": punkte.verantwortung += 30; break;
+    case "it": punkte.verantwortung += 20; break;
+    case "keiner": punkte.verantwortung += 5; break;
+  }
+  switch (antworten.frage3) {
+    case "ja": punkte.dokumentation += 30; break;
+    case "teilweise": punkte.dokumentation += 15; break;
+    case "nein": punkte.dokumentation += 5; break;
+  }
+  switch (antworten.frage4) {
+    case "vorreiter": punkte.datenschutz += 30; punkte.kommunikation += 25; break;
+    case "orientierung": punkte.datenschutz += 15; punkte.kommunikation += 15; break;
+    case "risikozone": punkte.datenschutz += 5; punkte.kommunikation += 5; break;
+  }
+  switch (antworten.frage5) {
+    case "bewusst": punkte.governance += 25; punkte.datenschutz += 25; break;
+    case "vage": punkte.governance += 15; punkte.datenschutz += 15; break;
+    case "ahnungslos": punkte.governance += 5; punkte.datenschutz += 5; break;
+  }
+  switch (antworten.frage6) {
+    case "dokumentiert": punkte.kommunikation += 25; punkte.governance += 20; break;
+    case "situativ": punkte.kommunikation += 15; break;
+    case "ignoriert": punkte.kommunikation += 5; break;
+  }
+  switch (antworten.frage7) {
+    case "team": punkte.verantwortung += 20; punkte.dokumentation += 20; break;
+    case "einzelperson": punkte.verantwortung += 10; break;
+    case "niemand": punkte.verantwortung += 5; break;
+  }
+
+  updateBalken("governance", punkte.governance);
+  updateBalken("doku", punkte.dokumentation);
+  updateBalken("verantwortung", punkte.verantwortung);
+  updateBalken("kommunikation", punkte.kommunikation);
+  updateBalken("datenschutz", punkte.datenschutz);
+}
+
+function updateBalken(feld, wert) {
+  const max = 50;
+  const prozent = Math.round((wert / max) * 100);
+  const bar = document.getElementById("balken-" + feld);
+  const text = document.getElementById("text-" + feld);
+  bar.style.width = prozent + "%";
+  bar.classList.remove("rot", "gelb", "gruen");
+  if (prozent >= 75) { bar.classList.add("gruen"); text.innerText = "Sehr gut vorbereitet."; }
+  else if (prozent >= 50) { bar.classList.add("gelb"); text.innerText = "Solide, aber ausbaufähig."; }
+  else if (prozent >= 30) { bar.classList.add("rot"); text.innerText = "Risiken bestehen – Handlungsbedarf."; }
+  else { bar.classList.add("rot"); text.innerText = "Dringender Handlungsbedarf!"; }
+}
+</script>
+
 function toggleFaq(el) {
   const items = document.querySelectorAll('.faq-item');
   items.forEach(item => {
