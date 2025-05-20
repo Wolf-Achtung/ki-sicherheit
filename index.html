@@ -29,6 +29,7 @@
     .text-box { flex: 1; min-width: 300px; }
     .faq-item h3 { cursor: pointer; background: #eee; padding: 1rem; border-radius: 8px; }
     .faq-answer { padding: 1rem; background: #f7f7f7; border-left: 4px solid #0c4a74; border-radius: 0 0 8px 8px; margin-bottom: 1rem; }
+    nav a { margin: 0 0.7rem; text-decoration: none; color: inherit; }
   </style>
 </head>
 <body>
@@ -37,7 +38,7 @@
 <section id="start" class="scroll-section">
   <h1 class="typing" data-animate="glow">Die KI ist bereit. Sind Sie es auch?</h1>
   <p>Ich unterstütze Unternehmen dabei, <span class="tooltip" data-tooltip="Künstliche Intelligenz – maschinelles Lernen mit Daten">moderne Technologien</span> verantwortungsvoll, rechtssicher und zukunftsorientiert einzusetzen.</p>
-  <a href="#schnellcheck" class="btn pulse-button">Jetzt Schnell-Check starten</a>
+  <button class="btn pulse-button" onclick="document.getElementById('popupCheck').style.display='block'">Schnell-Check im Pop-up starten</button>
 </section>
 <!-- PROFIL -->
 <section id="profil" class="scroll-section">
@@ -75,81 +76,17 @@
   </div>
 </section>
 
-<!-- SCHNELL-CHECK -->
-<section id="schnellcheck" class="scroll-section">
-  <h2 class="typing" data-animate="glow">Schnell-Check & Empfehlung</h2>
-  <p>Beantworten Sie 7 Fragen und erhalten Sie eine erste Einschätzung zu Ihren Handlungsfeldern.</p>
-  <div id="quiz">
-    <div class="frage" id="frage1">
-      <h3>1. Wie setzen Sie KI aktuell ein?</h3>
-      <button class="btn" onclick="nextFrage(1, 'basic')">Wir testen Tools</button>
-      <button class="btn" onclick="nextFrage(1, 'aktiv')">Wir nutzen sie aktiv</button>
-      <button class="btn" onclick="nextFrage(1, 'unsicher')">Noch nicht</button>
-    </div>
-    <div class="frage" id="frage2" style="display:none;">
-      <h3>2. Wer verantwortet den Einsatz?</h3>
-      <button class="btn" onclick="nextFrage(2, 'chef')">Geschäftsführung</button>
-      <button class="btn" onclick="nextFrage(2, 'it')">IT-Abteilung</button>
-      <button class="btn" onclick="nextFrage(2, 'keiner')">Niemand direkt</button>
-    </div>
-    <div class="frage" id="frage3" style="display:none;">
-      <h3>3. Dokumentieren Sie Entscheidungen?</h3>
-      <button class="btn" onclick="nextFrage(3, 'ja')">Ja, klar geregelt</button>
-      <button class="btn" onclick="nextFrage(3, 'teilweise')">Teilweise</button>
-      <button class="btn" onclick="nextFrage(3, 'nein')">Nein</button>
-    </div>
-    <div class="frage" id="frage4" style="display:none;">
-      <h3>4. Wissen Ihre Teams vom AI Act?</h3>
-      <button class="btn" onclick="nextFrage(4, 'vorreiter')">Ja, sensibilisiert</button>
-      <button class="btn" onclick="nextFrage(4, 'orientierung')">Teilweise</button>
-      <button class="btn" onclick="nextFrage(4, 'risikozone')">Noch nicht</button>
-    </div>
-    <div class="frage" id="frage5" style="display:none;">
-      <h3>5. Wissen Sie, welche Strafen drohen?</h3>
-      <button class="btn" onclick="nextFrage(5, 'bewusst')">Ja, klar informiert</button>
-      <button class="btn" onclick="nextFrage(5, 'vage')">Ungefähr</button>
-      <button class="btn" onclick="nextFrage(5, 'ahnungslos')">Nein</button>
-    </div>
-    <div class="frage" id="frage6" style="display:none;">
-      <h3>6. Wie gehen Sie mit Fehlern um?</h3>
-      <button class="btn" onclick="nextFrage(6, 'dokumentiert')">Dokumentiert & analysiert</button>
-      <button class="btn" onclick="nextFrage(6, 'situativ')">Situativ</button>
-      <button class="btn" onclick="nextFrage(6, 'ignoriert')">Noch gar nicht</button>
-    </div>
-    <div class="frage" id="frage7" style="display:none;">
-      <h3>7. Wer prüft neue Systeme bei Ihnen?</h3>
-      <button class="btn" onclick="nextFrage(7, 'team')">Ein verantwortliches Team</button>
-      <button class="btn" onclick="nextFrage(7, 'einzelperson')">Einzelperson</button>
-      <button class="btn" onclick="nextFrage(7, 'niemand')">Niemand</button>
+<!-- SCHNELL-CHECK POPUP -->
+<div id="popupCheck" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); z-index:9999;">
+  <div style="background:white; max-width:700px; margin:5% auto; padding:2rem; border-radius:12px; position:relative; color:#0c3a5f;">
+    <button onclick="document.getElementById('popupCheck').style.display='none'" style="position:absolute; top:1rem; right:1rem; background:none; border:none; font-size:1.5rem; cursor:pointer;">&times;</button>
+    <h2>Schnell-Check starten</h2>
+    <p>Beantworten Sie 7 Fragen für Ihre Risikoeinschätzung.</p>
+    <div id="popupQuiz">
+      <!-- Fragenblock wird bei Bedarf dynamisch eingebettet oder direkt ersetzt -->
+      <p style="font-size: 0.9rem;">Hinweis: Der Check erscheint nach Integration.</p>
     </div>
   </div>
-... (bisheriger Inhalt bleibt erhalten) ...
-
-<!-- 🔎 BALKEN-AUSWERTUNG -->
-<div style="margin-top: 3rem;">
-  <h3><span class="tooltip" data-tooltip="Strukturen und Zuständigkeiten">Governance</span></h3>
-  <div class="balken"><div id="balken-governance" class="balken-bar" style="width: 0%;"></div></div>
-  <p class="risiko-text" id="text-governance">Ergebnis wird berechnet...</p>
-
-  <h3><span class="tooltip" data-tooltip="Nachvollziehbare Abläufe und KI-Protokolle">Dokumentation</span></h3>
-  <div class="balken"><div id="balken-doku" class="balken-bar" style="width: 0%;"></div></div>
-  <p class="risiko-text" id="text-doku">Ergebnis wird berechnet...</p>
-
-  <h3><span class="tooltip" data-tooltip="Zuständigkeiten im Unternehmen">Verantwortung</span></h3>
-  <div class="balken"><div id="balken-verantwortung" class="balken-bar" style="width: 0%;"></div></div>
-  <p class="risiko-text" id="text-verantwortung">Ergebnis wird berechnet...</p>
-
-  <h3><span class="tooltip" data-tooltip="Kommunikation intern und extern">Kommunikation</span></h3>
-  <div class="balken"><div id="balken-kommunikation" class="balken-bar" style="width: 0%;"></div></div>
-  <p class="risiko-text" id="text-kommunikation">Ergebnis wird berechnet...</p>
-
-  <h3><span class="tooltip" data-tooltip="Datenschutzmaßnahmen und DSGVO">Datenschutz-Integration</span></h3>
-  <div class="balken"><div id="balken-datenschutz" class="balken-bar" style="width: 0%;"></div></div>
-  <p class="risiko-text" id="text-datenschutz">Ergebnis wird berechnet...</p>
-</div>
-
-<div style="text-align: center; margin-top: 2rem;">
-  <button class="btn" onclick="resetQuiz()">Schnell-Check zurücksetzen</button>
 </div>
 
 <!-- WISSEN -->
@@ -161,89 +98,92 @@
     </div>
     <div class="text-box">
       <h2 class="typing" data-animate="glow">Wissen & Hintergrund</h2>
-      <p>Fundiertes Wissen ist Voraussetzung für zukunftsfähige Entscheidungen. Hier finden Sie Einblicke in Risiken, Pflichten und Potenziale aktueller Technologien.</p>
+      <p>Der sichere Einsatz von KI ist kein Zufall – sondern das Ergebnis fundierten Know-hows und strukturierter Vorbereitung. Mit dem EU AI Act verpflichtet sich der Mittelstand zu Transparenz, Nachvollziehbarkeit und Verantwortung im Umgang mit KI.</p>
+      <p>Viele Unternehmen unterschätzen den Aufwand für eine KI-konforme Umsetzung. Es braucht Wissen über technische Risiken, regulatorische Anforderungen und organisatorische Maßnahmen. Nur dann können Sie vermeiden, dass Ihnen KI zur rechtlichen oder reputativen Belastung wird.</p>
       <ul>
-        <li>Risikokategorien nach EU AI Act</li>
-        <li>Pflichten für Unternehmen</li>
-        <li>Technische & organisatorische Anforderungen</li>
-        <li>Verantwortungsvolle Einführung neuer Systeme</li>
+        <li>Welche Risiken birgt generative KI im Tagesgeschäft?</li>
+        <li>Was bedeutet Risikoeinstufung nach EU AI Act konkret?</li>
+        <li>Welche Pflichten haben Mittelständler heute schon?</li>
+        <li>Welche Chancen ergeben sich aus guter Vorbereitung?</li>
       </ul>
+      <p>Ich mache dieses Wissen zugänglich – durch Beratung, Dokumentation und individuelle Risikoanalysen. Klar, verständlich und auditierbar.</p>
+    </div>
+  </div>
+</section>
+<!-- VERTRAUEN & NACHWEISE -->
+<section id="trust" class="scroll-section">
+  <div class="two-column">
+    <div class="image-box">
+      <img src="img/07.png" alt="Vertrauenssiegel" />
+      <p class="caption">Verlässlichkeit zählt</p>
+    </div>
+    <div class="text-box">
+      <h2 class="typing" data-animate="glow">Vertrauen & Nachweise</h2>
+      <p>Meine Beratung ist nachvollziehbar, dokumentiert und auf echte Nachweise ausgelegt. Kein Marketing – sondern Struktur, Sicherheit und Rechtssicherheit.</p>
+      <ul>
+        <li><strong>TÜV-Zertifizierung:</strong> KI-Manager (TÜV Austria)</li>
+        <li><strong>DSGVO-konforme Beratung</strong></li>
+        <li><strong>Praxisorientierte Umsetzung des EU AI Acts</strong></li>
+        <li><strong>Konform mit ISO/IEC 23894</strong> (Risikomanagement für KI)</li>
+      </ul>
+      <div style="display: flex; gap: 1.5rem; margin-top: 1rem; align-items: center;">
+        <img src="img/tuev-logo-transparent.png" alt="TÜV" style="height: 60px;" />
+        <img src="img/dsgvo.svg" alt="DSGVO" style="height: 60px;" />
+        <img src="img/eu-ai.svg" alt="EU AI Act" style="height: 60px;" />
+      </div>
     </div>
   </div>
 </section>
 <!-- FAQ -->
 <section id="faq" class="scroll-section">
   <h2 class="typing" data-animate="glow">Fragen & Antworten</h2>
-
   <div class="faq-item">
     <h3 onclick="toggleFaq(this)">Was ist der EU AI Act?</h3>
-    <div class="faq-answer" style="display:none;">Der EU AI Act ist ein Gesetz der Europäischen Union, das klare Regeln für den Einsatz von künstlicher Intelligenz vorgibt – je nach Risikokategorie.</div>
+    <div class="faq-answer" style="display:none;">Der EU AI Act ist ein Gesetz der Europäischen Union, das klare Regeln für den Einsatz von KI vorgibt – je nach Risikokategorie.</div>
   </div>
-
   <div class="faq-item">
-    <h3 onclick="toggleFaq(this)">Müssen wir jetzt schon etwas tun?</h3>
-    <div class="faq-answer" style="display:none;">Ja – viele Pflichten gelten bereits indirekt, vor allem im Bereich Transparenz und Datenschutz. Frühzeitige Vorbereitung zahlt sich aus.</div>
+    <h3 onclick="toggleFaq(this)">Welche Risiken bestehen im Alltag?</h3>
+    <div class="faq-answer" style="display:none;">Fehleinschätzungen, automatisierte Vorurteile, rechtliche Verstöße oder Vertrauensverlust sind typische Risiken bei unkontrolliertem KI-Einsatz.</div>
   </div>
-
-  <div class="faq-item">
-    <h3 onclick="toggleFaq(this)">Was ist eine Risikoklassifizierung?</h3>
-    <div class="faq-answer" style="display:none;">Der AI Act stuft Systeme nach potenziellen Risiken ein – z. B. Hochrisiko bei Personalentscheidungen oder Scoring.</div>
-  </div>
-
-  <div class="faq-item">
-    <h3 onclick="toggleFaq(this)">Wie dokumentiere ich Systeme richtig?</h3>
-    <div class="faq-answer" style="display:none;">Durch technische Beschreibungen, nachvollziehbare Entscheidungswege, Versionierung und definierte Verantwortlichkeiten.</div>
-  </div>
-
-  <div class="faq-item">
-    <h3 onclick="toggleFaq(this)">Kann ich Tools wie ChatGPT einfach so nutzen?</h3>
-    <div class="faq-answer" style="display:none;">Nur mit klaren Richtlinien, Kontrolle und Zweckbindung. Ohne Governance entstehen rechtliche und ethische Risiken.</div>
-  </div>
-
-  <div class="faq-item">
-    <h3 onclick="toggleFaq(this)">Brauche ich einen Datenschutzbeauftragten?</h3>
-    <div class="faq-answer" style="display:none;">In vielen Fällen ja – besonders wenn personenbezogene Daten automatisiert verarbeitet oder überwacht werden.</div>
-  </div>
-
-  <div class="faq-item">
-    <h3 onclick="toggleFaq(this)">Welche Rolle spielt die Geschäftsführung?</h3>
-    <div class="faq-answer" style="display:none;">Sie trägt die Verantwortung für Regelkonformität und muss Entscheidungen aktiv begleiten und freigeben.</div>
-  </div>
-
-  <div class="faq-item">
-    <h3 onclick="toggleFaq(this)">Gibt es Fördermöglichkeiten für Projekte?</h3>
-    <div class="faq-answer" style="display:none;">Ja – je nach Bundesland und Anwendungsfeld können Beratungen und Umsetzungen bezuschusst werden.</div>
-  </div>
-
   <div class="faq-item">
     <h3 onclick="toggleFaq(this)">Was passiert bei Verstößen?</h3>
-    <div class="faq-answer" style="display:none;">Es drohen Bußgelder von bis zu mehreren Millionen Euro – abhängig von Schweregrad und Organisation.</div>
-  </div>
-
-  <div class="faq-item">
-    <h3 onclick="toggleFaq(this)">Was ist der erste Schritt?</h3>
-    <div class="faq-answer" style="display:none;">Eine strukturierte Risikoanalyse und Bewertung Ihrer bestehenden oder geplanten Systeme.</div>
+    <div class="faq-answer" style="display:none;">Es drohen hohe Bußgelder, Reputationsverlust und rechtliche Folgen bei Nichteinhaltung des AI Acts.</div>
   </div>
 </section>
 
-<!-- TRUST-BLOCK -->
-<section id="trust" class="scroll-section">
-  <h2 class="typing" data-animate="glow">Vertrauen & Nachweise</h2>
-  <div style="display: flex; justify-content: center; align-items: center; gap: 2rem; flex-wrap: wrap;">
-    <img src="img/tuev-logo-transparent.png" alt="TÜV-Zertifizierung" style="height: 60px;" />
-    <img src="img/dsgvo.svg" alt="DSGVO-Konform" style="height: 60px;" />
-    <img src="img/eu-ai.svg" alt="EU AI Act" style="height: 60px;" />
+<!-- KONTAKT -->
+<section id="kontakt" class="scroll-section">
+  <div class="two-column">
+    <div class="image-box">
+      <img src="img/08.png" alt="Kontaktaufnahme" />
+      <p class="caption">Weg zur Verbindung</p>
+    </div>
+    <div class="text-box">
+      <h2 class="typing" data-animate="glow">Kontakt & Erstgespräch</h2>
+      <p>Sie möchten wissen, ob Ihr Unternehmen vorbereitet ist? Ich helfe Ihnen weiter – vertrauensvoll, verständlich, zertifiziert.</p>
+      <form method="post" action="#" style="display: grid; gap: 1rem; margin-top: 1.5rem;">
+        <input type="text" name="name" placeholder="Ihr Name" required class="btn" style="background:white; color:#0c3a5f;" />
+        <input type="text" name="unternehmen" placeholder="Ihr Unternehmen" class="btn" style="background:white; color:#0c3a5f;" />
+        <input type="email" name="email" placeholder="Ihre E-Mail-Adresse" required class="btn" style="background:white; color:#0c3a5f;" />
+        <textarea name="nachricht" placeholder="Ihre Nachricht" rows="5" required class="btn" style="background:white; color:#0c3a5f;"></textarea>
+        <label style="font-size: 0.9rem;">
+          <input type="checkbox" required />
+          Ich stimme der <a href="#" onclick="openDatenschutz(); return false;">Datenschutzerklärung</a> zu.
+        </label>
+        <button type="submit" class="btn pulse-button">Kostenloses Erstgespräch anfragen</button>
+      </form>
+    </div>
   </div>
 </section>
 
-<!-- DATENSCHUTZ-POPUP -->
+<!-- DATENSCHUTZ POPUP -->
 <div id="datenschutzModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); z-index:9999;">
   <div style="background:white; color:#0c3a5f; max-width:700px; margin:5% auto; padding:2rem; border-radius:12px; position:relative;">
     <button onclick="closeDatenschutz()" style="position:absolute; top:1rem; right:1rem; background:none; border:none; font-size:1.5rem; cursor:pointer;">&times;</button>
     <h2>Datenschutzerklärung</h2>
     <p>Der Schutz Ihrer persönlichen Daten ist mir ein besonderes Anliegen. Ich verarbeite Ihre Daten daher ausschließlich auf Grundlage der gesetzlichen Bestimmungen (DSGVO, TMG).</p>
     <h3>1. Kontakt mit mir</h3>
-    <p>Wenn Sie per Formular auf der Website oder per E-Mail Kontakt mit mir aufnehmen, werden Ihre angegebenen Daten zwecks Bearbeitung der Anfrage und für den Fall von Anschlussfragen sechs Monate bei mir gespeichert. Diese Daten gebe ich nicht ohne Ihre Einwilligung weiter.</p>
+    <p>Wenn Sie per Formular auf der Website oder per E-Mail Kontakt mit mir aufnehmen, werden Ihre angegebenen Daten zwecks Bearbeitung der Anfrage und für den Fall von Anschlussfragen sechs Monate gespeichert. Diese Daten gebe ich nicht ohne Ihre Einwilligung weiter.</p>
     <h3>2. Cookies</h3>
     <p>Meine Website verwendet keine Cookies zur Nachverfolgung oder Analyse. Es werden ausschließlich technisch notwendige Cookies verwendet, sofern überhaupt.</p>
     <h3>3. Ihre Rechte</h3>
@@ -257,146 +197,36 @@
     <p>Wenn Sie glauben, dass die Verarbeitung Ihrer Daten gegen das Datenschutzrecht verstößt oder Ihre datenschutzrechtlichen Ansprüche verletzt worden sind, können Sie sich bei der Aufsichtsbehörde beschweren.</p>
   </div>
 </div>
-<!-- KONTAKT -->
-<section id="kontakt" class="scroll-section">
-  <div class="two-column">
-    <div class="image-box">
-      <img src="img/08.png" alt="Kontaktaufnahme aus der Zukunft" />
-      <p class="caption">Weg zur Verbindung</p>
-    </div>
-    <div class="text-box">
-      <h2 class="typing" data-animate="glow">Kontakt & Erstgespräch</h2>
-      <p>Sie möchten wissen, ob Ihr Unternehmen vorbereitet ist? Ich helfe Ihnen weiter – vertrauensvoll, verständlich, zertifiziert.</p>
 
-      <form method="post" action="#" style="display: grid; gap: 1rem; margin-top: 1.5rem;">
-        <input type="text" name="name" placeholder="Ihr Name" required class="btn" style="background:white; color:#0c3a5f;" />
-        <input type="text" name="unternehmen" placeholder="Ihr Unternehmen" class="btn" style="background:white; color:#0c3a5f;" />
-        <input type="email" name="email" placeholder="Ihre E-Mail-Adresse" required class="btn" style="background:white; color:#0c3a5f;" />
-        <textarea name="nachricht" placeholder="Ihre Nachricht" rows="5" required class="btn" style="background:white; color:#0c3a5f;"></textarea>
 
-        <label style="font-size: 0.9rem;">
-          <input type="checkbox" required />
-          Ich stimme der <a href="#" onclick="openDatenschutz(); return false;">Datenschutzerklärung</a> zu.
-        </label>
-
-        <button type="submit" class="btn pulse-button">Kostenloses Erstgespräch anfragen</button>
-      </form>
-      <p style="font-size: 0.85rem; margin-top: 1rem;">
-        Hinweis: Ihre Daten werden ausschließlich zur Bearbeitung Ihrer Anfrage verwendet. Es erfolgt keine Weitergabe an Dritte.
-      </p>
-    </div>
-  </div>
-</section>
-
+<!-- NAVIGATION IN FOOTER + POPUP-SCHNITT folgt in Teil 5 -->
 <!-- FOOTER -->
-<footer style="text-align: center; padding: 4rem 2rem; background: #0c4a74; color: #fff; margin-top: 6rem; border-top-left-radius: 2rem; border-top-right-radius: 2rem;">
-  <nav style="margin-bottom: 1rem;">
-    <a href="#start" style="margin: 0 1rem; color: #fff; text-decoration: none;">Start</a>
-    <a href="#profil" style="margin: 0 1rem; color: #fff; text-decoration: none;">Profil</a>
-    <a href="#leistungen" style="margin: 0 1rem; color: #fff; text-decoration: none;">Leistungen</a>
-    <a href="#schnellcheck" style="margin: 0 1rem; color: #fff; text-decoration: none;">Schnell-Check</a>
-    <a href="#wissen" style="margin: 0 1rem; color: #fff; text-decoration: none;">Wissen</a>
-    <a href="#faq" style="margin: 0 1rem; color: #fff; text-decoration: none;">FAQ</a>
-    <a href="#kontakt" style="margin: 0 1rem; color: #fff; text-decoration: none;">Kontakt</a>
+<footer style="background:#0c4a74; color:white; text-align:center; padding:2rem 1rem; margin-top:4rem; border-top-left-radius:1.5rem; border-top-right-radius:1.5rem;">
+  <nav style="margin-bottom:1rem;">
+    <a href="#start">Start</a>
+    <a href="#profil">Profil</a>
+    <a href="#leistungen">Leistungen</a>
+    <a href="#popupCheck" onclick="document.getElementById('popupCheck').style.display='block'; return false;">Schnell-Check</a>
+    <a href="#wissen">Wissen</a>
+    <a href="#faq">FAQ</a>
+    <a href="#kontakt">Kontakt</a>
   </nav>
-  <p>&copy; 2025 Wolf Hohl · KI-Sicherheit.jetzt · Alle Rechte vorbehalten</p>
+  <p style="font-size: 0.85rem;">&copy; 2025 Wolf Hohl · KI-Sicherheit.jetzt · Alle Rechte vorbehalten</p>
 </footer>
 
-<!-- SCRIPTS -->
+<!-- JS-FUNKTIONEN -->
 <script>
 function toggleFaq(header) {
   const answer = header.nextElementSibling;
-  if (answer.style.display === "block") {
-    answer.style.display = "none";
-  } else {
-    answer.style.display = "block";
-  }
+  answer.style.display = (answer.style.display === "block") ? "none" : "block";
 }
-
 function openDatenschutz() {
   document.getElementById('datenschutzModal').style.display = 'block';
 }
 function closeDatenschutz() {
   document.getElementById('datenschutzModal').style.display = 'none';
 }
-
-let antworten = {};
-function nextFrage(frageNummer, wert) {
-  antworten["frage" + frageNummer] = wert;
-  document.getElementById("frage" + frageNummer).style.display = "none";
-  const next = document.getElementById("frage" + (frageNummer + 1));
-  if (next) next.style.display = "block";
-  else auswertungStarten();
-}
-function resetQuiz() {
-  for (let i = 1; i <= 7; i++) {
-    const frage = document.getElementById("frage" + i);
-    if (frage) frage.style.display = i === 1 ? "block" : "none";
-  }
-  antworten = {};
-  const felder = ["governance", "doku", "verantwortung", "kommunikation", "datenschutz"];
-  felder.forEach(feld => {
-    document.getElementById("balken-" + feld).style.width = "0%";
-    document.getElementById("balken-" + feld).classList.remove("rot", "gelb", "gruen");
-    document.getElementById("text-" + feld).innerText = "Ergebnis wird berechnet...";
-  });
-}
-function auswertungStarten() {
-  let punkte = { governance: 0, dokumentation: 0, verantwortung: 0, kommunikation: 0, datenschutz: 0 };
-  switch (antworten.frage1) {
-    case "aktiv": punkte.governance += 30; punkte.kommunikation += 25; break;
-    case "basic": punkte.governance += 15; break;
-    case "unsicher": punkte.governance += 5; break;
-  }
-  switch (antworten.frage2) {
-    case "chef": punkte.verantwortung += 30; break;
-    case "it": punkte.verantwortung += 20; break;
-    case "keiner": punkte.verantwortung += 5; break;
-  }
-  switch (antworten.frage3) {
-    case "ja": punkte.dokumentation += 30; break;
-    case "teilweise": punkte.dokumentation += 15; break;
-    case "nein": punkte.dokumentation += 5; break;
-  }
-  switch (antworten.frage4) {
-    case "vorreiter": punkte.datenschutz += 30; punkte.kommunikation += 25; break;
-    case "orientierung": punkte.datenschutz += 15; punkte.kommunikation += 15; break;
-    case "risikozone": punkte.datenschutz += 5; punkte.kommunikation += 5; break;
-  }
-  switch (antworten.frage5) {
-    case "bewusst": punkte.governance += 25; punkte.datenschutz += 25; break;
-    case "vage": punkte.governance += 15; punkte.datenschutz += 15; break;
-    case "ahnungslos": punkte.governance += 5; punkte.datenschutz += 5; break;
-  }
-  switch (antworten.frage6) {
-    case "dokumentiert": punkte.kommunikation += 25; punkte.governance += 20; break;
-    case "situativ": punkte.kommunikation += 15; break;
-    case "ignoriert": punkte.kommunikation += 5; break;
-  }
-  switch (antworten.frage7) {
-    case "team": punkte.verantwortung += 20; punkte.dokumentation += 20; break;
-    case "einzelperson": punkte.verantwortung += 10; break;
-    case "niemand": punkte.verantwortung += 5; break;
-  }
-  updateBalken("governance", punkte.governance);
-  updateBalken("doku", punkte.dokumentation);
-  updateBalken("verantwortung", punkte.verantwortung);
-  updateBalken("kommunikation", punkte.kommunikation);
-  updateBalken("datenschutz", punkte.datenschutz);
-  document.getElementById("schnellcheck").scrollIntoView({ behavior: "smooth" });
-}
-function updateBalken(feld, wert) {
-  const max = 50;
-  const prozent = Math.round((wert / max) * 100);
-  const bar = document.getElementById("balken-" + feld);
-  const text = document.querySelector("#text-" + feld);
-  bar.style.width = prozent + "%";
-  bar.classList.remove("rot", "gelb", "gruen");
-  if (prozent >= 75) { bar.classList.add("gruen"); text.innerText = "Sehr gut vorbereitet."; }
-  else if (prozent >= 50) { bar.classList.add("gelb"); text.innerText = "Solide, aber ausbaufähig."; }
-  else if (prozent >= 30) { bar.classList.add("rot"); text.innerText = "Risiken bestehen – Handlungsbedarf."; }
-  else { bar.classList.add("rot"); text.innerText = "Dringender Handlungsbedarf!"; }
-}
 </script>
 </body>
 </html>
+
