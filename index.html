@@ -45,54 +45,10 @@
       100% { background-position: 100% }
     }
 
-    .two-column {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 2rem;
-    }
-
-    .image-box {
-      flex: 1 1 300px;
-    }
-
-    .image-box img {
-      width: 100%;
-      border-radius: 10px;
-      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-    }
-
-    .image-box .caption {
-      font-size: 0.9rem;
-      color: #666;
-      margin-top: 0.5rem;
-    }
-
-    .text-box {
-      flex: 2 1 400px;
-    }
-
-    blockquote.highlight-box {
-      background: #eef5ff;
-      border-left: 5px solid #0c4a74;
-      padding: 1rem 1.5rem;
-      font-style: italic;
-      margin: 1rem 0;
-      color: #0c3a5f;
-    }
-
-    ul {
-      list-style: none;
-      padding-left: 0;
-    }
-
-    ul li::before {
-      content: "🚀 ";
-    }
-
     .tooltip {
       position: relative;
+      border-bottom: 1px dotted #0c4a74;
       cursor: help;
-      border-bottom: 1px dashed #0c4a74;
     }
 
     .tooltip::after {
@@ -100,12 +56,12 @@
       position: absolute;
       bottom: 120%;
       left: 0;
-      background: #0c3a5f;
+      background: #0c4a74;
       color: #fff;
       padding: 0.4rem 0.8rem;
-      border-radius: 5px;
-      font-size: 0.85rem;
+      font-size: 0.8rem;
       white-space: nowrap;
+      border-radius: 5px;
       opacity: 0;
       pointer-events: none;
       transition: opacity 0.3s ease;
@@ -114,62 +70,96 @@
     .tooltip:hover::after {
       opacity: 1;
     }
-.btn {
-  background-color: #0c4a74;
-  color: white;
-  padding: 0.8rem 1.4rem;
-  border: none;
-  border-radius: 10px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-.btn:hover {
-  background-color: #09395c;
-  transform: scale(1.05);
-}
-.pulse-button {
-  animation: pulse 3s ease-in-out infinite;
-}
-@keyframes pulse {
-  0%, 100% { box-shadow: 0 0 0 rgba(12, 74, 116, 0.3); }
-  50% { box-shadow: 0 0 12px rgba(12, 74, 116, 0.6); }
-}
-.balken {
-  background: #ddd;
-  border-radius: 20px;
-  height: 20px;
-  overflow: hidden;
-  margin-bottom: 0.5rem;
-}
-.balken-bar {
-  background: #0c4a74;
-  height: 100%;
-  width: 0%;
-  transition: width 1s ease-in-out;
-  border-radius: 20px;
-}
 
+    .balken {
+      background: #eee;
+      border-radius: 20px;
+      height: 20px;
+      overflow: hidden;
+      margin-bottom: 0.5rem;
+    }
+
+    .balken-bar {
+      height: 100%;
+      width: 0%;
+      transition: width 1s ease-in-out;
+      border-radius: 20px;
+    }
+
+    .balken-bar.rot { background: #c0392b; }
+    .balken-bar.gelb { background: #f39c12; }
+    .balken-bar.gruen { background: #27ae60; }
+
+    .btn {
+      background-color: #0c4a74;
+      color: white;
+      padding: 0.8rem 1.4rem;
+      border: none;
+      border-radius: 10px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #09395c;
+      transform: scale(1.05);
+    }
+
+    .pulse-button {
+      animation: pulse 3s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 0 0 rgba(12, 74, 116, 0.3); }
+      50% { box-shadow: 0 0 12px rgba(12, 74, 116, 0.6); }
+    }
   </style>
 </head>
 <body>
-<!-- 🔽 Sticky Bottom Navigation -->
-<nav class="bottom-nav">
-  <a href="#profil">Profil</a>
-  <a href="#leistungen">Leistungen</a>
-  <a href="#schnellcheck">Schnell-Check</a>
-  <a href="#wissen">Wissen</a>
-  <a href="#faq">FAQ</a>
-  <a href="#kontakt">Kontakt</a>
-</nav>
-
 <!-- 🧠 Hero Section -->
 <section id="start" class="scroll-section">
   <h1 class="typing" data-animate="glow">Die KI ist bereit. Sind Sie es auch?</h1>
-  <p>Ich unterstütze mittelständische Unternehmen dabei, <span class="tooltip" data-tooltip="Künstliche Intelligenz">KI</span> verantwortungsvoll, rechtssicher und strategisch einzusetzen.</p>
-  <a href="#schnellcheck" class="btn">Jetzt Schnell-Check starten</a>
+  <p>Ich unterstütze mittelständische Unternehmen dabei, <span class="tooltip" data-tooltip="Künstliche Intelligenz – maschinelles Lernen mit Daten">KI</span> verantwortungsvoll, rechtssicher und strategisch einzusetzen.</p>
+  <a href="#schnellcheck" class="btn pulse-button">Jetzt Schnell-Check starten</a>
 </section>
 
+<!-- ✅ Schnell-Check & Empfehlung -->
+<section id="schnellcheck" class="scroll-section">
+  <h2 class="typing" data-animate="glow">Schnell-Check & Empfehlung</h2>
+  <p>Basierend auf Ihrer Selbsteinschätzung sehen Sie hier eine Auswertung in fünf zentralen <span class="tooltip" data-tooltip="Wichtige rechtliche & organisatorische Felder für den Einsatz von KI im Unternehmen">KI-Handlungsfeldern</span> – inklusive Risikofarben und konkretem Handlungsbedarf.</p>
+
+  <!-- Governance -->
+  <h3> <span class="tooltip" data-tooltip="Strukturen, Regeln und Zuständigkeiten für den verantwortungsvollen KI-Einsatz">Governance</span></h3>
+  <div class="balken"><div id="balken-governance" class="balken-bar rot" style="width: 25%;"></div></div>
+  <p class="risiko-text">Dringender Handlungsbedarf!</p>
+
+  <!-- Dokumentation -->
+  <h3> <span class="tooltip" data-tooltip="Erfassung und Nachvollziehbarkeit von KI-Entscheidungen und -Prozessen">Dokumentation</span></h3>
+  <div class="balken"><div id="balken-doku" class="balken-bar gelb" style="width: 55%;"></div></div>
+  <p class="risiko-text">Risiken bestehen – Handlungsbedarf.</p>
+
+  <!-- Verantwortung -->
+  <h3> <span class="tooltip" data-tooltip="Zuständigkeiten für Auswahl, Betrieb und Kontrolle von KI">Verantwortung</span></h3>
+  <div class="balken"><div id="balken-verantwortung" class="balken-bar rot" style="width: 30%;"></div></div>
+  <p class="risiko-text">Dringender Handlungsbedarf!</p>
+
+  <!-- Kommunikation -->
+  <h3> <span class="tooltip" data-tooltip="Transparente Information über den KI-Einsatz – intern & extern">Kommunikation</span></h3>
+  <div class="balken"><div id="balken-kommunikation" class="balken-bar rot" style="width: 35%;"></div></div>
+  <p class="risiko-text">Dringender Handlungsbedarf!</p>
+
+  <!-- Datenschutz-Integration -->
+  <h3> <span class="tooltip" data-tooltip="Einbindung von Datenschutzmaßnahmen in Ihre KI-Prozesse – DSGVO-konform">Datenschutz-Integration</span></h3>
+  <div class="balken"><div id="balken-datenschutz" class="balken-bar rot" style="width: 38%;"></div></div>
+  <p class="risiko-text">Dringender Handlungsbedarf!</p>
+
+  <p style="margin-top: 2rem;">
+    Diese Einschätzung basiert auf Ihrem Schnell-Check. Für eine fundierte Bewertung mit Nachweisfunktion – z. B. gegenüber Geschäftsführung, Datenschutz oder Auditor:innen – empfehle ich ein individuelles KI-Audit.
+  </p>
+
+  <a href="#kontakt" class="btn pulse-button" style="margin-top: 1.5rem;">Beratung anfragen</a>
+</section>
 <!-- 👤 Profil & Motivation -->
 <section id="profil" class="scroll-section">
   <div class="two-column">
@@ -179,12 +169,12 @@
     </div>
     <div class="text-box">
       <h2 class="typing" data-animate="glow">Profil & Motivation</h2>
-      <p>Ich bin Ihr zertifizierter <span class="tooltip" data-tooltip="Zertifizierter Abschluss für verantwortungsvolle KI-Beratung">KI-Manager (TÜV Austria)</span> und strategischer Partner, wenn es darum geht, <strong>Künstliche Intelligenz</strong> im Mittelstand sicher, verantwortungsvoll und zukunftsfähig einzusetzen.</p>
+      <p>Ich bin Ihr zertifizierter <span class="tooltip" data-tooltip="Anerkannter Qualifikationsnachweis für verantwortungsvolle KI-Beratung">KI-Manager (TÜV Austria)</span> und strategischer Partner, wenn es darum geht, <strong>Künstliche Intelligenz</strong> im Mittelstand sicher, verantwortungsvoll und zukunftsfähig einzusetzen.</p>
       <blockquote class="highlight-box">Wirtschaftlichkeit und Verantwortung schließen sich nicht aus.</blockquote>
-      <p>Der <span class="tooltip" data-tooltip="Verbindliches EU-Gesetz zur Regulierung von KI">EU AI Act</span> schafft erstmals ein verbindliches Regelwerk für den Einsatz von KI in Unternehmen. Ich helfe Ihnen, diese Vorgaben nicht nur einzuhalten, sondern gezielt zu nutzen – für mehr Sicherheit, Vertrauen und Effizienz.</p>
+      <p>Der <span class="tooltip" data-tooltip="Verbindliches EU-Gesetz zur Regulierung von KI-Systemen">EU AI Act</span> schafft erstmals ein verbindliches Regelwerk für den Einsatz von KI in Unternehmen. Ich helfe Ihnen, diese Vorgaben nicht nur einzuhalten, sondern gezielt zu nutzen – für mehr Sicherheit, Vertrauen und Effizienz.</p>
       <ul>
         <li>📌 Technik & Recht vereint: KI-Strategie, Datenschutz, Governance & AI Act</li>
-        <li>📌 Normenbasiert: Beratung entlang <span class="tooltip" data-tooltip="Datenschutz-Grundverordnung">DSGVO</span>, ISO/IEC 23894 & KI-Risikomanagement</li>
+        <li>📌 Normenbasiert: Beratung entlang <span class="tooltip" data-tooltip="Datenschutz-Grundverordnung – zentrales EU-Datenschutzgesetz">DSGVO</span>, ISO/IEC 23894 & KI-Risikomanagement</li>
         <li>📌 Beratung ohne Buzzwords: Klare Empfehlungen auf Basis von Standards – nicht Bauchgefühl</li>
         <li>📌 Dokumentierte Sicherheit: Beratung nachvollziehbar, auditierbar & haftungssicher</li>
       </ul>
@@ -192,185 +182,57 @@
     </div>
   </div>
 </section>
+
+<!-- 💼 Leistungen & Lösungen -->
 <section id="leistungen" class="scroll-section">
   <div class="two-column">
-    <!-- Bild: Retro-Visualisierung -->
     <div class="image-box">
       <img src="img/02.png" alt="KI im Alltag" />
       <p class="caption">Zukunftsvision trifft Realität: KI im Mittelstand.</p>
     </div>
-
-    <!-- Textblock -->
     <div class="text-box">
       <h2 class="typing" data-animate="glow">Leistungen & Lösungen</h2>
-
-      <p>Ich begleite Ihr Unternehmen bei der Einführung und dem sicheren Betrieb von KI-Anwendungen – strukturiert, normenkonform und immer mit Blick auf den wirtschaftlichen Mehrwert.</p>
-
+      <p>Ich begleite Ihr Unternehmen bei der Einführung und dem sicheren Betrieb von KI-Anwendungen – strukturiert, normenkonform und mit Blick auf den wirtschaftlichen Mehrwert.</p>
       <ul>
         <li>🧠 <strong>KI-Strategie:</strong> Entwicklung & Einbindung von KI in Ihre Geschäftsprozesse</li>
         <li>🔐 <strong>Datenschutz & AI Act:</strong> Beratung entlang <span class="tooltip" data-tooltip="DSGVO und EU AI Act – kombiniert für KI-Konformität">aktueller Vorschriften</span></li>
         <li>📋 <strong>Dokumentation & Governance:</strong> Aufbau nachvollziehbarer KI-Prozesse</li>
-        <li>🎓 <strong>Schulungen & Workshops:</strong> Sensibilisierung Ihrer Teams für Chancen und Risiken</li>
         <li>✅ <strong>Auditvorbereitung:</strong> Unterstützung bei Prüffähigkeit & Nachweisführung</li>
+        <li>🧩 <strong>Toolprüfung & Auswahl:</strong> Passgenaue Lösungen statt Standard-Software</li>
       </ul>
-
       <p>Meine Beratung ist individuell, praxisnah und vollständig dokumentierbar – perfekt vorbereitet auf die kommenden Pflichten durch den <span class="tooltip" data-tooltip="Pflicht zur Risikoklassifizierung, Transparenz und Dokumentation bei KI-Nutzung">EU AI Act</span>.</p>
     </div>
   </div>
 </section>
-<section id="schnellcheck" class="scroll-section">
-  <div class="two-column">
-    
-    <!-- Retro-Bild links -->
-    <div class="image-box">
-      <img src="img/03.png" alt="Futuristische Kontrolle" />
-      <p class="caption">Wie KI-reif ist Ihr Unternehmen wirklich?</p>
-    </div>
-
-    <!-- Fragetool rechts -->
-    <div class="text-box">
-      <h2 class="typing" data-animate="glow">Schnell-Check: Ihr KI-Reifegrad</h2>
-      <p>Beantworten Sie 4 kurze Fragen – und erhalten Sie sofort eine visuelle Auswertung Ihrer aktuellen KI-Situation.</p>
-
-      <div id="quiz">
-        <!-- Frage 1 -->
-        <div class="frage" id="frage1">
-          <h3>1. Wie setzen Sie KI aktuell ein?</h3>
-          <button class="btn" onclick="nextFrage(1, 'basic')">Wir testen Tools wie ChatGPT</button>
-          <button class="btn" onclick="nextFrage(1, 'aktiv')">Wir nutzen KI produktiv</button>
-          <button class="btn" onclick="nextFrage(1, 'unsicher')">Noch gar nicht</button>
-        </div>
-
-        <!-- Frage 2 -->
-        <div class="frage" id="frage2" style="display:none;">
-          <h3>2. Wer verantwortet den KI-Einsatz?</h3>
-          <button class="btn" onclick="nextFrage(2, 'it')">IT-Abteilung</button>
-          <button class="btn" onclick="nextFrage(2, 'chef')">Geschäftsführung</button>
-          <button class="btn" onclick="nextFrage(2, 'keiner')">Noch ungeklärt</button>
-        </div>
-
-        <!-- Frage 3 -->
-        <div class="frage" id="frage3" style="display:none;">
-          <h3>3. Dokumentieren Sie KI-Prozesse?</h3>
-          <button class="btn" onclick="nextFrage(3, 'ja')">Ja, vollständig</button>
-          <button class="btn" onclick="nextFrage(3, 'teilweise')">Teilweise</button>
-          <button class="btn" onclick="nextFrage(3, 'nein')">Nein</button>
-        </div>
-
-        <!-- Frage 4 -->
-        <div class="frage" id="frage4" style="display:none;">
-          <h3>4. Wissen Ihre Teams, wann der EU AI Act greift?</h3>
-          <button class="btn" onclick="showErgebnis('vorreiter')">Ja, das ist bei uns Thema</button>
-          <button class="btn" onclick="showErgebnis('orientierung')">Teils, teils</button>
-          <button class="btn" onclick="showErgebnis('risikozone')">Noch gar nicht</button>
-        </div>
-      </div>
-
-      <!-- Ergebnis -->
-      <div id="ergebnis" style="display:none; margin-top: 2rem;">
-        <h3 id="ergebnis-titel"></h3>
-        <p id="ergebnis-text"></p>
-
-        <div id="ki-ampel" style="display: flex; gap: 1rem; justify-content: center; margin-top: 2rem;">
-          <div style="flex:1; background:#d4edda; padding:1rem; border-radius:8px;"><strong>Strategie</strong><br><span id="ampel-strategie">🟢</span></div>
-          <div style="flex:1; background:#fff3cd; padding:1rem; border-radius:8px;"><strong>Dokumentation</strong><br><span id="ampel-doku">🟡</span></div>
-          <div style="flex:1; background:#f8d7da; padding:1rem; border-radius:8px;"><strong>Verantwortung</strong><br><span id="ampel-verantwortung">🔴</span></div>
-        </div>
-
-        <a href="#kontakt" class="btn pulse-button" style="margin-top:2rem;">Jetzt Klarheit schaffen</a>
-        <button onclick="resetQuiz()" class="btn" style="margin-top:1rem; background:#ccc;">Test zurücksetzen</button>
-      </div>
-    </div>
-
-  </div>
-</section>
-<section id="reifegrad" class="scroll-section">
-  <div class="two-column">
-    
-    <!-- Bild links -->
-    <div class="image-box">
-      <img src="img/04.png" alt="Retro KI-Diagnose" />
-      <p class="caption">Retro-Diagnose trifft moderne Auswertung.</p>
-    </div>
-
-    <!-- Balken-Auswertung rechts -->
-    <div class="text-box">
-      <h2 class="typing" data-animate="glow">Stand & Empfehlung</h2>
-      <p>Basierend auf Ihrer Selbsteinschätzung zeigt die Auswertung Ihre aktuelle Position in fünf zentralen <span class="tooltip" data-tooltip="Wichtige organisatorische und rechtliche Bereiche beim KI-Einsatz">KI-Handlungsfeldern</span>:</p>
-
-      <!-- Governance -->
-      <h3>🛠️ Governance</h3>
-      <div class="balken"><div id="balken-governance" class="balken-bar"></div></div>
-      <p class="risiko-text" id="text-governance">Wird dynamisch befüllt…</p>
-
-      <!-- Dokumentation -->
-      <h3>📑 Dokumentation</h3>
-      <div class="balken"><div id="balken-doku" class="balken-bar"></div></div>
-      <p class="risiko-text" id="text-doku">Wird dynamisch befüllt…</p>
-
-      <!-- Verantwortung -->
-      <h3>👥 Verantwortung</h3>
-      <div class="balken"><div id="balken-verantwortung" class="balken-bar"></div></div>
-      <p class="risiko-text" id="text-verantwortung">Wird dynamisch befüllt…</p>
-
-      <!-- Kommunikation -->
-      <h3>📣 Kommunikation</h3>
-      <div class="balken"><div id="balken-kommunikation" class="balken-bar"></div></div>
-      <p class="risiko-text" id="text-kommunikation">Wird dynamisch befüllt…</p>
-
-      <!-- Datenschutz -->
-      <h3>🔐 Datenschutz-Integration</h3>
-      <div class="balken"><div id="balken-datenschutz" class="balken-bar"></div></div>
-      <p class="risiko-text" id="text-datenschutz">Wird dynamisch befüllt…</p>
-
-      <p style="margin-top: 2rem;">
-        Diese Einschätzung basiert auf Ihrem Schnell-Check. Für eine fundierte Bewertung mit Nachweisfunktion – z. B. gegenüber Geschäftsführung, Datenschutz oder Auditor:innen – empfehle ich ein individuelles KI-Audit.
-      </p>
-
-      <a href="#kontakt" class="btn pulse-button" style="margin-top: 1.5rem;">Beratung anfragen</a>
-    </div>
-
-  </div>
-</section>
+<!-- 🧠 Wissen & Hintergrund -->
 <section id="wissen" class="scroll-section">
   <div class="two-column">
-    
-    <!-- Retro-Bild -->
     <div class="image-box">
       <img src="img/05.png" alt="Vergangenheit trifft KI-Zukunft" />
       <p class="caption">Von Visionen zur Verantwortung: Wissen als Schlüssel zur KI-Reife.</p>
     </div>
-
-    <!-- Textbereich -->
     <div class="text-box">
       <h2 class="typing" data-animate="glow">Wissen & Hintergrund</h2>
-
       <p>Der sichere Einsatz von KI ist kein Zufall – sondern das Ergebnis fundierten Know-hows und strukturierter Vorbereitung. Mit dem <span class="tooltip" data-tooltip="Gesetz über harmonisierte Vorschriften für künstliche Intelligenz">EU AI Act</span> verpflichtet sich der Mittelstand zu Transparenz, Nachvollziehbarkeit und Verantwortung im Umgang mit KI.</p>
-
       <p>Viele Unternehmen unterschätzen den Aufwand für eine KI-konforme Umsetzung. Es braucht Wissen über technische Risiken, regulatorische Anforderungen und organisatorische Maßnahmen. Nur dann können Sie vermeiden, dass Ihnen KI zur rechtlichen oder reputativen Belastung wird.</p>
-
       <ul>
         <li>📘 Welche Risiken birgt generative KI im Tagesgeschäft?</li>
         <li>📘 Was bedeutet Risikoeinstufung nach EU AI Act konkret?</li>
         <li>📘 Welche Pflichten haben Mittelständler heute schon?</li>
         <li>📘 Welche Chancen ergeben sich aus guter Vorbereitung?</li>
       </ul>
-
-      <p>Ich mache dieses Wissen zugänglich – durch Beratung, Schulung und Dokumentation. Klar, verständlich und auditierbar.</p>
+      <p>Ich mache dieses Wissen zugänglich – durch Beratung, Dokumentation und individuelle Risikoanalysen. Klar, verständlich und auditierbar.</p>
     </div>
-
   </div>
 </section>
+
+<!-- ❓ FAQ -->
 <section id="faq" class="scroll-section">
   <div class="two-column">
-    
-    <!-- Bild links -->
     <div class="image-box">
       <img src="img/06.png" alt="Retro-Wissenszentrum" />
       <p class="caption">Wenn Zukunftsfragen auf gute Antworten treffen.</p>
     </div>
-
-    <!-- Fragen rechts -->
     <div class="text-box">
       <h2 class="typing" data-animate="glow">Fragen & Antworten</h2>
 
@@ -402,31 +264,24 @@
         </div>
       </div>
     </div>
-
   </div>
 </section>
+<!-- ✅ Vertrauen & Nachweise -->
 <section id="trust" class="scroll-section">
   <div class="two-column">
-    
-    <!-- Bild links -->
     <div class="image-box">
       <img src="img/07.png" alt="Vertrauen & Kontrolle" />
       <p class="caption">Vertrauen ist kein Zufall – es ist nachweisbar.</p>
     </div>
-
-    <!-- Logos & Text rechts -->
     <div class="text-box">
       <h2 class="typing" data-animate="glow">Vertrauen & Nachweise</h2>
-
       <p>Meine Beratung ist nachvollziehbar, dokumentiert und auf echte Nachweise ausgelegt. Kein Marketing – sondern Struktur, Sicherheit und Rechtssicherheit.</p>
 
       <div style="display: flex; flex-wrap: wrap; gap: 2rem; align-items: center; margin: 2rem 0;">
-        <img src="img/tuev-logo-transparent.png" alt="TÜV-Zertifizierung" style="height: 60px;">
-        <img src="img/dsgvo.svg" alt="DSGVO-konform" style="height: 60px;">
-        <img src="img/eu-ai-act-badge.png" alt="EU AI Act Ready" style="height: 60px;"> <!-- Optional: eigenes Badge -->
+        <img src="img/tuev-logo-transparent.png" alt="TÜV-Zertifizierung" style="height: 60px;" class="trust-logo" />
+        <img src="img/dsgvo.svg" alt="DSGVO-konform" style="height: 60px;" class="trust-logo" />
+        <img src="img/eu-ai-act-badge.png" alt="EU AI Act Ready" style="height: 60px;" class="trust-logo" />
       </div>
-
-      <p>Ich bringe Zertifizierungen, Standards und Richtlinien zusammen – damit Sie jederzeit belegen können, dass Sie beim Thema KI nicht nur reden, sondern handeln.</p>
 
       <ul>
         <li>📄 TÜV-Zertifizierung: KI-Manager (TÜV Austria)</li>
@@ -435,23 +290,19 @@
         <li>📄 Konform mit ISO/IEC 23894 (Risikomanagement für KI)</li>
       </ul>
     </div>
-
   </div>
 </section>
+
+<!-- 📬 Kontaktformular -->
 <section id="kontakt" class="scroll-section">
   <div class="two-column">
-    
-    <!-- Bild links -->
     <div class="image-box">
       <img src="img/08.png" alt="Kontaktaufnahme aus der Zukunft" />
       <p class="caption">Sprechen wir über Ihre KI-Strategie – oder Ihre Risiken.</p>
     </div>
-
-    <!-- Kontaktformular rechts -->
     <div class="text-box">
       <h2 class="typing" data-animate="glow">Kontakt & Erstgespräch</h2>
-
-      <p>Sie möchten prüfen, ob Ihr Unternehmen für den EU AI Act gewappnet ist? Oder wissen, wie Sie KI sinnvoll und sicher einsetzen? Ich helfe Ihnen gerne weiter – vertrauensvoll, verständlich, zertifiziert.</p>
+      <p>Sie möchten wissen, ob Ihr Unternehmen für den EU AI Act gewappnet ist? Oder prüfen, ob Ihre KI-Risiken beherrschbar sind? Ich helfe Ihnen weiter – vertrauensvoll, verständlich, zertifiziert.</p>
 
       <form method="post" action="#" style="display: grid; gap: 1rem; margin-top: 1.5rem;">
         <input type="text" name="name" placeholder="Ihr Name" required />
@@ -471,19 +322,15 @@
         Hinweis: Ihre Daten werden ausschließlich zur Bearbeitung Ihrer Anfrage verwendet. Es erfolgt keine Weitergabe an Dritte.
       </p>
     </div>
-
   </div>
 </section>
+<!-- ⚖️ Rechtliches & Transparenz -->
 <section id="rechtliches" class="scroll-section">
   <div class="two-column">
-    
-    <!-- Bild links -->
     <div class="image-box">
       <img src="img/09.png" alt="Retro-Paragrafensystem" />
       <p class="caption">Transparenz ist nicht retro – sondern Pflicht.</p>
     </div>
-
-    <!-- Rechtstexte rechts -->
     <div class="text-box">
       <h2 class="typing" data-animate="glow">Rechtliches & Transparenz</h2>
 
@@ -507,122 +354,151 @@
         <li>📘 Datenlöschung jederzeit auf Anfrage</li>
       </ul>
     </div>
-
   </div>
 </section>
 
-<!-- 🔚 Footer -->
+<!-- 🧾 Footer -->
 <footer style="text-align: center; padding: 4rem 2rem; background: #0c4a74; color: #fff; margin-top: 6rem; border-top-left-radius: 2rem; border-top-right-radius: 2rem;">
   <p>&copy; 2025 Wolf Hohl · KI-Sicherheit.jetzt · Alle Rechte vorbehalten</p>
   <p style="font-size: 0.85rem;">Zertifizierter KI-Manager (TÜV Austria) · Beratung nach EU AI Act & DSGVO</p>
 </footer>
-<!-- 🔄 Animation: Überschrift beim Scrollen -->
+<!-- 📜 Scripts: Scroll-Animation & FAQ -->
 <script>
-document.addEventListener("DOMContentLoaded", () => {
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("start-typing");
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.5 });
+  document.addEventListener("DOMContentLoaded", () => {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("start-typing");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
 
-  document.querySelectorAll(".typing").forEach(el => observer.observe(el));
-});
+    document.querySelectorAll(".typing").forEach(el => observer.observe(el));
+  });
+
+  function toggleFaq(header) {
+    const answer = header.nextElementSibling;
+    answer.style.display = answer.style.display === "block" ? "none" : "block";
+  }
 </script>
 
-<!-- ✅ Schnell-Check-Logik -->
+<!-- 🧠 Quiz & Balken-Update -->
 <script>
-let antworten = {};
+  let antworten = {};
 
-function nextFrage(frageNummer, wert) {
-  antworten["frage" + frageNummer] = wert;
-  document.getElementById("frage" + frageNummer).style.display = "none";
-  const next = document.getElementById("frage" + (frageNummer + 1));
-  if (next) next.style.display = "block";
-}
-
-function showErgebnis(typ) {
-  document.getElementById("frage4").style.display = "none";
-  const ergebnisBox = document.getElementById("ergebnis");
-  ergebnisBox.style.display = "block";
-
-  let ampel = {
-    strategie: "🟢",
-    doku: "🟡",
-    verantwortung: "🔴"
-  };
-
-  let title = "";
-  let text = "";
-
-  if (typ === "vorreiter") {
-    title = "Sie sind KI-Vorreiter!";
-    text = "Ihre Antworten zeigen: Sie gehen strukturiert und informiert mit KI um. Der AI Act dürfte für Sie eher Bestätigung als Herausforderung sein.";
-    ampel = { strategie: "🟢", doku: "🟢", verantwortung: "🟢" };
-    updateBars(80, 90, 95, 85, 88);
-  } else if (typ === "orientierung") {
-    title = "Ihr Unternehmen befindet sich in der Orientierungsphase.";
-    text = "Sie nutzen KI, haben aber noch keine vollständige Governance-Struktur. Es lohnt sich, aktiv zu werden.";
-    ampel = { strategie: "🟡", doku: "🟡", verantwortung: "🟡" };
-    updateBars(55, 60, 50, 45, 50);
-  } else {
-    title = "Ihr Unternehmen befindet sich in einer KI-Risikozone.";
-    text = "Noch fehlt ein systematischer Umgang mit KI. Das kann problematisch werden – rechtlich, technisch und strategisch.";
-    ampel = { strategie: "🔴", doku: "🟡", verantwortung: "🔴" };
-    updateBars(30, 40, 25, 20, 35);
+  function nextFrage(frageNummer, wert) {
+    antworten["frage" + frageNummer] = wert;
+    document.getElementById("frage" + frageNummer).style.display = "none";
+    const next = document.getElementById("frage" + (frageNummer + 1));
+    if (next) next.style.display = "block";
+    else auswertungStarten();
   }
 
-  document.getElementById("ergebnis-titel").innerText = title;
-  document.getElementById("ergebnis-text").innerText = text;
-  document.getElementById("ampel-strategie").innerText = ampel.strategie;
-  document.getElementById("ampel-doku").innerText = ampel.doku;
-  document.getElementById("ampel-verantwortung").innerText = ampel.verantwortung;
-}
+    function auswertungStarten() {
+    let punkte = {
+      governance: 0,
+      dokumentation: 0,
+      verantwortung: 0,
+      kommunikation: 0,
+      datenschutz: 0
+    };
 
-function updateBars(gov, doku, verantw, kommun, dschutz) {
-  document.getElementById("balken-governance").style.width = gov + "%";
-  document.getElementById("balken-doku").style.width = doku + "%";
-  document.getElementById("balken-verantwortung").style.width = verantw + "%";
-  document.getElementById("balken-kommunikation").style.width = kommun + "%";
-  document.getElementById("balken-datenschutz").style.width = dschutz + "%";
+    // Frage 1 – Nutzung
+    switch (antworten.frage1) {
+      case "aktiv": punkte.governance += 30; punkte.kommunikation += 25; break;
+      case "basic": punkte.governance += 15; break;
+      case "unsicher": punkte.governance += 5; break;
+    }
 
-  document.getElementById("text-governance").innerText = getText(gov);
-  document.getElementById("text-doku").innerText = getText(doku);
-  document.getElementById("text-verantwortung").innerText = getText(verantw);
-  document.getElementById("text-kommunikation").innerText = getText(kommun);
-  document.getElementById("text-datenschutz").innerText = getText(dschutz);
-}
+    // Frage 2 – Verantwortung
+    switch (antworten.frage2) {
+      case "chef": punkte.verantwortung += 30; break;
+      case "it": punkte.verantwortung += 20; break;
+      case "keiner": punkte.verantwortung += 5; break;
+    }
 
-function getText(score) {
-  if (score >= 80) return "Sehr gut vorbereitet.";
-  if (score >= 60) return "Solide, aber ausbaufähig.";
-  if (score >= 40) return "Risiken bestehen – Handlungsbedarf.";
-  return "Dringender Handlungsbedarf!";
-}
+    // Frage 3 – Dokumentation
+    switch (antworten.frage3) {
+      case "ja": punkte.dokumentation += 30; break;
+      case "teilweise": punkte.dokumentation += 15; break;
+      case "nein": punkte.dokumentation += 5; break;
+    }
 
-function resetQuiz() {
-  antworten = {};
-  for (let i = 1; i <= 4; i++) {
-    const frage = document.getElementById("frage" + i);
-    if (frage) frage.style.display = "none";
+    // Frage 4 – Wissen über AI Act
+    switch (antworten.frage4) {
+      case "vorreiter": punkte.datenschutz += 30; punkte.kommunikation += 25; break;
+      case "orientierung": punkte.datenschutz += 15; punkte.kommunikation += 15; break;
+      case "risikozone": punkte.datenschutz += 5; punkte.kommunikation += 5; break;
+    }
+
+    // Frage 5 – Bewusstsein über Strafen
+    switch (antworten.frage5) {
+      case "bewusst": punkte.governance += 25; punkte.datenschutz += 25; break;
+      case "vage": punkte.governance += 15; punkte.datenschutz += 15; break;
+      case "ahnungslos": punkte.governance += 5; punkte.datenschutz += 5; break;
+    }
+
+    // Frage 6 – Umgang mit Fehlern
+    switch (antworten.frage6) {
+      case "dokumentiert": punkte.kommunikation += 25; punkte.governance += 20; break;
+      case "situativ": punkte.kommunikation += 15; break;
+      case "ignoriert": punkte.kommunikation += 5; break;
+    }
+
+    // Frage 7 – Toolverantwortung
+    switch (antworten.frage7) {
+      case "team": punkte.verantwortung += 20; punkte.dokumentation += 20; break;
+      case "einzelperson": punkte.verantwortung += 10; break;
+      case "niemand": punkte.verantwortung += 5; break;
+    }
+
+    updateBalken("governance", punkte.governance);
+    updateBalken("doku", punkte.dokumentation);
+    updateBalken("verantwortung", punkte.verantwortung);
+    updateBalken("kommunikation", punkte.kommunikation);
+    updateBalken("datenschutz", punkte.datenschutz);
+
+    document.getElementById("schnellcheck").scrollIntoView({ behavior: "smooth" });
+  }
+    }
+
+    // Maximalwert pro Bereich = 30–50
+    updateBalken("governance", punkte.governance);
+    updateBalken("doku", punkte.dokumentation);
+    updateBalken("verantwortung", punkte.verantwortung);
+    updateBalken("kommunikation", punkte.kommunikation);
+    updateBalken("datenschutz", punkte.datenschutz);
+
+    // Scroll zur Auswertung
+    document.getElementById("schnellcheck").scrollIntoView({ behavior: "smooth" });
   }
 
-  document.getElementById("ergebnis").style.display = "none";
-  document.getElementById("ergebnis-titel").innerText = "";
-  document.getElementById("ergebnis-text").innerText = "";
-  document.getElementById("frage1").style.display = "block";
-}
-</script>
+  function updateBalken(feld, wert) {
+    const max = 50;
+    const prozent = Math.round((wert / max) * 100);
+    const bar = document.getElementById("balken-" + feld);
+    const text = document.querySelector("#text-" + feld);
+    
+    bar.style.width = prozent + "%";
 
-<!-- ❓ FAQ Toggle -->
-<script>
-function toggleFaq(header) {
-  const answer = header.nextElementSibling;
-  answer.style.display = answer.style.display === "block" ? "none" : "block";
-}
+    // Farbe setzen
+    bar.classList.remove("rot", "gelb", "gruen");
+    if (prozent >= 75) {
+      bar.classList.add("gruen");
+      text.innerText = "Sehr gut vorbereitet.";
+    } else if (prozent >= 50) {
+      bar.classList.add("gelb");
+      text.innerText = "Solide, aber ausbaufähig.";
+    } else if (prozent >= 30) {
+      bar.classList.add("rot");
+      text.innerText = "Risiken bestehen – Handlungsbedarf.";
+    } else {
+      bar.classList.add("rot");
+      text.innerText = "Dringender Handlungsbedarf!";
+    }
+  }
 </script>
-
 </body>
 </html>
+
