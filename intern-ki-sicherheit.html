@@ -37,9 +37,10 @@
 <!-- START -->
 <section id="start" class="scroll-section">
   <h1 class="typing" data-animate="glow">Die KI ist bereit. Sind Sie es auch?</h1>
-  <p>Ich unterstütze Unternehmen dabei, <span class="tooltip" data-tooltip="Künstliche Intelligenz – maschinelles Lernen mit Daten">moderne Technologien</span> verantwortungsvoll, rechtssicher und zukunftsorientiert einzusetzen.</p>
+  <p>Ich unterstütze Sie dabei, KI in Ihrem Unternehmen verantwortungsvoll, rechtssicher und strategisch einzusetzen.</p>
   <button class="btn pulse-button" onclick="document.getElementById('popupCheck').style.display='block'">Schnell-Check im Pop-up starten</button>
 </section>
+
 <!-- PROFIL -->
 <section id="profil" class="scroll-section">
   <div class="two-column">
@@ -50,8 +51,9 @@
     <div class="text-box">
       <h2 class="typing" data-animate="glow">Profil & Motivation</h2>
       <p>Ich bin Ihr zertifizierter <span class="tooltip" data-tooltip="Anerkannter Qualifikationsnachweis für verantwortungsvolle KI-Beratung">KI-Manager (TÜV Austria)</span> und strategischer Partner, wenn es darum geht, moderne Systeme sicher, verantwortungsvoll und zukunftsfähig einzusetzen.</p>
-      <blockquote class="highlight-box">Wirtschaftlichkeit und Verantwortung schließen sich nicht aus.</blockquote>
+      <blockquote class="highlight-box"><strong>Wirtschaftlichkeit und Verantwortung schließen sich nicht aus.</strong></blockquote>
       <p>Der <span class="tooltip" data-tooltip="Verbindliches EU-Gesetz zur Regulierung von automatisierten Systemen">EU AI Act</span> schafft erstmals ein verbindliches Regelwerk. Ich helfe Ihnen, diese Vorgaben nicht nur einzuhalten, sondern gezielt zu nutzen – für mehr Sicherheit, Vertrauen und Effizienz.</p>
+      <p><strong>Förderung & Finanzierung:</strong> Ich unterstütze Sie bei der Identifikation und Beantragung von Förderprogrammen – damit Sie Innovation sicher umsetzen und gleichzeitig Budgets schonen können.</p>
     </div>
   </div>
 </section>
@@ -81,10 +83,50 @@
   <div style="background:white; max-width:700px; margin:5% auto; padding:2rem; border-radius:12px; position:relative; color:#0c3a5f;">
     <button onclick="document.getElementById('popupCheck').style.display='none'" style="position:absolute; top:1rem; right:1rem; background:none; border:none; font-size:1.5rem; cursor:pointer;">&times;</button>
     <h2>Schnell-Check starten</h2>
-    <p>Beantworten Sie 7 Fragen für Ihre Risikoeinschätzung.</p>
+    <p>Beantworten Sie 7 Fragen – für eine individuelle Risikoeinschätzung Ihrer KI-Aktivitäten.</p>
     <div id="popupQuiz">
-      <!-- Fragenblock wird bei Bedarf dynamisch eingebettet oder direkt ersetzt -->
-      <p style="font-size: 0.9rem;">Hinweis: Der Check erscheint nach Integration.</p>
+      <div class="frage" id="frage1">
+        <h3>1. Wie setzen Sie KI aktuell ein?</h3>
+        <button class="btn">Wir testen Tools</button>
+        <button class="btn">Wir nutzen sie aktiv</button>
+        <button class="btn">Noch nicht</button>
+      </div>
+      <div class="frage" id="frage2">
+        <h3>2. Wer verantwortet den Einsatz?</h3>
+        <button class="btn">Geschäftsführung</button>
+        <button class="btn">IT-Abteilung</button>
+        <button class="btn">Niemand direkt</button>
+      </div>
+      <div class="frage" id="frage3">
+        <h3>3. Dokumentieren Sie Entscheidungen?</h3>
+        <button class="btn">Ja, klar geregelt</button>
+        <button class="btn">Teilweise</button>
+        <button class="btn">Nein</button>
+      </div>
+      <div class="frage" id="frage4">
+        <h3>4. Wissen Ihre Teams vom AI Act?</h3>
+        <button class="btn">Ja, sensibilisiert</button>
+        <button class="btn">Teilweise</button>
+        <button class="btn">Noch nicht</button>
+      </div>
+      <div class="frage" id="frage5">
+        <h3>5. Wissen Sie, welche Strafen durch den EU AI-Act drohen?</h3>
+        <button class="btn">Ja, klar informiert</button>
+        <button class="btn">Ungefähr</button>
+        <button class="btn">Nein</button>
+      </div>
+      <div class="frage" id="frage6">
+        <h3>6. Wie gehen Sie mit Fehlern in der KI um?</h3>
+        <button class="btn">Dokumentiert & analysiert</button>
+        <button class="btn">Situativ</button>
+        <button class="btn">Noch gar nicht</button>
+      </div>
+      <div class="frage" id="frage7">
+        <h3>7. Wer prüft neue Tools wie KI?</h3>
+        <button class="btn">Ein verantwortliches Team</button>
+        <button class="btn">Einzelperson</button>
+        <button class="btn">Niemand</button>
+      </div>
     </div>
   </div>
 </div>
@@ -127,7 +169,7 @@
         <li><strong>Konform mit ISO/IEC 23894</strong> (Risikomanagement für KI)</li>
       </ul>
       <div style="display: flex; gap: 1.5rem; margin-top: 1rem; align-items: center;">
-        <img src="img/tuev-logo-transparent.png" alt="TÜV" style="height: 60px;" />
+        <img src="img/tuev-logo-transparent.png" alt="TÜV" style="height: 90px;" />
         <img src="img/dsgvo.svg" alt="DSGVO" style="height: 60px;" />
         <img src="img/eu-ai.svg" alt="EU AI Act" style="height: 60px;" />
       </div>
@@ -137,17 +179,40 @@
 <!-- FAQ -->
 <section id="faq" class="scroll-section">
   <h2 class="typing" data-animate="glow">Fragen & Antworten</h2>
+
   <div class="faq-item">
     <h3 onclick="toggleFaq(this)">Was ist der EU AI Act?</h3>
-    <div class="faq-answer" style="display:none;">Der EU AI Act ist ein Gesetz der Europäischen Union, das klare Regeln für den Einsatz von KI vorgibt – je nach Risikokategorie.</div>
+    <div class="faq-answer" style="display:none;">Ein verbindliches EU-Gesetz zur Regulierung von KI-Anwendungen – je nach Risikoklasse gelten abgestufte Pflichten.</div>
   </div>
+
   <div class="faq-item">
-    <h3 onclick="toggleFaq(this)">Welche Risiken bestehen im Alltag?</h3>
-    <div class="faq-answer" style="display:none;">Fehleinschätzungen, automatisierte Vorurteile, rechtliche Verstöße oder Vertrauensverlust sind typische Risiken bei unkontrolliertem KI-Einsatz.</div>
+    <h3 onclick="toggleFaq(this)">Welche Risiken bestehen im Tagesgeschäft?</h3>
+    <div class="faq-answer" style="display:none;">Falsche Entscheidungen durch KI, intransparente Prozesse, Datenschutzprobleme oder Haftungsfragen – je nach Einsatzbereich.</div>
   </div>
+
   <div class="faq-item">
-    <h3 onclick="toggleFaq(this)">Was passiert bei Verstößen?</h3>
-    <div class="faq-answer" style="display:none;">Es drohen hohe Bußgelder, Reputationsverlust und rechtliche Folgen bei Nichteinhaltung des AI Acts.</div>
+    <h3 onclick="toggleFaq(this)">Was passiert bei Verstößen gegen den AI Act?</h3>
+    <div class="faq-answer" style="display:none;">Es drohen Bußgelder von bis zu mehreren Millionen Euro – abhängig von Branche, Schweregrad und Vorsatz.</div>
+  </div>
+
+  <div class="faq-item">
+    <h3 onclick="toggleFaq(this)">Wie starte ich mit KI rechtssicher?</h3>
+    <div class="faq-answer" style="display:none;">Mit einer Risikoanalyse, klaren Zuständigkeiten, Transparenz und guter Dokumentation – abgestimmt auf Ihr Geschäftsmodell.</div>
+  </div>
+
+  <div class="faq-item">
+    <h3 onclick="toggleFaq(this)">Welche Pflichten gelten für mittelständische Unternehmen?</h3>
+    <div class="faq-answer" style="display:none;">Auch KMU müssen grundlegende Vorgaben wie Datenschutz, Transparenz, Risikomanagement und Verantwortung einhalten.</div>
+  </div>
+
+  <div class="faq-item">
+    <h3 onclick="toggleFaq(this)">Kann ich externe Tools wie ChatGPT einfach nutzen?</h3>
+    <div class="faq-answer" style="display:none;">Nur wenn Sie Nutzungszweck, Datenverarbeitung und Risiken dokumentieren und geeignete Maßnahmen implementieren.</div>
+  </div>
+
+  <div class="faq-item">
+    <h3 onclick="toggleFaq(this)">Welche Fördermöglichkeiten gibt es?</h3>
+    <div class="faq-answer" style="display:none;">Bund, Länder und EU fördern KI-Vorhaben – z. B. Beratung, Machbarkeitsstudien oder Umsetzung. Ich unterstütze Sie bei Antragstellung und Umsetzung.</div>
   </div>
 </section>
 
