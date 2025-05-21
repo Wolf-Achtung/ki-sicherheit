@@ -298,59 +298,42 @@
     <h2 class="typing">Förderung & Finanzierung</h2>
     <p>Viele Unternehmen lassen Fördermittel ungenutzt. Ich zeige Ihnen, welche Programme zu Ihrem Vorhaben passen – inklusive Beantragung, Fristen und typischen Fallstricken.</p>
 
-    <table style="width:100%; border-collapse:collapse; font-size:0.95rem;">
-      <thead>
-        <tr>
-          <th style="border-bottom:2px solid #ccc;">Programm</th>
-          <th style="border-bottom:2px solid #ccc;">Förderhöhe</th>
-          <th style="border-bottom:2px solid #ccc;">Zielgruppe</th>
-          <th style="border-bottom:2px solid #ccc;">Vorteile</th>
-          <th style="border-bottom:2px solid #ccc;">Aufwand</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><strong>go-digital</strong></td>
-          <td>bis 16.500 €</td>
-          <td>KMU < 100 MA</td>
-          <td>einfache Beantragung, autorisierte Berater</td>
-          <td>🟡 mittel</td>
-        </tr>
-        <tr>
-          <td><strong>Digital Jetzt</strong></td>
-          <td>bis 100.000 €</td>
-          <td>KMU 3–499 MA</td>
-          <td>auch Umsetzung förderfähig</td>
-          <td>🔴 hoch</td>
-        </tr>
-        <tr>
-          <td><strong>ZIM</strong></td>
-          <td>bis 550.000 €</td>
-          <td>innovative KMU</td>
-          <td>auch für Prototypen & Entwicklung</td>
-          <td>🔴🔴 sehr hoch</td>
-        </tr>
-        <tr>
-          <td><strong>KMU-innovativ</strong></td>
-          <td>projektabhängig</td>
-          <td>KMU + Partner</td>
-          <td>für ambitionierte KI-Forschung</td>
-          <td>🔴 hoch</td>
-        </tr>
-        <tr>
-          <td><strong>EU-Förderung</strong></td>
-          <td>> 1 Mio € (Konsortien)</td>
-          <td>EU-weit</td>
-          <td>großes Prestige & Wirkung</td>
-          <td>🔴🔴 sehr hoch</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <div style="margin-top: 2rem; text-align: center;">
-      <button class="btn" onclick="exportFoerderungPDF()">📄 Förderung als PDF exportieren</button>
-    </div>
-
+<table style="width:100%; border-collapse:collapse; font-size:0.95rem;">
+  <thead>
+    <tr>
+      <th style="border-bottom:2px solid #ccc;">Programm</th>
+      <th style="border-bottom:2px solid #ccc;">Förderhöhe</th>
+      <th style="border-bottom:2px solid #ccc;">Vorteile</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>go-digital</strong></td>
+      <td>bis 16.500 €</td>
+      <td>einfache Beantragung, autorisierte Berater</td>
+    </tr>
+    <tr>
+      <td><strong>Digital Jetzt</strong></td>
+      <td>bis 100.000 €</td>
+      <td>auch Umsetzung förderfähig</td>
+    </tr>
+    <tr>
+      <td><strong>ZIM</strong></td>
+      <td>bis 550.000 €</td>
+      <td>auch für Prototypen & Entwicklung</td>
+    </tr>
+    <tr>
+      <td><strong>KMU-innovativ</strong></td>
+      <td>projektabhängig</td>
+      <td>für ambitionierte KI-Forschung</td>
+    </tr>
+    <tr>
+      <td><strong>EU-Förderung</strong></td>
+      <td>> 1 Mio € (Konsortien)</td>
+      <td>großes Prestige & Wirkung</td>
+    </tr>
+  </tbody>
+</table>
     <h3 style="margin-top: 3rem;">Förderfähigkeit prüfen lassen</h3>
     <form name="foerderung" netlify netlify-honeypot="bot-field" action="/thankyou.html">
       <input type="hidden" name="form-name" value="foerderung">
@@ -366,27 +349,6 @@
       </label><br>
       <button type="submit" class="btn">Jetzt prüfen lassen</button>
     </form>
-
-    <h3 style="margin-top: 3rem;">Förderkompass: Passendes Programm finden</h3>
-    <form onsubmit="filterProgramme(event)">
-      <label>Unternehmensgröße:
-        <select id="groesse" style="margin: 0 0.5rem;">
-          <option value="klein">< 50 MA</option>
-          <option value="mittel">50–250 MA</option>
-          <option value="gross">> 250 MA</option>
-        </select>
-      </label>
-      <label>Art des Vorhabens:
-        <select id="art" style="margin: 0 0.5rem;">
-          <option value="beratung">Beratung</option>
-          <option value="umsetzung">Technik/Software</option>
-          <option value="forschung">KI-Forschung</option>
-        </select>
-      </label>
-      <button type="submit" class="btn">Programm finden</button>
-    </form>
-    <div id="foerderkompass-ausgabe" style="margin-top:1rem;"></div>
-  </div>
 </section>
 
  <!-- SCHNELL-CHECK & EMPFEHLUNG -->
@@ -397,7 +359,15 @@
   </div>
   <div class="section-content">
     <h2 class="typing">Schnell-Check & Empfehlung</h2>
-    <div id="quiz">
+
+<p>Der Schnell-Check hilft Ihnen dabei, den aktuellen Reifegrad Ihrer KI-Strategie im Unternehmen schnell und verständlich einzuschätzen.  
+Sie erfahren auf einen Blick, wie es um Themen wie Dokumentation, Verantwortung, Governance und Datenschutz-Integration steht – inklusive praxisnaher Empfehlungen.</p>
+
+<p>Die Auswertung erfolgt anonym und direkt im Browser.  
+Sie erhalten eine visuelle Bewertung mit Ampellogik sowie eine Sofort-Einschätzung, wo Handlungsbedarf besteht.  
+Ideal als Gesprächsgrundlage oder erster Orientierungspunkt für Unternehmen, die KI einsetzen oder planen.</p>
+
+<div id="quiz">
       <div class="frage" id="frage1">
         <h3>1. Wie setzen Sie KI aktuell ein?</h3>
         <button onclick="nextFrage(1, 'aktiv')">Wir nutzen KI bereits</button>
