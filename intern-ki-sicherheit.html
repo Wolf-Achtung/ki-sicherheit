@@ -388,10 +388,10 @@
     <p>Der sichere Einsatz von KI ist kein Zufall – sondern das Ergebnis fundierten Know-hows und strukturierter Vorbereitung. Mit dem EU AI Act verpflichtet sich der Mittelstand zu Transparenz, Nachvollziehbarkeit und Verantwortung im Umgang mit KI.</p>
     <p>Viele Unternehmen unterschätzen den Aufwand für eine KI-konforme Umsetzung. Es braucht Wissen über technische Risiken, regulatorische Anforderungen und organisatorische Maßnahmen. Nur dann können Sie vermeiden, dass Ihnen KI zur rechtlichen oder reputativen Belastung wird.</p>
     <ul>
-      <li>Welche Risiken birgt generative KI im Tagesgeschäft?</li>
+      <strong><li>Welche Risiken birgt generative KI im Tagesgeschäft?</li>
       <li>Was bedeutet Risikoeinstufung nach EU AI Act konkret?</li>
       <li>Welche Pflichten haben Mittelständler heute schon?</li>
-      <li>Welche Chancen ergeben sich aus guter Vorbereitung?</li>
+      <li>Welche Chancen ergeben sich aus guter Vorbereitung?</li></strong>
     </ul>
     <p>Ich mache dieses Wissen zugänglich – durch Beratung, Dokumentation und individuelle Risikoanalysen. Klar, verständlich und auditierbar.</p>
   </div>
@@ -476,7 +476,11 @@
       Wolf Hohl<br>
       Greifswalder Str. 224a<br>
       10405 Berlin<br>
-      E-Mail: info@ki-sicherheit.jetzt
+      E-Mail: <span id="email"></span><script>
+  const p1 = "info";
+  const p2 = "ki-sicherheit.jetzt";
+  document.getElementById("email").innerHTML = `<a href=\"mailto:${p1}@${p2}\">${p1}@${p2}</a>`;
+</script>
     </p>
 
     <h4>Verantwortlich für den Inhalt</h4>
