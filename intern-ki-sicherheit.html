@@ -300,9 +300,9 @@
     <div id="quiz">
       <div class="frage" id="frage1">
         <h3>1. Wie setzen Sie KI aktuell ein?</h3>
-        <button onclick="nextFrage(1, 'aktiv')">Wir nutzen KI aktiv</button>
+        <button onclick="nextFrage(1, 'aktiv')">Wir nutzen KI bereits</button>
         <button onclick="nextFrage(1, 'basic')">Wir testen erste Tools</button>
-        <button onclick="nextFrage(1, 'unsicher')">Wir sind noch unsicher</button>
+        <button onclick="nextFrage(1, 'unsicher')">Bisher noch nicht</button>
       </div>
       <div class="frage" id="frage2" style="display: none;">
         <h3>2. Wer verantwortet den Einsatz?</h3>
@@ -320,13 +320,13 @@
         <h3>4. Wie steht es um Ihren Datenschutz?</h3>
         <button onclick="nextFrage(4, 'vorreiter')">Wir sind Vorreiter</button>
         <button onclick="nextFrage(4, 'orientierung')">Wir orientieren uns</button>
-        <button onclick="nextFrage(4, 'risikozone')">Wir sind im Graubereich</button>
+        <button onclick="nextFrage(4, 'risikozone')">Noch nicht integriert</button>
       </div>
       <div class="frage" id="frage5" style="display: none;">
-        <h3>5. Was würde passieren, wenn Ihr Unternehmen gegen den EU AI Act verstößt?</h3>
-        <button onclick="nextFrage(5, 'bewusst')">Uns ist das bewusst</button>
-        <button onclick="nextFrage(5, 'vage')">Wir wissen es ungefähr</button>
-        <button onclick="nextFrage(5, 'ahnungslos')">Wir sind uns nicht sicher</button>
+        <h3>5. Könnte Ihr Unternehmen aktuell gegen den EU AI Act verstossen?</h3>
+        <button onclick="nextFrage(5, 'bewusst')">Vermutlich nicht</button>
+        <button onclick="nextFrage(5, 'vage')">Vielleicht in Teilen</button>
+        <button onclick="nextFrage(5, 'ahnungslos')">Keine Ahnung</button>
       </div>
       <div class="frage" id="frage6" style="display: none;">
         <h3>6. Wie gehen Sie mit Fehlern im System um?</h3>
@@ -335,10 +335,10 @@
         <button onclick="nextFrage(6, 'ignoriert')">Wir haben dazu nichts geregelt</button>
       </div>
       <div class="frage" id="frage7" style="display: none;">
-        <h3>7. Wer prüft neue KI-Systeme bei Ihnen?</h3>
+        <h3>7. Wer prüft neue KI-Systeme und Tools?</h3>
         <button onclick="nextFrage(7, 'team')">Ein internes Team</button>
         <button onclick="nextFrage(7, 'einzelperson')">Eine verantwortliche Person</button>
-        <button onclick="nextFrage(7, 'niemand')">Niemand</button>
+        <button onclick="nextFrage(7, 'niemand')">Niemand konkretes</button>
       </div>
     </div>
 
@@ -444,18 +444,23 @@
   <div class="section-content">
     <h2 class="typing">Kontakt & Erstgespräch</h2>
     <p>Ich freue mich auf Ihre Nachricht oder eine unverbindliche Anfrage für ein kostenfreies Erstgespräch.</p>
-    <form style="max-width: 600px;">
-      <label>Ihr Name<br>
-        <input type="text" name="name" required style="width: 100%; padding: 0.5rem; margin-bottom: 1rem;">
-      </label><br>
-      <label>Ihre E-Mail<br>
-        <input type="email" name="email" required style="width: 100%; padding: 0.5rem; margin-bottom: 1rem;">
-      </label><br>
-      <label>Ihre Nachricht<br>
-        <textarea name="message" rows="5" required style="width: 100%; padding: 0.5rem; margin-bottom: 1rem;"></textarea>
-      </label><br>
-      <button type="submit" class="btn">Nachricht senden</button>
-    </form>
+    <form name="kontakt" netlify netlify-honeypot="bot-field">
+  <input type="hidden" name="form-name" value="kontakt">
+  <p hidden>
+    <label>Don’t fill this out if you're human: <input name="bot-field" /></label>
+  </p>
+  <label>Ihr Name<br>
+    <input type="text" name="name" required style="width: 100%; padding: 0.5rem; margin-bottom: 1rem;">
+  </label><br>
+  <label>Ihre E-Mail<br>
+    <input type="email" name="email" required style="width: 100%; padding: 0.5rem; margin-bottom: 1rem;">
+  </label><br>
+  <label>Ihre Nachricht<br>
+    <textarea name="message" rows="5" required style="width: 100%; padding: 0.5rem; margin-bottom: 1rem;"></textarea>
+  </label><br>
+  <button type="submit" class="btn">Nachricht senden</button>
+</form>
+
   </div>
 </section>
 <!-- RECHTLICHES & TRANSPARENZ -->
