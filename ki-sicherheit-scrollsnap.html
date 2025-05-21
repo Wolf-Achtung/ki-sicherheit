@@ -230,11 +230,52 @@
   }
 }
 
+
+@media (min-width: 1025px) {
+  #top-button {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #0c3a5f;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    font-size: 1.25rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    cursor: pointer;
+    z-index: 9999;
+  }
+  #top-button:hover {
+    background-color: #092a4c;
+  }
+}
+
+
+@media (min-width: 1025px) {
+  .scroll-hint {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2rem;
+    color: #0c3a5f;
+    opacity: 0.7;
+    animation: bounce 1.5s infinite;
+  }
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translate(-50%, 0); }
+  50% { transform: translate(-50%, 10px); }
+}
+
 </style>
 </head>
 <body>
 
-<section id="start" class="scroll-section">
+<section id="start" class="scroll-section" style="position: relative;">
   <div class="section-img">
     <img src="img/01.png" alt="Technologie mit Weitblick">
     <p class="caption">Technologie mit Weitblick</p>
@@ -243,6 +284,11 @@
     <h1 class="typing">Die KI ist bereit. Sind Sie es auch?</h1>
     <p>Ich unterstütze Sie dabei, KI in Ihrem Unternehmen verantwortungsvoll, rechtssicher und strategisch einzusetzen.</p>
   </div>
+
+<div class="scroll-hint">
+  <span>⇩</span>
+</div>
+
 </section>
 <!-- PROFIL & MOTIVATION -->
 <section id="profil" class="scroll-section">
@@ -568,6 +614,11 @@ Ideal als Gesprächsgrundlage oder erster Orientierungspunkt für Unternehmen, d
   const p1 = "info";
   const p2 = "ki-sicherheit.jetzt";
   document.getElementById("email").innerHTML = `<a href=\"mailto:${p1}@${p2}\">${p1}@${p2}</a>`;
+
+function scrollToTop() {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
 </script>
     </p>
 
@@ -679,9 +730,19 @@ function zeigeErgebnisse() {
 function resetQuiz() {
   location.reload();
 }
+
+function scrollToTop() {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
 </script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js">
+function scrollToTop() {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+</script>
 <script>
 function exportSeiteAlsPDF() {
   const element = document.body.cloneNode(true);
@@ -758,6 +819,11 @@ function filterProgramme(e) {
   ausgabe.innerHTML = `<p style="background:#f4f4f4; padding:1rem; border-radius:12px;">${vorschlag}</p>`;
 }
 
+
+function scrollToTop() {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
 </script>
 
 <button id="pdf-fab" onclick="exportSeiteAlsPDF()">⬇</button>
@@ -773,6 +839,10 @@ function filterProgramme(e) {
   <a href="#kontakt">Kontakt & Erstgespräch</a>
   <a href="#rechtliches">Recht & Transparenz</a>
 </footer>
+
+
+<!-- Zurück zum Anfang Button -->
+<button id="top-button" onclick="scrollToTop()">⬆</button>
 
 </body>
 </html>
