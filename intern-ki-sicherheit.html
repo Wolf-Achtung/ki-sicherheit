@@ -288,73 +288,91 @@
     <p class="caption" style="text-align:center; color:#888;"
   </div>
 </section>
+
+ <!-- SCHNELL-CHECK & EMPFEHLUNG -->
 <section id="schnellcheck" class="scroll-section">
-  <div class="section-img">
-    <img src="img/04.png" alt="Risiken erkennen, Klarheit schaffen">
-    <p class="caption">Risiken erkennen, Klarheit schaffen</p>
-  </div>
-  <div class="section-content">
-    <h2 class="typing">Schnell-Check</h2>
-    <p>Der Schnell-Check hilft Ihnen, die zentralen Anforderungen des <span class="tooltip" data-tooltip="Verordnung der Europäischen Union zur Regelung von KI-Systemen">EU AI Acts</span> und der <span class="tooltip" data-tooltip="Datenschutz-Grundverordnung, regelt den Umgang mit personenbezogenen Daten in der EU">DSGVO</span> strukturiert einzuordnen – und Ihren Handlungsbedarf sichtbar zu machen.</p>
+  <h2 class="typing">Schnell-Check & Empfehlung</h2>
+  <img src="img/04.png" alt="Status erfassen, Risiko verstehen" style="width:100%; max-width:600px; display:block; margin-bottom:1rem;" />
+  <p class="caption" style="text-align:center; color:#888;">Status erfassen, Risiko verstehen</p>
   <div id="quiz">
-    <div class="frage"><p><strong>1.</strong> <span class="tooltip" data-tooltip="Gibt Aufschluss über Reifegrad und Automatisierungsgrad der KI-Nutzung im Unternehmen.">Wie setzen Sie KI aktuell ein?</span></p>
-      <button onclick="bewerte('governance', 30)">Wir nutzen KI aktiv</button>
-      <button onclick="bewerte('governance', 15)">Wir testen erste Tools</button>
-      <button onclick="bewerte('governance', 5)">Wir sind noch unsicher</button>
+    <div class="frage" id="frage1">
+      <h3>1. Wie setzen Sie KI aktuell ein?</h3>
+      <button onclick="nextFrage(1, 'aktiv')">Wir nutzen KI aktiv</button>
+      <button onclick="nextFrage(1, 'basic')">Wir testen erste Tools</button>
+      <button onclick="nextFrage(1, 'unsicher')">Wir sind noch unsicher</button>
     </div>
-    <div class="frage"><p><strong>2.</strong> <span class="tooltip" data-tooltip="Klare Zuständigkeiten sind ein zentraler Governance-Faktor.">Wer verantwortet den Einsatz?</span></p>
-      <button onclick="bewerte('verantwortung', 30)">Die Geschäftsführung</button>
-      <button onclick="bewerte('verantwortung', 20)">Die IT-Abteilung</button>
-      <button onclick="bewerte('verantwortung', 5)">Niemand konkret</button>
+    <div class="frage" id="frage2" style="display: none;">
+      <h3>2. Wer verantwortet den Einsatz?</h3>
+      <button onclick="nextFrage(2, 'chef')">Die Geschäftsführung</button>
+      <button onclick="nextFrage(2, 'it')">Die IT-Abteilung</button>
+      <button onclick="nextFrage(2, 'keiner')">Niemand konkret</button>
     </div>
-    <div class="frage"><p><strong>3.</strong> <span class="tooltip" data-tooltip="Dokumentation ist zentral für Revisionssicherheit.">Dokumentieren Sie Entscheidungen?</span></p>
-      <button onclick="bewerte('doku', 30)">Ja, klar dokumentiert</button>
-      <button onclick="bewerte('doku', 15)">Teilweise</button>
-      <button onclick="bewerte('doku', 5)">Noch gar nicht</button>
+    <div class="frage" id="frage3" style="display: none;">
+      <h3>3. Dokumentieren Sie Entscheidungen?</h3>
+      <button onclick="nextFrage(3, 'ja')">Ja, klar dokumentiert</button>
+      <button onclick="nextFrage(3, 'teilweise')">Teilweise</button>
+      <button onclick="nextFrage(3, 'nein')">Noch gar nicht</button>
     </div>
-    <div class="frage"><p><strong>4.</strong> <span class="tooltip" data-tooltip="Ein funktionierendes Datenschutzkonzept ist laut DSGVO und AI Act Pflicht.">Wie steht es um Ihren Datenschutz?</span></p>
-      <button onclick="bewerte('datenschutz', 30)">Vollständig integriert</button>
-      <button onclick="bewerte('datenschutz', 15)">Teilweise umgesetzt</button>
-      <button onclick="bewerte('datenschutz', 5)">Unklar geregelt</button>
+    <div class="frage" id="frage4" style="display: none;">
+      <h3>4. Wie steht es um Ihren Datenschutz?</h3>
+      <button onclick="nextFrage(4, 'vorreiter')">Wir sind Vorreiter</button>
+      <button onclick="nextFrage(4, 'orientierung')">Wir orientieren uns</button>
+      <button onclick="nextFrage(4, 'risikozone')">Wir sind im Graubereich</button>
     </div>
-    <div class="frage"><p><strong>5.</strong> <span class="tooltip" data-tooltip="Verstöße gegen den EU AI Act können haftungsrelevant sein.">Was passiert bei Verstößen gegen den EU AI Act?</span></p>
-      <button onclick="bewerte('governance', 25)">Wir haben Notfallpläne</button>
-      <button onclick="bewerte('governance', 15)">Wird diskutiert</button>
-      <button onclick="bewerte('governance', 5)">Keine Maßnahmen</button>
+    <div class="frage" id="frage5" style="display: none;">
+      <h3>5. Was würde passieren, wenn Ihr Unternehmen gegen den EU AI Act verstößt?</h3>
+      <button onclick="nextFrage(5, 'bewusst')">Uns ist das bewusst</button>
+      <button onclick="nextFrage(5, 'vage')">Wir wissen es ungefähr</button>
+      <button onclick="nextFrage(5, 'ahnungslos')">Wir sind uns nicht sicher</button>
     </div>
-    <div class="frage"><p><strong>6.</strong> <span class="tooltip" data-tooltip="Ein Kommunikationskonzept hilft, Vertrauen bei Fehlern zu erhalten.">Wie gehen Sie mit Fehlern im System um?</span></p>
-      <button onclick="bewerte('kommunikation', 25)">Wir informieren offen</button>
-      <button onclick="bewerte('kommunikation', 15)">Situativ geregelt</button>
-      <button onclick="bewerte('kommunikation', 5)">Keine klare Regelung</button>
+    <div class="frage" id="frage6" style="display: none;">
+      <h3>6. Wie gehen Sie mit Fehlern im System um?</h3>
+      <button onclick="nextFrage(6, 'dokumentiert')">Wir dokumentieren das</button>
+      <button onclick="nextFrage(6, 'situativ')">Wir reagieren situativ</button>
+      <button onclick="nextFrage(6, 'ignoriert')">Wir haben dazu nichts geregelt</button>
     </div>
-    <div class="frage"><p><strong>7.</strong> <span class="tooltip" data-tooltip="Verantwortung für neue Systeme muss klar delegiert sein.">Wer prüft neue KI-Systeme bei Ihnen?</span></p>
-      <button onclick="bewerte('verantwortung', 20)">Ein internes Team</button>
-      <button onclick="bewerte('verantwortung', 10)">Extern unterstützt</button>
-      <button onclick="bewerte('verantwortung', 5)">Niemand</button>
+    <div class="frage" id="frage7" style="display: none;">
+      <h3>7. Wer prüft neue KI-Systeme bei Ihnen?</h3>
+      <button onclick="nextFrage(7, 'team')">Ein internes Team</button>
+      <button onclick="nextFrage(7, 'einzelperson')">Eine verantwortliche Person</button>
+      <button onclick="nextFrage(7, 'niemand')">Niemand</button>
     </div>
   </div>
 
-   <div style="margin-top: 3rem;">
-      <h3>Governance</h3>
-      <div class="balken"><div id="balken-governance" class="balken-bar"></div></div>
-      <h3>Dokumentation</h3>
-      <div class="balken"><div id="balken-doku" class="balken-bar"></div></div>
-      <h3>Verantwortung</h3>
-      <div class="balken"><div id="balken-verantwortung" class="balken-bar"></div></div>
-      <h3>Kommunikation</h3>
-      <div class="balken"><div id="balken-kommunikation" class="balken-bar"></div></div>
-      <h3>Datenschutz-Integration</h3>
-      <div class="balken"><div id="balken-datenschutz" class="balken-bar"></div></div>
-    </div>
+  <img src="img/11.png" alt="Governance als Grundlage" style="width:100%; max-width:600px; display:block; margin:2rem auto 1rem;" />
+  <p class="caption" style="text-align:center; color:#888;">Governance als Grundlage</p>
 
-    <div id="auswertung" style="margin-top: 2rem; padding: 1rem; background: #f9f9f9; border-left: 4px solid #0c3a5f; display: none;">
-      <h3>Ihre Auswertung:</h3>
-      <p id="auswertungstext"></p>
-      <button onclick="druckeAuswertung()" class="btn" style="margin-top:1rem;">PDF / Ausdruck</button>
-<button onclick="resetCheck()" class="btn" style="margin-top:1rem; margin-left:1rem; background-color:#6c757d;">Check neu starten</button>
-    </div>
+  <div style="margin-top: 3rem;">
+    <h3>Governance</h3>
+    <div class="balken"><div id="balken-governance" class="balken-bar"></div></div>
+    <p id="text-governance">Ergebnis wird berechnet...</p>
+
+    <h3>Dokumentation</h3>
+    <div class="balken"><div id="balken-doku" class="balken-bar"></div></div>
+    <p id="text-doku">Ergebnis wird berechnet...</p>
+
+    <h3>Verantwortung</h3>
+    <div class="balken"><div id="balken-verantwortung" class="balken-bar"></div></div>
+    <p id="text-verantwortung">Ergebnis wird berechnet...</p>
+
+    <h3>Kommunikation</h3>
+    <div class="balken"><div id="balken-kommunikation" class="balken-bar"></div></div>
+    <p id="text-kommunikation">Ergebnis wird berechnet...</p>
+
+    <h3>Datenschutz-Integration</h3>
+    <div class="balken"><div id="balken-datenschutz" class="balken-bar"></div></div>
+    <p id="text-datenschutz">Ergebnis wird berechnet...</p>
+  </div>
+
+  <div style="text-align:center; margin-top:2rem;">
+    <button class="btn pulse-button" onclick="resetQuiz()">Schnell-Check erneut starten</button>
+<div style="text-align:center; margin-top:2rem;">
+  <button class="btn" onclick="exportSeiteAlsPDF()">📄 Gesamte Seite als PDF exportieren</button>
+</div>
+
   </div>
 </section>
+
 
 <!-- WISSEN & HINTERGRUND -->
 <section id="wissen" class="scroll-section">
@@ -492,98 +510,70 @@
 </section>
 
 <script>
+const auswertung = {
+  aktiv: { governance: 30 },
+  basic: { governance: 15 },
+  unsicher: { governance: 5 },
+  chef: { verantwortung: 30 },
+  it: { verantwortung: 20 },
+  keiner: { verantwortung: 5 },
+  ja: { doku: 30 },
+  teilweise: { doku: 15 },
+  nein: { doku: 5 },
+  vorreiter: { datenschutz: 30 },
+  orientierung: { datenschutz: 15 },
+  risikozone: { datenschutz: 5 },
+  bewusst: { kommunikation: 30 },
+  vage: { kommunikation: 15 },
+  ahnungslos: { kommunikation: 5 },
+  dokumentiert: { doku: 20 },
+  situativ: { kommunikation: 10 },
+  ignoriert: { kommunikation: 5 },
+  team: { governance: 20 },
+  einzelperson: { governance: 10 },
+  niemand: { governance: 5 },
+};
 
-const scores = { governance: 0, doku: 0, verantwortung: 0, kommunikation: 0, datenschutz: 0 };
-let beantworteteFragen = 0;
-const gesamtFragen = 7;
-const ausgewaehlt = new Map();
+const scores = {
+  governance: 0,
+  doku: 0,
+  verantwortung: 0,
+  kommunikation: 0,
+  datenschutz: 0
+};
 
-function bewerte(kategorie, punkte, el) {
-  // Entferne vorherige Auswahl
-  const buttons = document.querySelectorAll(`#quiz button[data-kategorie='${kategorie}']`);
-  buttons.forEach(b => b.classList.remove('active'));
-  el.classList.add('active');
-
-  // Aktualisiere Score
-  scores[kategorie] = punkte;
-  if (!ausgewaehlt.has(kategorie)) beantworteteFragen++;
-  ausgewaehlt.set(kategorie, el);
-
-  updateBalken();
-  if (beantworteteFragen >= gesamtFragen) {
-    zeigeAuswertung();
+function nextFrage(num, antwort) {
+  const werte = auswertung[antwort];
+  for (const key in werte) {
+    scores[key] += werte[key];
+  }
+  document.getElementById('frage' + num).style.display = 'none';
+  if (num < 7) {
+    document.getElementById('frage' + (num + 1)).style.display = 'block';
+  } else {
+    zeigeErgebnisse();
   }
 }
 
-function updateBalken() {
-  Object.entries(scores).forEach(([feld, wert]) => {
-    const bar = document.getElementById('balken-' + feld);
-    const prozent = Math.min(Math.round((wert / 50) * 100), 100);
-    bar.style.width = prozent + '%';
-    bar.classList.remove('rot', 'gelb', 'gruen');
-    if (prozent >= 75) bar.classList.add('gruen');
-    else if (prozent >= 50) bar.classList.add('gelb');
-    else bar.classList.add('rot');
-  });
-}
-
-function zeigeAuswertung() {
-  const summe = Object.values(scores).reduce((a, b) => a + b, 0);
-  let text = "<ul style='list-style: none; padding: 0;'>";
-
-  const kategorien = {
-    governance: "Governance",
-    doku: "Dokumentation",
-    verantwortung: "Verantwortung",
-    kommunikation: "Kommunikation",
-    datenschutz: "Datenschutz"
-  };
-
-  Object.entries(scores).forEach(([k, v]) => {
-    let hinweis = "";
-    if (v >= 40) {
-      hinweis = "<span style='color:green;'>✓ Sehr gut</span> – Sie erfüllen bereits viele Anforderungen.";
-    } else if (v >= 25) {
-      hinweis = "<span style='color:orange;'>⚠ Teilweise erfüllt</span> – gezielte Optimierung empfehlenswert.";
-    } else {
-      hinweis = "<span style='color:red;'>✖ Handlungsbedarf</span> – hier besteht dringender Verbesserungsbedarf.";
+function zeigeErgebnisse() {
+  Object.keys(scores).forEach(kategorie => {
+    const prozent = Math.min(Math.round((scores[kategorie] / 60) * 100), 100);
+    const balken = document.getElementById('balken-' + kategorie);
+    const text = document.getElementById('text-' + kategorie);
+    if (balken) balken.style.width = prozent + '%';
+    if (text) {
+      if (prozent >= 75) text.textContent = 'Sehr gut – Sie sind in diesem Bereich gut aufgestellt.';
+      else if (prozent >= 50) text.textContent = 'Ausbaufähig – Es bestehen erste Grundlagen, aber Verbesserungsbedarf.';
+      else text.textContent = 'Kritisch – Hier sollten Sie dringend nachbessern.';
     }
-    text += `<li style='margin-bottom:0.5rem;'><strong>${kategorien[k]}:</strong> ${hinweis}</li>`;
   });
-
-  text += "</ul><p style='font-size:0.9rem;'><em>Hinweis:</em> Diese Bewertung dient als Orientierungshilfe für Ihre strategische Planung im Bereich KI-Compliance.</p>";
-
-  document.getElementById('auswertungstext').innerHTML = text;
-  document.getElementById('auswertung').style.display = 'block';
-}
 }
 
-function resetCheck() {
-  Object.keys(scores).forEach(k => scores[k] = 0);
-  beantworteteFragen = 0;
-  updateBalken();
-  document.getElementById('auswertung').style.display = 'none';
-  document.querySelectorAll('#quiz button').forEach(b => b.disabled = false);
-}
-
-function druckeAuswertung() {
-  const inhalt = document.getElementById('auswertung').innerHTML;
-  const w = window.open('', '', 'width=800,height=600');
-  w.document.write('<html><head><title>Auswertung KI-Check</title></head><body style="font-family:Inter,sans-serif;">');
-  w.document.write('<h2>Auswertung – KI-Compliance Schnell-Check</h2>');
-  w.document.write(inhalt);
-  w.document.write('</body></html>');
-  w.document.close();
-  w.print();
-}
-
-function toggleFaq(el) {
-  document.querySelectorAll('.faq-item').forEach(item => {
-    if (item !== el.parentElement) item.classList.remove('open');
-  });
-  el.parentElement.classList.toggle('open');
+function resetQuiz() {
+  location.reload();
 }
 </script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 <script>
 function exportSeiteAlsPDF() {
@@ -631,11 +621,6 @@ document.addEventListener("DOMContentLoaded", () => {
 </script>
 
 <button id="pdf-fab" onclick="exportSeiteAlsPDF()">⬇</button>
-
-
-<div style="text-align:center; margin: 3rem auto;">
-  <button onclick="exportSeiteAlsPDF()" class="btn" style="padding: 0.75rem 1.5rem; font-size: 1.1rem;">📄 Gesamte Seite als PDF exportieren</button>
-</div>
 
 <!-- Footer (nach Screenshot) -->
 <footer class="faq-footer-nav">
