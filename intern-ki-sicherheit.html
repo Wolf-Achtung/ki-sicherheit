@@ -288,6 +288,106 @@
     <p class="caption" style="text-align:center; color:#888;"
   </div>
 </section>
+<!-- FÖRDERUNG & FINANZIERUNG -->
+<section id="foerderung" class="scroll-section">
+  <div class="section-img">
+    <img src="img/09.png" alt="Fördermittel gezielt nutzen">
+    <p class="caption">Fördermittel gezielt nutzen</p>
+  </div>
+  <div class="section-content">
+    <h2 class="typing">Förderung & Finanzierung</h2>
+    <p>Viele Unternehmen lassen Fördermittel ungenutzt. Ich zeige Ihnen, welche Programme zu Ihrem Vorhaben passen – inklusive Beantragung, Fristen und typischen Fallstricken.</p>
+
+    <table style="width:100%; border-collapse:collapse; font-size:0.95rem;">
+      <thead>
+        <tr>
+          <th style="border-bottom:2px solid #ccc;">Programm</th>
+          <th style="border-bottom:2px solid #ccc;">Förderhöhe</th>
+          <th style="border-bottom:2px solid #ccc;">Zielgruppe</th>
+          <th style="border-bottom:2px solid #ccc;">Vorteile</th>
+          <th style="border-bottom:2px solid #ccc;">Aufwand</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>go-digital</strong></td>
+          <td>bis 16.500 €</td>
+          <td>KMU < 100 MA</td>
+          <td>einfache Beantragung, autorisierte Berater</td>
+          <td>🟡 mittel</td>
+        </tr>
+        <tr>
+          <td><strong>Digital Jetzt</strong></td>
+          <td>bis 100.000 €</td>
+          <td>KMU 3–499 MA</td>
+          <td>auch Umsetzung förderfähig</td>
+          <td>🔴 hoch</td>
+        </tr>
+        <tr>
+          <td><strong>ZIM</strong></td>
+          <td>bis 550.000 €</td>
+          <td>innovative KMU</td>
+          <td>auch für Prototypen & Entwicklung</td>
+          <td>🔴🔴 sehr hoch</td>
+        </tr>
+        <tr>
+          <td><strong>KMU-innovativ</strong></td>
+          <td>projektabhängig</td>
+          <td>KMU + Partner</td>
+          <td>für ambitionierte KI-Forschung</td>
+          <td>🔴 hoch</td>
+        </tr>
+        <tr>
+          <td><strong>EU-Förderung</strong></td>
+          <td>> 1 Mio € (Konsortien)</td>
+          <td>EU-weit</td>
+          <td>großes Prestige & Wirkung</td>
+          <td>🔴🔴 sehr hoch</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div style="margin-top: 2rem; text-align: center;">
+      <button class="btn" onclick="exportFoerderungPDF()">📄 Förderung als PDF exportieren</button>
+    </div>
+
+    <h3 style="margin-top: 3rem;">Förderfähigkeit prüfen lassen</h3>
+    <form name="foerderung" netlify netlify-honeypot="bot-field" action="/thankyou.html">
+      <input type="hidden" name="form-name" value="foerderung">
+      <p hidden><label>Don’t fill this out if you're human: <input name="bot-field" /></label></p>
+      <label>Ihr Unternehmen<br>
+        <input type="text" name="unternehmen" required style="width:100%; padding:0.5rem; margin-bottom:1rem;">
+      </label><br>
+      <label>Projektidee (kurz)<br>
+        <textarea name="projektidee" rows="3" required style="width:100%; padding:0.5rem; margin-bottom:1rem;"></textarea>
+      </label><br>
+      <label>Ihre E-Mail<br>
+        <input type="email" name="email" required style="width:100%; padding:0.5rem; margin-bottom:1rem;">
+      </label><br>
+      <button type="submit" class="btn">Jetzt prüfen lassen</button>
+    </form>
+
+    <h3 style="margin-top: 3rem;">Förderkompass: Passendes Programm finden</h3>
+    <form onsubmit="filterProgramme(event)">
+      <label>Unternehmensgröße:
+        <select id="groesse" style="margin: 0 0.5rem;">
+          <option value="klein">< 50 MA</option>
+          <option value="mittel">50–250 MA</option>
+          <option value="gross">> 250 MA</option>
+        </select>
+      </label>
+      <label>Art des Vorhabens:
+        <select id="art" style="margin: 0 0.5rem;">
+          <option value="beratung">Beratung</option>
+          <option value="umsetzung">Technik/Software</option>
+          <option value="forschung">KI-Forschung</option>
+        </select>
+      </label>
+      <button type="submit" class="btn">Programm finden</button>
+    </form>
+    <div id="foerderkompass-ausgabe" style="margin-top:1rem;"></div>
+  </div>
+</section>
 
  <!-- SCHNELL-CHECK & EMPFEHLUNG -->
 <section id="schnellcheck" class="scroll-section">
@@ -637,6 +737,39 @@ document.addEventListener("DOMContentLoaded", () => {
     observer.observe(section);
   });
 });
+function exportFoerderungPDF() {
+  const foerderung = document.getElementById("foerderung").cloneNode(true);
+  foerderung.querySelectorAll('button, script, form').forEach(el => el.remove());
+  const opt = {
+    margin: 0.5,
+    filename: 'Foerderprogramme-KI-Beratung.pdf',
+    image: { type: 'jpeg', quality: 0.98 },
+    html2canvas: { scale: 2 },
+    jsPDF: { unit: 'in', format: 'a4', orientation: 'portrait' }
+  };
+  html2pdf().set(opt).from(foerderung).save();
+}
+function filterProgramme(e) {
+  e.preventDefault();
+  const groesse = document.getElementById('groesse').value;
+  const art = document.getElementById('art').value;
+  const ausgabe = document.getElementById('foerderkompass-ausgabe');
+
+  let vorschlag = '🔎 <strong>Empfehlung:</strong><br>';
+
+  if (art === 'beratung' && groesse === 'klein') {
+    vorschlag += '→ <strong>go-digital</strong> ist für Sie ideal.';
+  } else if (art === 'umsetzung' && groesse !== 'gross') {
+    vorschlag += '→ <strong>Digital Jetzt</strong> könnte Ihr Projekt fördern.';
+  } else if (art === 'forschung') {
+    vorschlag += '→ Prüfen Sie <strong>ZIM</strong> oder <strong>KMU-innovativ</strong>.';
+  } else {
+    vorschlag += '→ <strong>Landesprogramme</strong> oder EU-Förderung prüfen.';
+  }
+
+  ausgabe.innerHTML = `<p style="background:#f4f4f4; padding:1rem; border-radius:12px;">${vorschlag}</p>`;
+}
+
 </script>
 
 <button id="pdf-fab" onclick="exportSeiteAlsPDF()">⬇</button>
