@@ -164,6 +164,39 @@
 #pdf-fab:hover {
   background-color: #092a4c;
 }
+/* FAQ Footer Style */
+.faq-footer-nav {
+  text-align: center;
+  margin-top: 2rem;
+  border-top: 1px solid #ccc;
+  padding-top: 1rem;
+  font-weight: bold;
+  font-size: 1rem;
+}
+.faq-footer-nav a {
+  margin: 0 1rem;
+  color: #0c3a5f;
+  text-decoration: none;
+}
+.faq-footer-nav a:hover {
+  text-decoration: underline;
+}
+
+/* Einheitliche Button-Stile */
+#quiz button {
+  background-color: #0c3a5f;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 12px;
+  margin: 0.25rem 0.5rem 0.5rem 0;
+  cursor: pointer;
+  font-size: 1rem;
+  font-family: inherit;
+}
+#quiz button:hover {
+  background-color: #093256;
+}
 </style>
 </head>
 <body>
@@ -194,9 +227,35 @@
     <p><strong>Förderung & Finanzierung:</strong> Ich unterstütze Sie bei der Identifikation und Beantragung von Förderprogrammen – damit Sie Innovation sicher umsetzen und gleichzeitig Budgets schonen können.</p>
   </div>
 </section>
-
+<!-- LEISTUNGEN & LÖSUNGEN -->
+<section id="leistungen" class="scroll-section">
+  <div class="section-img">
+    <img src="img/03.png" alt="Lösungen mit Struktur">
+    <p class="caption">Lösungen mit Struktur</p>
+  </div>
+  <div class="section-content">
+    <h2 class="typing">Leistungen & Lösungen</h2>
+    <p>Ich begleite Ihr Unternehmen bei der Einführung und dem sicheren Betrieb von KI-Anwendungen – strukturiert, normenkonform und immer mit Blick auf den wirtschaftlichen Mehrwert.</p>
+    <ul>
+      <li><strong>KI-Strategie:</strong> Entwicklung & Einbindung von KI in Ihre Geschäftsprozesse</li>
+      <li><strong>Datenschutz & AI Act:</strong> Beratung entlang aktueller Vorschriften</li>
+      <li><strong>Dokumentation & Governance:</strong> Aufbau nachvollziehbarer KI-Prozesse</li>
+      <li><strong>Schulungen & Workshops:</strong> Sensibilisierung Ihrer Teams für Chancen und Risiken</li>
+      <li><strong>Auditvorbereitung:</strong> Unterstützung bei Prüffähigkeit & Nachweisführung</li>
+    </ul>
+    <p><strong>Fördermöglichkeiten & Finanzierung:</strong> Ich unterstütze Sie gezielt bei der Identifikation, Beantragung und Abwicklung relevanter Förderprogramme für Ihre KI-Projekte – um Sicherheit mit Wirtschaftlichkeit zu verbinden.</p>
+    <img src="img/12.png" alt="Förderung mit Perspektive" style="width:100%; max-width:600px; display:block; margin:2rem auto 1rem;" />
+    <p class="caption" style="text-align:center; color:#888;">Förderung mit Perspektive</p>
+  </div>
+</section>
 <section id="schnellcheck" class="scroll-section">
-  <h2 class="typing">Schnell-Check mit Ampellogik</h2>
+  <div class="section-img">
+    <img src="img/04.png" alt="Risiken erkennen, Klarheit schaffen">
+    <p class="caption">Risiken erkennen, Klarheit schaffen</p>
+  </div>
+  <div class="section-content">
+    <h2 class="typing">Schnell-Check</h2>
+    <p>Der Schnell-Check hilft Ihnen, die zentralen Anforderungen des <span class="tooltip" data-tooltip="Verordnung der Europäischen Union zur Regelung von KI-Systemen">EU AI Acts</span> und der <span class="tooltip" data-tooltip="Datenschutz-Grundverordnung, regelt den Umgang mit personenbezogenen Daten in der EU">DSGVO</span> strukturiert einzuordnen – und Ihren Handlungsbedarf sichtbar zu machen.</p>
   <div id="quiz">
     <div class="frage"><p><strong>1.</strong> <span class="tooltip" data-tooltip="Gibt Aufschluss über Reifegrad und Automatisierungsgrad der KI-Nutzung im Unternehmen.">Wie setzen Sie KI aktuell ein?</span></p>
       <button onclick="bewerte('governance', 30)">Wir nutzen KI aktiv</button>
@@ -236,48 +295,27 @@
   </div>
 
   <div style="margin-top: 3rem;">
-    <h3>Governance</h3>
-    <div class="balken"><div id="balken-governance" class="balken-bar"></div></div>
-    <h3>Dokumentation</h3>
-    <div class="balken"><div id="balken-doku" class="balken-bar"></div></div>
-    <h3>Verantwortung</h3>
-    <div class="balken"><div id="balken-verantwortung" class="balken-bar"></div></div>
-    <h3>Kommunikation</h3>
-    <div class="balken"><div id="balken-kommunikation" class="balken-bar"></div></div>
-    <h3>Datenschutz-Integration</h3>
-    <div class="balken"><div id="balken-datenschutz" class="balken-bar"></div></div>
-  </div>
+      <h3><span class="tooltip" data-tooltip="Strategische Kontrolle und Leitlinien für den Einsatz von KI">Governance</span></h3>
+      <div class="balken"><div id="balken-governance" class="balken-bar"></div></div>
+      <h3><span class="tooltip" data-tooltip="Nachvollziehbarkeit von Entscheidungen und Prozessen">Dokumentation</span></h3>
+      <div class="balken"><div id="balken-doku" class="balken-bar"></div></div>
+      <h3><span class="tooltip" data-tooltip="Klare Zuständigkeiten für KI-Systeme">Verantwortung</span></h3>
+      <div class="balken"><div id="balken-verantwortung" class="balken-bar"></div></div>
+      <h3><span class="tooltip" data-tooltip="Transparente Kommunikation bei KI-Einsätzen und Fehlern">Kommunikation</span></h3>
+      <div class="balken"><div id="balken-kommunikation" class="balken-bar"></div></div>
+      <h3><span class="tooltip" data-tooltip="Vermeidung personenbezogener Risiken und DSGVO-Konformität">Datenschutz-Integration</span></h3>
+      <div class="balken"><div id="balken-datenschutz" class="balken-bar"></div></div>
+    </div>
 
-  <div id="auswertung" style="margin-top: 2rem; padding: 1rem; background: #f9f9f9; border-left: 4px solid #0c3a5f; display: none;">
-    <h3>Ihre Auswertung:</h3>
-    <p id="auswertungstext"></p>
-    <button onclick="druckeAuswertung()" class="btn" style="margin-top:1rem;">PDF / Ausdruck</button>
-    <button onclick="resetCheck()" class="btn" style="margin-top:1rem; margin-left:1rem;">Zurücksetzen</button>
+    <div id="auswertung" style="margin-top: 2rem; padding: 1rem; background: #f9f9f9; border-left: 4px solid #0c3a5f; display: none;">
+      <h3>Ihre Auswertung:</h3>
+      <p id="auswertungstext"></p>
+      <button onclick="druckeAuswertung()" class="btn" style="margin-top:1rem;">PDF / Ausdruck</button>
+      <button onclick="resetCheck()" class="btn" style="margin-top:1rem; margin-left:1rem;">Zurücksetzen</button>
+    </div>
   </div>
 </section>
 
-
-<!-- LEISTUNGEN & LÖSUNGEN -->
-<section id="leistungen" class="scroll-section">
-  <div class="section-img">
-    <img src="img/03.png" alt="Lösungen mit Struktur">
-    <p class="caption">Lösungen mit Struktur</p>
-  </div>
-  <div class="section-content">
-    <h2 class="typing">Leistungen & Lösungen</h2>
-    <p>Ich begleite Ihr Unternehmen bei der Einführung und dem sicheren Betrieb von KI-Anwendungen – strukturiert, normenkonform und immer mit Blick auf den wirtschaftlichen Mehrwert.</p>
-    <ul>
-      <li><strong>KI-Strategie:</strong> Entwicklung & Einbindung von KI in Ihre Geschäftsprozesse</li>
-      <li><strong>Datenschutz & AI Act:</strong> Beratung entlang aktueller Vorschriften</li>
-      <li><strong>Dokumentation & Governance:</strong> Aufbau nachvollziehbarer KI-Prozesse</li>
-      <li><strong>Schulungen & Workshops:</strong> Sensibilisierung Ihrer Teams für Chancen und Risiken</li>
-      <li><strong>Auditvorbereitung:</strong> Unterstützung bei Prüffähigkeit & Nachweisführung</li>
-    </ul>
-    <p><strong>Fördermöglichkeiten & Finanzierung:</strong> Ich unterstütze Sie gezielt bei der Identifikation, Beantragung und Abwicklung relevanter Förderprogramme für Ihre KI-Projekte – um Sicherheit mit Wirtschaftlichkeit zu verbinden.</p>
-    <img src="img/12.png" alt="Förderung mit Perspektive" style="width:100%; max-width:600px; display:block; margin:2rem auto 1rem;" />
-    <p class="caption" style="text-align:center; color:#888;">Förderung mit Perspektive</p>
-  </div>
-</section>
 <!-- WISSEN & HINTERGRUND -->
 <section id="wissen" class="scroll-section">
   <div class="section-img">
