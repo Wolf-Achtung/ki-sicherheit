@@ -285,7 +285,7 @@
       <li><strong>Auditvorbereitung:</strong> Unterstützung bei Prüffähigkeit & Nachweisführung</li>
     </ul>
     <p><strong>Fördermöglichkeiten & Finanzierung:</strong> Ich unterstütze Sie gezielt bei der Identifikation, Beantragung und Abwicklung relevanter Förderprogramme für Ihre KI-Projekte – um Sicherheit mit Wirtschaftlichkeit zu verbinden.
-    <p class="caption" style="text-align:center; color:#888;">/p>
+    <p class="caption" style="text-align:center; color:#888;"
   </div>
 </section>
 <section id="schnellcheck" class="scroll-section">
@@ -499,14 +499,16 @@ const gesamtFragen = 7;
 const ausgewaehlt = new Map();
 
 function bewerte(kategorie, punkte, el) {
+  // Entferne vorherige Auswahl
+  const buttons = document.querySelectorAll(`#quiz button[data-kategorie='${kategorie}']`);
+  buttons.forEach(b => b.classList.remove('active'));
+  el.classList.add('active');
+
+  // Aktualisiere Score
+  scores[kategorie] = punkte;
   if (!ausgewaehlt.has(kategorie)) beantworteteFragen++;
   ausgewaehlt.set(kategorie, el);
 
-  // Vorherige Auswahl zurücksetzen
-  document.querySelectorAll(`#quiz button[data-kategorie='${kategorie}']`).forEach(b => b.classList.remove('active'));
-  el.classList.add('active');
-
-  scores[kategorie] = punkte;
   updateBalken();
   if (beantworteteFragen >= gesamtFragen) {
     zeigeAuswertung();
@@ -553,6 +555,7 @@ function zeigeAuswertung() {
 
   document.getElementById('auswertungstext').innerHTML = text;
   document.getElementById('auswertung').style.display = 'block';
+}
 }
 
 function resetCheck() {
