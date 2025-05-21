@@ -291,91 +291,87 @@
 
  <!-- SCHNELL-CHECK & EMPFEHLUNG -->
 <section id="schnellcheck" class="scroll-section">
-  <div class="section-container">
-    <div class="section-img">
-      <img src="img/04.png" alt="Status erfassen, Risiko verstehen">
-      <p class="caption">Status erfassen, Risiko verstehen</p>
+  <div class="section-img">
+    <img src="img/04.png" alt="Status erfassen, Risiko verstehen">
+    <p class="caption">Status erfassen, Risiko verstehen</p>
+  </div>
+  <div class="section-content">
+    <h2 class="typing">Schnell-Check & Empfehlung</h2>
+    <div id="quiz">
+      <div class="frage" id="frage1">
+        <h3>1. Wie setzen Sie KI aktuell ein?</h3>
+        <button onclick="nextFrage(1, 'aktiv')">Wir nutzen KI aktiv</button>
+        <button onclick="nextFrage(1, 'basic')">Wir testen erste Tools</button>
+        <button onclick="nextFrage(1, 'unsicher')">Wir sind noch unsicher</button>
+      </div>
+      <div class="frage" id="frage2" style="display: none;">
+        <h3>2. Wer verantwortet den Einsatz?</h3>
+        <button onclick="nextFrage(2, 'chef')">Die Geschäftsführung</button>
+        <button onclick="nextFrage(2, 'it')">Die IT-Abteilung</button>
+        <button onclick="nextFrage(2, 'keiner')">Niemand konkret</button>
+      </div>
+      <div class="frage" id="frage3" style="display: none;">
+        <h3>3. Dokumentieren Sie Entscheidungen?</h3>
+        <button onclick="nextFrage(3, 'ja')">Ja, klar dokumentiert</button>
+        <button onclick="nextFrage(3, 'teilweise')">Teilweise</button>
+        <button onclick="nextFrage(3, 'nein')">Noch gar nicht</button>
+      </div>
+      <div class="frage" id="frage4" style="display: none;">
+        <h3>4. Wie steht es um Ihren Datenschutz?</h3>
+        <button onclick="nextFrage(4, 'vorreiter')">Wir sind Vorreiter</button>
+        <button onclick="nextFrage(4, 'orientierung')">Wir orientieren uns</button>
+        <button onclick="nextFrage(4, 'risikozone')">Wir sind im Graubereich</button>
+      </div>
+      <div class="frage" id="frage5" style="display: none;">
+        <h3>5. Was würde passieren, wenn Ihr Unternehmen gegen den EU AI Act verstößt?</h3>
+        <button onclick="nextFrage(5, 'bewusst')">Uns ist das bewusst</button>
+        <button onclick="nextFrage(5, 'vage')">Wir wissen es ungefähr</button>
+        <button onclick="nextFrage(5, 'ahnungslos')">Wir sind uns nicht sicher</button>
+      </div>
+      <div class="frage" id="frage6" style="display: none;">
+        <h3>6. Wie gehen Sie mit Fehlern im System um?</h3>
+        <button onclick="nextFrage(6, 'dokumentiert')">Wir dokumentieren das</button>
+        <button onclick="nextFrage(6, 'situativ')">Wir reagieren situativ</button>
+        <button onclick="nextFrage(6, 'ignoriert')">Wir haben dazu nichts geregelt</button>
+      </div>
+      <div class="frage" id="frage7" style="display: none;">
+        <h3>7. Wer prüft neue KI-Systeme bei Ihnen?</h3>
+        <button onclick="nextFrage(7, 'team')">Ein internes Team</button>
+        <button onclick="nextFrage(7, 'einzelperson')">Eine verantwortliche Person</button>
+        <button onclick="nextFrage(7, 'niemand')">Niemand</button>
+      </div>
     </div>
-    <div class="section-content">
-      <h2>Schnell-Check & Empfehlung</h2>
-      <div id="quiz">
-        <div class="frage" id="frage1">
-          <h3>1. Wie setzen Sie KI aktuell ein?</h3>
-          <button onclick="nextFrage(1, 'aktiv')">Wir nutzen KI aktiv</button>
-          <button onclick="nextFrage(1, 'basic')">Wir testen erste Tools</button>
-          <button onclick="nextFrage(1, 'unsicher')">Wir sind noch unsicher</button>
-        </div>
-        <div class="frage" id="frage2" style="display: none;">
-          <h3>2. Wer verantwortet den Einsatz?</h3>
-          <button onclick="nextFrage(2, 'chef')">Die Geschäftsführung</button>
-          <button onclick="nextFrage(2, 'it')">Die IT-Abteilung</button>
-          <button onclick="nextFrage(2, 'keiner')">Niemand konkret</button>
-        </div>
-        <div class="frage" id="frage3" style="display: none;">
-          <h3>3. Dokumentieren Sie Entscheidungen?</h3>
-          <button onclick="nextFrage(3, 'ja')">Ja, klar dokumentiert</button>
-          <button onclick="nextFrage(3, 'teilweise')">Teilweise</button>
-          <button onclick="nextFrage(3, 'nein')">Noch gar nicht</button>
-        </div>
-        <div class="frage" id="frage4" style="display: none;">
-          <h3>4. Wie steht es um Ihren Datenschutz?</h3>
-          <button onclick="nextFrage(4, 'vorreiter')">Wir sind Vorreiter</button>
-          <button onclick="nextFrage(4, 'orientierung')">Wir orientieren uns</button>
-          <button onclick="nextFrage(4, 'risikozone')">Wir sind im Graubereich</button>
-        </div>
-        <div class="frage" id="frage5" style="display: none;">
-          <h3>5. Was würde passieren, wenn Ihr Unternehmen gegen den EU AI Act verstößt?</h3>
-          <button onclick="nextFrage(5, 'bewusst')">Uns ist das bewusst</button>
-          <button onclick="nextFrage(5, 'vage')">Wir wissen es ungefähr</button>
-          <button onclick="nextFrage(5, 'ahnungslos')">Wir sind uns nicht sicher</button>
-        </div>
-        <div class="frage" id="frage6" style="display: none;">
-          <h3>6. Wie gehen Sie mit Fehlern im System um?</h3>
-          <button onclick="nextFrage(6, 'dokumentiert')">Wir dokumentieren das</button>
-          <button onclick="nextFrage(6, 'situativ')">Wir reagieren situativ</button>
-          <button onclick="nextFrage(6, 'ignoriert')">Wir haben dazu nichts geregelt</button>
-        </div>
-        <div class="frage" id="frage7" style="display: none;">
-          <h3>7. Wer prüft neue KI-Systeme bei Ihnen?</h3>
-          <button onclick="nextFrage(7, 'team')">Ein internes Team</button>
-          <button onclick="nextFrage(7, 'einzelperson')">Eine verantwortliche Person</button>
-          <button onclick="nextFrage(7, 'niemand')">Niemand</button>
-        </div>
-      </div>
-      <img src="img/11.png" alt="Governance als Grundlage" style="width:100%; max-width:600px; display:block; margin:2rem auto 1rem;" />
-      <p class="caption" style="text-align:center; color:#888;">Governance als Grundlage</p>
 
-      <div style="margin-top: 3rem;">
-        <h3>Governance</h3>
-        <div class="balken"><div id="balken-governance" class="balken-bar"></div></div>
-        <p id="text-governance">Ergebnis wird berechnet...</p>
+    <div style="margin-top: 3rem;">
+      <h3>Governance</h3>
+      <div class="balken"><div id="balken-governance" class="balken-bar"></div></div>
+      <p id="text-governance">Ergebnis wird berechnet...</p>
 
-        <h3>Dokumentation</h3>
-        <div class="balken"><div id="balken-doku" class="balken-bar"></div></div>
-        <p id="text-doku">Ergebnis wird berechnet...</p>
+      <h3>Dokumentation</h3>
+      <div class="balken"><div id="balken-doku" class="balken-bar"></div></div>
+      <p id="text-doku">Ergebnis wird berechnet...</p>
 
-        <h3>Verantwortung</h3>
-        <div class="balken"><div id="balken-verantwortung" class="balken-bar"></div></div>
-        <p id="text-verantwortung">Ergebnis wird berechnet...</p>
+      <h3>Verantwortung</h3>
+      <div class="balken"><div id="balken-verantwortung" class="balken-bar"></div></div>
+      <p id="text-verantwortung">Ergebnis wird berechnet...</p>
 
-        <h3>Kommunikation</h3>
-        <div class="balken"><div id="balken-kommunikation" class="balken-bar"></div></div>
-        <p id="text-kommunikation">Ergebnis wird berechnet...</p>
+      <h3>Kommunikation</h3>
+      <div class="balken"><div id="balken-kommunikation" class="balken-bar"></div></div>
+      <p id="text-kommunikation">Ergebnis wird berechnet...</p>
 
-        <h3>Datenschutz-Integration</h3>
-        <div class="balken"><div id="balken-datenschutz" class="balken-bar"></div></div>
-        <p id="text-datenschutz">Ergebnis wird berechnet...</p>
-      </div>
+      <h3>Datenschutz-Integration</h3>
+      <div class="balken"><div id="balken-datenschutz" class="balken-bar"></div></div>
+      <p id="text-datenschutz">Ergebnis wird berechnet...</p>
+    </div>
 
-      <div id="auswertung" style="display:none; margin-top:2rem;">
-        <h3>Empfehlung & Bewertung</h3>
-        <div id="auswertungstext"></div>
-      </div>
+    <div id="auswertung" style="display:none; margin-top:2rem;">
+      <h3>Empfehlung & Bewertung</h3>
+      <div id="auswertungstext"></div>
+    </div>
 
-      <div style="text-align:center; margin-top:2rem;">
-        <button class="btn pulse-button" onclick="resetQuiz()">Schnell-Check erneut starten</button>
-        <button class="btn" onclick="exportSeiteAlsPDF()">📄 Gesamte Seite als PDF exportieren</button>
-      </div>
+    <div style="text-align:center; margin-top:2rem;">
+      <button class="btn pulse-button" onclick="resetQuiz()">Schnell-Check erneut starten</button>
+      <button class="btn" onclick="exportSeiteAlsPDF()">📄 Gesamte Seite als PDF exportieren</button>
     </div>
   </div>
 </section>
@@ -567,13 +563,20 @@ function zeigeErgebnisse() {
     const prozent = Math.min(Math.round((scores[kategorie] / 60) * 100), 100);
     const balken = document.getElementById('balken-' + kategorie);
     const text = document.getElementById('text-' + kategorie);
-    if (balken) balken.style.width = prozent + '%';
+    if (balken) {
+      balken.style.width = prozent + '%';
+      balken.classList.remove('rot', 'gelb', 'gruen');
+      if (prozent >= 75) balken.classList.add('gruen');
+      else if (prozent >= 50) balken.classList.add('gelb');
+      else balken.classList.add('rot');
+    }
     if (text) {
       if (prozent >= 75) text.textContent = 'Sehr gut – Sie sind in diesem Bereich gut aufgestellt.';
       else if (prozent >= 50) text.textContent = 'Ausbaufähig – Es bestehen erste Grundlagen, aber Verbesserungsbedarf.';
       else text.textContent = 'Kritisch – Hier sollten Sie dringend nachbessern.';
     }
   });
+  document.getElementById('auswertung').style.display = 'block';
 }
 
 function resetQuiz() {
