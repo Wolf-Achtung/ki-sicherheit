@@ -197,6 +197,10 @@
 #quiz button:hover {
   background-color: #093256;
 }
+#quiz button.active {
+  background-color: #34a853 !important;
+  color: #fff !important;
+}
 </style>
 </head>
 <body>
@@ -225,6 +229,28 @@
     <p class="caption" style="text-align:center; color:#888;">Verantwortung stärken</p>
     <p>Ich helfe Ihnen, die Anforderungen des EU AI Acts nicht nur einzuhalten, sondern gezielt zu nutzen – für mehr Sicherheit, Vertrauen und Effizienz.</p>
     <p><strong>Förderung & Finanzierung:</strong> Ich unterstütze Sie bei der Identifikation und Beantragung von Förderprogrammen – damit Sie Innovation sicher umsetzen und gleichzeitig Budgets schonen können.</p>
+  </div>
+</section>
+<!-- VERTRAUEN & NACHWEISE -->
+<section id="nachweise" class="scroll-section">
+  <div class="section-img">
+    <img src="img/siegel.png" alt="Vertrauenssiegel">
+    <p class="caption">Verlässlichkeit zählt</p>
+  </div>
+  <div class="section-content">
+    <h2 class="typing">Vertrauen & Nachweise</h2>
+    <p>Meine Beratung ist nachvollziehbar, dokumentiert und auf echte Nachweise ausgelegt. Kein Marketing – sondern Struktur, Sicherheit und Rechtssicherheit.</p>
+    <ul>
+      <li><strong>TÜV-Zertifizierung:</strong> KI-Manager (TÜV Austria)</li>
+      <li><strong>DSGVO-konforme Beratung</strong></li>
+      <li><strong>Praxisorientierte Umsetzung des EU AI Acts</strong></li>
+      <li><strong>Konform mit ISO/IEC 23894</strong> (Risikomanagement für KI)</li>
+    </ul>
+    <div style="margin-top:1rem;">
+      <img src="img/siegel-tuev.png" alt="TÜV" style="height:32px;margin-right:12px;">
+      <img src="img/siegel-dsgvo.png" alt="DSGVO" style="height:32px;margin-right:12px;">
+      <img src="img/siegel-euai.png" alt="EU AI Act" style="height:32px;">
+    </div>
   </div>
 </section>
 <!-- LEISTUNGEN & LÖSUNGEN -->
@@ -294,16 +320,16 @@
     </div>
   </div>
 
-  <div style="margin-top: 3rem;">
-      <h3><span class="tooltip" data-tooltip="Strategische Kontrolle und Leitlinien für den Einsatz von KI">Governance</span></h3>
+   <div style="margin-top: 3rem;">
+      <h3>Governance</h3>
       <div class="balken"><div id="balken-governance" class="balken-bar"></div></div>
-      <h3><span class="tooltip" data-tooltip="Nachvollziehbarkeit von Entscheidungen und Prozessen">Dokumentation</span></h3>
+      <h3>Dokumentation</h3>
       <div class="balken"><div id="balken-doku" class="balken-bar"></div></div>
-      <h3><span class="tooltip" data-tooltip="Klare Zuständigkeiten für KI-Systeme">Verantwortung</span></h3>
+      <h3>Verantwortung</h3>
       <div class="balken"><div id="balken-verantwortung" class="balken-bar"></div></div>
-      <h3><span class="tooltip" data-tooltip="Transparente Kommunikation bei KI-Einsätzen und Fehlern">Kommunikation</span></h3>
+      <h3>Kommunikation</h3>
       <div class="balken"><div id="balken-kommunikation" class="balken-bar"></div></div>
-      <h3><span class="tooltip" data-tooltip="Vermeidung personenbezogener Risiken und DSGVO-Konformität">Datenschutz-Integration</span></h3>
+      <h3>Datenschutz-Integration</h3>
       <div class="balken"><div id="balken-datenschutz" class="balken-bar"></div></div>
     </div>
 
@@ -457,10 +483,17 @@
 const scores = { governance: 0, doku: 0, verantwortung: 0, kommunikation: 0, datenschutz: 0 };
 let beantworteteFragen = 0;
 const gesamtFragen = 7;
+const ausgewaehlt = new Map();
 
-function bewerte(kategorie, punkte) {
-  scores[kategorie] += punkte;
-  beantworteteFragen++;
+function bewerte(kategorie, punkte, el) {
+  if (!ausgewaehlt.has(kategorie)) beantworteteFragen++;
+  ausgewaehlt.set(kategorie, el);
+
+  // Zurücksetzen vorheriger Auswahl
+  document.querySelectorAll(`#quiz button[data-kategorie='${kategorie}']`).forEach(b => b.classList.remove('active'));
+  el.classList.add('active');
+
+  scores[kategorie] = punkte;
   updateBalken();
   if (beantworteteFragen >= gesamtFragen) {
     zeigeAuswertung();
@@ -493,7 +526,6 @@ function zeigeAuswertung() {
 
   Object.entries(scores).forEach(([k, v]) => {
     let hinweis = "";
-    let farbe = "";
     if (v >= 40) {
       hinweis = "<span style='color:green;'>✓ Sehr gut</span> – Sie erfüllen bereits viele Anforderungen.";
     } else if (v >= 25) {
@@ -589,12 +621,16 @@ document.addEventListener("DOMContentLoaded", () => {
   <button onclick="exportSeiteAlsPDF()" class="btn" style="padding: 0.75rem 1.5rem; font-size: 1.1rem;">📄 Gesamte Seite als PDF exportieren</button>
 </div>
 
-<footer class="bottom-nav" style="background: #f4f4f4; border-top: 1px solid #ccc; padding: 2rem 1rem; font-size: 0.9rem; text-align: center;">
-  <nav class="menu" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem;">
-    <a href="#start">Start</a>
-    <a href="#schnellcheck">Schnell-Check</a>
-  </nav>
-  <p style="margin-top: 1rem; color: #888;">&copy; 2025 Wolf Hohl · KI-Sicherheit.jetzt</p>
+<!-- Footer (nach Screenshot) -->
+<footer class="faq-footer-nav">
+  <a href="#profil">Profil & Motivation</a>
+  <a href="#nachweise">Vertrauen & Nachweise</a>
+  <a href="#leistungen">Leistungen & Lösungen</a>
+  <a href="#schnellcheck">Schnell-Check</a>
+  <a href="#wissen">Wissen & Praxis</a>
+  <a href="#faq">Fragen & Antworten</a>
+  <a href="#kontakt">Kontakt & Erstgespräch</a>
+  <a href="#rechtliches">Rechtliches & Transparenz</a>
 </footer>
 
 </body>
