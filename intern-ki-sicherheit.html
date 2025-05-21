@@ -198,9 +198,24 @@
   background-color: #093256;
 }
 #quiz button.active {
-  background-color: #34a853 !important;
-  color: #fff !important;
+  background-color: #0d6efd !important;
+  color: white !important;
+  border: 1px solid #084298 !important;
 }
+.logo-reihe {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+.logo-reihe img {
+  max-height: 60px;
+  height: auto;
+  width: auto;
+  object-fit: contain;
+}
+
 </style>
 </head>
 <body>
@@ -224,7 +239,7 @@
   <div class="section-content">
     <h2 class="typing">Profil & Motivation</h2>
     <p>Ich bin Ihr zertifizierter <strong>KI-Manager (TÜV Austria)</strong> und strategischer Partner, wenn es darum geht, moderne Systeme sicher, verantwortungsvoll und zukunftsfähig einzusetzen.</p>
-    p><strong>Wirtschaftlichkeit und Verantwortung schließen sich nicht aus.</strong></p>
+    <strong>Wirtschaftlichkeit und Verantwortung schließen sich nicht aus.</strong></p>
     <p class="caption" style="text-align:center; color:#888;"/p>
     <p>Ich helfe Ihnen, die Anforderungen des EU AI Acts nicht nur einzuhalten, sondern gezielt zu nutzen – für mehr Sicherheit, Vertrauen und Effizienz.</p>
     <p><strong>Förderung & Finanzierung:</strong> Ich unterstütze Sie bei der Identifikation und Beantragung von Förderprogrammen – damit Sie Innovation sicher umsetzen und gleichzeitig Budgets schonen können.</p>
@@ -245,11 +260,12 @@
       <li><strong>Praxisorientierte Umsetzung des EU AI Acts</strong></li>
       <li><strong>Konform mit ISO/IEC 23894</strong> (Risikomanagement für KI)</li>
     </ul>
-    <div style="margin-top:1rem;">
-      <img src="img/tuev-logo-transparent.png" alt="TÜV" style="height:32px;margin-right:12px;">
-      <img src="img/dsgvo.svg" alt="DSGVO" style="height:32px;margin-right:12px;">
-      <img src="img/eu-ai.svg" alt="EU AI Act" style="height:32px;">
-    </div>
+    <div class="logo-reihe">
+  <img src="img/tuev-logo-transparent.png" alt="TÜV">
+  <img src="img/dsgvo.svg" alt="DSGVO">
+  <img src="img/eu-ai.svg" alt="EU AI Act">
+</div>
+
   </div>
 </section>
 <!-- LEISTUNGEN & LÖSUNGEN -->
@@ -268,7 +284,7 @@
       <li><strong>Schulungen & Workshops:</strong> Sensibilisierung Ihrer Teams für Chancen und Risiken</li>
       <li><strong>Auditvorbereitung:</strong> Unterstützung bei Prüffähigkeit & Nachweisführung</li>
     </ul>
-    <p><strong>Fördermöglichkeiten & Finanzierung:</strong> Ich unterstütze Sie gezielt bei der Identifikation, Beantragung und Abwicklung relevanter Förderprogramme für Ihre KI-Projekte – um Sicherheit mit Wirtschaftlichkeit zu verbinden.</p>
+    <p><strong>Fördermöglichkeiten & Finanzierung:</strong> Ich unterstütze Sie gezielt bei der Identifikation, Beantragung und Abwicklung relevanter Förderprogramme für Ihre KI-Projekte – um Sicherheit mit Wirtschaftlichkeit zu verbinden.
     <p class="caption" style="text-align:center; color:#888;">/p>
   </div>
 </section>
@@ -335,7 +351,7 @@
       <h3>Ihre Auswertung:</h3>
       <p id="auswertungstext"></p>
       <button onclick="druckeAuswertung()" class="btn" style="margin-top:1rem;">PDF / Ausdruck</button>
-      <button onclick="resetCheck()" class="btn" style="margin-top:1rem; margin-left:1rem;">Zurücksetzen</button>
+<button onclick="resetCheck()" class="btn" style="margin-top:1rem; margin-left:1rem; background-color:#6c757d;">Check neu starten</button>
     </div>
   </div>
 </section>
@@ -476,6 +492,7 @@
 </section>
 
 <script>
+
 const scores = { governance: 0, doku: 0, verantwortung: 0, kommunikation: 0, datenschutz: 0 };
 let beantworteteFragen = 0;
 const gesamtFragen = 7;
@@ -485,7 +502,7 @@ function bewerte(kategorie, punkte, el) {
   if (!ausgewaehlt.has(kategorie)) beantworteteFragen++;
   ausgewaehlt.set(kategorie, el);
 
-  // Zurücksetzen vorheriger Auswahl
+  // Vorherige Auswahl zurücksetzen
   document.querySelectorAll(`#quiz button[data-kategorie='${kategorie}']`).forEach(b => b.classList.remove('active'));
   el.classList.add('active');
 
