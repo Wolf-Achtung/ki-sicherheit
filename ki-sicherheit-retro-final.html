@@ -509,7 +509,7 @@ Ideal als Gesprächsgrundlage oder erster Orientierungspunkt für Unternehmen, d
       </div>
     </div>
 
-    <div style="margin-top: 3rem;">
+    <div id="auswertungsblock" style="display:none; margin-top: 3rem;">
       <h3>Governance</h3>
       <div class="balken"><div id="balken-governance" class="balken-bar"></div></div>
       <p id="text-governance">Ergebnis wird berechnet...</p>
@@ -757,6 +757,7 @@ function zeigeErgebnisse() {
       else text.textContent = 'Kritisch – Hier sollten Sie dringend nachbessern.';
     }
   });
+  document.getElementById('auswertungsblock').style.display = 'block';
   document.getElementById('auswertung').style.display = 'block';
 }
 
