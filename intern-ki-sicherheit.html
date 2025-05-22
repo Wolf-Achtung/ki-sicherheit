@@ -461,7 +461,15 @@ Dieses Know-how fließt heute in meine KI-Beratung ein: fundiert, wirtschaftlich
 
   <p style="font-size: 0.8rem; color: #555;">💡 Ich melde mich innerhalb von 48 h mit einer ersten Einschätzung. Ihre Angaben werden gemäß DSGVO vertraulich behandelt.</p>
 
-  <button type="submit" class="btn">Jetzt prüfen lassen</button>
+  
+<p style="font-size: 0.9rem; color: #333;">
+  <label>
+    <input type="checkbox" name="datenschutz" required>
+    Ich habe die <a href="javascript:void(0)" onclick="toggleDatenschutzPopup()">Datenschutzerklärung</a> gelesen und akzeptiert.
+  </label>
+</p>
+<button type="submit" class="btn">Jetzt prüfen lassen</button>
+
 </form>
 
 </section>
@@ -637,7 +645,15 @@ Ideal als Gesprächsgrundlage oder erster Orientierungspunkt für Unternehmen, d
   <label>Ihre Nachricht<br>
     <textarea name="message" rows="5" required style="width: 100%; padding: 0.5rem; margin-bottom: 0.5rem;"></textarea>
   </label><br>
-  <button type="submit" class="btn">Nachricht senden</button>
+  
+<p style="font-size: 0.9rem; color: #333;">
+  <label>
+    <input type="checkbox" name="datenschutz" required>
+    Ich habe die <a href="javascript:void(0)" onclick="toggleDatenschutzPopup()">Datenschutzerklärung</a> gelesen und akzeptiert.
+  </label>
+</p>
+<button type="submit" class="btn">Nachricht senden</button>
+
 </form>
 
   </div>
@@ -886,5 +902,32 @@ function scrollToTop() {
 </button>
 
 
+
+<!-- DSGVO Modal -->
+<div id="datenschutz-modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:#000000cc; z-index:10000;">
+  <div style="max-width:600px; margin:5% auto; background:#fff; padding:2rem; border-radius:12px; color:#0c3a5f; font-family:Inter, sans-serif; line-height:1.6;">
+    <h2>Datenschutzerklärung</h2>
+    <p><strong>Verantwortlich:</strong><br>Wolf Hohl<br>Greifswalder Str. 224a<br>10405 Berlin<br><a href="mailto:info@ki-sicherheit.jetzt">info@ki-sicherheit.jetzt</a></p>
+    <p><strong>1. Kontaktaufnahme:</strong> Bei Nutzung des Formulars oder E-Mail-Kontakt werden Ihre Angaben zur Bearbeitung gespeichert (max. 6 Monate).</p>
+    <p><strong>2. Keine Cookies:</strong> Diese Website setzt keine Tracking-Cookies ein.</p>
+    <p><strong>3. Ihre Rechte laut DSGVO:</strong></p>
+    <ul>
+      <li>Auskunft, Berichtigung, Löschung</li>
+      <li>Datenübertragbarkeit</li>
+      <li>Widerruf von Einwilligungen</li>
+      <li>Beschwerde bei der Aufsichtsbehörde</li>
+    </ul>
+    <p><strong>Hinweis:</strong> Diese Seite dient der Information und ersetzt keine Rechtsberatung.</p>
+    <button onclick="document.getElementById('datenschutz-modal').style.display='none'" class="btn">Schließen</button>
+  </div>
+</div>
+
+<script>
+  function toggleDatenschutzPopup() {
+    const modal = document.getElementById('datenschutz-modal');
+    modal.style.display = 'block';
+  }
+</script>
 </body>
 </html>
+
