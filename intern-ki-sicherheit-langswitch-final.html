@@ -1,0 +1,1002 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KI-Sicherheit.jetzt – Schnell-Check</title>
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #fdfdfd;
+      color: #0c3a5f;
+      line-height: 1.6;
+    }
+    section.scroll-section {
+      padding: 3rem 1.5rem;
+      max-width: 1080px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+    .section-img {
+      flex: 1 1 300px;
+      max-width: 300px;
+    }
+    .section-content {
+      flex: 2 1 600px;
+    }
+    h1, h2.typing {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 2rem;
+      font-weight: bold;
+      margin-bottom: 1.5rem;
+      animation: flicker 1.5s infinite alternate;
+    }
+    @keyframes flicker {
+      0% { opacity: 1; }
+      100% { opacity: 0.85; }
+    }
+    .btn {
+      background-color: #0c3a5f;
+      color: white;
+      border: none;
+      padding: 0.75rem 1.25rem;
+      border-radius: 12px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+    .btn:hover {
+      background-color: #093256;
+    }
+    .caption {
+      text-align: center;
+      font-size: 0.85rem;
+      color: #888;
+      margin-top: 0.5rem;
+    }
+    img {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+    }
+    .tooltip {
+      position: relative;
+      cursor: help;
+      border-bottom: 1px dotted #999;
+    }
+    .tooltip:hover::after {
+      content: attr(data-tooltip);
+      position: absolute;
+      left: 0;
+      top: 100%;
+      background: #333;
+      color: #fff;
+      padding: 0.5rem;
+      border-radius: 6px;
+      white-space: nowrap;
+      font-size: 0.8rem;
+      margin-top: 0.3rem;
+      z-index: 9999;
+    }
+    .balken {
+      background: #eee;
+      border-radius: 20px;
+      height: 20px;
+      overflow: hidden;
+      margin-bottom: 0.5rem;
+    }
+    .balken-bar {
+      height: 100%;
+      width: 0%;
+      transition: width 1s ease-in-out;
+      border-radius: 20px;
+    }
+    .balken-bar.rot { background: #c0392b; }
+    .balken-bar.gelb { background: #f39c12; }
+    .balken-bar.gruen { background: #27ae60; }
+@media (max-width: 768px) {
+  #quiz .frage {
+    margin-bottom: 2rem;
+  }
+  #quiz button {
+    display: block;
+    width: 100%;
+    margin-bottom: 0.5rem;
+  }
+  .balken {
+    height: 16px;
+  }
+  #auswertung ul li {
+    font-size: 0.95rem;
+  }
+  #auswertung button {
+    display: block;
+    width: 100%;
+    margin: 0.5rem 0;
+  }
+ #pdf-fab {
+    display: block;
+  }
+}
+
+/* Animierte Section Transitions */
+.scroll-section {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.scroll-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Balken-Card-Style */
+.balken {
+  background: #eee;
+  border-radius: 20px;
+  height: 20px;
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+/* Floating Button */
+#pdf-fab {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #0c3a5f;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 56px;
+  height: 56px;
+  font-size: 1.5rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  cursor: pointer;
+  z-index: 1000;
+}
+#pdf-fab:hover {
+  background-color: #092a4c;
+}
+/* FAQ Footer Style */
+.faq-footer-nav {
+  text-align: center;
+  margin-top: 2rem;
+  border-top: 1px solid #ccc;
+  padding-top: 1rem;
+  font-weight: bold;
+  font-size: 1rem;
+}
+.faq-footer-nav a {
+  margin: 0 1rem;
+  color: #0c3a5f;
+  text-decoration: none;
+}
+.faq-footer-nav a:hover {
+  text-decoration: underline;
+}
+
+/* Einheitliche Button-Stile */
+#quiz button {
+  background-color: #0c3a5f;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 12px;
+  margin: 0.25rem 0.5rem 0.5rem 0;
+  cursor: pointer;
+  font-size: 1rem;
+  font-family: inherit;
+}
+#quiz button:hover {
+  background-color: #093256;
+}
+#quiz button.active {
+  background-color: #0d6efd !important;
+  color: white !important;
+  border: 1px solid #084298 !important;
+}
+.logo-reihe {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+.logo-reihe img {
+  max-height: 60px;
+  height: auto;
+  width: auto;
+  object-fit: contain;
+}
+
+
+@media (min-width: 1025px) {
+  html, body {
+    scroll-snap-type: y mandatory;
+  }
+
+  section.scroll-section {
+    scroll-snap-align: start;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+  }
+}
+
+
+@media (min-width: 1025px) {
+  #top-button {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #0c3a5f;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    font-size: 1.25rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    cursor: pointer;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  #top-button:hover {
+    background-color: #092a4c;
+  }
+}
+
+
+@media (min-width: 1025px) {
+  .scroll-hint {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2rem;
+    color: #0c3a5f;
+    opacity: 0.7;
+    animation: bounce 1.5s infinite;
+  }
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translate(-50%, 0); }
+  50% { transform: translate(-50%, 10px); }
+}
+
+
+.faq-item {
+  margin-bottom: 0.75rem;
+}
+.faq-item h3 {
+  margin-bottom: 0.25rem;
+  cursor: pointer;
+}
+.faq-answer {
+  margin-bottom: 0.5rem;
+}
+
+
+#schnellcheck h3 {
+  margin-bottom: 0.25rem;
+  margin-top: 1rem;
+}
+#schnellcheck .balken {
+  margin-bottom: 0.25rem;
+}
+#schnellcheck p {
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+}
+
+
+@media (min-width: 1025px) {
+  #top-button span {
+    display: inline-block;
+    transform: rotate(-90deg);
+  }
+}
+
+
+input[type="text"],
+input[type="email"],
+select,
+textarea {
+  border: 2px solid #0c3a5f;
+  border-radius: 12px;
+  font-family: inherit;
+  padding: 0.65rem;
+  margin-bottom: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+  background: #f9f9fc;
+  transition: border 0.3s ease;
+}
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: #092a4c;
+  background: #ffffff;
+}
+
+
+@media (max-width: 768px) {
+  .section-content > div {
+    flex-direction: column !important;
+  }
+}
+
+
+#datenschutz-modal > div {
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+</style>
+</head>
+<body>
+
+<button id="lang-toggle" style="position: fixed; top: 20px; left: 20px; z-index: 9999; padding: 0.5rem 1rem; background: #0c3a5f; color: white; border-radius: 8px; border: none; cursor: pointer;">🇬🇧 EN</button>
+
+
+<section id="start" class="scroll-section" style="position: relative;">
+  <div class="section-img">
+    <img src="img/01.png" alt="Technologie mit Weitblick">
+    <p class="caption">Technologie mit Weitblick</p>
+  </div>
+  <div class="section-content">
+    <h1 class="typing" data-de="Die KI ist bereit. Sind Sie es auch?" data-en="AI is ready. Are you?">Die KI ist bereit. Sind Sie es auch?</h1>
+    <p data-de="Ich unterstütze Sie dabei, KI in Ihrem Unternehmen verantwortungsvoll, rechtssicher und strategisch einzusetzen." data-en="I help you implement AI responsibly, legally, and strategically in your organization.">Ich unterstütze Sie dabei, KI in Ihrem Unternehmen verantwortungsvoll, rechtssicher und strategisch einzusetzen.</p>
+  </div>
+
+<div class="scroll-hint">
+  <span>⇩</span>
+</div>
+
+</section>
+<!-- PROFIL & MOTIVATION -->
+<section id="profil" class="scroll-section">
+  <div class="section-img">
+    <img src="img/02.png" alt="Verantwortung fördern">
+    <p class="caption">Verantwortung fördern</p>
+  </div>
+  <div class="section-content">
+    <h2 class="typing">Profil & Motivation</h2>
+    <p>Ich bin Ihr zertifizierter <strong>KI-Manager (TÜV Austria)</strong> und strategischer Partner, wenn es darum geht, moderne Systeme sicher, verantwortungsvoll und zukunftsfähig einzusetzen.</p>
+    <strong>Wirtschaftlichkeit und Verantwortung schließen sich nicht aus.</strong></p>
+    <p class="caption" style="text-align:center; color:#888;"/p>
+    <p>Ich helfe Ihnen, die Anforderungen des EU AI Acts nicht nur einzuhalten, sondern gezielt zu nutzen – für mehr Sicherheit, Vertrauen und Effizienz.</p>
+    <p><strong><h2 class="typing" data-de="Förderung & Finanzierung" data-en="Funding & Financing">Förderung & Finanzierung</h2>:</strong> Ich unterstütze Sie bei der Identifikation und Beantragung von Förderprogrammen – damit Sie Innovation sicher umsetzen und gleichzeitig Budgets schonen können.</p>
+  </div>
+</section>
+<!-- VERTRAUEN & NACHWEISE -->
+<section id="nachweise" class="scroll-section">
+  <div class="section-img">
+    <img src="img/13.png" alt="Sicherheit inkludiert">
+    <p class="caption">Sicherheit inkludiert</p>
+  </div>
+  <div class="section-content">
+    <h2 class="typing">Vertrauen & Nachweise</h2>
+    <p>Meine Beratung ist nachvollziehbar, dokumentiert und auf echte Nachweise ausgelegt. Kein Marketing – sondern Struktur, Sicherheit und Rechtssicherheit.</p>
+    <ul>
+      <li><strong>TÜV-Zertifizierung:</strong> KI-Manager (TÜV Austria)</li>
+      <li><strong>DSGVO-konforme Beratung</strong></li>
+      <li><strong>Praxisorientierte Umsetzung des EU AI Acts</strong></li>
+      <li><strong>Konform mit ISO/IEC 23894</strong> (Risikomanagement für KI)</li>
+    </ul>
+<p><strong>Langjährige Führungserfahrung trifft Verantwortung:</strong><br>
+Als Geschäftsführer in der digitalen Kreation und Produktion – mit Kunden aus der nationalen und internationalen Film- und Unterhaltungsindustrie – bin ich seit Jahrzehnten mit komplexen Entscheidungsprozessen, Investitionsverantwortung und nachhaltiger Projektsteuerung vertraut.  
+Dieses Know-how fließt heute in meine KI-Beratung ein: fundiert, wirtschaftlich sinnvoll und verantwortungsbewusst.</p>
+
+    <div class="logo-reihe">
+  <img src="img/tuev-logo-transparent.png" alt="TÜV" style="max-height: 140px;">
+  <img src="img/dsgvo.svg" alt="DSGVO">
+  <img src="img/eu-ai.svg" alt="EU AI Act">
+</div>
+
+  </div>
+</section>
+<!-- LEISTUNGEN & LÖSUNGEN -->
+<section id="leistungen" class="scroll-section">
+  <div class="section-img">
+    <img src="img/03.png" alt="Lösungen, die sich rechnen">
+    <p class="caption">Lösungen, die sich rechnen</p>
+  </div>
+  <div class="section-content">
+    <h2 class="typing">Leistungen & Lösungen</h2>
+    <p>Ich begleite Ihr Unternehmen bei der Einführung und dem sicheren Betrieb von KI-Anwendungen – strukturiert, normenkonform und immer mit Blick auf den wirtschaftlichen Mehrwert.</p>
+    <ul>
+      <li><strong>KI-Strategie:</strong> Entwicklung & Einbindung von KI in Ihre Geschäftsprozesse</li>
+      <li><strong>Datenschutz & AI Act:</strong> Beratung entlang aktueller Vorschriften</li>
+      <li><strong>Dokumentation & Governance:</strong> Aufbau nachvollziehbarer KI-Prozesse</li>
+      <li><strong>Schulungen & Workshops:</strong> Sensibilisierung Ihrer Teams für Chancen und Risiken</li>
+      <li><strong>Auditvorbereitung:</strong> Unterstützung bei Prüffähigkeit & Nachweisführung</li>
+    </ul>
+    <p><strong>Fördermöglichkeiten & Finanzierung:</strong> Ich unterstütze Sie gezielt bei der Identifikation, Beantragung und Abwicklung relevanter Förderprogramme für Ihre KI-Projekte – um Sicherheit mit Wirtschaftlichkeit zu verbinden.
+    <p class="caption" style="text-align:center; color:#888;"
+  </div>
+</section>
+<!-- FÖRDERUNG & FINANZIERUNG -->
+<section id="foerderung" class="scroll-section">
+  <div class="section-img">
+    <img src="img/09.png" alt="Fördermittel gezielt nutzen">
+    <p class="caption">Fördermittel gezielt nutzen</p>
+  </div>
+  <div class="section-content">
+    <h2 class="typing"><h2 class="typing" data-de="Förderung & Finanzierung" data-en="Funding & Financing">Förderung & Finanzierung</h2></h2>
+    <p><strong>Nutzen Sie bestehende Fördermittel für Ihre KI-Vorhaben.</strong><br>
+    Je nach Projektart und Unternehmensgröße sind Zuschüsse zwischen 5.000 € und über 100.000 € möglich.<br>
+    Ich prüfe für Sie, ob und welche Programme zu Ihrer Maßnahme passen.</p>
+
+    <h3 style="margin-top: 3rem;"><span data-de="Förderfähigkeit prüfen lassen" data-en="Check your funding eligibility">Förderfähigkeit prüfen lassen</span></h3>
+    <p>Bitte geben Sie mir dazu einige kurze Informationen:</p>
+
+<form name="foerderung" netlify netlify-honeypot="bot-field" action="/thankyou.html">
+  <input type="hidden" name="form-name" value="foerderung">
+  <p hidden><label>Don’t fill this out if you're human: <input name="bot-field" /></label></p>
+
+  <label>Unternehmensgröße<br>
+    <select name="groesse" required style="width:100%; padding:0.5rem; margin-bottom:1rem;">
+      <option value="">Bitte auswählen</option>
+      <option value="<10 MA">Weniger als 10 Mitarbeitende</option>
+      <option value="10-50 MA">10 bis 50 Mitarbeitende</option>
+      <option value="51-250 MA">51 bis 250 Mitarbeitende</option>
+      <option value=">250 MA">Mehr als 250 Mitarbeitende</option>
+    </select>
+  </label>
+
+  <label>Geplante Maßnahme<br>
+    <select name="massnahme" required style="width:100%; padding:0.5rem; margin-bottom:1rem;">
+      <option value="">Bitte auswählen</option>
+      <option value="Beratung & Strategie">Beratung & Strategie</option>
+      <option value="KI-Tool-Integration">KI-Tool-Integration</option>
+      <option value="Prototyp/F&E">Forschung oder Prototyp-Entwicklung</option>
+      <option value="Mitarbeiterschulung">Mitarbeiterschulung / Change Management</option>
+      <option value="Unklar">Noch unklar</option>
+    </select>
+  </label>
+
+  <label>Projektidee (1-2 Sätze)<br>
+    <textarea name="projektidee" rows="3" required style="width:100%; padding:0.5rem; margin-bottom:1rem;"></textarea>
+  </label>
+
+  <label>Ihre E-Mail-Adresse<br>
+    <input type="email" name="email" required style="width:100%; padding:0.5rem; margin-bottom:1rem;">
+  </label>
+
+<p style="font-size: 0.9rem; color: #333;">
+  <label>
+    <input type="checkbox" name="datenschutz" required>
+    <span data-de="Ich habe die Datenschutzerklärung gelesen und akzeptiert." data-en="I have read and accepted the privacy policy.">Ich habe die Datenschutzerklärung gelesen und akzeptiert.</span>
+  </label>
+</p>
+<button type="submit" class="btn" data-de="Jetzt prüfen lassen" data-en="Check now">Jetzt prüfen lassen</button>
+
+</form>
+
+</section>
+
+ <!-- SCHNELL-CHECK & EMPFEHLUNG -->
+<section id="schnellcheck" class="scroll-section">
+  <div class="section-img">
+    <img src="img/04.png" alt="Status erfassen, Risiken vermeiden">
+    <p class="caption">Status erfassen, Risiken vermeiden</p>
+  </div>
+  <div class="section-content">
+    <h2 class="typing"><h2 class="typing" data-de="KI-Schnell-Check & Empfehlung" data-en="AI Quick Check & Recommendation">KI-Schnell-Check & Empfehlung</h2></h2>
+
+<p>Der Schnell-Check hilft Ihnen dabei, den aktuellen Reifegrad Ihrer KI-Strategie im Unternehmen schnell und verständlich einzuschätzen.  
+Sie erfahren auf einen Blick, wie es um Themen wie Dokumentation, Verantwortung, Governance und Datenschutz-Integration steht – inklusive praxisnaher Empfehlungen.</p>
+
+<p>Die Auswertung erfolgt anonym und direkt im Browser.  
+Sie erhalten eine visuelle Bewertung mit Ampellogik sowie eine Sofort-Einschätzung, wo Handlungsbedarf besteht.  
+Ideal als Gesprächsgrundlage oder erster Orientierungspunkt für Unternehmen, die KI einsetzen oder planen.</p>
+
+<div id="quiz">
+      <div class="frage" id="frage1">
+        <h3>1. Wie setzen Sie KI aktuell ein?</h3>
+        <button onclick="nextFrage(1, 'aktiv')">Wir nutzen KI bereits.</button>
+        <button onclick="nextFrage(1, 'basic')">Wir testen erste Tools.</button>
+        <button onclick="nextFrage(1, 'unsicher')">Bisher noch nicht.</button>
+      </div>
+      <div class="frage" id="frage2" style="display: none;">
+        <h3>2. Wer verantwortet den Einsatz?</h3>
+        <button onclick="nextFrage(2, 'chef')">die Geschäftsführung</button>
+        <button onclick="nextFrage(2, 'it')">die IT-Abteilung</button>
+        <button onclick="nextFrage(2, 'keiner')">niemand konkret</button>
+      </div>
+      <div class="frage" id="frage3" style="display: none;">
+        <h3>3. Dokumentieren Sie Entscheidungen?</h3>
+        <button onclick="nextFrage(3, 'ja')">wird klar dokumentiert</button>
+        <button onclick="nextFrage(3, 'teilweise')">teilweise</button>
+        <button onclick="nextFrage(3, 'nein')">noch gar nicht</button>
+      </div>
+      <div class="frage" id="frage4" style="display: none;">
+        <h3>4. Wie steht es um Ihren Datenschutz?</h3>
+        <button onclick="nextFrage(4, 'vorreiter')">Wir sind Vorreiter.</button>
+        <button onclick="nextFrage(4, 'orientierung')">Wir orientieren uns.</button>
+        <button onclick="nextFrage(4, 'risikozone')">noch nicht integriert</button>
+      </div>
+      <div class="frage" id="frage5" style="display: none;">
+        <h3>5. Könnte Ihr Unternehmen aktuell gegen den EU AI Act verstossen?</h3>
+        <button onclick="nextFrage(5, 'bewusst')">vermutlich nicht</button>
+        <button onclick="nextFrage(5, 'vage')">vielleicht in Teilen</button>
+        <button onclick="nextFrage(5, 'ahnungslos')">keine Ahnung</button>
+      </div>
+      <div class="frage" id="frage6" style="display: none;">
+        <h3>6. Wie gehen Sie mit Fehlern im System (auch KI) um?</h3>
+        <button onclick="nextFrage(6, 'dokumentiert')">Wir dokumentieren das.</button>
+        <button onclick="nextFrage(6, 'situativ')">Wir reagieren situativ.</button>
+        <button onclick="nextFrage(6, 'ignoriert')">Wir haben dazu nichts geregelt.</button>
+      </div>
+      <div class="frage" id="frage7" style="display: none;">
+        <h3>7. Wer prüft in Ihrem Unternehmen neue KI-Systeme und Tools?</h3>
+        <button onclick="nextFrage(7, 'team')">ein internes Team</button>
+        <button onclick="nextFrage(7, 'einzelperson')">eine verantwortliche Person</button>
+        <button onclick="nextFrage(7, 'niemand')">niemand konkretes</button>
+      </div>
+    </div>
+
+    <div id="auswertungsblock" style="display:none; margin-top: 3rem;">
+      <h3 data-de="Governance" data-en="Governance">Governance</h3>
+      <div class="balken"><div id="balken-governance" class="balken-bar"></div></div>
+      <p id="text-governance">Ergebnis wird berechnet...</p>
+
+      <h3 data-de="Dokumentation" data-en="Documentation">Dokumentation</h3>
+      <div class="balken"><div id="balken-doku" class="balken-bar"></div></div>
+      <p id="text-doku">Ergebnis wird berechnet...</p>
+
+      <h3>Verantwortung</h3>
+      <div class="balken"><div id="balken-verantwortung" class="balken-bar"></div></div>
+      <p id="text-verantwortung">Ergebnis wird berechnet...</p>
+
+      <h3>Kommunikation</h3>
+      <div class="balken"><div id="balken-kommunikation" class="balken-bar"></div></div>
+      <p id="text-kommunikation">Ergebnis wird berechnet...</p>
+
+      <h3>Datenschutz-Integration</h3>
+      <div class="balken"><div id="balken-datenschutz" class="balken-bar"></div></div>
+      <p id="text-datenschutz">Ergebnis wird berechnet...</p>
+    </div>
+
+    <div id="auswertung" style="display:none; margin-top:2rem;">
+      <h3>Empfehlung & Bewertung</h3>
+      <div id="auswertungstext"></div>
+    </div>
+
+    <div style="text-align:center; margin-top:2rem;">
+      <button class="btn pulse-button" id="restart-button" style="display:none;" onclick="resetQuiz()">Schnell-Check erneut starten</button>
+      
+    </div>
+  </div>
+</section>
+
+
+<!-- WISSEN & HINTERGRUND -->
+<section id="wissen" class="scroll-section">
+  <div class="section-img">
+    <img src="img/05.png" alt="Wissen schafft Sicherheit">
+    <p class="caption">Wissen schafft Sicherheit</p>
+  </div>
+  <div class="section-content">
+    <h2 class="typing">Wissen & Hintergrund</h2>
+    <p>Der sichere Einsatz von KI ist kein Zufall – sondern das Ergebnis fundierten Know-hows und strukturierter Vorbereitung. Mit dem EU AI Act verpflichtet sich der Mittelstand zu Transparenz, Nachvollziehbarkeit und Verantwortung im Umgang mit KI.</p>
+    <p>Viele Unternehmen unterschätzen den Aufwand für eine KI-konforme Umsetzung. Es braucht Wissen über technische Risiken, regulatorische Anforderungen und organisatorische Maßnahmen. Nur dann können Sie vermeiden, dass Ihnen KI zur rechtlichen oder reputativen Belastung wird.</p>
+    <ul>
+      <strong><li>Welche Risiken birgt generative KI im Tagesgeschäft?</li>
+      <li>Was bedeutet Risikoeinstufung nach EU AI Act konkret?</li>
+      <li>Welche Pflichten haben Mittelständler heute schon?</li>
+      <li>Welche Chancen ergeben sich aus guter Vorbereitung?</li></strong>
+    </ul>
+    <p>Ich mache dieses Wissen zugänglich – durch Beratung, Dokumentation und individuelle Risikoanalysen. Klar, verständlich und auditierbar.</p>
+  </div>
+</section>
+<!-- FRAGEN & ANTWORTEN -->
+
+<section id="faq" class="scroll-section">
+  <div class="section-img">
+    <img src="img/06.png" alt="direkt ans Ziel">
+    <p class="caption">direkt ans Ziel</p>
+  </div>
+  <div class="section-content">
+    <h2 class="typing">Gefahren & Risiken</h2>
+
+    <div class="faq-item">
+      <h3 onclick="toggleFaq(this)">Welche Gefahren drohen bei Missachtung des EU AI Acts?</h3>
+      <div class="faq-answer">Unternehmen riskieren Bußgelder, Haftung und Reputationsschäden, insbesondere bei Hochrisiko-KI-Anwendungen.</div>
+    </div>
+    <div class="faq-item">
+      <h3 onclick="toggleFaq(this)">Was sind typische Datenschutz-Verstöße im KI-Kontext?</h3>
+      <div class="faq-answer">Fehlende Transparenz, unklare Einwilligungen oder intransparente Trainingsdaten können gegen die DSGVO verstoßen.</div>
+    </div>
+    <div class="faq-item">
+      <h3 onclick="toggleFaq(this)">Was droht bei unklarer Verantwortung für KI-Entscheidungen?</h3>
+      <div class="faq-answer">Ohne klare Verantwortlichkeiten können fehlerhafte Entscheidungen zu rechtlicher Unsicherheit und Haftung führen.</div>
+    </div>
+    <div class="faq-item">
+      <h3 onclick="toggleFaq(this)">Welche Risiken entstehen durch fehlende Dokumentation?</h3>
+      <div class="faq-answer">Fehlende Nachvollziehbarkeit erschwert Prüfungen und führt zu Problemen bei Audits und Zertifizierungen.</div>
+    </div>
+    <div class="faq-item">
+      <h3 onclick="toggleFaq(this)">Warum ist fehlende Risikoanalyse problematisch?</h3>
+      <div class="faq-answer">Ohne strukturierte Risikobewertung können potenziell gefährliche KI-Systeme unentdeckt bleiben – mit rechtlichen und ethischen Folgen.</div>
+    </div>
+  </div>
+</section>
+
+<!-- KONTAKT & ERSTGESPRÄCH -->
+<section id="kontakt" class="scroll-section">
+  <div class="section-img">
+    <img src="img/08.png" alt="der erste Kontakt">
+    <p class="caption">der erste Kontakt</p>
+  </div>
+  <div class="section-content">
+    <h2 class="typing"><h2 class="typing" data-de="Kontakt & Erstgespräch" data-en="Contact & Initial Consultation">Kontakt & Erstgespräch</h2></h2>
+    <p>Ich freue mich auf Ihre Nachricht oder eine unverbindliche Anfrage für ein kostenfreies Erstgespräch.</p>
+    <form name="kontakt" netlify netlify-honeypot="bot-field" action="/thankyou.html">
+  <input type="hidden" name="form-name" value="kontakt">
+  <p hidden>
+    <label>Don’t fill this out if you're human: <input name="bot-field" /></label>
+  </p>
+  <label>Ihr Name<br>
+    <input type="text" name="name" required style="width: 100%; padding: 0.5rem; margin-bottom: 0.5rem;">
+  </label><br>
+  <label>Ihre E-Mail<br>
+    <input type="email" name="email" required style="width: 100%; padding: 0.5rem; margin-bottom: 0.5rem;">
+  </label><br>
+  <label>Ihre Nachricht<br>
+    <textarea name="message" rows="5" required style="width: 100%; padding: 0.5rem; margin-bottom: 0.5rem;"></textarea>
+  </label><br>
+  
+<p style="font-size: 0.9rem; color: #333;">
+  <label>
+    <input type="checkbox" name="datenschutz" required>
+    <span data-de="Ich habe die Datenschutzerklärung gelesen und akzeptiert." data-en="I have read and accepted the privacy policy.">Ich habe die Datenschutzerklärung gelesen und akzeptiert.</span>
+  </label>
+</p>
+<button type="submit" class="btn" data-de="Nachricht senden" data-en="Send Message">Nachricht senden</button>
+
+</form>
+
+  </div>
+</section>
+<!-- RECHTLICHES & TRANSPARENZ -->
+
+<section id="rechtliches" class="scroll-section">
+  <div class="section-img">
+    <img src="img/07.png" alt="Vertrauen durch Offenheit">
+    <p class="caption">Vertrauen durch Offenheit</p>
+  </div>
+  <div class="section-content">
+    <h2 class="typing"><h2 class="typing" data-de="Rechtliches & Transparenz" data-en="Legal & Transparency">Rechtliches & Transparenz</h2></h2>
+    <div style="display: flex; flex-wrap: wrap; gap: 2rem;">
+      <div style="flex: 1 1 300px; min-width: 280px;">
+        <h3>Impressum</h3>
+        <p style="margin: 0.25rem 0;"><strong>Wolf Hohl</strong><br>
+        Greifswalder Str. 224a<br>
+        10405 Berlin<br>
+        <p style="margin-top: 1rem;"><a href="mailto:info@ki-sicherheit.jetzt" class="btn"> E-Mail schreiben</a></p></p>
+
+        <h4 style="margin-top: 1rem;">Verantwortlich für den Inhalt</h4>
+        <p style="margin: 0.25rem 0;">Wolf Hohl, Adresse wie oben.</p>
+
+        <h4 style="margin-top: 1rem;">Haftungsausschluss</h4>
+        <p style="margin: 0.25rem 0;">Diese Website dient ausschließlich der Information. Trotz sorgfältiger Prüfung übernehme ich keine Haftung für Inhalte externer Links.</p>
+
+        <h4 style="margin-top: 1rem;">Urheberrecht</h4>
+        <p style="margin: 0.25rem 0;">Alle Inhalte dieser Website unterliegen dem deutschen Urheberrecht.</p>
+
+        <h4 style="margin-top: 1rem;">Hinweis zum EU AI Act</h4>
+        <p style="margin: 0.25rem 0;">Diese Website informiert über Pflichten und Empfehlungen zum EU AI Act. Die Inhalte stellen keine Rechtsberatung dar.</p>
+      </div>
+
+      <div style="flex: 1 1 300px; min-width: 280px;">
+        <h3 data-de="Datenschutzerklärung" data-en="Privacy Policy">Datenschutzerklärung</h3>
+        <p style="margin: 0.25rem 0;"><strong>Der Schutz Ihrer persönlichen Daten ist mir ein besonderes Anliegen.</strong></p>
+
+        <h4 style="margin-top: 1rem;">1. Kontakt mit mir</h4>
+        <p style="margin: 0.25rem 0;">Wenn Sie per Formular oder E-Mail Kontakt aufnehmen, werden Ihre Angaben zur Bearbeitung sechs Monate gespeichert.</p>
+
+        <h4 style="margin-top: 1rem;">2. Cookies</h4>
+        <p style="margin: 0.25rem 0;">Diese Website verwendet keine Cookies zur Nutzerverfolgung oder Analyse.</p>
+
+        <h4 style="margin-top: 1rem;">3. Ihre Rechte laut DSGVO</h4>
+        <ul style="margin: 0.5rem 0 0 1rem; padding-left: 1rem;">
+          <li>Auskunft, Berichtigung oder Löschung Ihrer Daten</li>
+          <li>Datenübertragbarkeit</li>
+          <li>Widerruf erteilter Einwilligungen</li>
+          <li>Beschwerde bei der Datenschutzbehörde</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+<script>
+const auswertung = {
+  aktiv: { governance: 30 },
+  basic: { governance: 15 },
+  unsicher: { governance: 5 },
+  chef: { verantwortung: 30 },
+  it: { verantwortung: 20 },
+  keiner: { verantwortung: 5 },
+  ja: { doku: 30 },
+  teilweise: { doku: 15 },
+  nein: { doku: 5 },
+  vorreiter: { datenschutz: 30 },
+  orientierung: { datenschutz: 15 },
+  risikozone: { datenschutz: 5 },
+  bewusst: { kommunikation: 30 },
+  vage: { kommunikation: 15 },
+  ahnungslos: { kommunikation: 5 },
+  dokumentiert: { doku: 20 },
+  situativ: { kommunikation: 10 },
+  ignoriert: { kommunikation: 5 },
+  team: { governance: 20 },
+  einzelperson: { governance: 10 },
+  niemand: { governance: 5 },
+};
+
+const scores = {
+  governance: 0,
+  doku: 0,
+  verantwortung: 0,
+  kommunikation: 0,
+  datenschutz: 0
+};
+
+function nextFrage(num, antwort) {
+  const werte = auswertung[antwort];
+  for (const key in werte) {
+    scores[key] += werte[key];
+  }
+  document.getElementById('frage' + num).style.display = 'none';
+  if (num < 7) {
+    document.getElementById('frage' + (num + 1)).style.display = 'block';
+  } else {
+    zeigeErgebnisse();
+  }
+}
+
+function zeigeErgebnisse() {
+  Object.keys(scores).forEach(kategorie => {
+    const prozent = Math.min(Math.round((scores[kategorie] / 60) * 100), 100);
+    const balken = document.getElementById('balken-' + kategorie);
+    const text = document.getElementById('text-' + kategorie);
+    if (balken) {
+      balken.style.width = prozent + '%';
+      balken.classList.remove('rot', 'gelb', 'gruen');
+      if (prozent >= 75) balken.classList.add('gruen');
+      else if (prozent >= 50) balken.classList.add('gelb');
+      else balken.classList.add('rot');
+    }
+    if (text) {
+      if (prozent >= 75) text.textContent = 'Sehr gut – Sie sind in diesem Bereich gut aufgestellt.';
+      else if (prozent >= 50) text.textContent = 'Ausbaufähig – Es bestehen erste Grundlagen, aber Verbesserungsbedarf.';
+      else text.textContent = 'Kritisch – Hier sollten Sie dringend nachbessern.';
+    }
+  });
+  document.getElementById('auswertungsblock').style.display = 'block';
+  document.getElementById('auswertung').style.display = 'block';
+  document.getElementById('restart-button').style.display = 'inline-block';
+}
+
+function resetQuiz() {
+  location.reload();
+}
+
+function scrollToTop() {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js">
+function scrollToTop() {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+</script>
+<script>
+function exportSeiteAlsPDF() {
+  const element = document.body.cloneNode(true);
+
+  // Entferne Buttons und Scripts für PDF
+  element.querySelectorAll('button, script').forEach(el => el.remove());
+
+  // Optional: Titel setzen
+  const titel = document.createElement('h1');
+  titel.textContent = "KI-Compliance Check & Beratung – Auswertung";
+  titel.style.fontSize = '1.8rem';
+  titel.style.marginBottom = '1rem';
+  element.insertBefore(titel, element.firstChild);
+
+  const opt = {
+    margin:       0.5,
+    filename: (() => {
+      const now = new Date();
+      const datum = now.toISOString().split('T')[0];
+      const uhrzeit = now.toTimeString().split(' ')[0].replace(/:/g, '-');
+      const firma = 'KI-Sicherheit.jetzt';
+      return `${firma}-Auswertung-${datum}-${uhrzeit}.pdf`;
+    })(),
+    image:        { type: 'jpeg', quality: 0.98 },
+    html2canvas:  { scale: 2 },
+    jsPDF:        { unit: 'in', format: 'a4', orientation: 'portrait' }
+  };
+
+  html2pdf().set(opt).from(element).save();
+}
+document.addEventListener("DOMContentLoaded", () => {
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll(".scroll-section").forEach(section => {
+    observer.observe(section);
+  });
+});
+function exportFoerderungPDF() {
+  const foerderung = document.getElementById("foerderung").cloneNode(true);
+  foerderung.querySelectorAll('button, script, form').forEach(el => el.remove());
+  const opt = {
+    margin: 0.5,
+    filename: 'Foerderprogramme-KI-Beratung.pdf',
+    image: { type: 'jpeg', quality: 0.98 },
+    html2canvas: { scale: 2 },
+    jsPDF: { unit: 'in', format: 'a4', orientation: 'portrait' }
+  };
+  html2pdf().set(opt).from(foerderung).save();
+}
+function filterProgramme(e) {
+  e.preventDefault();
+  const groesse = document.getElementById('groesse').value;
+  const art = document.getElementById('art').value;
+  const ausgabe = document.getElementById('foerderkompass-ausgabe');
+
+  let vorschlag = '🔎 <strong>Empfehlung:</strong><br>';
+
+  if (art === 'beratung' && groesse === 'klein') {
+    vorschlag += '→ <strong>go-digital</strong> ist für Sie ideal.';
+  } else if (art === 'umsetzung' && groesse !== 'gross') {
+    vorschlag += '→ <strong>Digital Jetzt</strong> könnte Ihr Projekt fördern.';
+  } else if (art === 'forschung') {
+    vorschlag += '→ Prüfen Sie <strong>ZIM</strong> oder <strong>KMU-innovativ</strong>.';
+  } else {
+    vorschlag += '→ <strong>Landesprogramme</strong> oder EU-Förderung prüfen.';
+  }
+
+  ausgabe.innerHTML = `<p style="background:#f4f4f4; padding:1rem; border-radius:12px;">${vorschlag}</p>`;
+}
+
+
+function scrollToTop() {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+</script>
+
+<button id="pdf-fab" onclick="exportSeiteAlsPDF()">⬇</button>
+
+<!-- Footer (nach dem Screenshot) -->
+<footer class="faq-footer-nav" style="margin-top: 0;">
+  <a href="#profil">Profil & Motivation</a>
+  <a href="#nachweise">Vertrauen & Nachweis</a>
+  <a href="#leistungen">Leistungen & Lösungen</a>
+  <a href="#schnellcheck">Schnell-Check</a>
+  <a href="#wissen">Wissen & Praxis</a>
+  <a href="#faq"><h2 class="typing" data-de="Fragen & Antworten" data-en="Questions & Answers">Fragen & Antworten</h2></a>
+  <a href="#kontakt"><h2 class="typing" data-de="Kontakt & Erstgespräch" data-en="Contact & Initial Consultation">Kontakt & Erstgespräch</h2></a>
+  <a href="#rechtliches">Recht & Transparenz</a>
+</footer>
+
+
+<!-- Zurück zum Anfang Button -->
+<button id="top-button" onclick="scrollToTop()" title="Zurück zum Anfang">
+  <span style="display:inline-block; transform: rotate(0deg); font-size: 1.5rem;">🚀</span>
+</button>
+
+
+
+<!-- DSGVO Modal -->
+<div id="datenschutz-modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:#000000cc; z-index:10000;">
+  <div style="max-width:600px; margin:5% auto; background:#fff; padding:2rem; border-radius:12px; color:#0c3a5f; font-family:Inter, sans-serif; line-height:1.6;">
+    <h2>Datenschutzerklärung</h2>
+    <p><strong>Verantwortlich:</strong><br>Wolf Hohl<br>Greifswalder Str. 224a<br>10405 Berlin<br><p style="margin-top: 1rem;"><a href="mailto:info@ki-sicherheit.jetzt" class="btn"> E-Mail schreiben</a></p></p>
+    <p><strong>1. Kontaktaufnahme:</strong> Bei Nutzung des Formulars oder E-Mail-Kontakt werden Ihre Angaben zur Bearbeitung gespeichert (max. 6 Monate).</p>
+    <p><strong>2. Keine Cookies:</strong> Diese Website setzt keine Tracking-Cookies ein.</p>
+    <p><strong>3. Ihre Rechte laut DSGVO:</strong></p>
+    <ul>
+      <li>Auskunft, Berichtigung, Löschung</li>
+      <li>Datenübertragbarkeit</li>
+      <li>Widerruf von Einwilligungen</li>
+      <li>Beschwerde bei der Aufsichtsbehörde</li>
+    </ul>
+    <p><strong>Hinweis:</strong> Diese Seite dient der Information und ersetzt keine Rechtsberatung.</p>
+    <button onclick="document.getElementById('datenschutz-modal').style.display='none'" class="btn">Schließen</button>
+  </div>
+</div>
+
+<script>
+  function toggleDatenschutzPopup() {
+    const modal = document.getElementById('datenschutz-modal');
+    modal.style.display = 'block';
+  }
+</script>
+
+<script>
+  function switchLanguage(lang) {
+    document.querySelectorAll('[data-de], [data-en]').forEach(el => {
+      
+    if (el.hasAttribute(`data-${lang}`)) {
+      el.textContent = el.getAttribute(`data-${lang}`);
+    }
+    if (el.hasAttribute("data-tooltip") && el.hasAttribute("data-tooltip-en")) {
+      el.setAttribute("data-tooltip", lang === "en" ? el.getAttribute("data-tooltip-en") : el.getAttribute("data-tooltip"));
+    }
+    
+    });
+    localStorage.setItem('lang', lang);
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const savedLang = localStorage.getItem('lang') || 'de';
+    switchLanguage(savedLang);
+    const langBtn = document.getElementById('lang-toggle');
+    langBtn.textContent = savedLang === 'en' ? '🇩🇪 DE' : '🇬🇧 EN';
+    langBtn.onclick = () => {
+      const newLang = langBtn.textContent.includes('EN') ? 'de' : 'en';
+      switchLanguage(newLang);
+      langBtn.textContent = newLang === 'en' ? '🇩🇪 DE' : '🇬🇧 EN';
+    };
+  });
+</script>
+
+
+<script>
+  function switchLanguage(lang) {
+    document.querySelectorAll('[data-de], [data-en]').forEach(el => {
+      if (el.hasAttribute(`data-${lang}`)) {
+        el.textContent = el.getAttribute(`data-${lang}`);
+      }
+      if (el.hasAttribute("data-tooltip") && el.hasAttribute("data-tooltip-en")) {
+        el.setAttribute("data-tooltip", lang === "en" ? el.getAttribute("data-tooltip-en") : el.getAttribute("data-tooltip"));
+      }
+    });
+    localStorage.setItem('lang', lang);
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const savedLang = localStorage.getItem('lang') || 'de';
+    switchLanguage(savedLang);
+    const langBtn = document.getElementById('lang-toggle');
+    if (langBtn) {
+      langBtn.textContent = savedLang === 'en' ? '🇩🇪 DE' : '🇬🇧 EN';
+      langBtn.onclick = () => {
+        const newLang = langBtn.textContent.includes('EN') ? 'de' : 'en';
+        switchLanguage(newLang);
+        langBtn.textContent = newLang === 'en' ? '🇩🇪 DE' : '🇬🇧 EN';
+      };
+    }
+  });
+</script>
+
+</body>
