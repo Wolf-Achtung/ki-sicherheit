@@ -974,5 +974,46 @@ function calculateResults() {
   }
 }
 </script>
+
+<script>
+function showResults() {
+  document.getElementById("evaluation-section").style.display = "block";
+  document.getElementById("show-results-container").style.display = "none";
+
+  // Neue präzise Textauswertung abhängig vom Scores
+  const scores = window.categoryScores || {};
+  const categories = Object.keys(scores);
+  const summary = {
+    gut: 0,
+    ausbau: 0,
+    kritisch: 0
+  };
+
+  categories.forEach(cat => {
+    const score = scores[cat];
+    if (score >= 80) summary.gut++;
+    else if (score >= 40) summary.ausbau++;
+    else summary.kritisch++;
+  });
+
+  let summaryText = '';
+  if (summary.kritisch >= 3) {
+    summaryText = "Ihre KI-Strategie weist gravierende Lücken auf. Ich empfehle eine gezielte Risikoanalyse und priorisierte Sofortmaßnahmen.";
+  } else if (summary.ausbau >= 3) {
+    summaryText = "Sie haben bereits erste fundierte Grundlagen geschaffen, sollten aber gezielt strategisch nachsteuern.";
+  } else if (summary.gut >= 4) {
+    summaryText = "Sie sind in den meisten Bereichen sehr gut aufgestellt. Nutzen Sie diesen Vorsprung für gezielte Feinjustierungen.";
+  } else {
+    summaryText = "Es liegen unterschiedliche Ergebnisse vor – eine differenzierte Betrachtung einzelner Handlungsfelder ist sinnvoll.";
+  }
+
+  const summaryElement = document.createElement('p');
+  summaryElement.textContent = summaryText;
+  summaryElement.style.fontSize = "1.2rem";
+  summaryElement.style.marginTop = "1.5rem";
+  document.getElementById("evaluation-section").appendChild(summaryElement);
+}
+</script>
+
 </body>
 </html>
