@@ -913,6 +913,10 @@ function calculateResults() {
 <h3>Empfehlung &amp; Bewertung</h3>
 <p id="finalRecommendation">Die Zusammenfassung erscheint, sobald alle Fragen beantwortet wurden.</p>
 </div>
+<button onclick="calculateResults()" style="margin-top: 2rem; padding: 0.8rem 1.5rem; font-size: 1rem; background-color: #0a3d66; color: white; border: none; border-radius: 10px; cursor: pointer;">
+      Auswertung anzeigen
+    </button>
+
 <script>
 function getFeedbackText(score) {
   if (score >= 2.5) return '✅ Solide umgesetzt – Ihre Strategie erfüllt in diesem Bereich zentrale Anforderungen.';
