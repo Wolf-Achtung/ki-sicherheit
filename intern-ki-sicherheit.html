@@ -881,7 +881,6 @@ function scrollToTop() {
     modal.style.display = 'block';
   }
 </script>
-
 <script>
 function getFeedbackText(score) {
   if (score >= 2.5) return '✅ Solide umgesetzt – Ihre Strategie erfüllt in diesem Bereich zentrale Anforderungen.';
@@ -897,6 +896,7 @@ function calculateOverallRecommendation(scores) {
 }
 
 function calculateResults() {
+  showFinalRecommendation();
   const results = document.querySelectorAll('.result-score');
   const scoreValues = [];
   results.forEach(el => {
@@ -907,6 +907,39 @@ function calculateResults() {
   document.getElementById('resultContainer').style.display = 'block';
   document.getElementById('restartCheck').style.display = 'block';
   document.getElementById('finalRecommendation').innerText = calculateOverallRecommendation(scoreValues);
+}
+</script>
+<div class="result-group" id="resultContainer">
+<h3>Empfehlung &amp; Bewertung</h3>
+<p id="finalRecommendation">Die Zusammenfassung erscheint, sobald alle Fragen beantwortet wurden.</p>
+</div>
+<script>
+function getFeedbackText(score) {
+  if (score >= 2.5) return '✅ Solide umgesetzt – Ihre Strategie erfüllt in diesem Bereich zentrale Anforderungen.';
+  if (score >= 1.5) return '⚠️ Ausbaufähig – Es bestehen erste Grundlagen, aber Optimierung ist empfehlenswert.';
+  return '❗ Kritisch – Hier bestehen erhebliche Risiken. Sie sollten dringend nachbessern.';
+}
+
+function calculateOverallRecommendation(scores) {
+  const avg = scores.reduce((a, b) => a + b, 0) / scores.length;
+  if (avg >= 2.5) return '✅ Gute Basis – Ihre Strategie ist gut aufgestellt. Einzelne Punkte können weiter optimiert werden.';
+  if (avg >= 1.5) return '⚠️ Teils solide, teils unsicher – Einige Grundlagen sind vorhanden, aber Sie sollten zentrale Aspekte stärken.';
+  return '❗ Kritischer Handlungsbedarf – Ihre KI-Strategie weist erhebliche Lücken auf. Eine strukturierte Nachbesserung ist erforderlich.';
+}
+
+function showFinalRecommendation() {
+  const results = document.querySelectorAll('.result-score');
+  if (results.length !== 5) return;
+  const scoreValues = [];
+  results.forEach(el => {
+    const score = parseInt(el.getAttribute('data-score'));
+    scoreValues.push(score);
+    const feedback = getFeedbackText(score);
+    const feedbackP = el.nextElementSibling;
+    if (feedbackP) feedbackP.innerText = feedback;
+  });
+  const finalText = calculateOverallRecommendation(scoreValues);
+  document.getElementById("finalRecommendation").innerText = finalText;
 }
 </script>
 </body>
