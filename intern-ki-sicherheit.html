@@ -902,5 +902,31 @@ function scrollToTop() {
 <path d="M12 4l-8 8h5v8h6v-8h5z"></path>
 </svg>
 </button>
+
+<script>
+function showEvaluation() {
+  document.getElementById("resultContainer").style.display = "block";
+  document.getElementById("summaryFeedback").style.display = "block";
+  document.getElementById("showEvaluationBtn").style.display = "none";
+
+  const scores = Array.from(document.querySelectorAll('.result-score')).map(el => parseInt(el.getAttribute('data-score')));
+  let red = 0, yellow = 0, green = 0;
+  scores.forEach(score => {
+    if (score < 40) red++;
+    else if (score < 75) yellow++;
+    else green++;
+  });
+
+  let summary = "";
+  if (red >= 3) {
+    summary = "<strong>Kritisch:</strong> In mehreren Bereichen fehlen wichtige Voraussetzungen für einen verantwortungsvollen KI-Einsatz. Es besteht dringender Handlungsbedarf.";
+  } else if (yellow >= 3) {
+    summary = "<strong>Ausbaufähig:</strong> Sie haben erste Maßnahmen umgesetzt, aber zentrale Anforderungen sind noch nicht erfüllt.";
+  } else {
+    summary = "<strong>Sehr gut:</strong> Ihre Antworten zeigen eine strukturierte, verantwortungsbewusste Herangehensweise mit geringem Risikopotenzial.";
+  }
+  document.getElementById("summaryFeedback").innerHTML = summary;
+}
+</script>
 </body>
 </html>
