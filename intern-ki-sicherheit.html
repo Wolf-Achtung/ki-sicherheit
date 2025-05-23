@@ -362,6 +362,12 @@ textarea:focus {
   font-size: 1rem;
   margin-bottom: 0.5rem;
 }
+
+.option-button.selected, .btn.selected {
+  background-color: #ffd700 !important;
+  color: #000 !important;
+  border: 2px solid #333;
+}
 </style>
 </head>
 <body>
@@ -500,59 +506,55 @@ textarea:focus {
 </p></div></section>
 <!-- SCHNELL-CHECK & EMPFEHLUNG -->
 <section class="scroll-section" id="schnellcheck">
-<div class="section-img">
-<img alt="Schnell analysieren" src="img/04.png"/>
-<p class="caption">Schnell analysieren</p>
-</div>
-<div class="section-content">
+<div id="schnellcheck-inhalt">
 <h2 class="typing">KI-Schnell-Check</h2>
-<p>Wie gut ist Ihr Unternehmen auf den verantwortungsvollen Einsatz von KI vorbereitet? Beantworten Sie 7 kurze Fragen und erhalten Sie sofort eine individuelle Einschätzung mit professioneller Empfehlung.</p>
+<p>Dieser Check zeigt Ihnen, wie gut Ihre Organisation auf einen verantwortungsvollen KI-Einsatz vorbereitet ist. Beantworten Sie 7 kurze Fragen – Sie erhalten eine direkte Einschätzung und konkrete Empfehlung.</p>
 <div class="frage-block" id="frage1">
 <p><strong>1. Gibt es eine zentrale Dokumentation aller eingesetzten KI-Systeme?</strong></p>
-<button class="btn" onclick="antwortSpeichern('frage1', 3)">Ja</button>
-<button class="btn" onclick="antwortSpeichern('frage1', 2)">Teilweise</button>
-<button class="btn" onclick="antwortSpeichern('frage1', 1)">Nein</button>
+<button class="option-button" onclick="antwortSpeichern('frage1', 3)">Ja</button>
+<button class="option-button" onclick="antwortSpeichern('frage1', 2)">Teilweise</button>
+<button class="option-button" onclick="antwortSpeichern('frage1', 1)">Nein</button>
 </div>
 <div class="frage-block" id="frage2">
 <p><strong>2. Sind Verantwortlichkeiten für KI klar benannt?</strong></p>
-<button class="btn" onclick="antwortSpeichern('frage2', 3)">Ja</button>
-<button class="btn" onclick="antwortSpeichern('frage2', 2)">Teilweise</button>
-<button class="btn" onclick="antwortSpeichern('frage2', 1)">Nein</button>
+<button class="option-button" onclick="antwortSpeichern('frage2', 3)">Ja</button>
+<button class="option-button" onclick="antwortSpeichern('frage2', 2)">Teilweise</button>
+<button class="option-button" onclick="antwortSpeichern('frage2', 1)">Nein</button>
 </div>
 <div class="frage-block" id="frage3">
 <p><strong>3. Gibt es nachvollziehbare Entscheidungsprozesse bei KI-Nutzung?</strong></p>
-<button class="btn" onclick="antwortSpeichern('frage3', 3)">Ja</button>
-<button class="btn" onclick="antwortSpeichern('frage3', 2)">Teilweise</button>
-<button class="btn" onclick="antwortSpeichern('frage3', 1)">Nein</button>
+<button class="option-button" onclick="antwortSpeichern('frage3', 3)">Ja</button>
+<button class="option-button" onclick="antwortSpeichern('frage3', 2)">Teilweise</button>
+<button class="option-button" onclick="antwortSpeichern('frage3', 1)">Nein</button>
 </div>
 <div class="frage-block" id="frage4">
 <p><strong>4. Wurden Risiken bei KI-Einsatz systematisch analysiert?</strong></p>
-<button class="btn" onclick="antwortSpeichern('frage4', 3)">Ja</button>
-<button class="btn" onclick="antwortSpeichern('frage4', 2)">Teilweise</button>
-<button class="btn" onclick="antwortSpeichern('frage4', 1)">Nein</button>
+<button class="option-button" onclick="antwortSpeichern('frage4', 3)">Ja</button>
+<button class="option-button" onclick="antwortSpeichern('frage4', 2)">Teilweise</button>
+<button class="option-button" onclick="antwortSpeichern('frage4', 1)">Nein</button>
 </div>
 <div class="frage-block" id="frage5">
 <p><strong>5. Sind Datenschutz-Aspekte bei KI-Nutzung berücksichtigt?</strong></p>
-<button class="btn" onclick="antwortSpeichern('frage5', 3)">Ja</button>
-<button class="btn" onclick="antwortSpeichern('frage5', 2)">Teilweise</button>
-<button class="btn" onclick="antwortSpeichern('frage5', 1)">Nein</button>
+<button class="option-button" onclick="antwortSpeichern('frage5', 3)">Ja</button>
+<button class="option-button" onclick="antwortSpeichern('frage5', 2)">Teilweise</button>
+<button class="option-button" onclick="antwortSpeichern('frage5', 1)">Nein</button>
 </div>
 <div class="frage-block" id="frage6">
 <p><strong>6. Gibt es eine Kommunikationsstrategie zu KI-Anwendungen?</strong></p>
-<button class="btn" onclick="antwortSpeichern('frage6', 3)">Ja</button>
-<button class="btn" onclick="antwortSpeichern('frage6', 2)">Teilweise</button>
-<button class="btn" onclick="antwortSpeichern('frage6', 1)">Nein</button>
+<button class="option-button" onclick="antwortSpeichern('frage6', 3)">Ja</button>
+<button class="option-button" onclick="antwortSpeichern('frage6', 2)">Teilweise</button>
+<button class="option-button" onclick="antwortSpeichern('frage6', 1)">Nein</button>
 </div>
 <div class="frage-block" id="frage7">
 <p><strong>7. Werden Mitarbeitende gezielt auf KI vorbereitet?</strong></p>
-<button class="btn" onclick="antwortSpeichern('frage7', 3)">Ja</button>
-<button class="btn" onclick="antwortSpeichern('frage7', 2)">Teilweise</button>
-<button class="btn" onclick="antwortSpeichern('frage7', 1)">Nein</button>
+<button class="option-button" onclick="antwortSpeichern('frage7', 3)">Ja</button>
+<button class="option-button" onclick="antwortSpeichern('frage7', 2)">Teilweise</button>
+<button class="option-button" onclick="antwortSpeichern('frage7', 1)">Nein</button>
 </div>
-<div style="text-align:left; margin-top:2rem;">
-<button class="btn" onclick="zeigeEmpfehlung()">Auswertung anzeigen</button>
+<div style="text-align:center; margin-top:2rem;">
+<button class="button" onclick="zeigeEmpfehlung()">Auswertung anzeigen</button><button class="btn" onclick="resetCheck()" style="margin-left: 1rem;">Check wiederholen</button>
 </div>
-<div id="finalEvaluationText" style="display:none; margin-top: 2rem;">
+<div id="finalEvaluationText" style="display:none; margin-top: 2rem; font-size: 1.05rem; line-height: 1.6;">
 <h3>Zusammenfassung &amp; Empfehlung</h3>
 <p><strong>Unzureichend – Ihre Organisation verfügt aktuell über keine tragfähige KI-Strategie.</strong></p>
 <p>Die Analyse zeigt: Es bestehen wesentliche Lücken bei Dokumentation, Verantwortung, Datenschutz und Kommunikation. Dies birgt rechtliche Risiken – und bremst die strukturierte Nutzung von KI erheblich.</p>
@@ -849,18 +851,19 @@ function showEvaluation() {
 <p>Gemeinsam entwickeln wir eine robuste, auditierbare KI-Strategie – zugeschnitten auf die Anforderungen Ihres Unternehmens. Mit Fokus auf Effizienz, Transparenz und regulatorische Sicherheit.</p>
 <p><em>Setzen Sie auf fundiertes Know-how, unternehmerische Erfahrung und praxisnahe Umsetzung – für einen sicheren und zukunftsfähigen KI-Einsatz.</em></p>
 </div>
+
+
 <script>
 const antworten = {};
 
 function antwortSpeichern(frageID, wert) {
   antworten[frageID] = wert;
-  const buttons = document.querySelectorAll('#' + frageID + ' .option-button');
+  const buttons = document.querySelectorAll('#' + frageID + ' .btn');
   buttons.forEach(btn => btn.classList.remove('selected'));
   event.target.classList.add('selected');
 }
 
 function zeigeEmpfehlung() {
-  const container = document.getElementById("finalEvaluationText");
   const werte = Object.values(antworten);
   if (werte.length < 7) {
     alert("Bitte beantworten Sie alle Fragen.");
@@ -873,8 +876,15 @@ function zeigeEmpfehlung() {
   else if (schnitt < 2.3) titel = "Ausbaufähig – Ihre Organisation hat erste Strukturen aufgebaut.";
   else titel = "Sehr gut – Ihre KI-Strategie ist in vielen Bereichen bereits solide aufgestellt.";
 
-  container.querySelector("p strong").textContent = titel;
-  container.style.display = "block";
+  document.querySelector("#finalEvaluationText p strong").textContent = titel;
+  document.getElementById("finalEvaluationText").style.display = "block";
+}
+
+function resetCheck() {
+  Object.keys(antworten).forEach(k => delete antworten[k]);
+  document.querySelectorAll('.btn').forEach(btn => btn.classList.remove('selected'));
+  document.getElementById("finalEvaluationText").style.display = "none";
+  window.scrollTo({ top: document.getElementById("schnellcheck").offsetTop, behavior: 'smooth' });
 }
 </script>
 </body>
