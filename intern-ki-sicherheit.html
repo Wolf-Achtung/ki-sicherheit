@@ -760,9 +760,9 @@ function zeigeErgebnisse() {
       else balken.classList.add('rot');
     }
     if (text) {
-      if (prozent >= 75) text.textContent = 'Sehr gut – Sie sind in diesem Bereich gut aufgestellt.';
-      else if (prozent >= 50) text.textContent = 'Ausbaufähig – Es bestehen erste Grundlagen, aber Verbesserungsbedarf.';
-      else text.textContent = 'Kritisch – Hier sollten Sie dringend nachbessern.';
+      if (prozent >= 75) text.textContent = '';
+      else if (prozent >= 50) text.textContent = '';
+      else text.textContent = '';
     }
   });
   document.getElementById('auswertungsblock').style.display = 'block';
