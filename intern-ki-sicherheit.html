@@ -544,6 +544,10 @@ Ideal als Gesprächsgrundlage oder erster Orientierungspunkt für Unternehmen, d
 </div>
 <div id="auswertung" style="display:none; margin-top:2rem;">
 <h3>Empfehlung &amp; Bewertung</h3>
+<div id="finalRecommendation" style="margin-top: 1.5rem; padding: 1rem; background-color: #f4f4f4; border-radius: 8px; display: none;"></div>
+<button onclick="calculateResults()" style="margin-top: 1rem; padding: 0.8rem 1.5rem; font-size: 1rem; background-color: #0a3d66; color: white; border: none; border-radius: 10px; cursor: pointer;">
+      Auswertung anzeigen
+    </button>
 <div id="auswertungstext"></div>
 </div>
 <div style="text-align:center; margin-top:2rem;">
@@ -916,7 +920,6 @@ function calculateResults() {
 <button onclick="calculateResults()" style="margin-top: 2rem; padding: 0.8rem 1.5rem; font-size: 1rem; background-color: #0a3d66; color: white; border: none; border-radius: 10px; cursor: pointer;">
       Auswertung anzeigen
     </button>
-
 <script>
 function getFeedbackText(score) {
   if (score >= 2.5) return '✅ Solide umgesetzt – Ihre Strategie erfüllt in diesem Bereich zentrale Anforderungen.';
@@ -944,6 +947,31 @@ function showFinalRecommendation() {
   });
   const finalText = calculateOverallRecommendation(scoreValues);
   document.getElementById("finalRecommendation").innerText = finalText;
+}
+</script>
+
+<script>
+function calculateResults() {
+  const bars = document.querySelectorAll('[data-score]');
+  let red = 0, yellow = 0, green = 0;
+
+  bars.forEach(bar => {
+    const score = parseInt(bar.getAttribute('data-score'));
+    if (score < 40) red++;
+    else if (score < 75) yellow++;
+    else green++;
+  });
+
+  const resultBox = document.getElementById('finalRecommendation');
+  resultBox.style.display = 'block';
+
+  if (red >= 3) {
+    resultBox.innerHTML = '<strong>Kritischer Stand:</strong> In mehreren Bereichen besteht dringender Handlungsbedarf. Ich empfehle eine umfassende Überprüfung Ihrer KI-Strategie.';
+  } else if (yellow >= 3) {
+    resultBox.innerHTML = '<strong>Ausbaufähig:</strong> Es bestehen erste Grundlagen. Eine gezielte Weiterentwicklung Ihrer Maßnahmen ist sinnvoll.';
+  } else {
+    resultBox.innerHTML = '<strong>Sehr gut:</strong> Ihre Antworten zeigen eine weitgehend gut aufgestellte KI-Strategie. Vereinzelte Verbesserungen möglich.';
+  }
 }
 </script>
 </body>
