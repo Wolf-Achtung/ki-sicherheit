@@ -706,84 +706,7 @@ Ideal als Gesprächsgrundlage oder erster Orientierungspunkt für Unternehmen, d
 </div>
 </div>
 </section>
-<script>
-const auswertung = {
-  aktiv: { governance: 30 },
-  basic: { governance: 15 },
-  unsicher: { governance: 5 },
-  chef: { verantwortung: 30 },
-  it: { verantwortung: 20 },
-  keiner: { verantwortung: 5 },
-  ja: { doku: 30 },
-  teilweise: { doku: 15 },
-  nein: { doku: 5 },
-  vorreiter: { datenschutz: 30 },
-  orientierung: { datenschutz: 15 },
-  risikozone: { datenschutz: 5 },
-  bewusst: { kommunikation: 30 },
-  vage: { kommunikation: 15 },
-  ahnungslos: { kommunikation: 5 },
-  dokumentiert: { doku: 20 },
-  situativ: { kommunikation: 10 },
-  ignoriert: { kommunikation: 5 },
-  team: { governance: 20 },
-  einzelperson: { governance: 10 },
-  niemand: { governance: 5 },
-};
 
-const scores = {
-  governance: 0,
-  doku: 0,
-  verantwortung: 0,
-  kommunikation: 0,
-  datenschutz: 0
-};
-
-function nextFrage(num, antwort) {
-  const werte = auswertung[antwort];
-  for (const key in werte) {
-    scores[key] += werte[key];
-  }
-  document.getElementById('frage' + num).style.display = 'none';
-  if (num < 7) {
-    document.getElementById('frage' + (num + 1)).style.display = 'block';
-  } else {
-    zeigeErgebnisse();
-  }
-}
-
-function zeigeErgebnisse() {
-  Object.keys(scores).forEach(kategorie => {
-    const prozent = Math.min(Math.round((scores[kategorie] / 60) * 100), 100);
-    const balken = document.getElementById('balken-' + kategorie);
-    const text = document.getElementById('text-' + kategorie);
-    if (balken) {
-      balken.style.width = prozent + '%';
-      balken.classList.remove('rot', 'gelb', 'gruen');
-      if (prozent >= 75) balken.classList.add('gruen');
-      else if (prozent >= 50) balken.classList.add('gelb');
-      else balken.classList.add('rot');
-    }
-    if (text) {
-      if (prozent >= 75) text.textContent = 'Sehr gut – Sie sind in diesem Bereich gut aufgestellt.';
-      else if (prozent >= 50) text.textContent = 'Ausbaufähig – Es bestehen erste Grundlagen, aber Verbesserungsbedarf.';
-      else text.textContent = 'Kritisch – Hier sollten Sie dringend nachbessern.';
-    }
-  });
-  document.getElementById('auswertungsblock').style.display = 'block';
-  document.getElementById('auswertung').style.display = 'block';
-  document.getElementById('restart-button').style.display = 'inline-block';
-}
-
-function resetQuiz() {
-  location.reload();
-}
-
-function scrollToTop() {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-}
-
-</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js">
 function scrollToTop() {
   window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -915,5 +838,39 @@ document.querySelectorAll('.quiz button').forEach(button => {
         button.classList.add('selected');
     });
 });
-</script></body>
+</script><div id="finalEvaluationText" style="display:none; margin-top: 2rem; font-size: 1.05rem; line-height: 1.6;">
+<h3>Zusammenfassung &amp; Empfehlung</h3>
+<p id="evaluationResult"><strong>Ihre Bewertung erscheint hier nach dem Check.</strong></p>
+<p>Ich unterstütze Sie mit:</p>
+<ul>
+<li><strong>DSGVO-konformer Beratung</strong></li>
+<li><strong>praxisorientierter Umsetzung des EU AI Acts</strong></li>
+<li><strong>Konformität mit ISO/IEC 23894 (Risikomanagement für KI)</strong></li>
+</ul>
+<p>Gemeinsam entwickeln wir eine robuste, auditierbare KI-Strategie – zugeschnitten auf die Anforderungen Ihres Unternehmens. Mit Fokus auf Effizienz, Transparenz und regulatorische Sicherheit.</p>
+<p><em>Setzen Sie auf fundiertes Know-how, unternehmerische Erfahrung und praxisnahe Umsetzung – für einen sicheren und zukunftsfähigen KI-Einsatz.</em></p>
+</div>
+<script>
+function zeigeEmpfehlung() {
+  const antworten = Array.from(document.querySelectorAll(".frage-block .btn.selected")).map(btn => parseInt(btn.getAttribute("data-score")));
+  if (antworten.length < 7) {
+    alert("Bitte beantworten Sie alle 7 Fragen.");
+    return;
+  }
+  const schnitt = antworten.reduce((a,b) => a + b, 0) / antworten.length;
+  let ergebnis = "";
+
+  if (schnitt < 1.6) {
+    ergebnis = "Kritisch – In mehreren Bereichen fehlen zentrale Grundlagen für einen sicheren KI-Einsatz.";
+  } else if (schnitt < 2.3) {
+    ergebnis = "Ausbaufähig – Ihre Organisation hat erste Strukturen geschaffen, aber es bestehen klare Lücken.";
+  } else {
+    ergebnis = "Sehr gut – Ihre KI-Strategie ist in vielen Bereichen solide und verantwortungsvoll aufgestellt.";
+  }
+
+  document.getElementById("evaluationResult").innerHTML = "<strong>" + ergebnis + "</strong>";
+  document.getElementById("finalEvaluationText").style.display = "block";
+}
+</script>
+</body>
 </html>
