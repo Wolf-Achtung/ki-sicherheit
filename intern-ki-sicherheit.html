@@ -23,6 +23,7 @@
       gap: 2rem;
     }
     .section-img {
+  align-self: flex-start;
       flex: 1 1 300px;
       max-width: 300px;
     }
@@ -392,9 +393,8 @@ textarea:focus {
       <li><strong>Praxisorientierte Umsetzung des EU AI Acts</strong></li>
       <li><strong>Konform mit ISO/IEC 23894</strong> (Risikomanagement für KI)</li>
     </ul>
-<p><strong>Langjährige Führungserfahrung trifft Verantwortung:</strong><br>
-Als Geschäftsführer in der digitalen Kreation und Produktion – mit Kunden aus der nationalen und internationalen Film- und Unterhaltungsindustrie – bin ich seit Jahrzehnten mit komplexen Entscheidungsprozessen, Investitionsverantwortung und nachhaltiger Projektsteuerung vertraut.  
-Dieses Know-how fließt heute in meine KI-Beratung ein: fundiert, wirtschaftlich sinnvoll und verantwortungsbewusst.</p>
+<p><strong>Verantwortung aus Erfahrung:</strong><br>
+Als langjähriger Geschäftsführer in der digitalen Kreation mit Kunden aus der internationalen Film- und Medienbranche bin ich vertraut mit komplexen Entscheidungen, Investitionen und nachhaltiger Umsetzung. Dieses Praxiswissen prägt meine KI-Beratung – fundiert, wirtschaftlich und verantwortungsvoll.</p>
 
     <div class="logo-reihe">
   <img src="img/tuev-logo-transparent.png" alt="TÜV" style="max-height: 140px;">
@@ -433,10 +433,9 @@ Dieses Know-how fließt heute in meine KI-Beratung ein: fundiert, wirtschaftlich
   <div class="section-content">
     <h2 class="typing">Förderung & Finanzierung</h2>
     <p><strong>Nutzen Sie bestehende Fördermittel für Ihre KI-Vorhaben.</strong><br>
-    Je nach Projektart und Unternehmensgröße sind Zuschüsse zwischen 5.000 € und über 100.000 € möglich.<br>
-    Ich prüfe für Sie, ob und welche Programme zu Ihrer Maßnahme passen.</p>
+    Je nach Projektart und Unternehmensgröße sind Zuschüsse zwischen 5.000 € und über 100.000 € möglich. Ich prüfe für Sie, ob und welche Programme zu Ihrer Maßnahme passen.</p>
 
-    <h3 style="margin-top: 3rem;">Förderfähigkeit prüfen lassen</h3>
+    <p><strong>Förderfähigkeit prüfen lassen:</strong>
     <p>Bitte geben Sie mir dazu einige kurze Informationen:</p>
 
 <form name="foerderung" netlify netlify-honeypot="bot-field" action="/thankyou.html">
@@ -446,6 +445,7 @@ Dieses Know-how fließt heute in meine KI-Beratung ein: fundiert, wirtschaftlich
   <label>Unternehmensgröße<br>
     <select name="groesse" required style="width:100%; padding:0.5rem; margin-bottom:1rem;">
       <option value="">Bitte auswählen</option>
+      <option value="Selbständig">Selbständig</option>
       <option value="<10 MA">Weniger als 10 Mitarbeitende</option>
       <option value="10-50 MA">10 bis 50 Mitarbeitende</option>
       <option value="51-250 MA">51 bis 250 Mitarbeitende</option>
@@ -453,19 +453,33 @@ Dieses Know-how fließt heute in meine KI-Beratung ein: fundiert, wirtschaftlich
     </select>
   </label>
 
+  
+  <label>Branche<br>
+    <select name="branche" required style="width:100%; padding:0.5rem; margin-bottom:1rem;">
+      <option value="">Bitte auswählen</option>
+      <option value="Finanzdienstleistungen">Finanzdienstleistungen</option>
+      <option value="Industrie/Produktion">Industrie/Produktion</option>
+      <option value="Einzelhandel">Einzelhandel</option>
+      <option value="Logistik & Transport">Logistik & Transport</option>
+      <option value="IT & Telekommunikation">IT & Telekommunikation</option>
+      <option value="Energieversorgung">Energieversorgung</option>
+      <option value="Medien & Unterhaltung">Medien & Unterhaltung</option>
+      <option value="Baugewerbe">Baugewerbe</option>
+      <option value="Landwirtschaft">Landwirtschaft</option>
+      <option value="andere">andere</option>
+    </select>
+  </label>
+
   <label>Geplante Maßnahme<br>
     <select name="massnahme" required style="width:100%; padding:0.5rem; margin-bottom:1rem;">
       <option value="">Bitte auswählen</option>
+      <option value="Selbständig">Selbständig</option>
       <option value="Beratung & Strategie">Beratung & Strategie</option>
       <option value="KI-Tool-Integration">KI-Tool-Integration</option>
       <option value="Prototyp/F&E">Forschung oder Prototyp-Entwicklung</option>
       <option value="Mitarbeiterschulung">Mitarbeiterschulung / Change Management</option>
       <option value="Unklar">Noch unklar</option>
     </select>
-  </label>
-
-  <label>Projektidee (1-2 Sätze)<br>
-    <textarea name="projektidee" rows="3" required style="width:100%; padding:0.5rem; margin-bottom:1rem;"></textarea>
   </label>
 
   <label>Ihre E-Mail-Adresse<br>
