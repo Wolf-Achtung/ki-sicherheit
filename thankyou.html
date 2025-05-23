@@ -1,36 +1,43 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <title>Vielen Dank!</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Danke für Ihre Anfrage</title>
   <style>
     body {
       font-family: 'Inter', sans-serif;
-      background: #fdfdfd;
-      color: #0c3a5f;
       margin: 0;
       padding: 0;
+      background: #fdfdfd;
+      color: #0c3a5f;
+      line-height: 1.6;
+    }
+    section.scroll-section {
+      padding: 3rem 1.5rem;
+      max-width: 1080px;
+      margin: 0 auto;
       display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      text-align: center;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+    .section-img {
+      flex: 1 1 300px;
+      max-width: 300px;
     }
     .section-content {
-      max-width: 600px;
-      padding: 2rem;
+      flex: 2 1 600px;
     }
-    h2 {
+    h1, h2.typing {
       font-family: 'Share Tech Mono', monospace;
       font-size: 2rem;
+      font-weight: bold;
+      margin-bottom: 1.5rem;
       animation: flicker 1.5s infinite alternate;
     }
-    p {
-      font-size: 1.1rem;
-      line-height: 1.6;
-      margin: 1.5rem 0;
+    @keyframes flicker {
+      0% { opacity: 1; }
+      100% { opacity: 0.85; }
     }
     .btn {
       background-color: #0c3a5f;
@@ -39,28 +46,318 @@
       padding: 0.75rem 1.25rem;
       border-radius: 12px;
       font-size: 1rem;
-      text-decoration: none;
+      cursor: pointer;
     }
     .btn:hover {
-      background-color: #092a4c;
+      background-color: #093256;
     }
-    @keyframes flicker {
-      0% { opacity: 1; }
-      100% { opacity: 0.85; }
+    .caption {
+      text-align: center;
+      font-size: 0.85rem;
+      color: #888;
+      margin-top: 0.5rem;
     }
     img {
-      max-width: 160px;
-      margin-bottom: 1rem;
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
     }
-  </style>
+    .tooltip {
+      position: relative;
+      cursor: help;
+      border-bottom: 1px dotted #999;
+    }
+    .tooltip:hover::after {
+      content: attr(data-tooltip);
+      position: absolute;
+      left: 0;
+      top: 100%;
+      background: #333;
+      color: #fff;
+      padding: 0.5rem;
+      border-radius: 6px;
+      white-space: nowrap;
+      font-size: 0.8rem;
+      margin-top: 0.3rem;
+      z-index: 9999;
+    }
+    .balken {
+      background: #eee;
+      border-radius: 20px;
+      height: 20px;
+      overflow: hidden;
+      margin-bottom: 0.5rem;
+    }
+    .balken-bar {
+      height: 100%;
+      width: 0%;
+      transition: width 1s ease-in-out;
+      border-radius: 20px;
+    }
+    .balken-bar.rot { background: #c0392b; }
+    .balken-bar.gelb { background: #f39c12; }
+    .balken-bar.gruen { background: #27ae60; }
+@media (max-width: 768px) {
+  #quiz .frage {
+    margin-bottom: 2rem;
+  }
+  #quiz button {
+    display: block;
+    width: 100%;
+    margin-bottom: 0.5rem;
+  }
+  .balken {
+    height: 16px;
+  }
+  #auswertung ul li {
+    font-size: 0.95rem;
+  }
+  #auswertung button {
+    display: block;
+    width: 100%;
+    margin: 0.5rem 0;
+  }
+ #pdf-fab {
+    display: block;
+  }
+}
+
+/* Animierte Section Transitions */
+.scroll-section {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.scroll-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Balken-Card-Style */
+.balken {
+  background: #eee;
+  border-radius: 20px;
+  height: 20px;
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+/* Floating Button */
+#pdf-fab {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #0c3a5f;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 56px;
+  height: 56px;
+  font-size: 1.5rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  cursor: pointer;
+  z-index: 1000;
+}
+#pdf-fab:hover {
+  background-color: #092a4c;
+}
+/* FAQ Footer Style */
+.faq-footer-nav {
+  text-align: center;
+  margin-top: 2rem;
+  border-top: 1px solid #ccc;
+  padding-top: 1rem;
+  font-weight: bold;
+  font-size: 1rem;
+}
+.faq-footer-nav a {
+  margin: 0 1rem;
+  color: #0c3a5f;
+  text-decoration: none;
+}
+.faq-footer-nav a:hover {
+  text-decoration: underline;
+}
+
+/* Einheitliche Button-Stile */
+#quiz button {
+  background-color: #0c3a5f;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 12px;
+  margin: 0.25rem 0.5rem 0.5rem 0;
+  cursor: pointer;
+  font-size: 1rem;
+  font-family: inherit;
+}
+#quiz button:hover {
+  background-color: #093256;
+}
+#quiz button.active {
+  background-color: #0d6efd !important;
+  color: white !important;
+  border: 1px solid #084298 !important;
+}
+.logo-reihe {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+.logo-reihe img {
+  max-height: 60px;
+  height: auto;
+  width: auto;
+  object-fit: contain;
+}
+
+
+@media (min-width: 1025px) {
+  html, body {
+    scroll-snap-type: y mandatory;
+  }
+
+  section.scroll-section {
+    scroll-snap-align: start;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+  }
+}
+
+
+@media (min-width: 1025px) {
+  #top-button {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #0c3a5f;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    font-size: 1.25rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    cursor: pointer;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  #top-button:hover {
+    background-color: #092a4c;
+  }
+}
+
+
+@media (min-width: 1025px) {
+  .scroll-hint {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2rem;
+    color: #0c3a5f;
+    opacity: 0.7;
+    animation: bounce 1.5s infinite;
+  }
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translate(-50%, 0); }
+  50% { transform: translate(-50%, 10px); }
+}
+
+
+.faq-item {
+  margin-bottom: 0.75rem;
+}
+.faq-item h3 {
+  margin-bottom: 0.25rem;
+  cursor: pointer;
+}
+.faq-answer {
+  margin-bottom: 0.5rem;
+}
+
+
+#schnellcheck h3 {
+  margin-bottom: 0.25rem;
+  margin-top: 1rem;
+}
+#schnellcheck .balken {
+  margin-bottom: 0.25rem;
+}
+#schnellcheck p {
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+}
+
+
+@media (min-width: 1025px) {
+  #top-button span {
+    display: inline-block;
+    transform: rotate(-90deg);
+  }
+}
+
+
+input[type="text"],
+input[type="email"],
+select,
+textarea {
+  border: 2px solid #0c3a5f;
+  border-radius: 12px;
+  font-family: inherit;
+  padding: 0.65rem;
+  margin-bottom: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+  background: #f9f9fc;
+  transition: border 0.3s ease;
+}
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: #092a4c;
+  background: #ffffff;
+}
+
+
+@media (max-width: 768px) {
+  .section-content > div {
+    flex-direction: column !important;
+  }
+}
+
+
+#datenschutz-modal > div {
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+
+:focus {
+  outline: 3px dashed #00ffc3;
+  outline-offset: 2px;
+}
+
+</style>
 </head>
 <body>
-  <div class="section-content">
-    <img src="img/09.png" alt="Danke für Ihre Nachricht">
-    <h2>Vielen Dank!</h2>
-    <p>Ihre Anfrage wurde übermittelt.<br>
-    Ich melde mich in Kürze persönlich bei Ihnen.</p>
-    <a href="intern-ki-sicherheit.html" class="btn">Zurück zur Startseite</a>
-  </div>
+  <section class="scroll-section" style="min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 3rem;">
+    <div style="text-align: center;">
+      <img src="img/09.png" alt="Fördermittel gezielt nutzen" style="max-width: 200px; border-radius: 4px; margin-bottom: 1.5rem;">
+      <h2 class="typing">Vielen Dank!</h2>
+      <p style="font-size: 1.2rem;">Ihre Anfrage wurde übermittelt.<br>Ich melde mich in Kürze persönlich bei Ihnen.</p>
+      <a href="index.html#kontakt" class="btn" style="margin-top: 2rem;">Zurück zur Hauptseite</a>
+    </div>
+  </section>
 </body>
 </html>
