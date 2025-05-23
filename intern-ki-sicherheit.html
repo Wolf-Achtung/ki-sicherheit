@@ -233,30 +233,6 @@
 }
 
 
-@media (min-width: 1025px) {
-  #top-button {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    background-color: #0c3a5f;
-    color: white;
-    border: none;
-    border-radius: 50%;
-    width: 48px;
-    height: 48px;
-    font-size: 1.25rem;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    cursor: pointer;
-    z-index: 9999;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  #top-button:hover {
-    background-color: #092a4c;
-  }
-}
-
 
 @media (min-width: 1025px) {
   .scroll-hint {
@@ -909,5 +885,11 @@ function scrollToTop() {
     modal.style.display = 'block';
   }
 </script>
+
+<button id="scrollToTop" onclick="window.scrollTo({ top: 0, behavior: 'smooth' });" style="position: fixed; bottom: 2rem; right: 2rem; z-index: 9999; background-color: #0c3a5f; border: none; border-radius: 50%; width: 60px; height: 60px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); cursor: pointer;">
+<svg fill="white" height="24" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 4l-8 8h5v8h6v-8h5z"></path>
+</svg>
+</button>
 </body>
 </html>
