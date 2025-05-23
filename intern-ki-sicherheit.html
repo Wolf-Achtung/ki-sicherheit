@@ -555,23 +555,7 @@ Ideal als Gesprächsgrundlage oder erster Orientierungspunkt für Unternehmen, d
 <button onclick="nextFrage(7, 'niemand')">niemand konkretes</button>
 </div>
 </div>
-<div id="auswertungsblock" style="display:none; margin-top: 3rem;">
-<h3>Governance</h3>
-<div class="balken"><div class="balken-bar" id="balken-governance"></div></div>
-<p id="text-governance">Ergebnis wird berechnet...</p>
-<h3>Dokumentation</h3>
-<div class="balken"><div class="balken-bar" id="balken-doku"></div></div>
-<p id="text-doku">Ergebnis wird berechnet...</p>
-<h3>Verantwortung</h3>
-<div class="balken"><div class="balken-bar" id="balken-verantwortung"></div></div>
-<p id="text-verantwortung">Ergebnis wird berechnet...</p>
-<h3>Kommunikation</h3>
-<div class="balken"><div class="balken-bar" id="balken-kommunikation"></div></div>
-<p id="text-kommunikation">Ergebnis wird berechnet...</p>
-<h3>Datenschutz-Integration</h3>
-<div class="balken"><div class="balken-bar" id="balken-datenschutz"></div></div>
-<p id="text-datenschutz">Ergebnis wird berechnet...</p>
-</div>
+
 <div id="auswertung" style="display:none; margin-top:2rem;">
 <h3>Empfehlung &amp; Bewertung</h3>
 <div id="auswertungstext"></div>
@@ -701,84 +685,7 @@ Ideal als Gesprächsgrundlage oder erster Orientierungspunkt für Unternehmen, d
 </div>
 </div>
 </section>
-<script>
-const auswertung = {
-  aktiv: { governance: 30 },
-  basic: { governance: 15 },
-  unsicher: { governance: 5 },
-  chef: { verantwortung: 30 },
-  it: { verantwortung: 20 },
-  keiner: { verantwortung: 5 },
-  ja: { doku: 30 },
-  teilweise: { doku: 15 },
-  nein: { doku: 5 },
-  vorreiter: { datenschutz: 30 },
-  orientierung: { datenschutz: 15 },
-  risikozone: { datenschutz: 5 },
-  bewusst: { kommunikation: 30 },
-  vage: { kommunikation: 15 },
-  ahnungslos: { kommunikation: 5 },
-  dokumentiert: { doku: 20 },
-  situativ: { kommunikation: 10 },
-  ignoriert: { kommunikation: 5 },
-  team: { governance: 20 },
-  einzelperson: { governance: 10 },
-  niemand: { governance: 5 },
-};
 
-const scores = {
-  governance: 0,
-  doku: 0,
-  verantwortung: 0,
-  kommunikation: 0,
-  datenschutz: 0
-};
-
-function nextFrage(num, antwort) {
-  const werte = auswertung[antwort];
-  for (const key in werte) {
-    scores[key] += werte[key];
-  }
-  document.getElementById('frage' + num).style.display = 'none';
-  if (num < 7) {
-    document.getElementById('frage' + (num + 1)).style.display = 'block';
-  } else {
-    zeigeErgebnisse();
-  }
-}
-
-function zeigeErgebnisse() {
-  Object.keys(scores).forEach(kategorie => {
-    const prozent = Math.min(Math.round((scores[kategorie] / 60) * 100), 100);
-    const balken = document.getElementById('balken-' + kategorie);
-    const text = document.getElementById('text-' + kategorie);
-    if (balken) {
-      balken.style.width = prozent + '%';
-      balken.classList.remove('rot', 'gelb', 'gruen');
-      if (prozent >= 75) balken.classList.add('gruen');
-      else if (prozent >= 50) balken.classList.add('gelb');
-      else balken.classList.add('rot');
-    }
-    if (text) {
-      if (prozent >= 75) text.textContent = '';
-      else if (prozent >= 50) text.textContent = '';
-      else text.textContent = '';
-    }
-  });
-  document.getElementById('auswertungsblock').style.display = 'block';
-  document.getElementById('auswertung').style.display = 'block';
-  document.getElementById('restart-button').style.display = 'inline-block';
-}
-
-function resetQuiz() {
-  location.reload();
-}
-
-function scrollToTop() {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-}
-
-</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js">
 function scrollToTop() {
   window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -927,7 +834,7 @@ function showEvaluation() {
   document.getElementById("summaryFeedback").innerHTML = summary;
 }
 </script>
-<div id="evaluationTextBlock" style="margin-top: 3rem; font-size: 1.1rem; line-height: 1.6;">
+<div id="evaluationTextBlock" style="display:none; margin-top: 3rem; font-size: 1.1rem; line-height: 1.6;">
 <h3>Bewertung</h3>
 <p><strong>Unzureichend – Ihre Organisation verfügt aktuell über keine tragfähige KI-Strategie.</strong></p>
 <h3>Empfehlung</h3>
