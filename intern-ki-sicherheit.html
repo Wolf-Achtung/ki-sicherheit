@@ -437,38 +437,24 @@ Als langjähriger Geschäftsführer in der digitalen Kreation mit Kunden aus der
 <label>Unternehmensgröße<br/>
 <select name="groesse" required="" style="width:100%; padding:0.5rem; margin-bottom:1rem;">
 <option value="">Bitte auswählen</option>
-<option value="Selbständig">Selbständig</option>
 <option value="&lt;10 MA">Weniger als 10 Mitarbeitende</option>
 <option value="10-50 MA">10 bis 50 Mitarbeitende</option>
 <option value="51-250 MA">51 bis 250 Mitarbeitende</option>
 <option value="&gt;250 MA">Mehr als 250 Mitarbeitende</option>
 </select>
 </label>
-<label>Branche<br/>
-<select name="branche" required="" style="width:100%; padding:0.5rem; margin-bottom:1rem;">
-<option value="">Bitte auswählen</option>
-<option value="Finanzdienstleistungen">Finanzdienstleistungen</option>
-<option value="Industrie/Produktion">Industrie/Produktion</option>
-<option value="Einzelhandel">Einzelhandel</option>
-<option value="Logistik &amp; Transport">Logistik &amp; Transport</option>
-<option value="IT &amp; Telekommunikation">IT &amp; Telekommunikation</option>
-<option value="Energieversorgung">Energieversorgung</option>
-<option value="Medien &amp; Unterhaltung">Medien &amp; Unterhaltung</option>
-<option value="Baugewerbe">Baugewerbe</option>
-<option value="Landwirtschaft">Landwirtschaft</option>
-<option value="andere">andere</option>
-</select>
-</label>
 <label>Geplante Maßnahme<br/>
 <select name="massnahme" required="" style="width:100%; padding:0.5rem; margin-bottom:1rem;">
 <option value="">Bitte auswählen</option>
-<option value="Selbständig">Selbständig</option>
 <option value="Beratung &amp; Strategie">Beratung &amp; Strategie</option>
 <option value="KI-Tool-Integration">KI-Tool-Integration</option>
 <option value="Prototyp/F&amp;E">Forschung oder Prototyp-Entwicklung</option>
 <option value="Mitarbeiterschulung">Mitarbeiterschulung / Change Management</option>
 <option value="Unklar">Noch unklar</option>
 </select>
+</label>
+<label>Projektidee, falls vorhanden (1-2 Sätze)<br/>
+<textarea name="projektidee" required="" rows="3" style="width:100%; padding:0.5rem; margin-bottom:1rem;"></textarea>
 </label>
 <label>Ihre E-Mail-Adresse<br/>
 <input name="email" required="" style="width:100%; padding:0.5rem; margin-bottom:1rem;" type="email"/>
@@ -592,19 +578,27 @@ Ideal als Gesprächsgrundlage oder erster Orientierungspunkt für Unternehmen, d
 </div>
 <div class="section-content">
 <h2 class="typing">Gefahren &amp; Risiken</h2>
+<div class="faq-item">
+<h3 onclick="toggleFaq(this)">Welche Gefahren drohen bei Missachtung des EU AI Acts?</h3>
+<div class="faq-answer">Unternehmen riskieren Bußgelder, Haftung und Reputationsschäden, insbesondere bei Hochrisiko-KI-Anwendungen.</div>
 </div>
-<p><strong>Welche Gefahren drohen bei Missachtung des EU AI Acts?</strong><br/>
-    Unternehmen riskieren Bußgelder, Haftung und Reputationsschäden, insbesondere bei Hochrisiko-KI-Anwendungen.</p>
-<p><strong>Welche Gefahren drohen bei Missachtung des EU AI Acts?</strong><br/>
-    Unternehmen riskieren Bußgelder, Haftung und Reputationsschäden, insbesondere bei Hochrisiko-KI-Anwendungen.</p>
-<p><strong>Was sind typische Datenschutz-Verstöße im KI-Kontext?</strong><br/>
-Fehlende Transparenz, unklare Einwilligungen oder intransparente Trainingsdaten können gegen die DSGVO verstoßen.</p>
-<p><strong>Was droht bei unklarer Verantwortung für KI-Entscheidungen?</strong><br/>
-Ohne klare Verantwortlichkeiten können fehlerhafte Entscheidungen zu rechtlicher Unsicherheit und Haftung führen.</p>
-<p><strong>Welche Risiken entstehen durch fehlende Dokumentation?</strong><br/>
-Fehlende Nachvollziehbarkeit erschwert Prüfungen und führt zu Problemen bei Audits und Zertifizierungen.</p>
-<p><strong>Warum ist fehlende Risikoanalyse problematisch?</strong><br/>
-Ohne strukturierte Risikobewertung können potenziell gefährliche KI-Systeme unentdeckt bleiben – mit rechtlichen und ethischen Folgen.</p>
+<div class="faq-item">
+<h3 onclick="toggleFaq(this)">Was sind typische Datenschutz-Verstöße im KI-Kontext?</h3>
+<div class="faq-answer">Fehlende Transparenz, unklare Einwilligungen oder intransparente Trainingsdaten können gegen die DSGVO verstoßen.</div>
+</div>
+<div class="faq-item">
+<h3 onclick="toggleFaq(this)">Was droht bei unklarer Verantwortung für KI-Entscheidungen?</h3>
+<div class="faq-answer">Ohne klare Verantwortlichkeiten können fehlerhafte Entscheidungen zu rechtlicher Unsicherheit und Haftung führen.</div>
+</div>
+<div class="faq-item">
+<h3 onclick="toggleFaq(this)">Welche Risiken entstehen durch fehlende Dokumentation?</h3>
+<div class="faq-answer">Fehlende Nachvollziehbarkeit erschwert Prüfungen und führt zu Problemen bei Audits und Zertifizierungen.</div>
+</div>
+<div class="faq-item">
+<h3 onclick="toggleFaq(this)">Warum ist fehlende Risikoanalyse problematisch?</h3>
+<div class="faq-answer">Ohne strukturierte Risikobewertung können potenziell gefährliche KI-Systeme unentdeckt bleiben – mit rechtlichen und ethischen Folgen.</div>
+</div>
+</div>
 </section>
 <!-- KONTAKT & ERSTGESPRÄCH -->
 <section class="scroll-section" id="kontakt">
@@ -902,7 +896,6 @@ function calculateOverallRecommendation(scores) {
   return '❗ Kritischer Handlungsbedarf – Ihre KI-Strategie weist erhebliche Lücken auf. Eine strukturierte Nachbesserung ist erforderlich.';
 }
 
-// Überschreibe Ergebnis-Logik bei Beantwortung aller Fragen
 function calculateResults() {
   const results = document.querySelectorAll('.result-score');
   const scoreValues = [];
