@@ -500,68 +500,66 @@ textarea:focus {
 </p></div></section>
 <!-- SCHNELL-CHECK & EMPFEHLUNG -->
 <section class="scroll-section" id="schnellcheck">
-<div class="section-img">
-<img alt="Status erfassen, Risiken vermeiden" src="img/04.png"/>
-<p class="caption">Status erfassen, Risiken vermeiden</p>
+<div id="schnellcheck-inhalt">
+<h2 class="typing">KI-Schnell-Check</h2>
+<p>Dieser Check zeigt Ihnen, wie gut Ihre Organisation auf einen verantwortungsvollen KI-Einsatz vorbereitet ist. Beantworten Sie 7 kurze Fragen – Sie erhalten eine direkte Einschätzung und konkrete Empfehlung.</p>
+<div class="frage-block" id="frage1">
+<p><strong>1. Gibt es eine zentrale Dokumentation aller eingesetzten KI-Systeme?</strong></p>
+<button class="option-button" onclick="antwortSpeichern('frage1', 3)">Ja</button>
+<button class="option-button" onclick="antwortSpeichern('frage1', 2)">Teilweise</button>
+<button class="option-button" onclick="antwortSpeichern('frage1', 1)">Nein</button>
 </div>
-<div class="section-content">
-<h2 class="typing">KI-Schnell-Check &amp; Empfehlung</h2>
-<p>Der Schnell-Check hilft Ihnen dabei, den aktuellen Reifegrad Ihrer KI-Strategie im Unternehmen schnell und verständlich einzuschätzen.  
-Sie erfahren auf einen Blick, wie es um Themen wie Dokumentation, Verantwortung, Governance und Datenschutz-Integration steht – inklusive praxisnaher Empfehlungen.</p>
-<p>Die Auswertung erfolgt anonym und direkt im Browser.  
-Sie erhalten eine visuelle Bewertung mit Ampellogik sowie eine Sofort-Einschätzung, wo Handlungsbedarf besteht.  
-Ideal als Gesprächsgrundlage oder erster Orientierungspunkt für Unternehmen, die KI einsetzen oder planen.</p>
-<div id="quiz">
-<div class="frage" id="frage1">
-<h3>1. Wie setzen Sie KI aktuell ein?</h3>
-<button onclick="nextFrage(1, 'aktiv')">Wir nutzen KI bereits.</button>
-<button onclick="nextFrage(1, 'basic')">Wir testen erste Tools.</button>
-<button onclick="nextFrage(1, 'unsicher')">Bisher noch nicht.</button>
+<div class="frage-block" id="frage2">
+<p><strong>2. Sind Verantwortlichkeiten für KI klar benannt?</strong></p>
+<button class="option-button" onclick="antwortSpeichern('frage2', 3)">Ja</button>
+<button class="option-button" onclick="antwortSpeichern('frage2', 2)">Teilweise</button>
+<button class="option-button" onclick="antwortSpeichern('frage2', 1)">Nein</button>
 </div>
-<div class="frage" id="frage2" style="display: none;">
-<h3>2. Wer verantwortet den Einsatz?</h3>
-<button onclick="nextFrage(2, 'chef')">die Geschäftsführung</button>
-<button onclick="nextFrage(2, 'it')">die IT-Abteilung</button>
-<button onclick="nextFrage(2, 'keiner')">niemand konkret</button>
+<div class="frage-block" id="frage3">
+<p><strong>3. Gibt es nachvollziehbare Entscheidungsprozesse bei KI-Nutzung?</strong></p>
+<button class="option-button" onclick="antwortSpeichern('frage3', 3)">Ja</button>
+<button class="option-button" onclick="antwortSpeichern('frage3', 2)">Teilweise</button>
+<button class="option-button" onclick="antwortSpeichern('frage3', 1)">Nein</button>
 </div>
-<div class="frage" id="frage3" style="display: none;">
-<h3>3. Dokumentieren Sie Entscheidungen?</h3>
-<button onclick="nextFrage(3, 'ja')">wird klar dokumentiert</button>
-<button onclick="nextFrage(3, 'teilweise')">teilweise</button>
-<button onclick="nextFrage(3, 'nein')">noch gar nicht</button>
+<div class="frage-block" id="frage4">
+<p><strong>4. Wurden Risiken bei KI-Einsatz systematisch analysiert?</strong></p>
+<button class="option-button" onclick="antwortSpeichern('frage4', 3)">Ja</button>
+<button class="option-button" onclick="antwortSpeichern('frage4', 2)">Teilweise</button>
+<button class="option-button" onclick="antwortSpeichern('frage4', 1)">Nein</button>
 </div>
-<div class="frage" id="frage4" style="display: none;">
-<h3>4. Wie steht es um Ihren Datenschutz?</h3>
-<button onclick="nextFrage(4, 'vorreiter')">Wir sind Vorreiter.</button>
-<button onclick="nextFrage(4, 'orientierung')">Wir orientieren uns.</button>
-<button onclick="nextFrage(4, 'risikozone')">noch nicht integriert</button>
+<div class="frage-block" id="frage5">
+<p><strong>5. Sind Datenschutz-Aspekte bei KI-Nutzung berücksichtigt?</strong></p>
+<button class="option-button" onclick="antwortSpeichern('frage5', 3)">Ja</button>
+<button class="option-button" onclick="antwortSpeichern('frage5', 2)">Teilweise</button>
+<button class="option-button" onclick="antwortSpeichern('frage5', 1)">Nein</button>
 </div>
-<div class="frage" id="frage5" style="display: none;">
-<h3>5. Könnte Ihr Unternehmen aktuell gegen den EU AI Act verstossen?</h3>
-<button onclick="nextFrage(5, 'bewusst')">vermutlich nicht</button>
-<button onclick="nextFrage(5, 'vage')">vielleicht in Teilen</button>
-<button onclick="nextFrage(5, 'ahnungslos')">keine Ahnung</button>
+<div class="frage-block" id="frage6">
+<p><strong>6. Gibt es eine Kommunikationsstrategie zu KI-Anwendungen?</strong></p>
+<button class="option-button" onclick="antwortSpeichern('frage6', 3)">Ja</button>
+<button class="option-button" onclick="antwortSpeichern('frage6', 2)">Teilweise</button>
+<button class="option-button" onclick="antwortSpeichern('frage6', 1)">Nein</button>
 </div>
-<div class="frage" id="frage6" style="display: none;">
-<h3>6. Wie gehen Sie mit Fehlern im System (auch KI) um?</h3>
-<button onclick="nextFrage(6, 'dokumentiert')">Wir dokumentieren das.</button>
-<button onclick="nextFrage(6, 'situativ')">Wir reagieren situativ.</button>
-<button onclick="nextFrage(6, 'ignoriert')">Wir haben dazu nichts geregelt.</button>
-</div>
-<div class="frage" id="frage7" style="display: none;">
-<h3>7. Wer prüft in Ihrem Unternehmen neue KI-Systeme und Tools?</h3>
-<button onclick="nextFrage(7, 'team')">ein internes Team</button>
-<button onclick="nextFrage(7, 'einzelperson')">eine verantwortliche Person</button>
-<button onclick="nextFrage(7, 'niemand')">niemand konkretes</button>
-</div>
-</div>
-
-<div id="auswertung" style="display:none; margin-top:2rem;">
-<h3>Empfehlung &amp; Bewertung</h3>
-<div id="auswertungstext"></div>
+<div class="frage-block" id="frage7">
+<p><strong>7. Werden Mitarbeitende gezielt auf KI vorbereitet?</strong></p>
+<button class="option-button" onclick="antwortSpeichern('frage7', 3)">Ja</button>
+<button class="option-button" onclick="antwortSpeichern('frage7', 2)">Teilweise</button>
+<button class="option-button" onclick="antwortSpeichern('frage7', 1)">Nein</button>
 </div>
 <div style="text-align:center; margin-top:2rem;">
-<button class="btn pulse-button" id="restart-button" onclick="resetQuiz()" style="display:none;">Schnell-Check erneut starten</button>
+<button class="button" onclick="zeigeEmpfehlung()">Auswertung anzeigen</button>
+</div>
+<div id="finalEvaluationText" style="display:none; margin-top: 2rem; font-size: 1.05rem; line-height: 1.6;">
+<h3>Zusammenfassung &amp; Empfehlung</h3>
+<p><strong>Unzureichend – Ihre Organisation verfügt aktuell über keine tragfähige KI-Strategie.</strong></p>
+<p>Die Analyse zeigt: Es bestehen wesentliche Lücken bei Dokumentation, Verantwortung, Datenschutz und Kommunikation. Dies birgt rechtliche Risiken – und bremst die strukturierte Nutzung von KI erheblich.</p>
+<p>Ich unterstütze Sie mit:</p>
+<ul>
+<li><strong>DSGVO-konformer Beratung</strong></li>
+<li><strong>praxisorientierter Umsetzung des EU AI Acts</strong></li>
+<li><strong>Konformität mit ISO/IEC 23894 (Risikomanagement für KI)</strong></li>
+</ul>
+<p>Gemeinsam entwickeln wir eine robuste, auditierbare KI-Strategie – zugeschnitten auf die Anforderungen Ihres Unternehmens. Mit Fokus auf Effizienz, Transparenz und regulatorische Sicherheit.</p>
+<p><em>Setzen Sie auf fundiertes Know-how, unternehmerische Erfahrung und praxisnahe Umsetzung – für einen sicheren und zukunftsfähigen KI-Einsatz.</em></p>
 </div>
 </div>
 </section>
@@ -685,7 +683,6 @@ Ideal als Gesprächsgrundlage oder erster Orientierungspunkt für Unternehmen, d
 </div>
 </div>
 </section>
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js">
 function scrollToTop() {
   window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -847,5 +844,34 @@ function showEvaluation() {
 </ul>
 <p>Gemeinsam entwickeln wir eine robuste, auditierbare KI-Strategie – zugeschnitten auf die Anforderungen Ihres Unternehmens. Mit Fokus auf Effizienz, Transparenz und regulatorische Sicherheit.</p>
 <p><em>Setzen Sie auf fundiertes Know-how, unternehmerische Erfahrung und praxisnahe Umsetzung – für einen sicheren und zukunftsfähigen KI-Einsatz.</em></p>
-</div></body>
+</div>
+<script>
+const antworten = {};
+
+function antwortSpeichern(frageID, wert) {
+  antworten[frageID] = wert;
+  const buttons = document.querySelectorAll('#' + frageID + ' .option-button');
+  buttons.forEach(btn => btn.classList.remove('selected'));
+  event.target.classList.add('selected');
+}
+
+function zeigeEmpfehlung() {
+  const container = document.getElementById("finalEvaluationText");
+  const werte = Object.values(antworten);
+  if (werte.length < 7) {
+    alert("Bitte beantworten Sie alle Fragen.");
+    return;
+  }
+  const summe = werte.reduce((a,b) => a + b, 0);
+  const schnitt = summe / werte.length;
+  let titel = "";
+  if (schnitt < 1.6) titel = "Kritisch – In mehreren Bereichen fehlen zentrale Grundlagen.";
+  else if (schnitt < 2.3) titel = "Ausbaufähig – Ihre Organisation hat erste Strukturen aufgebaut.";
+  else titel = "Sehr gut – Ihre KI-Strategie ist in vielen Bereichen bereits solide aufgestellt.";
+
+  container.querySelector("p strong").textContent = titel;
+  container.style.display = "block";
+}
+</script>
+</body>
 </html>
