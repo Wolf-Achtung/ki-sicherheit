@@ -363,7 +363,12 @@ textarea:focus {
   margin-bottom: 0.5rem;
 }
 </style>
-</head>
+<style>
+.quiz button.selected {
+    background-color: #003a5d;
+    color: white;
+}
+</style></head>
 <body>
 <section class="scroll-section" id="start" style="position: relative;">
 <div class="section-img">
@@ -505,79 +510,55 @@ textarea:focus {
 <p class="caption">Status erfassen, Risiken vermeiden</p>
 </div>
 <div class="section-content">
-<h2 class="typing">KI-Schnell-Check &amp; Empfehlung</h2>
-<p>Der Schnell-Check hilft Ihnen dabei, den aktuellen Reifegrad Ihrer KI-Strategie im Unternehmen schnell und verständlich einzuschätzen.  
-Sie erfahren auf einen Blick, wie es um Themen wie Dokumentation, Verantwortung, Governance und Datenschutz-Integration steht – inklusive praxisnaher Empfehlungen.</p>
-<p>Die Auswertung erfolgt anonym und direkt im Browser.  
-Sie erhalten eine visuelle Bewertung mit Ampellogik sowie eine Sofort-Einschätzung, wo Handlungsbedarf besteht.  
-Ideal als Gesprächsgrundlage oder erster Orientierungspunkt für Unternehmen, die KI einsetzen oder planen.</p>
-<div id="quiz">
-<div class="frage" id="frage1">
-<h3>1. Wie setzen Sie KI aktuell ein?</h3>
-<button onclick="nextFrage(1, 'aktiv')">Wir nutzen KI bereits.</button>
-<button onclick="nextFrage(1, 'basic')">Wir testen erste Tools.</button>
-<button onclick="nextFrage(1, 'unsicher')">Bisher noch nicht.</button>
+<h2 class="typing">KI-Schnell-Check</h2>
+<p>Wie gut ist Ihr Unternehmen auf den verantwortungsvollen Einsatz von KI vorbereitet? Beantworten Sie 7 kurze Fragen und erhalten Sie sofort eine individuelle Einschätzung mit professioneller Empfehlung.</p>
+
+<div class="frage-block question" id="frage1">
+<p><strong>1. Gibt es eine zentrale Dokumentation aller eingesetzten KI-Systeme?</strong></p>
+<button class="btn" data-score="3">Ja</button>
+<button class="btn" data-score="2">Teilweise</button>
+<button class="btn" data-score="1">Nein</button>
 </div>
-<div class="frage" id="frage2" style="display: none;">
-<h3>2. Wer verantwortet den Einsatz?</h3>
-<button onclick="nextFrage(2, 'chef')">die Geschäftsführung</button>
-<button onclick="nextFrage(2, 'it')">die IT-Abteilung</button>
-<button onclick="nextFrage(2, 'keiner')">niemand konkret</button>
+<div class="frage-block question" id="frage2">
+<p><strong>2. Sind Verantwortlichkeiten für KI klar benannt?</strong></p>
+<button class="btn" data-score="3">Ja</button>
+<button class="btn" data-score="2">Teilweise</button>
+<button class="btn" data-score="1">Nein</button>
 </div>
-<div class="frage" id="frage3" style="display: none;">
-<h3>3. Dokumentieren Sie Entscheidungen?</h3>
-<button onclick="nextFrage(3, 'ja')">wird klar dokumentiert</button>
-<button onclick="nextFrage(3, 'teilweise')">teilweise</button>
-<button onclick="nextFrage(3, 'nein')">noch gar nicht</button>
+<div class="frage-block question" id="frage3">
+<p><strong>3. Gibt es nachvollziehbare Entscheidungsprozesse bei KI-Nutzung?</strong></p>
+<button class="btn" data-score="3">Ja</button>
+<button class="btn" data-score="2">Teilweise</button>
+<button class="btn" data-score="1">Nein</button>
 </div>
-<div class="frage" id="frage4" style="display: none;">
-<h3>4. Wie steht es um Ihren Datenschutz?</h3>
-<button onclick="nextFrage(4, 'vorreiter')">Wir sind Vorreiter.</button>
-<button onclick="nextFrage(4, 'orientierung')">Wir orientieren uns.</button>
-<button onclick="nextFrage(4, 'risikozone')">noch nicht integriert</button>
+<div class="frage-block question" id="frage4">
+<p><strong>4. Wurden Risiken bei KI-Einsatz systematisch analysiert?</strong></p>
+<button class="btn" data-score="3">Ja</button>
+<button class="btn" data-score="2">Teilweise</button>
+<button class="btn" data-score="1">Nein</button>
 </div>
-<div class="frage" id="frage5" style="display: none;">
-<h3>5. Könnte Ihr Unternehmen aktuell gegen den EU AI Act verstossen?</h3>
-<button onclick="nextFrage(5, 'bewusst')">vermutlich nicht</button>
-<button onclick="nextFrage(5, 'vage')">vielleicht in Teilen</button>
-<button onclick="nextFrage(5, 'ahnungslos')">keine Ahnung</button>
+<div class="frage-block question" id="frage5">
+<p><strong>5. Sind Datenschutz-Aspekte bei KI-Nutzung berücksichtigt?</strong></p>
+<button class="btn" data-score="3">Ja</button>
+<button class="btn" data-score="2">Teilweise</button>
+<button class="btn" data-score="1">Nein</button>
 </div>
-<div class="frage" id="frage6" style="display: none;">
-<h3>6. Wie gehen Sie mit Fehlern im System (auch KI) um?</h3>
-<button onclick="nextFrage(6, 'dokumentiert')">Wir dokumentieren das.</button>
-<button onclick="nextFrage(6, 'situativ')">Wir reagieren situativ.</button>
-<button onclick="nextFrage(6, 'ignoriert')">Wir haben dazu nichts geregelt.</button>
+<div class="frage-block question" id="frage6">
+<p><strong>6. Gibt es eine Kommunikationsstrategie zu KI-Anwendungen?</strong></p>
+<button class="btn" data-score="3">Ja</button>
+<button class="btn" data-score="2">Teilweise</button>
+<button class="btn" data-score="1">Nein</button>
 </div>
-<div class="frage" id="frage7" style="display: none;">
-<h3>7. Wer prüft in Ihrem Unternehmen neue KI-Systeme und Tools?</h3>
-<button onclick="nextFrage(7, 'team')">ein internes Team</button>
-<button onclick="nextFrage(7, 'einzelperson')">eine verantwortliche Person</button>
-<button onclick="nextFrage(7, 'niemand')">niemand konkretes</button>
+<div class="frage-block question" id="frage7">
+<p><strong>7. Werden Mitarbeitende gezielt auf KI vorbereitet?</strong></p>
+<button class="btn" data-score="3">Ja</button>
+<button class="btn" data-score="2">Teilweise</button>
+<button class="btn" data-score="1">Nein</button>
 </div>
-</div>
-<div id="auswertungsblock" style="display:none; margin-top: 3rem;">
-<h3>Governance</h3>
-<div class="balken"><div class="balken-bar" id="balken-governance"></div></div>
-<p id="text-governance">Ergebnis wird berechnet...</p>
-<h3>Dokumentation</h3>
-<div class="balken"><div class="balken-bar" id="balken-doku"></div></div>
-<p id="text-doku">Ergebnis wird berechnet...</p>
-<h3>Verantwortung</h3>
-<div class="balken"><div class="balken-bar" id="balken-verantwortung"></div></div>
-<p id="text-verantwortung">Ergebnis wird berechnet...</p>
-<h3>Kommunikation</h3>
-<div class="balken"><div class="balken-bar" id="balken-kommunikation"></div></div>
-<p id="text-kommunikation">Ergebnis wird berechnet...</p>
-<h3>Datenschutz-Integration</h3>
-<div class="balken"><div class="balken-bar" id="balken-datenschutz"></div></div>
-<p id="text-datenschutz">Ergebnis wird berechnet...</p>
-</div>
-<div id="auswertung" style="display:none; margin-top:2rem;">
-<h3>Empfehlung &amp; Bewertung</h3>
-<div id="auswertungstext"></div>
-</div>
-<div style="text-align:center; margin-top:2rem;">
-<button class="btn pulse-button" id="restart-button" onclick="resetQuiz()" style="display:none;">Schnell-Check erneut starten</button>
+
+<div style="text-align:left; margin-top:2rem;">
+<button class="btn" onclick="zeigeEmpfehlung()">Auswertung anzeigen</button>
+<button class="btn" onclick="resetQuiz()" style="margin-left: 1rem;">Check wiederholen</button>
 </div>
 </div>
 </section>
@@ -701,84 +682,6 @@ Ideal als Gesprächsgrundlage oder erster Orientierungspunkt für Unternehmen, d
 </div>
 </div>
 </section>
-<script>
-const auswertung = {
-  aktiv: { governance: 30 },
-  basic: { governance: 15 },
-  unsicher: { governance: 5 },
-  chef: { verantwortung: 30 },
-  it: { verantwortung: 20 },
-  keiner: { verantwortung: 5 },
-  ja: { doku: 30 },
-  teilweise: { doku: 15 },
-  nein: { doku: 5 },
-  vorreiter: { datenschutz: 30 },
-  orientierung: { datenschutz: 15 },
-  risikozone: { datenschutz: 5 },
-  bewusst: { kommunikation: 30 },
-  vage: { kommunikation: 15 },
-  ahnungslos: { kommunikation: 5 },
-  dokumentiert: { doku: 20 },
-  situativ: { kommunikation: 10 },
-  ignoriert: { kommunikation: 5 },
-  team: { governance: 20 },
-  einzelperson: { governance: 10 },
-  niemand: { governance: 5 },
-};
-
-const scores = {
-  governance: 0,
-  doku: 0,
-  verantwortung: 0,
-  kommunikation: 0,
-  datenschutz: 0
-};
-
-function nextFrage(num, antwort) {
-  const werte = auswertung[antwort];
-  for (const key in werte) {
-    scores[key] += werte[key];
-  }
-  document.getElementById('frage' + num).style.display = 'none';
-  if (num < 7) {
-    document.getElementById('frage' + (num + 1)).style.display = 'block';
-  } else {
-    zeigeErgebnisse();
-  }
-}
-
-function zeigeErgebnisse() {
-  Object.keys(scores).forEach(kategorie => {
-    const prozent = Math.min(Math.round((scores[kategorie] / 60) * 100), 100);
-    const balken = document.getElementById('balken-' + kategorie);
-    const text = document.getElementById('text-' + kategorie);
-    if (balken) {
-      balken.style.width = prozent + '%';
-      balken.classList.remove('rot', 'gelb', 'gruen');
-      if (prozent >= 75) balken.classList.add('gruen');
-      else if (prozent >= 50) balken.classList.add('gelb');
-      else balken.classList.add('rot');
-    }
-    if (text) {
-      if (prozent >= 75) text.textContent = '';
-      else if (prozent >= 50) text.textContent = '';
-      else text.textContent = '';
-    }
-  });
-  document.getElementById('auswertungsblock').style.display = 'block';
-  document.getElementById('auswertung').style.display = 'block';
-  document.getElementById('restart-button').style.display = 'inline-block';
-}
-
-function resetQuiz() {
-  location.reload();
-}
-
-function scrollToTop() {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-}
-
-</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js">
 function scrollToTop() {
   window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -903,35 +806,16 @@ function scrollToTop() {
 </svg>
 </button>
 <script>
-function showEvaluation() {
-  document.getElementById("resultContainer").style.display = "block";
-  document.getElementById("summaryFeedback").style.display = "block";
-  document.getElementById("showEvaluationBtn").style.display = "none";
-
-  const scores = Array.from(document.querySelectorAll('.result-score')).map(el => parseInt(el.getAttribute('data-score')));
-  let red = 0, yellow = 0, green = 0;
-  scores.forEach(score => {
-    if (score < 40) red++;
-    else if (score < 75) yellow++;
-    else green++;
-  });
-
-  let summary = "";
-  if (red >= 3) {
-    summary = "<strong>Kritisch:</strong> In mehreren Bereichen fehlen wichtige Voraussetzungen für einen verantwortungsvollen KI-Einsatz. Es besteht dringender Handlungsbedarf.";
-  } else if (yellow >= 3) {
-    summary = "<strong>Ausbaufähig:</strong> Sie haben erste Maßnahmen umgesetzt, aber zentrale Anforderungen sind noch nicht erfüllt.";
-  } else {
-    summary = "<strong>Sehr gut:</strong> Ihre Antworten zeigen eine strukturierte, verantwortungsbewusste Herangehensweise mit geringem Risikopotenzial.";
-  }
-  document.getElementById("summaryFeedback").innerHTML = summary;
-}
-</script>
-<div id="evaluationTextBlock" style="margin-top: 3rem; font-size: 1.1rem; line-height: 1.6;">
-<h3>Bewertung</h3>
-<p><strong>Unzureichend – Ihre Organisation verfügt aktuell über keine tragfähige KI-Strategie.</strong></p>
-<h3>Empfehlung</h3>
-<p>Die Analyse zeigt: Es bestehen wesentliche Lücken bei Dokumentation, Verantwortung, Datenschutz und Kommunikation. Dies birgt rechtliche Risiken – und bremst die strukturierte Nutzung von KI erheblich.</p>
+document.querySelectorAll('.quiz button').forEach(button => {
+    button.addEventListener('click', () => {
+        const siblings = button.parentNode.querySelectorAll('button');
+        siblings.forEach(sib => sib.classList.remove('selected'));
+        button.classList.add('selected');
+    });
+});
+</script><div id="finalEvaluationText" style="display:none; margin-top: 2rem; font-size: 1.05rem; line-height: 1.6;">
+<h3>Zusammenfassung &amp; Empfehlung</h3>
+<p id="evaluationResult"><strong>Ihre Bewertung erscheint hier nach dem Check.</strong></p>
 <p>Ich unterstütze Sie mit:</p>
 <ul>
 <li><strong>DSGVO-konformer Beratung</strong></li>
@@ -940,5 +824,67 @@ function showEvaluation() {
 </ul>
 <p>Gemeinsam entwickeln wir eine robuste, auditierbare KI-Strategie – zugeschnitten auf die Anforderungen Ihres Unternehmens. Mit Fokus auf Effizienz, Transparenz und regulatorische Sicherheit.</p>
 <p><em>Setzen Sie auf fundiertes Know-how, unternehmerische Erfahrung und praxisnahe Umsetzung – für einen sicheren und zukunftsfähigen KI-Einsatz.</em></p>
-</div></body>
+</div>
+<script>
+function zeigeEmpfehlung() {
+  const antworten = Array.from(document.querySelectorAll(".frage-block .btn.selected")).map(btn => parseInt(btn.getAttribute("data-score")));
+  if (antworten.length < 7) {
+    alert("Bitte beantworten Sie alle 7 Fragen.");
+    return;
+  }
+  const schnitt = antworten.reduce((a,b) => a + b, 0) / antworten.length;
+  let ergebnis = "";
+
+  if (schnitt < 1.6) {
+    ergebnis = "Kritisch – In mehreren Bereichen fehlen zentrale Grundlagen für einen sicheren KI-Einsatz.";
+  } else if (schnitt < 2.3) {
+    ergebnis = "Ausbaufähig – Ihre Organisation hat erste Strukturen geschaffen, aber es bestehen klare Lücken.";
+  } else {
+    ergebnis = "Sehr gut – Ihre KI-Strategie ist in vielen Bereichen solide und verantwortungsvoll aufgestellt.";
+  }
+
+  document.getElementById("evaluationResult").innerHTML = "<strong>" + ergebnis + "</strong>";
+  document.getElementById("finalEvaluationText").style.display = "block";
+}
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  document.querySelectorAll(".frage-block").forEach(block => {
+    const buttons = block.querySelectorAll("button");
+    buttons.forEach(btn => {
+      btn.addEventListener("click", () => {
+        buttons.forEach(b => b.classList.remove("selected"));
+        btn.classList.add("selected");
+      });
+    });
+  });
+});
+
+function zeigeEmpfehlung() {
+  const antworten = Array.from(document.querySelectorAll(".frage-block .btn.selected")).map(btn => parseInt(btn.getAttribute("data-score")));
+  if (antworten.length < 7) {
+    alert("Bitte beantworten Sie alle 7 Fragen.");
+    return;
+  }
+  const schnitt = antworten.reduce((a,b) => a + b, 0) / antworten.length;
+  let ergebnis = "";
+
+  if (schnitt < 1.6) {
+    ergebnis = "Kritisch – In mehreren Bereichen fehlen zentrale Grundlagen für einen sicheren KI-Einsatz.";
+  } else if (schnitt < 2.3) {
+    ergebnis = "Ausbaufähig – Ihre Organisation hat erste Strukturen geschaffen, aber es bestehen klare Lücken.";
+  } else {
+    ergebnis = "Sehr gut – Ihre KI-Strategie ist in vielen Bereichen solide und verantwortungsvoll aufgestellt.";
+  }
+
+  document.getElementById("evaluationResult").innerHTML = "<strong>" + ergebnis + "</strong>";
+  document.getElementById("finalEvaluationText").style.display = "block";
+}
+
+function resetQuiz() {
+  document.querySelectorAll(".frage-block .btn").forEach(btn => btn.classList.remove("selected"));
+  document.getElementById("finalEvaluationText").style.display = "none";
+  document.getElementById("evaluationResult").innerHTML = "<strong>Ihre Bewertung erscheint hier nach dem Check.</strong>";
+}
+</script></body>
 </html>
