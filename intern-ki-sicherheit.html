@@ -1,13 +1,21 @@
 <!DOCTYPE html>
+
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>KI-Schnell-Check</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Inter:wght@400;700&display=swap" rel="stylesheet">
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>KI-Sicherheit.jetzt – Schnell-Check</title>
+<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&amp;family=Inter:wght@400;700&amp;display=swap" rel="stylesheet"/>
 <style>
+  .question-buttons button.selected {
+    background-color: #ffc107;
+    color: black;
+  }
+  #backToTopBtn svg {
+    display: block;
+    margin: auto;
+  }
+
     body {
       font-family: 'Inter', sans-serif;
       margin: 0;
@@ -375,6 +383,15 @@ textarea:focus {
     }
 </style>
 <style>
+  .question-buttons button.selected {
+    background-color: #ffc107;
+    color: black;
+  }
+  #backToTopBtn svg {
+    display: block;
+    margin: auto;
+  }
+
 .quiz button.selected {
     background-color: #003a5d;
     color: white;
@@ -382,21 +399,21 @@ textarea:focus {
 </style></head>
 <body>
 <body class="bg-white text-gray-900 font-sans">
-  <!-- Hero Section mit Parallax -->
-  <section class="parallax-bg h-screen flex flex-col justify-center items-center text-white text-center px-6">
-    <h1 class="text-4xl md:text-5xl font-bold mb-4" data-aos="fade-down">Die KI ist bereit. Sind Sie es auch?</h1>
-    <p class="text-lg md:text-xl max-w-2xl" data-aos="fade-up" data-aos-delay="200">Starten Sie mit einem strukturierten Schnell-Check zur KI-Readiness in Ihrem Unternehmen.</p>
-    <div class="mt-6 animate-bounce">
-      <span class="text-4xl">⬇</span>
-    </div>
-  </section>
+<!-- Hero Section mit Parallax -->
+<section class="parallax-bg h-screen flex flex-col justify-center items-center text-white text-center px-6">
+<h1 class="text-4xl md:text-5xl font-bold mb-4" data-aos="fade-down">Die KI ist bereit. Sind Sie es auch?</h1>
+<p class="text-lg md:text-xl max-w-2xl" data-aos="fade-up" data-aos-delay="200">Starten Sie mit einem strukturierten Schnell-Check zur KI-Readiness in Ihrem Unternehmen.</p>
+<div class="mt-6 animate-bounce">
+<span class="text-4xl">⬇</span>
+</div>
+</section>
 <section class="scroll-section" id="start" style="position: relative;">
 <div class="section-img">
 <img alt="Technologie mit Weitblick" src="img/01.png"/>
 <p class="caption">Technologie mit Weitblick</p>
 </div>
 <div class="section-content">
-<h1 class="typing">Die KI ist bereit. Sind Sie es auch?</h1>
+<h2 class="typing">Die KI ist bereit. Sind Sie es auch?</h2>
 <p>Ich unterstütze Sie dabei, KI in Ihrem Unternehmen verantwortungsvoll, rechtssicher und strategisch einzusetzen.</p>
 </div>
 <div class="scroll-hint">
@@ -523,72 +540,23 @@ textarea:focus {
 <button class="btn" type="submit">Jetzt prüfen lassen</button>
 </form>
 </p></div></section>
-  <!-- Schnell-Check Section -->
-  <section class="max-w-5xl mx-auto p-6" id="schnellcheck">
-    <div class="flex flex-col md:flex-row gap-8 items-start">
-      <div class="md:w-1/3">
-        <img src="img/04.png" alt="Status erfassen" class="rounded-xl shadow">
-        <p class="text-center text-sm text-gray-500 mt-2">Status erfassen, Risiken vermeiden</p>
-      </div>
-      <div class="md:w-2/3" data-aos="fade-left">
-        <h2 class="text-2xl font-bold mb-4">KI-Schnell-Check</h2>
-        <p class="mb-4">Beantworten Sie 7 Fragen zum KI-Einsatz – Sie erhalten eine individuelle Einschätzung und professionelle Empfehlung.</p>
-
-        <div id="quiz" class="space-y-6">
-          <!-- Fragen 1-7 -->
-          <template id="fragen">
-            [
-              "Gibt es eine zentrale Dokumentation aller eingesetzten KI-Systeme?",
-              "Sind Verantwortlichkeiten für KI klar benannt?",
-              "Gibt es nachvollziehbare Entscheidungsprozesse bei KI-Nutzung?",
-              "Wurden Risiken bei KI-Einsatz systematisch analysiert?",
-              "Sind Datenschutz-Aspekte bei KI-Nutzung berücksichtigt?",
-              "Gibt es eine Kommunikationsstrategie zu KI-Anwendungen?",
-              "Werden Mitarbeitende gezielt auf KI vorbereitet?"
-            ]
-          </template>
-          <script>
-            const fragen = JSON.parse(document.getElementById('fragen').innerHTML.replace(/\n/g, '').replace(/\s+/g, ' '));
-            const quiz = document.getElementById('quiz');
-            fragen.forEach((frage, idx) => {
-              const container = document.createElement('div');
-              container.className = 'frage-block';
-              container.dataset.id = idx + 1;
-              container.innerHTML = `
-                <p class="font-semibold mb-2">${idx + 1}. ${frage}</p>
-                <div class="flex flex-wrap gap-2">
-                  <button class="btn bg-gray-200" data-score="3">Ja</button>
-                  <button class="btn bg-gray-200" data-score="2">Teilweise</button>
-                  <button class="btn bg-gray-200" data-score="1">Nein</button>
-                </div>
-              `;
-              quiz.appendChild(container);
-            });
-          </script>
-
-          <!-- Auswertungsbuttons -->
-          <div class="mt-8">
-            <button onclick="zeigeEmpfehlung()" class="bg-blue-700 hover:bg-blue-800 text-white py-2 px-4 rounded-lg">Auswertung anzeigen</button>
-            <button onclick="resetQuiz()" class="ml-4 bg-gray-300 hover:bg-gray-400 text-gray-800 py-2 px-4 rounded-lg">Check wiederholen</button>
-          </div>
-
-          <!-- Ergebnisanzeige -->
-          <div id="finalEvaluationText" class="mt-8 hidden p-6 bg-blue-50 border-l-4 border-blue-500 rounded">
-            <h3 class="text-xl font-bold mb-2">Zusammenfassung & Empfehlung</h3>
-            <p id="evaluationResult" class="mb-4 font-semibold text-blue-800">Ihre Bewertung erscheint hier nach dem Check.</p>
-            <ul class="list-disc pl-6 text-sm">
-              <li>DSGVO-konforme Beratung</li>
-              <li>Praxisorientierte Umsetzung des EU AI Acts</li>
-              <li>Konformität mit ISO/IEC 23894 (Risikomanagement für KI)</li>
-            </ul>
-            <p class="mt-4 text-sm italic">Gemeinsam entwickeln wir eine robuste KI-Strategie für Ihr Unternehmen.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+<!-- Schnell-Check Section -->
 <!-- WISSEN & HINTERGRUND -->
-<section class="scroll-section" id="wissen">
+<section class="scroll-section" id="schnellcheck"><div class="section-img"></div><div class="section-content">
+<div class="section-img">
+<img alt="Schnell analysieren" src="img/04.png"/>
+<p class="caption">Schnell analysieren</p>
+</div>
+<div class="section-content">
+<h2 class="typing">KI-Schnell-Check</h2>
+<p>Wie gut ist Ihr Unternehmen auf den verantwortungsvollen Einsatz von KI vorbereitet? Beantworten Sie 7 kurze Fragen und erhalten Sie sofort eine individuelle Einschätzung mit professioneller Empfehlung.</p>
+<div style="margin-top: 1.5rem;">
+<button class="btn" id="showResults" onclick="zeigeEmpfehlung()">Auswertung anzeigen</button>
+<button class="btn" id="resetCheck" onclick="resetQuiz()" style="margin-left: 1rem;">Check wiederholen</button>
+</div>
+<div id="evaluationResult" style="margin-top: 2rem; display: none;"></div>
+</div>
+</div></section><section class="scroll-section" id="wissen">
 <div class="section-img">
 <img alt="Wissen schafft Sicherheit" src="img/05.png"/>
 <p class="caption">Wissen schafft Sicherheit</p>
@@ -913,8 +881,8 @@ function resetQuiz() {
 }
   <!-- Micro-Animation + AOS Init -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>AOS.init();</script>
-  <script>
+<script>AOS.init();</script>
+<script>
     document.addEventListener('click', e => {
       if (e.target.matches('.frage-block .btn')) {
         const btn = e.target;
@@ -948,4 +916,52 @@ function resetQuiz() {
     }
   </script>
 </body>
-</html>
+<script>
+document.querySelectorAll('.btn-option').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const container = btn.closest('.frage-block');
+    container.querySelectorAll('.btn-option').forEach(b => b.classList.remove('bg-blue-800', 'text-white'));
+    btn.classList.add('bg-blue-800', 'text-white');
+    container.dataset.selected = btn.dataset.score;
+  });
+});
+
+function zeigeEmpfehlung() {
+  const fragen = document.querySelectorAll('.frage-block');
+  let scores = [];
+  fragen.forEach(f => {
+    if (f.dataset.selected) {
+      scores.push(parseInt(f.dataset.selected));
+    }
+  });
+
+  const ergebnisBox = document.getElementById("evaluationResult");
+  if (scores.length < 7) {
+    ergebnisBox.classList.remove("hidden");
+    ergebnisBox.innerHTML = "<strong>Bitte beantworten Sie alle 7 Fragen, um eine Auswertung zu erhalten.</strong>";
+    return;
+  }
+
+  const avg = scores.reduce((a, b) => a + b, 0) / scores.length;
+  let stufe = "";
+  if (avg < 1.6) stufe = "Kritisch – Es besteht akuter Handlungsbedarf.";
+  else if (avg < 2.3) stufe = "Ausbaufähig – Erste Strukturen sind vorhanden, es bestehen jedoch Lücken.";
+  else if (avg < 2.8) stufe = "Gut – Sie sind bereits auf einem guten Weg.";
+  else stufe = "Sehr gut – Ihre Organisation ist in vielen Bereichen vorbildlich aufgestellt.";
+
+  ergebnisBox.classList.remove("hidden");
+  ergebnisBox.innerHTML = "<h3 class='font-semibold mb-2'>Ihre Bewertung</h3><p class='mb-2'><strong>" + stufe + "</strong></p>" +
+    "<p>Ich unterstütze Sie mit DSGVO-konformer Beratung, praxisnaher Umsetzung des EU AI Acts und strategischer Orientierung entlang der ISO/IEC 23894 (Risikomanagement für KI). Gemeinsam entwickeln wir eine tragfähige, rechtssichere und wirtschaftlich sinnvolle KI-Strategie.</p>";
+}
+
+function resetQuiz() {
+  document.querySelectorAll('.frage-block').forEach(f => {
+    f.dataset.selected = "";
+    f.querySelectorAll('.btn-option').forEach(b => b.classList.remove('bg-blue-800', 'text-white'));
+  });
+  const ergebnisBox = document.getElementById("evaluationResult");
+  ergebnisBox.classList.add("hidden");
+  ergebnisBox.innerHTML = "";
+}
+</script>
+</body></html>
