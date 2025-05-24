@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-
 <html lang="de">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>KI-Sicherheit.jetzt – Schnell-Check</title>
-<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&amp;family=Inter:wght@400;700&amp;display=swap" rel="stylesheet"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KI-Schnell-Check</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 <style>
     body {
       font-family: 'Inter', sans-serif;
@@ -362,6 +363,16 @@ textarea:focus {
   font-size: 1rem;
   margin-bottom: 0.5rem;
 }
+.parallax-bg {
+      background-image: url('img/hero-parallax.jpg');
+      background-attachment: fixed;
+      background-size: cover;
+      background-position: center;
+    }
+    .btn:hover {
+      transform: scale(1.03);
+      transition: transform 0.2s ease-in-out;
+    }
 </style>
 <style>
 .quiz button.selected {
@@ -370,6 +381,15 @@ textarea:focus {
 }
 </style></head>
 <body>
+<body class="bg-white text-gray-900 font-sans">
+  <!-- Hero Section mit Parallax -->
+  <section class="parallax-bg h-screen flex flex-col justify-center items-center text-white text-center px-6">
+    <h1 class="text-4xl md:text-5xl font-bold mb-4" data-aos="fade-down">Die KI ist bereit. Sind Sie es auch?</h1>
+    <p class="text-lg md:text-xl max-w-2xl" data-aos="fade-up" data-aos-delay="200">Starten Sie mit einem strukturierten Schnell-Check zur KI-Readiness in Ihrem Unternehmen.</p>
+    <div class="mt-6 animate-bounce">
+      <span class="text-4xl">⬇</span>
+    </div>
+  </section>
 <section class="scroll-section" id="start" style="position: relative;">
 <div class="section-img">
 <img alt="Technologie mit Weitblick" src="img/01.png"/>
@@ -503,65 +523,70 @@ textarea:focus {
 <button class="btn" type="submit">Jetzt prüfen lassen</button>
 </form>
 </p></div></section>
-<!-- SCHNELL-CHECK & EMPFEHLUNG -->
-<section class="scroll-section" id="schnellcheck">
-<div class="section-img">
-<img alt="Status erfassen, Risiken vermeiden" src="img/04.png"/>
-<p class="caption">Status erfassen, Risiken vermeiden</p>
-</div>
-<div class="section-content">
-<h2 class="typing">KI-Schnell-Check</h2>
-<p>Wie gut ist Ihr Unternehmen auf den verantwortungsvollen Einsatz von KI vorbereitet? Beantworten Sie 7 kurze Fragen und erhalten Sie sofort eine individuelle Einschätzung mit professioneller Empfehlung.</p>
+  <!-- Schnell-Check Section -->
+  <section class="max-w-5xl mx-auto p-6" id="schnellcheck">
+    <div class="flex flex-col md:flex-row gap-8 items-start">
+      <div class="md:w-1/3">
+        <img src="img/04.png" alt="Status erfassen" class="rounded-xl shadow">
+        <p class="text-center text-sm text-gray-500 mt-2">Status erfassen, Risiken vermeiden</p>
+      </div>
+      <div class="md:w-2/3" data-aos="fade-left">
+        <h2 class="text-2xl font-bold mb-4">KI-Schnell-Check</h2>
+        <p class="mb-4">Beantworten Sie 7 Fragen zum KI-Einsatz – Sie erhalten eine individuelle Einschätzung und professionelle Empfehlung.</p>
 
-<div class="frage-block question" id="frage1">
-<p><strong>1. Gibt es eine zentrale Dokumentation aller eingesetzten KI-Systeme?</strong></p>
-<button class="btn" data-score="3">Ja</button>
-<button class="btn" data-score="2">Teilweise</button>
-<button class="btn" data-score="1">Nein</button>
-</div>
-<div class="frage-block question" id="frage2">
-<p><strong>2. Sind Verantwortlichkeiten für KI klar benannt?</strong></p>
-<button class="btn" data-score="3">Ja</button>
-<button class="btn" data-score="2">Teilweise</button>
-<button class="btn" data-score="1">Nein</button>
-</div>
-<div class="frage-block question" id="frage3">
-<p><strong>3. Gibt es nachvollziehbare Entscheidungsprozesse bei KI-Nutzung?</strong></p>
-<button class="btn" data-score="3">Ja</button>
-<button class="btn" data-score="2">Teilweise</button>
-<button class="btn" data-score="1">Nein</button>
-</div>
-<div class="frage-block question" id="frage4">
-<p><strong>4. Wurden Risiken bei KI-Einsatz systematisch analysiert?</strong></p>
-<button class="btn" data-score="3">Ja</button>
-<button class="btn" data-score="2">Teilweise</button>
-<button class="btn" data-score="1">Nein</button>
-</div>
-<div class="frage-block question" id="frage5">
-<p><strong>5. Sind Datenschutz-Aspekte bei KI-Nutzung berücksichtigt?</strong></p>
-<button class="btn" data-score="3">Ja</button>
-<button class="btn" data-score="2">Teilweise</button>
-<button class="btn" data-score="1">Nein</button>
-</div>
-<div class="frage-block question" id="frage6">
-<p><strong>6. Gibt es eine Kommunikationsstrategie zu KI-Anwendungen?</strong></p>
-<button class="btn" data-score="3">Ja</button>
-<button class="btn" data-score="2">Teilweise</button>
-<button class="btn" data-score="1">Nein</button>
-</div>
-<div class="frage-block question" id="frage7">
-<p><strong>7. Werden Mitarbeitende gezielt auf KI vorbereitet?</strong></p>
-<button class="btn" data-score="3">Ja</button>
-<button class="btn" data-score="2">Teilweise</button>
-<button class="btn" data-score="1">Nein</button>
-</div>
+        <div id="quiz" class="space-y-6">
+          <!-- Fragen 1-7 -->
+          <template id="fragen">
+            [
+              "Gibt es eine zentrale Dokumentation aller eingesetzten KI-Systeme?",
+              "Sind Verantwortlichkeiten für KI klar benannt?",
+              "Gibt es nachvollziehbare Entscheidungsprozesse bei KI-Nutzung?",
+              "Wurden Risiken bei KI-Einsatz systematisch analysiert?",
+              "Sind Datenschutz-Aspekte bei KI-Nutzung berücksichtigt?",
+              "Gibt es eine Kommunikationsstrategie zu KI-Anwendungen?",
+              "Werden Mitarbeitende gezielt auf KI vorbereitet?"
+            ]
+          </template>
+          <script>
+            const fragen = JSON.parse(document.getElementById('fragen').innerHTML.replace(/\n/g, '').replace(/\s+/g, ' '));
+            const quiz = document.getElementById('quiz');
+            fragen.forEach((frage, idx) => {
+              const container = document.createElement('div');
+              container.className = 'frage-block';
+              container.dataset.id = idx + 1;
+              container.innerHTML = `
+                <p class="font-semibold mb-2">${idx + 1}. ${frage}</p>
+                <div class="flex flex-wrap gap-2">
+                  <button class="btn bg-gray-200" data-score="3">Ja</button>
+                  <button class="btn bg-gray-200" data-score="2">Teilweise</button>
+                  <button class="btn bg-gray-200" data-score="1">Nein</button>
+                </div>
+              `;
+              quiz.appendChild(container);
+            });
+          </script>
 
-<div style="text-align:left; margin-top:2rem;">
-<button class="btn" onclick="zeigeEmpfehlung()">Auswertung anzeigen</button>
-<button class="btn" onclick="resetQuiz()" style="margin-left: 1rem;">Check wiederholen</button>
-</div>
-</div>
-</section>
+          <!-- Auswertungsbuttons -->
+          <div class="mt-8">
+            <button onclick="zeigeEmpfehlung()" class="bg-blue-700 hover:bg-blue-800 text-white py-2 px-4 rounded-lg">Auswertung anzeigen</button>
+            <button onclick="resetQuiz()" class="ml-4 bg-gray-300 hover:bg-gray-400 text-gray-800 py-2 px-4 rounded-lg">Check wiederholen</button>
+          </div>
+
+          <!-- Ergebnisanzeige -->
+          <div id="finalEvaluationText" class="mt-8 hidden p-6 bg-blue-50 border-l-4 border-blue-500 rounded">
+            <h3 class="text-xl font-bold mb-2">Zusammenfassung & Empfehlung</h3>
+            <p id="evaluationResult" class="mb-4 font-semibold text-blue-800">Ihre Bewertung erscheint hier nach dem Check.</p>
+            <ul class="list-disc pl-6 text-sm">
+              <li>DSGVO-konforme Beratung</li>
+              <li>Praxisorientierte Umsetzung des EU AI Acts</li>
+              <li>Konformität mit ISO/IEC 23894 (Risikomanagement für KI)</li>
+            </ul>
+            <p class="mt-4 text-sm italic">Gemeinsam entwickeln wir eine robuste KI-Strategie für Ihr Unternehmen.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 <!-- WISSEN & HINTERGRUND -->
 <section class="scroll-section" id="wissen">
 <div class="section-img">
@@ -886,5 +911,41 @@ function resetQuiz() {
   document.getElementById("finalEvaluationText").style.display = "none";
   document.getElementById("evaluationResult").innerHTML = "<strong>Ihre Bewertung erscheint hier nach dem Check.</strong>";
 }
-</script></body>
+  <!-- Micro-Animation + AOS Init -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>AOS.init();</script>
+  <script>
+    document.addEventListener('click', e => {
+      if (e.target.matches('.frage-block .btn')) {
+        const btn = e.target;
+        const siblings = btn.closest('.frage-block').querySelectorAll('.btn');
+        siblings.forEach(b => b.classList.remove('bg-blue-700', 'text-white'));
+        btn.classList.add('bg-blue-700', 'text-white');
+      }
+    });
+
+    function zeigeEmpfehlung() {
+      const scores = Array.from(document.querySelectorAll('.frage-block')).map(block => {
+        const selected = block.querySelector('.btn.bg-blue-700');
+        return selected ? parseInt(selected.dataset.score) : null;
+      });
+      if (scores.includes(null)) {
+        alert('Bitte beantworten Sie alle Fragen.');
+        return;
+      }
+      const schnitt = scores.reduce((a,b) => a+b, 0) / scores.length;
+      let ergebnis = '';
+      if (schnitt < 1.6) ergebnis = 'Kritisch – Es fehlen zentrale Grundlagen für sicheren KI-Einsatz.';
+      else if (schnitt < 2.3) ergebnis = 'Ausbaufähig – Erste Strukturen sind vorhanden, aber Lücken bestehen.';
+      else ergebnis = 'Sehr gut – Ihre Organisation ist gut vorbereitet auf KI.';
+      document.getElementById('evaluationResult').textContent = ergebnis;
+      document.getElementById('finalEvaluationText').classList.remove('hidden');
+    }
+
+    function resetQuiz() {
+      document.querySelectorAll('.btn').forEach(b => b.classList.remove('bg-blue-700', 'text-white'));
+      document.getElementById('finalEvaluationText').classList.add('hidden');
+    }
+  </script>
+</body>
 </html>
