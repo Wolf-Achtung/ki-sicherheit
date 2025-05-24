@@ -396,6 +396,11 @@ textarea:focus {
     background-color: #003a5d;
     color: white;
 }
+</style><style>
+.btn-option.selected {
+  background-color: #ffd700;
+  color: #000;
+}
 </style></head>
 <body>
 <body class="bg-white text-gray-900 font-sans">
@@ -542,7 +547,7 @@ textarea:focus {
 </p></div></section>
 <!-- Schnell-Check Section -->
 <!-- WISSEN & HINTERGRUND -->
-<section class="scroll-section" id="schnellcheck"><div class="section-img"></div><div class="section-content">
+<section class="scroll-section" id="schnellcheck">
 <div class="section-img">
 <img alt="Schnell analysieren" src="img/04.png"/>
 <p class="caption">Schnell analysieren</p>
@@ -550,13 +555,44 @@ textarea:focus {
 <div class="section-content">
 <h2 class="typing">KI-Schnell-Check</h2>
 <p>Wie gut ist Ihr Unternehmen auf den verantwortungsvollen Einsatz von KI vorbereitet? Beantworten Sie 7 kurze Fragen und erhalten Sie sofort eine individuelle Einschätzung mit professioneller Empfehlung.</p>
+<div id="quiz" style="margin-top:2rem;">
+<div class="frage-block" data-id="1"><p>1. Gibt es eine zentrale Dokumentation aller eingesetzten KI-Systeme?</p>
+<button class="btn btn-option" data-score="3">Ja</button>
+<button class="btn btn-option" data-score="2">Teilweise</button>
+<button class="btn btn-option" data-score="1">Nein</button></div>
+<div class="frage-block" data-id="2"><p>2. Sind Verantwortlichkeiten für KI klar benannt?</p>
+<button class="btn btn-option" data-score="3">Ja</button>
+<button class="btn btn-option" data-score="2">Teilweise</button>
+<button class="btn btn-option" data-score="1">Nein</button></div>
+<div class="frage-block" data-id="3"><p>3. Gibt es nachvollziehbare Entscheidungsprozesse bei KI-Nutzung?</p>
+<button class="btn btn-option" data-score="3">Ja</button>
+<button class="btn btn-option" data-score="2">Teilweise</button>
+<button class="btn btn-option" data-score="1">Nein</button></div>
+<div class="frage-block" data-id="4"><p>4. Wurden Risiken bei KI-Einsatz systematisch analysiert?</p>
+<button class="btn btn-option" data-score="3">Ja</button>
+<button class="btn btn-option" data-score="2">Teilweise</button>
+<button class="btn btn-option" data-score="1">Nein</button></div>
+<div class="frage-block" data-id="5"><p>5. Sind Datenschutz-Aspekte bei KI-Nutzung berücksichtigt?</p>
+<button class="btn btn-option" data-score="3">Ja</button>
+<button class="btn btn-option" data-score="2">Teilweise</button>
+<button class="btn btn-option" data-score="1">Nein</button></div>
+<div class="frage-block" data-id="6"><p>6. Gibt es eine Kommunikationsstrategie zu KI-Anwendungen?</p>
+<button class="btn btn-option" data-score="3">Ja</button>
+<button class="btn btn-option" data-score="2">Teilweise</button>
+<button class="btn btn-option" data-score="1">Nein</button></div>
+<div class="frage-block" data-id="7"><p>7. Werden Mitarbeitende gezielt auf KI vorbereitet?</p>
+<button class="btn btn-option" data-score="3">Ja</button>
+<button class="btn btn-option" data-score="2">Teilweise</button>
+<button class="btn btn-option" data-score="1">Nein</button></div>
+</div>
 <div style="margin-top: 1.5rem;">
-<button class="btn" id="showResults" onclick="zeigeEmpfehlung()">Auswertung anzeigen</button>
-<button class="btn" id="resetCheck" onclick="resetQuiz()" style="margin-left: 1rem;">Check wiederholen</button>
+<button class="btn" onclick="zeigeEmpfehlung()">Auswertung anzeigen</button>
+<button class="btn" onclick="resetQuiz()" style="margin-left: 1rem;">Check wiederholen</button>
 </div>
 <div id="evaluationResult" style="margin-top: 2rem; display: none;"></div>
 </div>
-</div></section><section class="scroll-section" id="wissen">
+</section>
+<section class="scroll-section" id="wissen">
 <div class="section-img">
 <img alt="Wissen schafft Sicherheit" src="img/05.png"/>
 <p class="caption">Wissen schafft Sicherheit</p>
@@ -964,4 +1000,55 @@ function resetQuiz() {
   ergebnisBox.innerHTML = "";
 }
 </script>
-</body></html>
+<script>
+document.querySelectorAll('.btn-option').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const container = btn.closest('.frage-block');
+    container.querySelectorAll('button').forEach(b => b.classList.remove('selected'));
+    btn.classList.add('selected');
+    container.setAttribute('data-selected', btn.getAttribute('data-score'));
+  });
+});
+
+function zeigeEmpfehlung() {
+  const fragen = document.querySelectorAll('.frage-block');
+  let sum = 0;
+  let count = 0;
+  fragen.forEach(f => {
+    const score = f.getAttribute('data-selected');
+    if (score) {
+      sum += parseInt(score);
+      count++;
+    }
+  });
+  const resultBox = document.getElementById("evaluationResult");
+  if (count < 7) {
+    resultBox.innerHTML = "<p><strong>Bitte beantworten Sie alle Fragen vollständig.</strong></p>";
+    resultBox.style.display = "block";
+    return;
+  }
+  const avg = sum / count;
+  let result = "";
+  if (avg < 1.6) {
+    result = "<strong>Kritisch:</strong> Ihre Antworten zeigen großen Handlungsbedarf. Ich empfehle eine umfassende KI-Beratung mit Fokus auf Risikoanalyse und verantwortlicher Umsetzung – auch im Einklang mit DSGVO und dem EU AI Act.";
+  } else if (avg < 2.3) {
+    result = "<strong>Ausbaufähig:</strong> Erste Grundlagen sind erkennbar, aber es besteht deutlicher Optimierungsbedarf, z. B. im Hinblick auf Verantwortlichkeiten und Datenschutz.";
+  } else if (avg < 2.8) {
+    result = "<strong>Gut:</strong> Ihre Organisation ist auf einem guten Weg. Vereinzelte Lücken sollten gezielt geschlossen werden – gerne unterstütze ich praxisnah.";
+  } else {
+    result = "<strong>Sehr gut:</strong> Sie sind in vielen Aspekten gut aufgestellt. Falls gewünscht, kann ich Sie bei der Feinausrichtung gemäß ISO/IEC 23894 unterstützen.";
+  }
+  resultBox.innerHTML = "<p>" + result + "</p>";
+  resultBox.style.display = "block";
+}
+
+function resetQuiz() {
+  document.querySelectorAll('.frage-block').forEach(f => {
+    f.removeAttribute('data-selected');
+    f.querySelectorAll('button').forEach(b => b.classList.remove('selected'));
+  });
+  const resultBox = document.getElementById("evaluationResult");
+  resultBox.innerHTML = "";
+  resultBox.style.display = "none";
+}
+</script></body></html>
