@@ -799,15 +799,14 @@ Die Auswertung liefert sofort eine klare Einschätzung mit konkretem Handlungsbe
 <label>Ihre Nachricht<br/>
 <textarea name="message" required="" rows="5" style="width: 100%; padding: 0.5rem; margin-bottom: 0.5rem;"></textarea>
 </label><br/>
-<div class="formular-section">
-  <label>
-    <input type="checkbox" required>
-    Ich habe die <a href="/datenschutz.html" target="_blank">Datenschutzerklärung</a> gelesen und akzeptiert.
+<label>
+<input name="datenschutz" required="" type="checkbox"/>
+    Ich habe die <a href="javascript:void(0)" onclick="toggleDatenschutzPopup()">Datenschutzerklärung</a> gelesen und akzeptiert.<br>
   </label>
 
   <label>
     <input type="checkbox" id="schnellCheckUebernehmen">
-    Ergebnis des Schnell-Checks übernehmen
+    Ergebnis des Schnell-Checks mit übermitteln.
   </label>
 </p>
 <button class="btn" type="submit">Nachricht senden</button>
