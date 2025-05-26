@@ -440,7 +440,16 @@ textarea:focus {
 </div>
 <div class="section-content">
 <h2 class="typing">Die KI ist bereit. Sind Sie es auch?</h2>
-<p>Ich unterstütze Sie dabei, KI in Ihrem Unternehmen verantwortungsvoll, rechtssicher und strategisch einzusetzen.</p>
+<p>Der sichere Einsatz von KI ist kein Zufall – sondern das Ergebnis fundierten Know-hows und strukturierter Vorbereitung. Mit dem EU AI Act verpflichtet sich der Mittelstand zu Transparenz, Nachvollziehbarkeit und Verantwortung im Umgang mit KI.</p>
+<p>Viele Unternehmen unterschätzen den Aufwand für eine KI-konforme Umsetzung. Es braucht Wissen über technische Risiken, regulatorische Anforderungen und organisatorische Maßnahmen. Nur dann können Sie vermeiden, dass Ihnen KI zur rechtlichen oder reputativen Belastung wird.</p>
+<ul>
+  <li><strong>Welche Risiken birgt generative KI im Tagesgeschäft?</strong></li>
+  <li><strong>Was bedeutet Risikoeinstufung nach EU AI Act konkret?</strong></li>
+  <li><strong>Welche Pflichten haben Mittelständler heute schon?</strong></li>
+  <li><strong>Welche Chancen ergeben sich aus guter Vorbereitung?</strong></li>
+</ul>
+<p>Ich mache dieses Wissen zugänglich – durch Beratung, Dokumentation und individuelle Risikoanalysen. Klar, verständlich und auditierbar.</p>
+
 </div>
 <div class="scroll-hint">
 <span>⇩</span>
@@ -514,7 +523,8 @@ textarea:focus {
     Je nach Projektart und Unternehmensgröße sind Zuschüsse zwischen 5.000 € und über 100.000 € möglich. Ich prüfe für Sie, ob und welche Programme zu Ihrer Maßnahme passen.</p>
 <p><strong>Förderfähigkeit prüfen lassen:</strong>
 <p>Bitte geben Sie mir dazu einige kurze Informationen:</p>
-<form name="foerderung" method="POST" data-netlify="true" action="/thankyou.html">
+<form name="foerderung" method="POST" data-netlify="true" onsubmit="event.preventDefault(); showModal();">
+<input name="form-name" type="hidden" value="foerderung"/>
 <p hidden=""><label>Don’t fill this out if you're human: <input name="bot-field"/></label></p>
 <label>Unternehmensgröße<br/>
 <select name="groesse" required="" style="width:100%; padding:0.5rem; margin-bottom:1rem;">
@@ -747,26 +757,6 @@ if (window.location.pathname.includes("thankyou.html")) {
   }
 }
 </script></body>
-<!-- Schnell-Check Section -->
-<!-- WISSEN & HINTERGRUND -->
-<section class="scroll-section" id="wissen">
-<div class="section-img">
-<img alt="Wissen schafft Sicherheit" src="img/05.png"/>
-<p class="caption">Wissen schafft Sicherheit</p>
-</div>
-<div class="section-content">
-<h2 class="typing">Wissen &amp; Hintergrund</h2>
-<p>Der sichere Einsatz von KI ist kein Zufall – sondern das Ergebnis fundierten Know-hows und strukturierter Vorbereitung. Mit dem EU AI Act verpflichtet sich der Mittelstand zu Transparenz, Nachvollziehbarkeit und Verantwortung im Umgang mit KI.</p>
-<p>Viele Unternehmen unterschätzen den Aufwand für eine KI-konforme Umsetzung. Es braucht Wissen über technische Risiken, regulatorische Anforderungen und organisatorische Maßnahmen. Nur dann können Sie vermeiden, dass Ihnen KI zur rechtlichen oder reputativen Belastung wird.</p>
-<ul>
-<strong><li>Welche Risiken birgt generative KI im Tagesgeschäft?</li>
-<li>Was bedeutet Risikoeinstufung nach EU AI Act konkret?</li>
-<li>Welche Pflichten haben Mittelständler heute schon?</li>
-<li>Welche Chancen ergeben sich aus guter Vorbereitung?</li></strong>
-</ul>
-<p>Ich mache dieses Wissen zugänglich – durch Beratung, Dokumentation und individuelle Risikoanalysen. Klar, verständlich und auditierbar.</p>
-</div>
-</section>
 <!-- FRAGEN & ANTWORTEN -->
 <section class="scroll-section" id="faq">
 <div class="section-img">
@@ -802,7 +792,8 @@ if (window.location.pathname.includes("thankyou.html")) {
 <div class="section-content">
 <h2 class="typing">Kontakt &amp; Erstgespräch</h2>
 <p>Ich freue mich auf Ihre Nachricht oder eine unverbindliche Anfrage für ein kostenfreies Erstgespräch.</p>
-<form name="kontakt" method="POST" data-netlify="true" action="/thankyou.html">
+<form name="kontakt" method="POST" data-netlify="true" onsubmit="event.preventDefault(); showModal();">
+<p hidden="">
 <label>Don’t fill this out if you're human: <input name="bot-field"/></label>
 </p>
 <label>Ihr Name<br/>
@@ -1068,30 +1059,6 @@ function zeigeEmpfehlung() {
   document.getElementById("popup-evaluation-text").innerHTML = resultText;
   document.getElementById("bewertung-popup").style.display = "block";
 }
-<script>
-  function handleFormSubmit(event, form) {
-    event.preventDefault();
-    const formData = new FormData(form);
-    const encodedData = new URLSearchParams(formData).toString();
-
-    fetch("/", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: encodedData
-    }).then(() => {
-      const popup = document.getElementById("danke-popup");
-      if (popup) {
-        popup.style.display = "block";
-        setTimeout(() => {
-          popup.scrollIntoView({ behavior: 'smooth' });
-        }, 200);
-      }
-      form.reset();
-    }).catch(err => {
-      alert("Beim Senden ist ein Fehler aufgetreten.");
-      console.error(err);
-    });
-  }
-
 </script>
+
 </html>
