@@ -430,58 +430,7 @@ textarea:focus {
     margin-right: 0.1rem;
     margin-bottom: 0.1rem; /* Geringer Abstand falls Buttons umbrechen */
   }
-#evaluationResult {
-  background: #f0f9ff;
-  padding: 1.5rem 2rem;
-  border-radius: 12px;
-  margin-top: 2rem;
-  border: 1px solid #a3d2f0;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
-  font-size: 1.05rem;
-  line-height: 1.65;
-  color: #0c3a5f;
-  max-width: 720px;
-}
-
-#evaluationResult h3 {
-  font-size: 1.5rem;
-  margin-top: 0;
-  margin-bottom: 1rem;
-  font-weight: 600;
-  color: #0c3a5f;
-}
-
-#evaluationResult p {
-  margin-bottom: 1rem;
-  font-weight: normal;
-}
-
-#evaluationResult p strong {
-  display: block;
-  font-weight: 600;
-  color: #093256;
-  margin-bottom: 0.4rem;
-}
-/* Einheitliches Styling für alle Checkbox-Beschriftungen */
-.formular-section label {
-  font-family: 'Inter', sans-serif;
-  font-size: 1rem;
-  color: #0d3b5c; /* passend zu deiner bestehenden Farbwelt */
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  margin-bottom: 1rem;
-}
-
-.formular-section input[type="checkbox"] {
-  width: 1.1rem;
-  height: 1.1rem;
-  accent-color: #0d3b5c;
-}
-
-
 </style>
-
 </head>
 <body>
 <section class="scroll-section" id="start" style="position: relative;">
@@ -565,7 +514,7 @@ textarea:focus {
     Je nach Projektart und Unternehmensgröße sind Zuschüsse zwischen 5.000 € und über 100.000 € möglich. Ich prüfe für Sie, ob und welche Programme zu Ihrer Maßnahme passen.</p>
 <p><strong>Förderfähigkeit prüfen lassen:</strong>
 <p>Bitte geben Sie mir dazu einige kurze Informationen:</p>
-<form action="/thankyou.html" name="foerderung" netlify="" netlify-honeypot="bot-field">
+<form action="/thankyou.html" name="foerderung" netlify="" netlify-honeypot="bot-field" onsubmit="showModal(); return false;">
 <input name="form-name" type="hidden" value="foerderung"/>
 <p hidden=""><label>Don’t fill this out if you're human: <input name="bot-field"/></label></p>
 <label>Unternehmensgröße<br/>
@@ -622,48 +571,48 @@ textarea:focus {
 </div>
 <div class="section-content">
 <h2 class="typing">KI-Schnell-Check &amp; Empfehlung</h2>
-<p>Sie sehen auf einen Blick, wie gut Ihr Unternehmen auf den KI-Einsatz vorbereitet ist – von Dokumentation über Verantwortung bis Datenschutz.
+<p>Der Schnell-Check zeigt auf einen Blick, wie gut Ihr Unternehmen auf den KI-Einsatz vorbereitet ist – von Dokumentation über Verantwortung bis Datenschutz.
 
-Die Auswertung liefert sofort eine klare Einschätzung mit konkretem Handlungsbedarf.</p>
+Die Auswertung erfolgt anonym im Browser und liefert sofort eine klare Einschätzung mit konkretem Handlungsbedarf. Ideal als erste Standortbestimmung.</p>
 <div id="quiz">
 <div class="frage-block" data-id="1">
-1. Gibt es eine zentrale Dokumentation aller eingesetzten KI-Systeme?<br>
+1. Gibt es eine zentrale Dokumentation aller eingesetzten KI-Systeme?<br/>
 <button class="btn-option" data-score="3">Ja</button>
 <button class="btn-option" data-score="2">Teilweise</button>
 <button class="btn-option" data-score="1">Nein</button>
 </div>
 <div class="frage-block" data-id="2">
-2. Sind Verantwortlichkeiten für KI klar benannt?<br>
+2. Sind Verantwortlichkeiten für KI klar benannt?<br/>
 <button class="btn-option" data-score="3">Ja</button>
 <button class="btn-option" data-score="2">Teilweise</button>
 <button class="btn-option" data-score="1">Nein</button>
 </div>
 <div class="frage-block" data-id="3">
-3. Gibt es nachvollziehbare Entscheidungsprozesse bei KI-Nutzung?<br>
+3. Gibt es nachvollziehbare Entscheidungsprozesse bei KI-Nutzung?<br/>
 <button class="btn-option" data-score="3">Ja</button>
 <button class="btn-option" data-score="2">Teilweise</button>
 <button class="btn-option" data-score="1">Nein</button>
 </div>
 <div class="frage-block" data-id="4">
-4. Wurden Risiken bei KI-Einsatz systematisch analysiert?<br>
+4. Wurden Risiken bei KI-Einsatz systematisch analysiert?<br/>
 <button class="btn-option" data-score="3">Ja</button>
 <button class="btn-option" data-score="2">Teilweise</button>
 <button class="btn-option" data-score="1">Nein</button>
 </div>
 <div class="frage-block" data-id="5">
-5. Sind Datenschutz-Aspekte bei KI-Nutzung berücksichtigt?<br>
+5. Sind Datenschutz-Aspekte bei KI-Nutzung berücksichtigt?<br/>
 <button class="btn-option" data-score="3">Ja</button>
 <button class="btn-option" data-score="2">Teilweise</button>
 <button class="btn-option" data-score="1">Nein</button>
 </div>
 <div class="frage-block" data-id="6">
-6. Gibt es eine Kommunikationsstrategie zu KI-Anwendungen?<br>
+6. Gibt es eine Kommunikationsstrategie zu KI-Anwendungen?<br/>
 <button class="btn-option" data-score="3">Ja</button>
 <button class="btn-option" data-score="2">Teilweise</button>
 <button class="btn-option" data-score="1">Nein</button>
 </div>
 <div class="frage-block" data-id="7">
-7. Werden Mitarbeitende gezielt auf KI vorbereitet?<br>
+7. Werden Mitarbeitende gezielt auf KI vorbereitet?<br/>
 <button class="btn-option" data-score="3">Ja</button>
 <button class="btn-option" data-score="2">Teilweise</button>
 <button class="btn-option" data-score="1">Nein</button>
@@ -790,27 +739,23 @@ Die Auswertung liefert sofort eine klare Einschätzung mit konkretem Handlungsbe
 <p hidden="">
 <label>Don’t fill this out if you're human: <input name="bot-field"/></label>
 </p>
-<label>Ihr Name<br/>
+<label>Ihr Name<br>
 <input name="name" required="" style="width: 100%; padding: 0.5rem; margin-bottom: 0.5rem;" type="text"/>
-</label><br/>
-<label>Ihre E-Mail<br/>
+</br></label><br>
+<label>Ihre E-Mail<br>
 <input name="email" required="" style="width: 100%; padding: 0.5rem; margin-bottom: 0.5rem;" type="email"/>
-</label><br/>
-<label>Ihre Nachricht<br/>
+</br></label><br>
+<label>Ihre Nachricht<br>
 <textarea name="message" required="" rows="5" style="width: 100%; padding: 0.5rem; margin-bottom: 0.5rem;"></textarea>
-</label><br/>
+</br></label><br>
+<p style="font-size: 0.9rem; color: #333;">
 <label>
 <input name="datenschutz" required="" type="checkbox"/>
-    Ich habe die <a href="javascript:void(0)" onclick="toggleDatenschutzPopup()">Datenschutzerklärung</a> gelesen und akzeptiert.<br>
-  </label>
-
-  <label>
-    <input type="checkbox" id="schnellCheckUebernehmen">
-    Ergebnis des Schnell-Checks mit übermitteln.
+    Ich habe die <a href="javascript:void(0)" onclick="toggleDatenschutzPopup()">Datenschutzerklärung</a> gelesen und akzeptiert.
   </label>
 </p>
 <button class="btn" type="submit">Nachricht senden</button>
-</form>
+</br></br></br></form>
 </div>
 </section>
 <!-- RECHTLICHES & TRANSPARENZ -->
@@ -824,10 +769,10 @@ Die Auswertung liefert sofort eine klare Einschätzung mit konkretem Handlungsbe
 <div style="display: flex; flex-wrap: wrap; gap: 2rem;">
 <div style="flex: 1 1 300px; min-width: 280px;">
 <h3>Impressum</h3>
-<p style="margin: 0.25rem 0;"><strong>Wolf Hohl</strong><br/>
+<p style="margin: 0.25rem 0;"><strong>Wolf Hohl</strong><br>
         Greifswalder Str. 224a<br/>
         10405 Berlin<br/>
-<p style="margin-top: 1rem;"><a class="btn" href="mailto:info@ki-sicherheit.jetzt"> E-Mail schreiben</a></p></p>
+<p style="margin-top: 1rem;"><a class="btn" href="mailto:info@ki-sicherheit.jetzt"> E-Mail schreiben</a></p></br></p>
 <h4 style="margin-top: 1rem;">Verantwortlich für den Inhalt</h4>
 <p style="margin: 0.25rem 0;">Wolf Hohl, Adresse wie oben.</p>
 <h4 style="margin-top: 1rem;">Haftungsausschluss</h4>
@@ -993,6 +938,7 @@ document.querySelectorAll('.quiz button').forEach(button => {
 <ul>
 <li><strong>DSGVO-konformer Beratung</strong></li>
 <li><strong>praxisorientierter Umsetzung des EU AI Acts</strong></li>
+<li><strong>Konformität mit ISO/IEC 23894 (Risikomanagement für KI)</strong></li>
 </ul>
 <p>Gemeinsam entwickeln wir eine robuste, auditierbare KI-Strategie – zugeschnitten auf die Anforderungen Ihres Unternehmens. Mit Fokus auf Effizienz, Transparenz und regulatorische Sicherheit.</p>
 <p><em>Setzen Sie auf fundiertes Know-how, unternehmerische Erfahrung und praxisnahe Umsetzung – für einen sicheren und zukunftsfähigen KI-Einsatz.</em></p>
@@ -1058,7 +1004,6 @@ document.querySelectorAll('.quiz button').forEach(button => {
     document.getElementById('evaluationResult').innerHTML = "";
   }
 </script>
-
 <style>
   .quiz button.active {
     background-color: #f59e0b !important;
