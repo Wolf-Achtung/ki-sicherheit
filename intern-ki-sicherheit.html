@@ -514,7 +514,7 @@ textarea:focus {
     Je nach Projektart und Unternehmensgröße sind Zuschüsse zwischen 5.000 € und über 100.000 € möglich. Ich prüfe für Sie, ob und welche Programme zu Ihrer Maßnahme passen.</p>
 <p><strong>Förderfähigkeit prüfen lassen:</strong>
 <p>Bitte geben Sie mir dazu einige kurze Informationen:</p>
-<form action="/thankyou.html" name="foerderung" netlify="" netlify-honeypot="bot-field" onsubmit="showModal(); return false;">
+<form action="/thankyou.html" name="foerderung" netlify="" netlify-honeypot="bot-field">
 <input name="form-name" type="hidden" value="foerderung"/>
 <p hidden=""><label>Don’t fill this out if you're human: <input name="bot-field"/></label></p>
 <label>Unternehmensgröße<br/>
@@ -739,7 +739,15 @@ function zeigeEmpfehlung() {
   document.getElementById("bewertung-popup").style.display = "block";
 }
 </script>
-</body>
+<script>
+if (window.location.pathname.includes("thankyou.html")) {
+  const danke = document.getElementById("danke-popup");
+  if (danke) {
+    danke.style.display = "block";
+    history.replaceState(null, "", "/");
+  }
+}
+</script></body>
 <!-- Schnell-Check Section -->
 <!-- WISSEN & HINTERGRUND -->
 <section class="scroll-section" id="wissen">
@@ -795,7 +803,7 @@ function zeigeEmpfehlung() {
 <div class="section-content">
 <h2 class="typing">Kontakt &amp; Erstgespräch</h2>
 <p>Ich freue mich auf Ihre Nachricht oder eine unverbindliche Anfrage für ein kostenfreies Erstgespräch.</p>
-<form action="/thankyou.html" name="kontakt" netlify="" netlify-honeypot="bot-field" onsubmit="showModal(); return false;">
+<form action="/thankyou.html" name="kontakt" netlify="" netlify-honeypot="bot-field">
 <input name="form-name" type="hidden" value="kontakt"/>
 <p hidden="">
 <label>Don’t fill this out if you're human: <input name="bot-field"/></label>
@@ -815,7 +823,12 @@ function zeigeEmpfehlung() {
     Ich habe die <a href="javascript:void(0)" onclick="toggleDatenschutzPopup()">Datenschutzerklärung</a> gelesen und akzeptiert.
   </label>
 </p>
-<button class="btn" type="submit">Nachricht senden</button>
+<p style="font-size: 0.9rem; color: #333;">
+<label>
+<input name="schnellcheckErgebnis" type="checkbox"/>
+            Bitte das Ergebnis des Schnell-Checks mit übermitteln.
+        </label>
+</p><button class="btn" type="submit">Nachricht senden</button>
 </form>
 </div>
 </section>
@@ -831,9 +844,9 @@ function zeigeEmpfehlung() {
 <div style="flex: 1 1 300px; min-width: 280px;">
 <h3>Impressum</h3>
 <p style="margin: 0.25rem 0;"><strong>Wolf Hohl</strong><br/>
-        Greifswalder Str. 224a<br>
-        10405 Berlin<br>
-<p style="margin-top: 1rem;"><a class="btn" href="mailto:info@ki-sicherheit.jetzt"> E-Mail schreiben</a></p></br></br></p>
+        Greifswalder Str. 224a<br/>
+        10405 Berlin<br/>
+<p style="margin-top: 1rem;"><a class="btn" href="mailto:info@ki-sicherheit.jetzt"> E-Mail schreiben</a></p></p>
 <h4 style="margin-top: 1rem;">Verantwortlich für den Inhalt</h4>
 <p style="margin: 0.25rem 0;">Wolf Hohl, Adresse wie oben.</p>
 <h4 style="margin-top: 1rem;">Haftungsausschluss</h4>
@@ -1060,5 +1073,4 @@ function zeigeEmpfehlung() {
 }
 </script>
 
-</script>
 </html>
