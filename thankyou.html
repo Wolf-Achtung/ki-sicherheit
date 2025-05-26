@@ -1,79 +1,497 @@
-
 <!DOCTYPE html>
 <html lang="de">
 <head>
   <meta charset="UTF-8">
   <title>Vielen Dank!</title>
-  <style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+ <style>
+  .question-buttons button.selected {
+    background-color: #cceeff;
+    color: black;
+  }
+  #backToTopBtn svg {
+    display: block;
+    margin: auto;
+  }
+
     body {
-      font-family: 'Arial', sans-serif;
-      background-color: #f9f9f9;
-      color: #0a2f4f;
+      font-family: 'Inter', sans-serif;
       margin: 0;
-      padding: 2rem;
+      padding: 0;
+      background: #fdfdfd;
+      color: #0c3a5f;
+      line-height: 1.6;
     }
-    .danke-section {
-      max-width: 960px;
+    section.scroll-section {
+      padding: 3rem 1.5rem;
+      max-width: 1080px;
       margin: 0 auto;
-      background-color: #ffffff;
-      padding: 2rem;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    }
-    .section-content {
       display: flex;
-      align-items: flex-start;
+      flex-wrap: wrap;
       gap: 2rem;
     }
-    .thankyou-image {
-      width: 260px;
-      height: auto;
-      border-radius: 12px;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    .section-img {
+  align-self: flex-start;
+      flex: 1 1 300px;
+      max-width: 300px;
     }
-    .image-caption {
-      text-align: center;
-      font-size: 0.9rem;
-      color: grey;
-      margin-top: 0.5rem;
+    .section-content {
+      flex: 2 1 600px;
     }
-    .section-text {
-      flex-grow: 1;
-    }
-    h2 {
-      font-family: "Courier New", Courier, monospace;
+    h1, h2.typing {
+      font-family: 'Share Tech Mono', monospace;
       font-size: 2rem;
-      margin-bottom: 1rem;
+      font-weight: bold;
+      margin-bottom: 1.5rem;
+      animation: flicker 1.5s infinite alternate;
+    }
+    @keyframes flicker {
+      0% { opacity: 1; }
+      100% { opacity: 0.85; }
     }
     .btn {
-      display: inline-block;
-      padding: 0.75rem 1.5rem;
-      background-color: #0a2f4f;
-      color: #fff;
+      background-color: #0c3a5f;
+      color: white;
       border: none;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: bold;
-      margin-top: 1rem;
+      padding: 0.75rem 1.25rem;
+      border-radius: 12px;
+      font-size: 1rem;
+      cursor: pointer;
     }
     .btn:hover {
-      background-color: #004080;
+      background-color: #093256;
     }
-  </style>
+    .caption {
+      text-align: center;
+      font-size: 0.85rem;
+      color: #888;
+      margin-top: 0.5rem;
+    }
+    img {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+    }
+    .tooltip {
+      position: relative;
+      cursor: help;
+      border-bottom: 1px dotted #999;
+    }
+    .tooltip:hover::after {
+      content: attr(data-tooltip);
+      position: absolute;
+      left: 0;
+      top: 100%;
+      background: #333;
+      color: #fff;
+      padding: 0.5rem;
+      border-radius: 6px;
+      white-space: nowrap;
+      font-size: 0.8rem;
+      margin-top: 0.3rem;
+      z-index: 9999;
+    }
+    .balken {
+      background: #eee;
+      border-radius: 20px;
+      height: 20px;
+      overflow: hidden;
+      margin-bottom: 0.5rem;
+    }
+    .balken-bar {
+      height: 100%;
+      width: 0%;
+      transition: width 1s ease-in-out;
+      border-radius: 20px;
+    }
+    .balken-bar.rot { background: #c0392b; }
+    .balken-bar.gelb { background: #f39c12; }
+    .balken-bar.gruen { background: #27ae60; }
+@media (max-width: 768px) {
+  #quiz .frage {
+    margin-bottom: 2rem;
+  }
+  #quiz button {
+    display: block;
+    width: 100%;
+    margin-bottom: 0.5rem;
+  }
+  .balken {
+    height: 16px;
+  }
+  #auswertung ul li {
+    font-size: 0.95rem;
+  }
+  #auswertung button {
+    display: block;
+    width: 100%;
+    margin: 0.5rem 0;
+  }
+ #pdf-fab {
+    display: block;
+  }
+}
+
+/* Animierte Section Transitions */
+.scroll-section {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.scroll-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Balken-Card-Style */
+.balken {
+  background: #eee;
+  border-radius: 20px;
+  height: 20px;
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+/* Floating Button */
+#pdf-fab {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #0c3a5f;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 56px;
+  height: 56px;
+  font-size: 1.5rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  cursor: pointer;
+  z-index: 1000;
+}
+#pdf-fab:hover {
+  background-color: #092a4c;
+}
+/* FAQ Footer Style */
+.faq-footer-nav {
+  text-align: center;
+  margin-top: 2rem;
+  border-top: 1px solid #ccc;
+  padding-top: 1rem;
+  font-weight: bold;
+  font-size: 1rem;
+}
+.faq-footer-nav a {
+  margin: 0 1rem;
+  color: #0c3a5f;
+  text-decoration: none;
+}
+.faq-footer-nav a:hover {
+  text-decoration: underline;
+}
+
+/* Einheitliche Button-Stile */
+#quiz button {
+  background-color: #0c3a5f;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 12px;
+  margin: 0.25rem 0.5rem 0.5rem 0;
+  cursor: pointer;
+  font-size: 1rem;
+  font-family: inherit;
+}
+#quiz button:hover {
+  background-color: #093256;
+}
+#quiz button.active {
+  background-color: #0d6efd !important;
+  color: white !important;
+  border: 1px solid #084298 !important;
+}
+.logo-reihe {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+.logo-reihe img {
+  max-height: 60px;
+  height: auto;
+  width: auto;
+  object-fit: contain;
+}
+
+
+@media (min-width: 1025px) {
+  html, body {
+    scroll-snap-type: y mandatory;
+  }
+
+  section.scroll-section {
+    scroll-snap-align: start;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+  }
+}
+
+
+@media (min-width: 1025px) {
+  .scroll-hint {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2rem;
+    color: #0c3a5f;
+    opacity: 0.7;
+    animation: bounce 1.5s infinite;
+  }
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translate(-50%, 0); }
+  50% { transform: translate(-50%, 10px); }
+}
+
+
+.faq-item {
+  margin-bottom: 0.75rem;
+}
+.faq-item h3 {
+  font-size: 1.05rem;
+  font-weight: bold;
+  margin-bottom: 0.2rem;
+}
+.faq-answer {
+  margin-bottom: 0.5rem;
+}
+
+
+#schnellcheck h3 {
+  margin-bottom: 0.25rem;
+  margin-top: 1rem;
+}
+#schnellcheck .balken {
+  margin-bottom: 0.25rem;
+}
+#schnellcheck p {
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+}
+
+
+@media (min-width: 1025px) {
+  #top-button span {
+    display: inline-block;
+    transform: rotate(-90deg);
+  }
+}
+
+
+input[type="text"],
+input[type="email"],
+select,
+textarea {
+  border: 2px solid #0c3a5f;
+  border-radius: 12px;
+  font-family: inherit;
+  padding: 0.65rem;
+  margin-bottom: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+  background: #f9f9fc;
+  transition: border 0.3s ease;
+}
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: #092a4c;
+  background: #ffffff;
+}
+
+
+@media (max-width: 768px) {
+  .section-content > div {
+    flex-direction: column !important;
+  }
+}
+
+
+#datenschutz-modal > div {
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+
+
+@media (min-width: 1025px) {
+  section.scroll-section {
+    align-items: flex-start;
+    padding-top: 8vh;
+    padding-bottom: 8vh;
+  }
+}
+
+
+.faq-item {
+  margin-bottom: 0.5rem;
+}
+.faq-item h3 {
+  font-size: 1.05rem;
+  font-weight: bold;
+  margin-bottom: 0.2rem;
+}
+.faq-answer {
+  margin-bottom: 0.3rem;
+}
+
+
+.scroll-section {
+  
+}
+
+.scroll-section {
+  padding-top: 8cm !important;
+}
+/* Einheitliche Schriftgrößen wie in Rechtliches & Transparenz */
+.faq-item h3 {
+  font-size: 1.05rem;
+  font-weight: bold;
+  margin-bottom: 0.2rem;
+}
+.faq-item .faq-answer {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+.parallax-bg {
+      background-image: url('img/hero-parallax.jpg');
+      background-attachment: fixed;
+      background-size: cover;
+      background-position: center;
+    }
+    .btn:hover {
+      transform: scale(1.03);
+      transition: transform 0.2s ease-in-out;
+    }
+
+/* Kompaktere Darstellung im Schnell-Check */
+.frage-block {
+  margin-bottom: 0.5rem !important;
+}
+
+.frage-block p {
+  margin-bottom: 0.2rem !important;
+}
+
+.frage-block .btn-option {
+  margin-top: 0.1rem !important;
+  margin-bottom: 0.1rem !important;
+}
+</style>
+<style>
+  .question-buttons button.selected {
+    background-color: #cceeff;
+    color: black;
+  }
+  #backToTopBtn svg {
+    display: block;
+    margin: auto;
+  }
+
+.quiz button.selected {
+    background-color: #003a5d;
+    color: white;
+}
+</style>
+<style>
+  .frage-block .btn-option.selected {
+    background-color: #cceeff !important;
+    color: black !important;
+    border: 1px solid #ffa000;
+  }
+<style>
+  .frage-block {
+    margin-bottom: 0.1rem; /* Reduzierter Abstand zwischen den Fragen */
+  }
+
+  .frage-block p {
+    margin-bottom: 0.1rem; /* Geringer Abstand zwischen Frage-Text und Buttons */
+  }
+
+  .frage-block .btn-option {
+    margin-right: 0.1rem;
+    margin-bottom: 0.1rem; /* Geringer Abstand falls Buttons umbrechen */
+  }
+#evaluationResult {
+  background: #f0f9ff;
+  padding: 1.5rem 2rem;
+  border-radius: 12px;
+  margin-top: 2rem;
+  border: 1px solid #a3d2f0;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: #0c3a5f;
+  max-width: 720px;
+}
+
+#evaluationResult h3 {
+  font-size: 1.5rem;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  color: #0c3a5f;
+}
+
+#evaluationResult p {
+  margin-bottom: 1rem;
+  font-weight: normal;
+}
+
+#evaluationResult p strong {
+  display: block;
+  font-weight: 600;
+  color: #093256;
+  margin-bottom: 0.4rem;
+}
+/* Einheitliches Styling für alle Checkbox-Beschriftungen */
+.formular-section label {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  color: #0d3b5c; /* passend zu deiner bestehenden Farbwelt */
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.formular-section input[type="checkbox"] {
+  width: 1.1rem;
+  height: 1.1rem;
+  accent-color: #0d3b5c;
+}
+
+
+</style>
+
 </head>
 <body>
-  <section class="danke-section">
+  <section class="scroll-section" id="danke">
+    <div class="section-img">
+      <img src="img/10.png" alt="Danke für Ihre Nachricht!" />
+      <p>Danke für Ihre Nachricht.</p>
+    </div>
     <div class="section-content">
-      <div class="section-image">
-        <img src="rocket-flying.jpg" alt="Schnell analysieren" class="thankyou-image">
-        <p class="image-caption">Schnell analysieren</p>
-      </div>
-      <div class="section-text">
-        <h2>Vielen Dank!</h2>
-        <p>Ihre Anfrage wurde übermittelt.<br>
-           Ich melde mich in Kürze persönlich bei Ihnen.</p>
-        <a href="index.html" class="btn">Zurück zur Hauptseite</a>
-      </div>
+      <h2>Vielen Dank!</h2>
+      <p>Ihre Anfrage wurde übermittelt.<br>Ich melde mich in Kürze persönlich bei Ihnen.</p>
+      <a href="intern-ki-sicherheit.html#kontakt" class="btn">Zurück zur Hauptseite</a>
     </div>
   </section>
 </body>
