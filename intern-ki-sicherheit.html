@@ -650,24 +650,24 @@ Die Auswertung erfolgt anonym im Browser und liefert sofort eine klare Einschät
     let result = "";
     if (avg < 1.6) {
     resultText = `
-    <p><strong>Kritisch – Es besteht akuter Handlungsbedarf.</strong></p>
+    <p><strong>Kritisch – Es besteht akuter Handlungsbedarf!</strong></p>
     <p>Ihr Unternehmen zeigt gravierende Lücken in Governance, Datenschutz und Risikoanalyse. Es fehlen Prozesse, Verantwortlichkeiten und die Einhaltung regulatorischer Vorgaben wie dem EU AI Act.</p>
-    <p><strong>Empfehlung:</strong> Ich unterstütze Sie beim Aufbau strukturierter, DSGVO-konformer Prozesse, der Risikobewertung sowie bei der rechtskonformen Umsetzung des EU AI Acts.</p>`;
+    <p><strong>Empfehlung:</strong> <br>Ich unterstütze Sie beim Aufbau strukturierter, DSGVO-konformer Prozesse, der Risikobewertung sowie bei der rechtskonformen Umsetzung des EU AI Acts.</p>`;
   } else if (avg < 2.3) {
     resultText = `
     <p><strong>Ausbaufähig – Erste Strukturen sind erkennbar.</strong></p>
     <p>Sie berücksichtigen bereits zentrale Aspekte, aber es bestehen Lücken in Dokumentation, Zuständigkeiten oder Datenschutz-Praxis. Eine klare Roadmap zur Compliance ist jetzt entscheidend.</p>
-    <p><strong>Empfehlung:</strong> Ich begleite Sie beim gezielten Ausbau Ihrer Maßnahmen – praxisnah, rechtskonform und förderfähig nach EU-Vorgaben.</p>`;
+    <p><strong>Empfehlung:</strong> <br>Ich begleite Sie beim gezielten Ausbau Ihrer Maßnahmen – praxisnah, rechtskonform und förderfähig nach EU-Vorgaben.</p>`;
   } else if (avg < 2.8) {
     resultText = `
     <p><strong>Gut – Sie sind auf einem guten Weg.</strong></p>
     <p>Viele relevante Anforderungen sind in Ihrer Organisation verankert, u.a. zu Governance und Risikoanalyse. Jetzt geht es um die systematische Dokumentation und den internen Nachweis.</p>
-    <p><strong>Empfehlung:</strong> Ich unterstütze Sie bei der auditierbaren Verankerung Ihrer Prozesse gemäß EU AI Act.</p>`;
+    <p><strong>Empfehlung:</strong> <br> Ich unterstütze Sie bei der auditierbaren Verankerung Ihrer Prozesse gemäß EU AI Act.</p>`;
   } else {
     resultText = `
     <p><strong>Sehr gut – Ihre Organisation ist vorbildlich aufgestellt.</strong></p>
     <p>Sie erfüllen bereits heute die zentralen Anforderungen an KI-Governance, Datenschutz und Risikomanagement. Ihr Vorgehen ist strukturiert und strategisch.</p>
-    <p><strong>Empfehlung:</strong> Nutzen Sie Ihre Stärke gezielt für Förderanträge, interne Schulungen und als vertrauensbildenden Vorteil am Markt. Ich begleite Sie gerne bei diesem nächsten Schritt.</p>`;
+    <p><strong>Empfehlung:</strong> <br> Nutzen Sie Ihre Stärke gezielt für Förderanträge, interne Schulungen und als vertrauensbildenden Vorteil am Markt. Ich begleite Sie gerne bei diesem nächsten Schritt.</p>`;
   }
 
     resultBox.innerHTML = "<h3>Ihre Bewertung:</h3><p><strong>" + resultText + "</strong></p>";
@@ -714,15 +714,26 @@ function zeigeEmpfehlung() {
 
   const avg = scores.reduce((a, b) => a + b, 0) / scores.length;
   let resultText = "";
-  if (avg < 1.6) {
-    resultText = "<strong>Kritisch – Es besteht akuter Handlungsbedarf.</strong><br>Ihr Unternehmen zeigt gravierende Lücken in Governance, Datenschutz und Risikoanalyse.";
+    if (avg < 1.6) {
+    resultText = `
+    <p><strong>Kritisch – Es besteht akuter Handlungsbedarf.</strong></p>
+    <p>Ihr Unternehmen zeigt gravierende Lücken in Governance, Datenschutz und Risikoanalyse. Es fehlen Prozesse, Verantwortlichkeiten und die Einhaltung regulatorischer Vorgaben wie dem EU AI Act.</p>
+    <p><strong>Empfehlung:</strong> Ich unterstütze Sie beim Aufbau strukturierter, DSGVO-konformer Prozesse sowie bei der rechtskonformen Umsetzung des EU AI Acts.</p>`;
   } else if (avg < 2.3) {
-    resultText = "<strong>Ausbaufähig – Erste Strukturen sind erkennbar.</strong><br>Sie berücksichtigen bereits zentrale Aspekte, aber es bestehen Lücken.";
+    resultText = `
+    <p><strong>Ausbaufähig – Erste Strukturen sind erkennbar.</strong></p>
+    <p>Sie berücksichtigen bereits zentrale Aspekte, aber es bestehen Lücken in Dokumentation, Zuständigkeiten oder Datenschutz-Praxis. Eine klare Roadmap zur Compliance ist jetzt entscheidend.</p>
+    <p><strong>Empfehlung:</strong> Ich begleite Sie beim gezielten Ausbau Ihrer Maßnahmen – praxisnah, rechtskonform und förderfähig nach EU-Vorgaben.</p>`;
   } else if (avg < 2.8) {
-    resultText = "<strong>Gut – Sie sind auf einem guten Weg.</strong><br>Viele Anforderungen sind erfüllt. Jetzt geht es um Nachweise und Dokumentation.";
+    resultText = `
+    <p><strong>Gut – Sie sind auf einem guten Weg.</strong></p>
+    <p>Viele relevante Anforderungen sind in Ihrer Organisation verankert, u.a. zu Governance und Risikoanalyse. Jetzt geht es um die systematische Dokumentation und den internen Nachweis.</p>
+    <p><strong>Empfehlung:</strong> Ich unterstütze Sie bei der auditierbaren Verankerung Ihrer Prozesse gemäß EU AI Act.</p>`;
   } else {
-    resultText = "<strong>Sehr gut – Ihre Organisation ist vorbildlich aufgestellt.</strong><br>Sie erfüllen zentrale Anforderungen und können gezielt von Förderungen profitieren.";
-  }
+    resultText = `
+    <p><strong>Sehr gut – Ihre Organisation ist vorbildlich aufgestellt.</strong></p>
+    <p>Sie erfüllen bereits heute die zentralen Anforderungen an KI-Governance, Datenschutz und Risikomanagement. Ihr Vorgehen ist strukturiert und strategisch.</p>
+    <p><strong>Empfehlung:</strong> Nutzen Sie Ihre Stärke gezielt für Förderanträge, interne Schulungen und als vertrauensbildenden Vorteil am Markt. Ich begleite Sie gerne bei diesem nächsten Schritt.</p>`;
 
   document.getElementById("popup-evaluation-text").innerHTML = resultText;
   document.getElementById("bewertung-popup").style.display = "block";
@@ -974,13 +985,6 @@ function scrollToTop() {
 </svg>
 </button>
 <script>
-document.querySelectorAll('.quiz button').forEach(button => {
-    button.addEventListener('click', () => {
-        const siblings = button.parentNode.querySelectorAll('button');
-        siblings.forEach(sib => sib.classList.remove('selected'));
-        button.classList.add('selected');
-    });
-});
 </script><div id="finalEvaluationText" style="display:none; margin-top: 2rem; font-size: 1.05rem; line-height: 1.6;">
 <h3>Zusammenfassung &amp; Empfehlung</h3>
 <p id="evaluationResult"><strong>Ihre Bewertung erscheint hier nach dem Check.</strong></p>
@@ -1000,119 +1004,61 @@ document.querySelectorAll('.quiz button').forEach(button => {
     color: #fff !important;
   }
 </style>
+
+  }
 <script>
-  document.querySelectorAll('.btn-option').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const container = btn.closest('.frage-block');
-      container.querySelectorAll('.btn-option').forEach(b => b.classList.remove('selected'));
-      btn.classList.add('selected');
-    });
+// Button-Auswahllogik aktivieren
+document.querySelectorAll('.frage-block .btn-option').forEach(button => {
+  button.addEventListener('click', () => {
+    const parent = button.closest('.frage-block');
+    parent.querySelectorAll('.btn-option').forEach(btn => btn.classList.remove('selected'));
+    button.classList.add('selected');
+  });
+});
+
+// Popup-Auswertung bei Klick anzeigen
+function zeigeEmpfehlung() {
+  const blocks = document.querySelectorAll('.frage-block');
+  let scores = [];
+  blocks.forEach(block => {
+    const selected = block.querySelector('.btn-option.selected');
+    if (selected) scores.push(parseInt(selected.dataset.score));
   });
 
-  function zeigeEmpfehlung() {
-    const blocks = document.querySelectorAll('.frage-block');
-    let scores = [];
-    blocks.forEach(block => {
-      const selected = block.querySelector('.btn-option.selected');
-      if (selected) scores.push(parseInt(selected.dataset.score));
-    });
+  if (scores.length < 7) {
+    alert("Bitte beantworten Sie alle 7 Fragen.");
+    return;
+  }
 
-    const resultBox = document.getElementById('evaluationResult');
-    if (scores.length < 7) {
-      resultBox.innerHTML = "<strong>Bitte beantworten Sie alle 7 Fragen.</strong>";
-      return;
-    }
+  const avg = scores.reduce((a, b) => a + b, 0) / scores.length;
+  let resultText = "";
 
-    const avg = scores.reduce((a, b) => a + b, 0) / scores.length;
-    let result = "";
-    if (avg < 1.6) {
+  if (avg < 1.6) {
     resultText = `
-    <p><strong>Kritisch – Es besteht akuter Handlungsbedarf.</strong></p>
-    <p>Ihr Unternehmen zeigt gravierende Lücken in Governance, Datenschutz und Risikoanalyse. Es fehlen Prozesse, Verantwortlichkeiten und die Einhaltung regulatorischer Vorgaben wie dem EU AI Act.</p>
-    <p><strong>Empfehlung:</strong> Ich unterstütze Sie beim Aufbau strukturierter, DSGVO-konformer Prozesse sowie bei der rechtskonformen Umsetzung des EU AI Acts.</p>`;
+      <p><strong>Kritisch – Es besteht akuter Handlungsbedarf.</strong></p>
+      <p>Ihr Unternehmen zeigt gravierende Lücken in Governance, Datenschutz und Risikoanalyse. Es fehlen Prozesse, Verantwortlichkeiten und die Einhaltung regulatorischer Vorgaben wie dem EU AI Act.</p>
+      <p><strong>Empfehlung:</strong> Ich unterstütze Sie beim Aufbau strukturierter, DSGVO-konformer Prozesse sowie bei der rechtskonformen Umsetzung des EU AI Acts.</p>`;
   } else if (avg < 2.3) {
     resultText = `
-    <p><strong>Ausbaufähig – Erste Strukturen sind erkennbar.</strong></p>
-    <p>Sie berücksichtigen bereits zentrale Aspekte, aber es bestehen Lücken in Dokumentation, Zuständigkeiten oder Datenschutz-Praxis. Eine klare Roadmap zur Compliance ist jetzt entscheidend.</p>
-    <p><strong>Empfehlung:</strong> Ich begleite Sie beim gezielten Ausbau Ihrer Maßnahmen – praxisnah, rechtskonform und förderfähig nach EU-Vorgaben.</p>`;
+      <p><strong>Ausbaufähig – Erste Strukturen sind erkennbar.</strong></p>
+      <p>Sie berücksichtigen bereits zentrale Aspekte, aber es bestehen Lücken in Dokumentation, Zuständigkeiten oder Datenschutz-Praxis. Eine klare Roadmap zur Compliance ist jetzt entscheidend.</p>
+      <p><strong>Empfehlung:</strong> Ich begleite Sie beim gezielten Ausbau Ihrer Maßnahmen – praxisnah, rechtskonform und förderfähig nach EU-Vorgaben.</p>`;
   } else if (avg < 2.8) {
     resultText = `
-    <p><strong>Gut – Sie sind auf einem guten Weg.</strong></p>
-    <p>Viele relevante Anforderungen sind in Ihrer Organisation verankert, u.a. zu Governance und Risikoanalyse. Jetzt geht es um die systematische Dokumentation und den internen Nachweis.</p>
-    <p><strong>Empfehlung:</strong> Ich unterstütze Sie bei der auditierbaren Verankerung Ihrer Prozesse gemäß EU AI Act.</p>`;
+      <p><strong>Gut – Sie sind auf einem guten Weg.</strong></p>
+      <p>Viele relevante Anforderungen sind in Ihrer Organisation verankert, u.a. zu Governance und Risikoanalyse. Jetzt geht es um die systematische Dokumentation und den internen Nachweis.</p>
+      <p><strong>Empfehlung:</strong> Ich unterstütze Sie bei der auditierbaren Verankerung Ihrer Prozesse gemäß EU AI Act.</p>`;
   } else {
     resultText = `
-    <p><strong>Sehr gut – Ihre Organisation ist vorbildlich aufgestellt.</strong></p>
-    <p>Sie erfüllen bereits heute die zentralen Anforderungen an KI-Governance, Datenschutz und Risikomanagement. Ihr Vorgehen ist strukturiert und strategisch.</p>
-    <p><strong>Empfehlung:</strong> Nutzen Sie Ihre Stärke gezielt für Förderanträge, interne Schulungen und als vertrauensbildenden Vorteil am Markt. Ich begleite Sie gerne bei diesem nächsten Schritt.</p>`;
-  
-    resultBox.innerHTML = "<h3>Ihre Bewertung:</h3><p><strong>" + resultText + "</strong></p>";
+      <p><strong>Sehr gut – Ihre Organisation ist vorbildlich aufgestellt.</strong></p>
+      <p>Sie erfüllen bereits heute die zentralen Anforderungen an KI-Governance, Datenschutz und Risikomanagement. Ihr Vorgehen ist strukturiert und strategisch.</p>
+      <p><strong>Empfehlung:</strong> Nutzen Sie Ihre Stärke gezielt für Förderanträge, interne Schulungen und als vertrauensbildenden Vorteil am Markt. Ich begleite Sie gerne bei diesem nächsten Schritt.</p>`;
   }
 
-  function resetQuiz() {
-    document.querySelectorAll('.btn-option').forEach(btn => btn.classList.remove('selected'));
-    document.getElementById('evaluationResult').innerHTML = "";
-  }
+  document.getElementById("popup-evaluation-text").innerHTML = resultText;
+  document.getElementById("bewertung-popup").style.display = "block";
+}
 </script>
-<style>
-  .quiz button.active {
-    background-color: #f59e0b !important;
-    color: #fff !important;
-  }
-</style>
-<script>
-  document.querySelectorAll('.btn-option').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const container = btn.closest('.frage-block');
-      container.querySelectorAll('.btn-option').forEach(b => b.classList.remove('selected'));
-      btn.classList.add('selected');
-    });
-  });
 
-  function zeigeEmpfehlung() {
-    const blocks = document.querySelectorAll('.frage-block');
-    let scores = [];
-    blocks.forEach(block => {
-      const selected = block.querySelector('.btn-option.selected');
-      if (selected) scores.push(parseInt(selected.dataset.score));
-    });
-
-    const resultBox = document.getElementById('evaluationResult');
-    if (scores.length < 7) {
-      resultBox.innerHTML = "<strong>Bitte beantworten Sie alle 7 Fragen.</strong>";
-      return;
-    }
-
-    const avg = scores.reduce((a, b) => a + b, 0) / scores.length;
-    let result = "";
-    if (avg < 1.6) {
-    resultText = `
-    <p><strong>Kritisch – Es besteht akuter Handlungsbedarf.</strong></p>
-    <p>Ihr Unternehmen zeigt gravierende Lücken in Governance, Datenschutz und Risikoanalyse. Es fehlen Prozesse, Verantwortlichkeiten und die Einhaltung regulatorischer Vorgaben wie dem EU AI Act.</p>
-    <p><strong>Empfehlung:</strong> Ich unterstütze Sie beim Aufbau strukturierter, DSGVO-konformer Prozesse sowie bei der rechtskonformen Umsetzung des EU AI Acts.</p>`;
-  } else if (avg < 2.3) {
-    resultText = `
-    <p><strong>Ausbaufähig – Erste Strukturen sind erkennbar.</strong></p>
-    <p>Sie berücksichtigen bereits zentrale Aspekte, aber es bestehen Lücken in Dokumentation, Zuständigkeiten oder Datenschutz-Praxis. Eine klare Roadmap zur Compliance ist jetzt entscheidend.</p>
-    <p><strong>Empfehlung:</strong> Ich begleite Sie beim gezielten Ausbau Ihrer Maßnahmen – praxisnah, rechtskonform und förderfähig nach EU-Vorgaben.</p>`;
-  } else if (avg < 2.8) {
-    resultText = `
-    <p><strong>Gut – Sie sind auf einem guten Weg.</strong></p>
-    <p>Viele relevante Anforderungen sind in Ihrer Organisation verankert, u.a. zu Governance und Risikoanalyse. Jetzt geht es um die systematische Dokumentation und den internen Nachweis.</p>
-    <p><strong>Empfehlung:</strong> Ich unterstütze Sie bei der auditierbaren Verankerung Ihrer Prozesse gemäß EU AI Act.</p>`;
-  } else {
-    resultText = `
-    <p><strong>Sehr gut – Ihre Organisation ist vorbildlich aufgestellt.</strong></p>
-    <p>Sie erfüllen bereits heute die zentralen Anforderungen an KI-Governance, Datenschutz und Risikomanagement. Ihr Vorgehen ist strukturiert und strategisch.</p>
-    <p><strong>Empfehlung:</strong> Nutzen Sie Ihre Stärke gezielt für Förderanträge, interne Schulungen und als vertrauensbildenden Vorteil am Markt. Ich begleite Sie gerne bei diesem nächsten Schritt.</p>`;
-
-
-    resultBox.innerHTML = "<h3>Ihre Bewertung:</h3><p><strong>" + resultText + "</strong></p>";
-  }
-
-  function resetQuiz() {
-    document.querySelectorAll('.btn-option').forEach(btn => btn.classList.remove('selected'));
-    document.getElementById('evaluationResult').innerHTML = "";
-  }
 </script>
 </html>
