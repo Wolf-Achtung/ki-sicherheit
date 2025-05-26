@@ -678,7 +678,57 @@ Die Auswertung erfolgt anonym im Browser und liefert sofort eine klare Einschät
     document.getElementById('evaluationResult').innerHTML = "";
   }
 </script>
-</div></section></body>
+</div></section>
+<!-- Danke-Popup -->
+<div id="danke-popup" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:#ffffffee; z-index:10000; text-align:center; padding-top:10%;">
+<div style="background:white; margin:0 auto; padding:2rem; max-width:480px; border-radius:12px; box-shadow:0 0 10px rgba(0,0,0,0.1); font-family:Inter,sans-serif;">
+<h2 style="font-family:'Share Tech Mono', monospace; color:#0c3a5f;">Vielen Dank!</h2>
+<p style="font-size:1.1rem;">Ihre Anfrage wurde übermittelt.<br/>Ich melde mich in Kürze persönlich bei Ihnen.</p>
+<button class="btn" onclick="document.getElementById('danke-popup').style.display='none'">Schließen</button>
+</div>
+</div>
+<!-- Schnell-Check Ergebnis-Popup -->
+<div id="bewertung-popup" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:#ffffffee; z-index:10000; text-align:center; padding-top:10%;">
+<div style="background:white; margin:0 auto; padding:2rem; max-width:540px; border-radius:12px; box-shadow:0 0 12px rgba(0,0,0,0.15); font-family:Inter,sans-serif;">
+<h2 style="font-family:'Share Tech Mono', monospace; color:#0c3a5f;">Ihre Bewertung</h2>
+<div id="popup-evaluation-text" style="text-align:left; font-size:1rem; color:#0c3a5f;"></div>
+<button class="btn" onclick="document.getElementById('bewertung-popup').style.display='none'">Schließen</button>
+</div>
+</div>
+<script>
+function showModal() {
+  document.getElementById("danke-popup").style.display = "block";
+}
+function zeigeEmpfehlung() {
+  const blocks = document.querySelectorAll('.frage-block');
+  let scores = [];
+  blocks.forEach(block => {
+    const selected = block.querySelector('.btn-option.selected');
+    if (selected) scores.push(parseInt(selected.dataset.score));
+  });
+
+  if (scores.length < 7) {
+    alert("Bitte beantworten Sie alle 7 Fragen.");
+    return;
+  }
+
+  const avg = scores.reduce((a, b) => a + b, 0) / scores.length;
+  let resultText = "";
+  if (avg < 1.6) {
+    resultText = "<strong>Kritisch – Es besteht akuter Handlungsbedarf.</strong><br>Ihr Unternehmen zeigt gravierende Lücken in Governance, Datenschutz und Risikoanalyse.";
+  } else if (avg < 2.3) {
+    resultText = "<strong>Ausbaufähig – Erste Strukturen sind erkennbar.</strong><br>Sie berücksichtigen bereits zentrale Aspekte, aber es bestehen Lücken.";
+  } else if (avg < 2.8) {
+    resultText = "<strong>Gut – Sie sind auf einem guten Weg.</strong><br>Viele Anforderungen sind erfüllt. Jetzt geht es um Nachweise und Dokumentation.";
+  } else {
+    resultText = "<strong>Sehr gut – Ihre Organisation ist vorbildlich aufgestellt.</strong><br>Sie erfüllen zentrale Anforderungen und können gezielt von Förderungen profitieren.";
+  }
+
+  document.getElementById("popup-evaluation-text").innerHTML = resultText;
+  document.getElementById("bewertung-popup").style.display = "block";
+}
+</script>
+</body>
 <!-- Schnell-Check Section -->
 <!-- WISSEN & HINTERGRUND -->
 <section class="scroll-section" id="wissen">
@@ -734,20 +784,20 @@ Die Auswertung erfolgt anonym im Browser und liefert sofort eine klare Einschät
 <div class="section-content">
 <h2 class="typing">Kontakt &amp; Erstgespräch</h2>
 <p>Ich freue mich auf Ihre Nachricht oder eine unverbindliche Anfrage für ein kostenfreies Erstgespräch.</p>
-<form action="/thankyou.html" name="kontakt" netlify="" netlify-honeypot="bot-field">
+<form action="/thankyou.html" name="kontakt" netlify="" netlify-honeypot="bot-field" onsubmit="showModal(); return false;">
 <input name="form-name" type="hidden" value="kontakt"/>
 <p hidden="">
 <label>Don’t fill this out if you're human: <input name="bot-field"/></label>
 </p>
-<label>Ihr Name<br>
+<label>Ihr Name<br/>
 <input name="name" required="" style="width: 100%; padding: 0.5rem; margin-bottom: 0.5rem;" type="text"/>
-</br></label><br>
-<label>Ihre E-Mail<br>
+</label><br/>
+<label>Ihre E-Mail<br/>
 <input name="email" required="" style="width: 100%; padding: 0.5rem; margin-bottom: 0.5rem;" type="email"/>
-</br></label><br>
-<label>Ihre Nachricht<br>
+</label><br/>
+<label>Ihre Nachricht<br/>
 <textarea name="message" required="" rows="5" style="width: 100%; padding: 0.5rem; margin-bottom: 0.5rem;"></textarea>
-</br></label><br>
+</label><br/>
 <p style="font-size: 0.9rem; color: #333;">
 <label>
 <input name="datenschutz" required="" type="checkbox"/>
@@ -755,7 +805,7 @@ Die Auswertung erfolgt anonym im Browser und liefert sofort eine klare Einschät
   </label>
 </p>
 <button class="btn" type="submit">Nachricht senden</button>
-</br></br></br></form>
+</form>
 </div>
 </section>
 <!-- RECHTLICHES & TRANSPARENZ -->
@@ -769,10 +819,10 @@ Die Auswertung erfolgt anonym im Browser und liefert sofort eine klare Einschät
 <div style="display: flex; flex-wrap: wrap; gap: 2rem;">
 <div style="flex: 1 1 300px; min-width: 280px;">
 <h3>Impressum</h3>
-<p style="margin: 0.25rem 0;"><strong>Wolf Hohl</strong><br>
-        Greifswalder Str. 224a<br/>
-        10405 Berlin<br/>
-<p style="margin-top: 1rem;"><a class="btn" href="mailto:info@ki-sicherheit.jetzt"> E-Mail schreiben</a></p></br></p>
+<p style="margin: 0.25rem 0;"><strong>Wolf Hohl</strong><br/>
+        Greifswalder Str. 224a<br>
+        10405 Berlin<br>
+<p style="margin-top: 1rem;"><a class="btn" href="mailto:info@ki-sicherheit.jetzt"> E-Mail schreiben</a></p></br></br></p>
 <h4 style="margin-top: 1rem;">Verantwortlich für den Inhalt</h4>
 <p style="margin: 0.25rem 0;">Wolf Hohl, Adresse wie oben.</p>
 <h4 style="margin-top: 1rem;">Haftungsausschluss</h4>
