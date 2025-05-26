@@ -1,97 +1,79 @@
+
 <!DOCTYPE html>
 <html lang="de">
 <head>
   <meta charset="UTF-8">
   <title>Vielen Dank!</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Inter:wght@400;700&display=swap" rel="stylesheet">
   <style>
     body {
-      font-family: 'Inter', sans-serif;
-      background-color: #fdfdfd;
-      color: #0c3a5f;
+      font-family: 'Arial', sans-serif;
+      background-color: #f9f9f9;
+      color: #0a2f4f;
       margin: 0;
-      padding: 0;
+      padding: 2rem;
     }
-
-    .scroll-section {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 4rem 2rem;
-    }
-
-    .section-img {
-      flex: 0 0 200px;
-      text-align: center;
-    }
-
-    .section-img img {
-      max-width: 100%;
+    .danke-section {
+      max-width: 960px;
+      margin: 0 auto;
+      background-color: #ffffff;
+      padding: 2rem;
       border-radius: 12px;
-      margin-bottom: 0.5rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     }
-
-    .section-img p {
-      font-size: 0.9rem;
-      color: #888;
-      margin: 0;
-    }
-
     .section-content {
-      flex: 1;
-      padding-left: 2rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 2rem;
     }
-
-    .section-content h2 {
-      font-family: 'Share Tech Mono', monospace;
+    .thankyou-image {
+      width: 260px;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+    .image-caption {
+      text-align: center;
+      font-size: 0.9rem;
+      color: grey;
+      margin-top: 0.5rem;
+    }
+    .section-text {
+      flex-grow: 1;
+    }
+    h2 {
+      font-family: "Courier New", Courier, monospace;
       font-size: 2rem;
       margin-bottom: 1rem;
     }
-
-    .section-content p {
-      font-size: 1.1rem;
-      line-height: 1.6;
-      margin-bottom: 2rem;
-    }
-
     .btn {
-      background-color: #0c3a5f;
-      color: white;
+      display: inline-block;
       padding: 0.75rem 1.5rem;
-      text-decoration: none;
+      background-color: #0a2f4f;
+      color: #fff;
       border: none;
-      border-radius: 12px;
-      font-size: 1rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      margin-top: 1rem;
     }
-
     .btn:hover {
-      background-color: #092a4c;
-    }
-
-    @media (max-width: 768px) {
-      .scroll-section {
-        flex-direction: column;
-        text-align: center;
-      }
-
-      .section-content {
-        padding-left: 0;
-        margin-top: 1.5rem;
-      }
+      background-color: #004080;
     }
   </style>
 </head>
 <body>
-  <section class="scroll-section" id="danke">
-    <div class="section-img">
-      <img src="img/10.png" alt="Danke für Ihre Nachricht!" />
-      <p>Schnell analysieren</p>
-    </div>
+  <section class="danke-section">
     <div class="section-content">
-      <h2>Vielen Dank!</h2>
-      <p>Ihre Anfrage wurde übermittelt.<br>Ich melde mich in Kürze persönlich bei Ihnen.</p>
-      <a href="intern-ki-sicherheit.html#kontakt" class="btn">Zurück zur Hauptseite</a>
+      <div class="section-image">
+        <img src="rocket-flying.jpg" alt="Schnell analysieren" class="thankyou-image">
+        <p class="image-caption">Schnell analysieren</p>
+      </div>
+      <div class="section-text">
+        <h2>Vielen Dank!</h2>
+        <p>Ihre Anfrage wurde übermittelt.<br>
+           Ich melde mich in Kürze persönlich bei Ihnen.</p>
+        <a href="index.html" class="btn">Zurück zur Hauptseite</a>
+      </div>
     </div>
   </section>
 </body>
