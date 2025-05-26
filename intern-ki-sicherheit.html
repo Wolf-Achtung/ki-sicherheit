@@ -227,6 +227,16 @@
   object-fit: contain;
 }
 
+#bewertungOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0,0,0,0.4); /* Abdunklung */
+  display: none;
+  z-index: 999;
+}
 
 @media (min-width: 1025px) {
   html, body {
@@ -645,7 +655,7 @@ Die Auswertung erfolgt anonym im Browser und liefert sofort eine klare Einschät
       resultBox.innerHTML = "<strong>Bitte beantworten Sie alle 7 Fragen.</strong>";
       return;
     }
-
+<div id="bewertungOverlay"></div>
     const avg = scores.reduce((a, b) => a + b, 0) / scores.length;
     let result = "";
     if (avg < 1.6) {
@@ -1087,5 +1097,9 @@ function zeigeEmpfehlung() {
   document.getElementById("popup-evaluation-text").innerHTML = resultText;
   document.getElementById("bewertung-popup").style.display = "block";
 }
+document.getElementById("bewertungOverlay").style.display = "block";
+document.getElementById("bewertungOverlay").style.display = "none";
+
+
 </script>
 </html>
