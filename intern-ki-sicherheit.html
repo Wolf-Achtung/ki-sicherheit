@@ -514,7 +514,7 @@ textarea:focus {
     Je nach Projektart und Unternehmensgröße sind Zuschüsse zwischen 5.000 € und über 100.000 € möglich. Ich prüfe für Sie, ob und welche Programme zu Ihrer Maßnahme passen.</p>
 <p><strong>Förderfähigkeit prüfen lassen:</strong>
 <p>Bitte geben Sie mir dazu einige kurze Informationen:</p>
-<form action="/thankyou.html" name="foerderung" netlify="" netlify-honeypot="bot-field">
+<form data-netlify="true" method="POST" name="foerderung" onsubmit="handleFormSubmit(event, this);">
 <input name="form-name" type="hidden" value="foerderung"/>
 <p hidden=""><label>Don’t fill this out if you're human: <input name="bot-field"/></label></p>
 <label>Unternehmensgröße<br/>
@@ -803,8 +803,7 @@ if (window.location.pathname.includes("thankyou.html")) {
 <div class="section-content">
 <h2 class="typing">Kontakt &amp; Erstgespräch</h2>
 <p>Ich freue mich auf Ihre Nachricht oder eine unverbindliche Anfrage für ein kostenfreies Erstgespräch.</p>
-<form action="/thankyou.html" name="kontakt" netlify="" netlify-honeypot="bot-field">
-<input name="form-name" type="hidden" value="kontakt"/>
+<form data-netlify="true" method="POST" name="kontakt" onsubmit="handleFormSubmit(event, this);"><input name="form-name" type="hidden" value="kontakt"/>
 <p hidden="">
 <label>Don’t fill this out if you're human: <input name="bot-field"/></label>
 </p>
@@ -1072,5 +1071,4 @@ function zeigeEmpfehlung() {
   document.getElementById("bewertung-popup").style.display = "block";
 }
 </script>
-
 </html>
