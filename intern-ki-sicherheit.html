@@ -8,7 +8,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&amp;family=Inter:wght@400;700&amp;display=swap" rel="stylesheet"/>
 <style>
   .question-buttons button.selected {
-    background-color: #ffc107;
+    background-color: #cceeff;
     color: black;
   }
   #backToTopBtn svg {
@@ -381,10 +381,24 @@ textarea:focus {
       transform: scale(1.03);
       transition: transform 0.2s ease-in-out;
     }
+
+/* Kompaktere Darstellung im Schnell-Check */
+.frage-block {
+  margin-bottom: 0.5rem !important;
+}
+
+.frage-block p {
+  margin-bottom: 0.2rem !important;
+}
+
+.frage-block .btn-option {
+  margin-top: 0.1rem !important;
+  margin-bottom: 0.1rem !important;
+}
 </style>
 <style>
   .question-buttons button.selected {
-    background-color: #ffc107;
+    background-color: #cceeff;
     color: black;
   }
   #backToTopBtn svg {
@@ -399,7 +413,7 @@ textarea:focus {
 </style>
 <style>
   .frage-block .btn-option.selected {
-    background-color: #ffc107 !important;
+    background-color: #cceeff !important;
     color: black !important;
     border: 1px solid #ffa000;
   }
@@ -416,7 +430,55 @@ textarea:focus {
     margin-right: 0.1rem;
     margin-bottom: 0.1rem; /* Geringer Abstand falls Buttons umbrechen */
   }
-</style>
+#evaluationResult {
+  background: #f0f9ff;
+  padding: 1.5rem 2rem;
+  border-radius: 12px;
+  margin-top: 2rem;
+  border: 1px solid #a3d2f0;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: #0c3a5f;
+  max-width: 720px;
+}
+
+#evaluationResult h3 {
+  font-size: 1.5rem;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  color: #0c3a5f;
+}
+
+#evaluationResult p {
+  margin-bottom: 1rem;
+  font-weight: normal;
+}
+
+#evaluationResult p strong {
+  display: block;
+  font-weight: 600;
+  color: #093256;
+  margin-bottom: 0.4rem;
+}
+/* Einheitliches Styling für alle Checkbox-Beschriftungen */
+.formular-section label {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  color: #0d3b5c; /* passend zu deiner bestehenden Farbwelt */
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.formular-section input[type="checkbox"] {
+  width: 1.1rem;
+  height: 1.1rem;
+  accent-color: #0d3b5c;
+}
+
 
 </style>
 
@@ -463,7 +525,6 @@ textarea:focus {
 <li><strong>TÜV-Zertifizierung:</strong> KI-Manager (TÜV Austria)</li>
 <li><strong>DSGVO-konforme Beratung</strong></li>
 <li><strong>Praxisorientierte Umsetzung des EU AI Acts</strong></li>
-<li><strong>Konform mit ISO/IEC 23894</strong> (Risikomanagement für KI)</li>
 </ul>
 <p><strong>Verantwortung aus Erfahrung:</strong> Als langjähriger Geschäftsführer in der digitalen Kreation mit Kunden aus der internationalen Film- und Medienbranche bin ich vertraut mit komplexen Entscheidungen, Investitionen und nachhaltiger Umsetzung. Dieses Praxiswissen prägt meine KI-Beratung – fundiert, wirtschaftlich und verantwortungsvoll.</p>
 <div class="logo-reihe">
@@ -560,67 +621,59 @@ textarea:focus {
 <p class="caption">Status erfassen, Risiken vermeiden</p>
 </div>
 <div class="section-content">
-    <h2 class="typing">KI-Schnell-Check & Empfehlung</h2>
+<h2 class="typing">KI-Schnell-Check &amp; Empfehlung</h2>
+<p>Sie sehen auf einen Blick, wie gut Ihr Unternehmen auf den KI-Einsatz vorbereitet ist – von Dokumentation über Verantwortung bis Datenschutz.
 
-<p>Der Schnell-Check zeigt auf einen Blick, wie gut Ihr Unternehmen auf den KI-Einsatz vorbereitet ist – von Dokumentation über Verantwortung bis Datenschutz.
-
-Die Auswertung erfolgt anonym im Browser und liefert sofort eine klare Einschätzung mit konkretem Handlungsbedarf. Ideal als erste Standortbestimmung.</p>
-
+Die Auswertung liefert sofort eine klare Einschätzung mit konkretem Handlungsbedarf.</p>
 <div id="quiz">
 <div class="frage-block" data-id="1">
-<p>1. Gibt es eine zentrale Dokumentation aller eingesetzten KI-Systeme?</p>
+1. Gibt es eine zentrale Dokumentation aller eingesetzten KI-Systeme?<br>
 <button class="btn-option" data-score="3">Ja</button>
 <button class="btn-option" data-score="2">Teilweise</button>
 <button class="btn-option" data-score="1">Nein</button>
 </div>
 <div class="frage-block" data-id="2">
-<p>2. Sind Verantwortlichkeiten für KI klar benannt?</p>
+2. Sind Verantwortlichkeiten für KI klar benannt?<br>
 <button class="btn-option" data-score="3">Ja</button>
 <button class="btn-option" data-score="2">Teilweise</button>
 <button class="btn-option" data-score="1">Nein</button>
 </div>
 <div class="frage-block" data-id="3">
-<p>3. Gibt es nachvollziehbare Entscheidungsprozesse bei KI-Nutzung?</p>
+3. Gibt es nachvollziehbare Entscheidungsprozesse bei KI-Nutzung?<br>
 <button class="btn-option" data-score="3">Ja</button>
 <button class="btn-option" data-score="2">Teilweise</button>
 <button class="btn-option" data-score="1">Nein</button>
 </div>
 <div class="frage-block" data-id="4">
-<p>4. Wurden Risiken bei KI-Einsatz systematisch analysiert?</p>
+4. Wurden Risiken bei KI-Einsatz systematisch analysiert?<br>
 <button class="btn-option" data-score="3">Ja</button>
 <button class="btn-option" data-score="2">Teilweise</button>
 <button class="btn-option" data-score="1">Nein</button>
 </div>
 <div class="frage-block" data-id="5">
-<p>5. Sind Datenschutz-Aspekte bei KI-Nutzung berücksichtigt?</p>
+5. Sind Datenschutz-Aspekte bei KI-Nutzung berücksichtigt?<br>
 <button class="btn-option" data-score="3">Ja</button>
 <button class="btn-option" data-score="2">Teilweise</button>
 <button class="btn-option" data-score="1">Nein</button>
 </div>
 <div class="frage-block" data-id="6">
-<p>6. Gibt es eine Kommunikationsstrategie zu KI-Anwendungen?</p>
+6. Gibt es eine Kommunikationsstrategie zu KI-Anwendungen?<br>
 <button class="btn-option" data-score="3">Ja</button>
 <button class="btn-option" data-score="2">Teilweise</button>
 <button class="btn-option" data-score="1">Nein</button>
 </div>
 <div class="frage-block" data-id="7">
-<p>7. Werden Mitarbeitende gezielt auf KI vorbereitet?</p>
+7. Werden Mitarbeitende gezielt auf KI vorbereitet?<br>
 <button class="btn-option" data-score="3">Ja</button>
 <button class="btn-option" data-score="2">Teilweise</button>
 <button class="btn-option" data-score="1">Nein</button>
 </div>
 </div>
 <div style="margin-top: 1.5rem;">
-  <button class="btn" onclick="zeigeEmpfehlung()">Auswertung anzeigen</button>
-  <button class="btn" onclick="resetQuiz()" style="margin-left: 1rem;">Check zurücksetzen</button>
+<button class="btn" onclick="zeigeEmpfehlung()">Auswertung anzeigen</button>
+<button class="btn" onclick="resetQuiz()" style="margin-left: 1rem;">Check zurücksetzen</button>
 </div>
-
-
-
-
 <div id="evaluationResult"></div>
-
-
 <script>
   document.querySelectorAll('.btn-option').forEach(btn => {
     btn.addEventListener('click', () => {
@@ -646,12 +699,29 @@ Die Auswertung erfolgt anonym im Browser und liefert sofort eine klare Einschät
 
     const avg = scores.reduce((a, b) => a + b, 0) / scores.length;
     let result = "";
-    if (avg < 1.6) result = "Kritisch – Es besteht akuter Handlungsbedarf.";
-    else if (avg < 2.3) result = "Ausbaufähig – Erste Strukturen sind vorhanden.";
-    else if (avg < 2.8) result = "Gut – Sie sind auf einem guten Weg.";
-    else result = "Sehr gut – Ihre Organisation ist vorbildlich aufgestellt.";
+    if (avg < 1.6) {
+    resultText = `
+    <p><strong>Kritisch – Es besteht akuter Handlungsbedarf.</strong></p>
+    <p>Ihr Unternehmen zeigt gravierende Lücken in Governance, Datenschutz und Risikoanalyse. Es fehlen Prozesse, Verantwortlichkeiten und die Einhaltung regulatorischer Vorgaben wie dem EU AI Act.</p>
+    <p><strong>Empfehlung:</strong> Ich unterstütze Sie beim Aufbau strukturierter, DSGVO-konformer Prozesse, der Risikobewertung sowie bei der rechtskonformen Umsetzung des EU AI Acts.</p>`;
+  } else if (avg < 2.3) {
+    resultText = `
+    <p><strong>Ausbaufähig – Erste Strukturen sind erkennbar.</strong></p>
+    <p>Sie berücksichtigen bereits zentrale Aspekte, aber es bestehen Lücken in Dokumentation, Zuständigkeiten oder Datenschutz-Praxis. Eine klare Roadmap zur Compliance ist jetzt entscheidend.</p>
+    <p><strong>Empfehlung:</strong> Ich begleite Sie beim gezielten Ausbau Ihrer Maßnahmen – praxisnah, rechtskonform und förderfähig nach EU-Vorgaben.</p>`;
+  } else if (avg < 2.8) {
+    resultText = `
+    <p><strong>Gut – Sie sind auf einem guten Weg.</strong></p>
+    <p>Viele relevante Anforderungen sind in Ihrer Organisation verankert, u.a. zu Governance und Risikoanalyse. Jetzt geht es um die systematische Dokumentation und den internen Nachweis.</p>
+    <p><strong>Empfehlung:</strong> Ich unterstütze Sie bei der auditierbaren Verankerung Ihrer Prozesse gemäß EU AI Act.</p>`;
+  } else {
+    resultText = `
+    <p><strong>Sehr gut – Ihre Organisation ist vorbildlich aufgestellt.</strong></p>
+    <p>Sie erfüllen bereits heute die zentralen Anforderungen an KI-Governance, Datenschutz und Risikomanagement. Ihr Vorgehen ist strukturiert und strategisch.</p>
+    <p><strong>Empfehlung:</strong> Nutzen Sie Ihre Stärke gezielt für Förderanträge, interne Schulungen und als vertrauensbildenden Vorteil am Markt. Ich begleite Sie gerne bei diesem nächsten Schritt.</p>`;
+  }
 
-    resultBox.innerHTML = "<h3>Ihre Bewertung:</h3><p><strong>" + result + "</strong></p>";
+    resultBox.innerHTML = "<h3>Ihre Bewertung:</h3><p><strong>" + resultText + "</strong></p>";
   }
 
   function resetQuiz() {
@@ -659,11 +729,10 @@ Die Auswertung erfolgt anonym im Browser und liefert sofort eine klare Einschät
     document.getElementById('evaluationResult').innerHTML = "";
   }
 </script>
-
-</body></section>
+</div></section></body>
 <!-- Schnell-Check Section -->
 <!-- WISSEN & HINTERGRUND -->
-</div></section><section class="scroll-section" id="wissen">
+<section class="scroll-section" id="wissen">
 <div class="section-img">
 <img alt="Wissen schafft Sicherheit" src="img/05.png"/>
 <p class="caption">Wissen schafft Sicherheit</p>
@@ -730,10 +799,15 @@ Die Auswertung erfolgt anonym im Browser und liefert sofort eine klare Einschät
 <label>Ihre Nachricht<br/>
 <textarea name="message" required="" rows="5" style="width: 100%; padding: 0.5rem; margin-bottom: 0.5rem;"></textarea>
 </label><br/>
-<p style="font-size: 0.9rem; color: #333;">
-<label>
-<input name="datenschutz" required="" type="checkbox"/>
-    Ich habe die <a href="javascript:void(0)" onclick="toggleDatenschutzPopup()">Datenschutzerklärung</a> gelesen und akzeptiert.
+<div class="formular-section">
+  <label>
+    <input type="checkbox" required>
+    Ich habe die <a href="/datenschutz.html" target="_blank">Datenschutzerklärung</a> gelesen und akzeptiert.
+  </label>
+
+  <label>
+    <input type="checkbox" id="schnellCheckUebernehmen">
+    Ergebnis des Schnell-Checks übernehmen
   </label>
 </p>
 <button class="btn" type="submit">Nachricht senden</button>
@@ -920,23 +994,17 @@ document.querySelectorAll('.quiz button').forEach(button => {
 <ul>
 <li><strong>DSGVO-konformer Beratung</strong></li>
 <li><strong>praxisorientierter Umsetzung des EU AI Acts</strong></li>
-<li><strong>Konformität mit ISO/IEC 23894 (Risikomanagement für KI)</strong></li>
 </ul>
 <p>Gemeinsam entwickeln wir eine robuste, auditierbare KI-Strategie – zugeschnitten auf die Anforderungen Ihres Unternehmens. Mit Fokus auf Effizienz, Transparenz und regulatorische Sicherheit.</p>
 <p><em>Setzen Sie auf fundiertes Know-how, unternehmerische Erfahrung und praxisnahe Umsetzung – für einen sicheren und zukunftsfähigen KI-Einsatz.</em></p>
 </div>
-
-
 <script>AOS.init();</script>
-
 <style>
   .quiz button.active {
     background-color: #f59e0b !important;
     color: #fff !important;
   }
 </style>
-
-
 <script>
   document.querySelectorAll('.btn-option').forEach(btn => {
     btn.addEventListener('click', () => {
@@ -962,12 +1030,28 @@ document.querySelectorAll('.quiz button').forEach(button => {
 
     const avg = scores.reduce((a, b) => a + b, 0) / scores.length;
     let result = "";
-    if (avg < 1.6) result = "Kritisch – Es besteht akuter Handlungsbedarf.";
-    else if (avg < 2.3) result = "Ausbaufähig – Erste Strukturen sind vorhanden.";
-    else if (avg < 2.8) result = "Gut – Sie sind auf einem guten Weg.";
-    else result = "Sehr gut – Ihre Organisation ist vorbildlich aufgestellt.";
-
-    resultBox.innerHTML = "<h3>Ihre Bewertung:</h3><p><strong>" + result + "</strong></p>";
+    if (avg < 1.6) {
+    resultText = `
+    <p><strong>Kritisch – Es besteht akuter Handlungsbedarf.</strong></p>
+    <p>Ihr Unternehmen zeigt gravierende Lücken in Governance, Datenschutz und Risikoanalyse. Es fehlen Prozesse, Verantwortlichkeiten und die Einhaltung regulatorischer Vorgaben wie dem EU AI Act.</p>
+    <p><strong>Empfehlung:</strong> Ich unterstütze Sie beim Aufbau strukturierter, DSGVO-konformer Prozesse sowie bei der rechtskonformen Umsetzung des EU AI Acts.</p>`;
+  } else if (avg < 2.3) {
+    resultText = `
+    <p><strong>Ausbaufähig – Erste Strukturen sind erkennbar.</strong></p>
+    <p>Sie berücksichtigen bereits zentrale Aspekte, aber es bestehen Lücken in Dokumentation, Zuständigkeiten oder Datenschutz-Praxis. Eine klare Roadmap zur Compliance ist jetzt entscheidend.</p>
+    <p><strong>Empfehlung:</strong> Ich begleite Sie beim gezielten Ausbau Ihrer Maßnahmen – praxisnah, rechtskonform und förderfähig nach EU-Vorgaben.</p>`;
+  } else if (avg < 2.8) {
+    resultText = `
+    <p><strong>Gut – Sie sind auf einem guten Weg.</strong></p>
+    <p>Viele relevante Anforderungen sind in Ihrer Organisation verankert, u.a. zu Governance und Risikoanalyse. Jetzt geht es um die systematische Dokumentation und den internen Nachweis.</p>
+    <p><strong>Empfehlung:</strong> Ich unterstütze Sie bei der auditierbaren Verankerung Ihrer Prozesse gemäß EU AI Act.</p>`;
+  } else {
+    resultText = `
+    <p><strong>Sehr gut – Ihre Organisation ist vorbildlich aufgestellt.</strong></p>
+    <p>Sie erfüllen bereits heute die zentralen Anforderungen an KI-Governance, Datenschutz und Risikomanagement. Ihr Vorgehen ist strukturiert und strategisch.</p>
+    <p><strong>Empfehlung:</strong> Nutzen Sie Ihre Stärke gezielt für Förderanträge, interne Schulungen und als vertrauensbildenden Vorteil am Markt. Ich begleite Sie gerne bei diesem nächsten Schritt.</p>`;
+  
+    resultBox.innerHTML = "<h3>Ihre Bewertung:</h3><p><strong>" + resultText + "</strong></p>";
   }
 
   function resetQuiz() {
@@ -976,16 +1060,12 @@ document.querySelectorAll('.quiz button').forEach(button => {
   }
 </script>
 
-</body>
-
 <style>
   .quiz button.active {
     background-color: #f59e0b !important;
     color: #fff !important;
   }
 </style>
-
-
 <script>
   document.querySelectorAll('.btn-option').forEach(btn => {
     btn.addEventListener('click', () => {
@@ -1011,12 +1091,29 @@ document.querySelectorAll('.quiz button').forEach(button => {
 
     const avg = scores.reduce((a, b) => a + b, 0) / scores.length;
     let result = "";
-    if (avg < 1.6) result = "Kritisch – Es besteht akuter Handlungsbedarf.";
-    else if (avg < 2.3) result = "Ausbaufähig – Erste Strukturen sind vorhanden.";
-    else if (avg < 2.8) result = "Gut – Sie sind auf einem guten Weg.";
-    else result = "Sehr gut – Ihre Organisation ist vorbildlich aufgestellt.";
+    if (avg < 1.6) {
+    resultText = `
+    <p><strong>Kritisch – Es besteht akuter Handlungsbedarf.</strong></p>
+    <p>Ihr Unternehmen zeigt gravierende Lücken in Governance, Datenschutz und Risikoanalyse. Es fehlen Prozesse, Verantwortlichkeiten und die Einhaltung regulatorischer Vorgaben wie dem EU AI Act.</p>
+    <p><strong>Empfehlung:</strong> Ich unterstütze Sie beim Aufbau strukturierter, DSGVO-konformer Prozesse sowie bei der rechtskonformen Umsetzung des EU AI Acts.</p>`;
+  } else if (avg < 2.3) {
+    resultText = `
+    <p><strong>Ausbaufähig – Erste Strukturen sind erkennbar.</strong></p>
+    <p>Sie berücksichtigen bereits zentrale Aspekte, aber es bestehen Lücken in Dokumentation, Zuständigkeiten oder Datenschutz-Praxis. Eine klare Roadmap zur Compliance ist jetzt entscheidend.</p>
+    <p><strong>Empfehlung:</strong> Ich begleite Sie beim gezielten Ausbau Ihrer Maßnahmen – praxisnah, rechtskonform und förderfähig nach EU-Vorgaben.</p>`;
+  } else if (avg < 2.8) {
+    resultText = `
+    <p><strong>Gut – Sie sind auf einem guten Weg.</strong></p>
+    <p>Viele relevante Anforderungen sind in Ihrer Organisation verankert, u.a. zu Governance und Risikoanalyse. Jetzt geht es um die systematische Dokumentation und den internen Nachweis.</p>
+    <p><strong>Empfehlung:</strong> Ich unterstütze Sie bei der auditierbaren Verankerung Ihrer Prozesse gemäß EU AI Act.</p>`;
+  } else {
+    resultText = `
+    <p><strong>Sehr gut – Ihre Organisation ist vorbildlich aufgestellt.</strong></p>
+    <p>Sie erfüllen bereits heute die zentralen Anforderungen an KI-Governance, Datenschutz und Risikomanagement. Ihr Vorgehen ist strukturiert und strategisch.</p>
+    <p><strong>Empfehlung:</strong> Nutzen Sie Ihre Stärke gezielt für Förderanträge, interne Schulungen und als vertrauensbildenden Vorteil am Markt. Ich begleite Sie gerne bei diesem nächsten Schritt.</p>`;
 
-    resultBox.innerHTML = "<h3>Ihre Bewertung:</h3><p><strong>" + result + "</strong></p>";
+
+    resultBox.innerHTML = "<h3>Ihre Bewertung:</h3><p><strong>" + resultText + "</strong></p>";
   }
 
   function resetQuiz() {
@@ -1024,5 +1121,4 @@ document.querySelectorAll('.quiz button').forEach(button => {
     document.getElementById('evaluationResult').innerHTML = "";
   }
 </script>
-
-</body></html>
+</html>
