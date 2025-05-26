@@ -330,6 +330,14 @@ textarea:focus {
   overflow-y: auto;
 }
 
+#bewertung-popup {
+  background: rgba(0, 0, 0, 0.7); /* dimmt den Seitenhintergrund */
+}
+
+#bewertung-popup > div {
+  max-height: 90vh;
+  overflow-y: auto;
+}
 
 
 @media (min-width: 1025px) {
@@ -514,7 +522,7 @@ textarea:focus {
     Je nach Projektart und Unternehmensgröße sind Zuschüsse zwischen 5.000 € und über 100.000 € möglich. Ich prüfe für Sie, ob und welche Programme zu Ihrer Maßnahme passen.</p>
 <p><strong>Förderfähigkeit prüfen lassen:</strong>
 <p>Bitte geben Sie mir dazu einige kurze Informationen:</p>
-<form action="/thankyou.html" name="foerderung" netlify="" netlify-honeypot="bot-field">
+<form action="" name="foerderung" netlify="" netlify-honeypot="bot-field">
 <input name="form-name" type="hidden" value="foerderung"/>
 <p hidden=""><label>Don’t fill this out if you're human: <input name="bot-field"/></label></p>
 <label>Unternehmensgröße<br/>
@@ -1071,6 +1079,15 @@ function zeigeEmpfehlung() {
   document.getElementById("popup-evaluation-text").innerHTML = resultText;
   document.getElementById("bewertung-popup").style.display = "block";
 }
+<script>
+  // Check if redirected von Netlify mit Parameter
+  if (window.location.href.includes("thankyou.html")) {
+    const dankePopup = document.getElementById("danke-popup");
+    if (dankePopup) {
+      dankePopup.style.display = "block";
+    }
+  }
 </script>
+
 
 </html>
