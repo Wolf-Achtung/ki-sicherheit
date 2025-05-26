@@ -330,14 +330,6 @@ textarea:focus {
   overflow-y: auto;
 }
 
-#bewertung-popup {
-  background: rgba(0, 0, 0, 0.7); /* dimmt den Seitenhintergrund */
-}
-
-#bewertung-popup > div {
-  max-height: 90vh;
-  overflow-y: auto;
-}
 
 
 @media (min-width: 1025px) {
@@ -522,7 +514,7 @@ textarea:focus {
     Je nach Projektart und Unternehmensgröße sind Zuschüsse zwischen 5.000 € und über 100.000 € möglich. Ich prüfe für Sie, ob und welche Programme zu Ihrer Maßnahme passen.</p>
 <p><strong>Förderfähigkeit prüfen lassen:</strong>
 <p>Bitte geben Sie mir dazu einige kurze Informationen:</p>
-<form action="" name="foerderung" netlify="" netlify-honeypot="bot-field">
+<form action="/thankyou.html" name="foerderung" netlify="" netlify-honeypot="bot-field">
 <input name="form-name" type="hidden" value="foerderung"/>
 <p hidden=""><label>Don’t fill this out if you're human: <input name="bot-field"/></label></p>
 <label>Unternehmensgröße<br/>
@@ -696,7 +688,7 @@ Die Auswertung erfolgt anonym im Browser und liefert sofort eine klare Einschät
 </div>
 </div>
 <!-- Schnell-Check Ergebnis-Popup -->
-<div id="bewertung-popup" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:#ffffffee; z-index:10000; text-align:center; padding-top:10%;">
+<div id="bewertung-popup" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:#000000cc; z-index:10000; text-align:center; padding-top:10%;">
 <div style="background:white; margin:0 auto; padding:2rem; max-width:540px; border-radius:12px; box-shadow:0 0 12px rgba(0,0,0,0.15); font-family:Inter,sans-serif;">
 <h2 style="font-family:'Share Tech Mono', monospace; color:#0c3a5f;">Ihre Bewertung</h2>
 <div id="popup-evaluation-text" style="text-align:left; font-size:1rem; color:#0c3a5f;"></div>
@@ -1079,15 +1071,6 @@ function zeigeEmpfehlung() {
   document.getElementById("popup-evaluation-text").innerHTML = resultText;
   document.getElementById("bewertung-popup").style.display = "block";
 }
-<script>
-  // Check if redirected von Netlify mit Parameter
-  if (window.location.href.includes("thankyou.html")) {
-    const dankePopup = document.getElementById("danke-popup");
-    if (dankePopup) {
-      dankePopup.style.display = "block";
-    }
-  }
 </script>
-
 
 </html>
