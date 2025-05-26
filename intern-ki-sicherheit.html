@@ -1071,30 +1071,29 @@ function zeigeEmpfehlung() {
   document.getElementById("bewertung-popup").style.display = "block";
 }
 <script>
-function handleFormSubmit(event, form) {
-  event.preventDefault();
-  const formData = new FormData(form);
-  const encodedData = new URLSearchParams(formData).toString();
+  function handleFormSubmit(event, form) {
+    event.preventDefault();
+    const formData = new FormData(form);
+    const encodedData = new URLSearchParams(formData).toString();
 
-  fetch("/", {
-    method: "POST",
-    headers: { "Content-Type": "application/x-www-form-urlencoded" },
-    body: encodedData
-  }).then(() => {
-    const popup = document.getElementById("danke-popup");
-    if (popup) {
-      popup.style.display = "block";
-      setTimeout(() => {
-        popup.scrollIntoView({ behavior: 'smooth' });
-      }, 200);
-    }
-    form.reset();
-  }).catch(err => {
-    alert("Beim Senden ist ein Fehler aufgetreten.");
-    console.error(err);
-  });
-}
-</script>
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: encodedData
+    }).then(() => {
+      const popup = document.getElementById("danke-popup");
+      if (popup) {
+        popup.style.display = "block";
+        setTimeout(() => {
+          popup.scrollIntoView({ behavior: 'smooth' });
+        }, 200);
+      }
+      form.reset();
+    }).catch(err => {
+      alert("Beim Senden ist ein Fehler aufgetreten.");
+      console.error(err);
+    });
+  }
 
 </script>
 </html>
