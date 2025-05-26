@@ -8,61 +8,91 @@
   <style>
     body {
       font-family: 'Inter', sans-serif;
-      background: #fdfdfd;
+      background-color: #fdfdfd;
       color: #0c3a5f;
       margin: 0;
       padding: 0;
+    }
+
+    .scroll-section {
       display: flex;
       align-items: center;
       justify-content: center;
-      height: 100vh;
+      padding: 4rem 2rem;
+    }
+
+    .section-img {
+      flex: 0 0 200px;
       text-align: center;
     }
-    .section-content {
-      max-width: 600px;
-      padding: 2rem;
+
+    .section-img img {
+      max-width: 100%;
+      border-radius: 12px;
+      margin-bottom: 0.5rem;
     }
-    h2 {
+
+    .section-img p {
+      font-size: 0.9rem;
+      color: #888;
+      margin: 0;
+    }
+
+    .section-content {
+      flex: 1;
+      padding-left: 2rem;
+    }
+
+    .section-content h2 {
       font-family: 'Share Tech Mono', monospace;
       font-size: 2rem;
-      animation: flicker 1.5s infinite alternate;
+      margin-bottom: 1rem;
     }
-    p {
+
+    .section-content p {
       font-size: 1.1rem;
       line-height: 1.6;
-      margin: 1.5rem 0;
+      margin-bottom: 2rem;
     }
+
     .btn {
       background-color: #0c3a5f;
       color: white;
+      padding: 0.75rem 1.5rem;
+      text-decoration: none;
       border: none;
-      padding: 0.75rem 1.25rem;
       border-radius: 12px;
       font-size: 1rem;
-      text-decoration: none;
     }
+
     .btn:hover {
       background-color: #092a4c;
     }
-    @keyframes flicker {
-      0% { opacity: 1; }
-      100% { opacity: 0.85; }
-    }
-    img {
-      max-width: 160px;
-      margin-bottom: 1rem;
+
+    @media (max-width: 768px) {
+      .scroll-section {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .section-content {
+        padding-left: 0;
+        margin-top: 1.5rem;
+      }
     }
   </style>
 </head>
 <body>
-  <section class="scroll-section" id="start" style="position: relative;">
-<div class="section-img">
-<img alt="Danke für Ihre Nachricht!" src="img/09.png"/>
-    <h2>Vielen Dank!</h2>
-    <p>Ihre Anfrage wurde übermittelt.<br>
-    Ich melde mich in Kürze persönlich bei Ihnen.</p>
-    <a href="intern-ki-sicherheit.html#kontakt" class="btn">Zurück zur Hauptseite</a>
-
-  </div>
+  <section class="scroll-section" id="danke">
+    <div class="section-img">
+      <img src="img/10.png" alt="Danke für Ihre Nachricht!" />
+      <p>Schnell analysieren</p>
+    </div>
+    <div class="section-content">
+      <h2>Vielen Dank!</h2>
+      <p>Ihre Anfrage wurde übermittelt.<br>Ich melde mich in Kürze persönlich bei Ihnen.</p>
+      <a href="intern-ki-sicherheit.html#kontakt" class="btn">Zurück zur Hauptseite</a>
+    </div>
+  </section>
 </body>
 </html>
