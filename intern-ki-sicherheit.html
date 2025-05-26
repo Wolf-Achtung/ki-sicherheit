@@ -773,6 +773,10 @@ function handleFormSubmit(event, form) {
     form.reset();
   }).catch(error => alert("Es gab ein Problem beim Senden des Formulars: " + error));
 }
+function resetQuiz() {
+  document.querySelectorAll('.btn-option').forEach(btn => btn.classList.remove('selected'));
+  selectedAnswers = {};
+  closeBewertung();
 </script></body>
 <!-- Schnell-Check Section -->
 <!-- WISSEN & HINTERGRUND -->
