@@ -583,7 +583,9 @@ textarea:focus {
 </div>
 <div class="section-content">
 <h2 class="typing">KI-Schnell-Check &amp; Empfehlung</h2>
-<p>Der Schnell-Check zeigt auf einen Blick, wie gut Ihr Unternehmen auf den KI-Einsatz vorbereitet ist. Die Auswertung liefert sofort eine klare Einschätzung mit konkretem Handlungsbedarf.</p>
+<p>Der Schnell-Check zeigt auf einen Blick, wie gut Ihr Unternehmen auf den KI-Einsatz vorbereitet ist – von Dokumentation über Verantwortung bis Datenschutz.
+
+Die Auswertung erfolgt anonym im Browser und liefert sofort eine klare Einschätzung mit konkretem Handlungsbedarf. Ideal als erste Standortbestimmung.</p>
 <div id="quiz" style="background-color:#f2f6fa; padding:2rem; border-radius:12px;">
 <div class="frage-block" data-id="1">
 1. Gibt es eine zentrale Dokumentation aller eingesetzten KI-Systeme?<br/>
@@ -662,13 +664,9 @@ if (window.location.pathname.includes("thankyou.html")) {
 <h2 class="typing">Kontakt &amp; Erstgespräch</h2>
 <p>Ich freue mich auf Ihre Nachricht oder eine unverbindliche Anfrage für ein kostenfreies Erstgespräch.</p>
 <form data-netlify="true" name="kontakt">
-<p hidden="">
-<label>Don’t fill this out if you're human: <label>Ihre Bewertung<br/>
-<textarea name="schnellcheck" id="bewertungsÜbertrag" readonly rows="4" style="width:100%; background:#f2f6fa; margin-bottom:1rem;"></textarea>
-</label>
-</p>
-<label>Ihr Name<br/>
-<input name="name" required="" style="width: 100%; padding: 0.5rem; margin-bottom: 0.5rem;" type="text"/>
+
+<label>Ihre Bewertung<br/>
+<textarea id="bewertungsÜbertrag" name="schnellcheck" readonly="True" rows="4" style="width:100%; background:#f2f6fa; margin-bottom:1rem;"></textarea><label>Ihr Name</label><input name="name" required="" style="width: 100%; padding: 0.5rem; margin-bottom: 0.5rem;" type="text"/>
 </label><br/>
 <label>Ihre E-Mail<br/>
 <input name="email" required="" style="width: 100%; padding: 0.5rem; margin-bottom: 0.5rem;" type="email"/>
@@ -797,7 +795,7 @@ function zeigeEmpfehlung() {
   } else {
     resultText = `<strong>Sehr gut – Ihre Organisation ist vorbildlich aufgestellt.</strong><br/>
       Sie erfüllen bereits heute die zentralen Anforderungen an KI-Governance, Datenschutz und Risikomanagement. Ihr Vorgehen ist strukturiert und strategisch.<br/><br/>
-      <strong>Empfehlung:</strong> Nutzen Sie Ihre Stärke gezielt für Förderanträge, interne Schulungen und als vertrauensbildenden Vorteil am Markt. Wir begleiten Sie gerne bei diesem nächsten Schritt.`;
+      <strong>Empfehlung:</strong> Nutzen Sie Ihre Stärke gezielt für Förderanträge, interne Schulungen und als vertrauensbildenden Vorteil am Markt. Ich begleite Sie gerne bei diesem nächsten Schritt.`;
   }
 
   const formatted = `<div id="bewertung-box" style="background:#f2f6fa; padding:1rem; border-radius:12px;">${resultText}</div>`;
@@ -818,15 +816,28 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 </script><script>
 function öffneKontaktMitBewertung() {
-  const popup = document.getElementById("kontakt-popup");
-  const bewertungText = document.getElementById("popup-evaluation-text")?.innerText;
-  const textarea = document.getElementById("bewertungsÜbertrag");
-
-  if (textarea && bewertungText) {
-    textarea.value = "Ihre Bewertung:\n" + bewertungText.trim();
+  // Bewertung berechnen, falls noch nicht geschehen
+  if (typeof zeigeEmpfehlung === 'function') {
+    zeigeEmpfehlung();
   }
 
-  popup.style.display = "block";
+  const kontaktPopup = document.getElementById("kontakt-popup");
+  const ausgabeFeld = document.getElementById("bewertungsÜbertrag");
+
+  // Bewertung direkt aus dem DOM holen
+  const resultBox = document.getElementById("evaluationResult");
+  const cleanText = resultBox?.innerText?.trim() || "Keine Bewertung verfügbar.";
+
+  if (kontaktPopup && ausgabeFeld) {
+    ausgabeFeld.value = cleanText;
+    kontaktPopup.style.display = "block";
+
+    // Optional: Bewertungspopup schließen, falls offen
+    const bewertungPopup = document.getElementById("bewertung-popup");
+    if (bewertungPopup) {
+      bewertungPopup.style.display = "none";
+    }
+  }
 }
 </script>
 </body>
