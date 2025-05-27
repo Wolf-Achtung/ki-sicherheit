@@ -1030,4 +1030,22 @@ function zeigeEmpfehlung() {
   document.getElementById("bewertung-popup").style.display = "block";
 }
 </script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const kontaktForm = document.querySelector('form[name="kontakt"]');
+  if (kontaktForm) {
+    kontaktForm.addEventListener("submit", function (e) {
+      const checkbox = kontaktForm.querySelector('input[name="schnellcheckErgebnis"]');
+      if (checkbox && checkbox.checked) {
+        const evaluationText = document.getElementById("popup-evaluation-text")?.innerText || "Kein Ergebnis ausgewählt";
+        const hiddenField = document.createElement("input");
+        hiddenField.type = "hidden";
+        hiddenField.name = "schnellcheck";
+        hiddenField.value = evaluationText;
+        kontaktForm.appendChild(hiddenField);
+      }
+    });
+  }
+});
+</script>
 </html>
