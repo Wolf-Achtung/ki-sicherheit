@@ -665,7 +665,9 @@ if (window.location.pathname.includes("thankyou.html")) {
 <p>Ich freue mich auf Ihre Nachricht oder eine unverbindliche Anfrage für ein kostenfreies Erstgespräch.</p>
 <form data-netlify="true" name="kontakt">
 <p hidden="">
-<label>Don’t fill this out if you're human: <textarea id="bewertungsÜbertrag" name="schnellcheck" readonly="readonly" rows="4" style="width:100%; background:#f2f6fa; margin-bottom:1rem;"></textarea><label>Ihre Bewertung</label><input name="bot-field"/></label>
+<label>Don’t fill this out if you're human: <label>Ihre Bewertung<br/>
+<textarea name="schnellcheck" id="bewertungsÜbertrag" readonly rows="4" style="width:100%; background:#f2f6fa; margin-bottom:1rem;"></textarea>
+</label>
 </p>
 <label>Ihr Name<br/>
 <input name="name" required="" style="width: 100%; padding: 0.5rem; margin-bottom: 0.5rem;" type="text"/>
