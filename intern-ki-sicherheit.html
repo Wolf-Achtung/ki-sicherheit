@@ -664,9 +664,11 @@ if (window.location.pathname.includes("thankyou.html")) {
 <h2 class="typing">Kontakt &amp; Erstgespräch</h2>
 <p>Ich freue mich auf Ihre Nachricht oder eine unverbindliche Anfrage für ein kostenfreies Erstgespräch.</p>
 <form data-netlify="true" name="kontakt">
-
-<label>Ihre Bewertung<br/>
-<textarea id="bewertungsÜbertrag" name="schnellcheck" readonly="True" rows="4" style="width:100%; background:#f2f6fa; margin-bottom:1rem;"></textarea><label>Ihr Name</label><input name="name" required="" style="width: 100%; padding: 0.5rem; margin-bottom: 0.5rem;" type="text"/>
+<p hidden="">
+<label>Don’t fill this out if you're human: <textarea id="bewertungsÜbertrag" name="schnellcheck" readonly="True" rows="4" style="width:100%; background:#f2f6fa; margin-bottom:1rem;"></textarea><label>Ihre Bewertung</label><input name="bot-field"/></label>
+</p>
+<label>Ihr Name<br/>
+<input name="name" required="" style="width: 100%; padding: 0.5rem; margin-bottom: 0.5rem;" type="text"/>
 </label><br/>
 <label>Ihre E-Mail<br/>
 <input name="email" required="" style="width: 100%; padding: 0.5rem; margin-bottom: 0.5rem;" type="email"/>
@@ -679,7 +681,7 @@ if (window.location.pathname.includes("thankyou.html")) {
   </label>
 </p>
 <button class="btn" type="submit">Nachricht senden</button>
-</form><br/>
+<input id="hidden-bewertung" name="bewertung" type="hidden"/></form><br/>
 </div><button class="btn" onclick="document.getElementById('kontakt-popup').style.display='none'">Schließen</button></div></div><script>function zeigeKontaktPopup() { document.getElementById('kontakt-popup').style.display = 'block'; }</script><script>
 document.addEventListener("DOMContentLoaded", function () {
   const kontaktForm = document.querySelector('form[name="kontakt"]');
@@ -824,23 +826,31 @@ function öffneKontaktMitBewertung() {
   const kontaktPopup = document.getElementById("kontakt-popup");
   const ausgabeFeld = document.getElementById("bewertungsÜbertrag");
 
-  // Bewertung direkt aus dem DOM holen
-  const resultBox = document.getElementById("evaluationResult");
-  const cleanText = resultBox?.innerText?.trim() || "Keine Bewertung verfügbar.";
-
   if (kontaktPopup && ausgabeFeld) {
-    ausgabeFeld.value = cleanText;
-    kontaktPopup.style.display = "block";
+    setTimeout(() => {
+      ausgabeFeld.value = window.letzteBewertungText || "Keine Bewertung verfügbar.";
+    }, 200); // kleine Verzögerung, um DOM zu aktualisieren
 
-    // Optional: Bewertungspopup schließen, falls offen
+    kontaktPopup.style.display = "block";
     const bewertungPopup = document.getElementById("bewertung-popup");
     if (bewertungPopup) {
       bewertungPopup.style.display = "none";
     }
   }
 }
-</script>
-</body>
+</script><script>
+function öffneKontaktMitBewertung() {
+    const bewertungText = document.getElementById('evaluationResult')?.innerText || '';
+    const hiddenField = document.getElementById('hidden-bewertung');
+    if (hiddenField) {
+        hiddenField.value = bewertungText.trim();
+    }
+    const popup = document.getElementById("kontakt-popup");
+    if (popup) {
+        popup.style.display = "block";
+    }
+}
+</script></body>
 <!-- FRAGEN & ANTWORTEN -->
 <section class="scroll-section" id="faq">
 <div class="section-img">
