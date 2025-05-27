@@ -635,61 +635,7 @@ Die Auswertung erfolgt anonym im Browser und liefert sofort eine klare Einschät
 <button class="btn" onclick="resetQuiz()" style="margin-left: 1rem;">Check zurücksetzen</button>
 </div>
 <div id="evaluationResult"></div><div style="margin-top:1rem;"><button class="btn" onclick="öffneKontaktMitBewertung()">Ergebnis senden &amp; Kontakt aufnehmen</button></div>
-<script>
-  document.querySelectorAll('.btn-option').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const container = btn.closest('.frage-block');
-      container.querySelectorAll('.btn-option').forEach(b => b.classList.remove('selected'));
-      btn.classList.add('selected');
-    });
-  });
 
-  function zeigeEmpfehlung() {
-    const blocks = document.querySelectorAll('.frage-block');
-    let scores = [];
-    blocks.forEach(block => {
-      const selected = block.querySelector('.btn-option.selected');
-      if (selected) scores.push(parseInt(selected.dataset.score));
-    });
-
-    const resultBox = document.getElementById('evaluationResult');
-    if (scores.length < 7) {
-      resultBox.innerHTML = "<strong>Bitte beantworten Sie alle 7 Fragen.</strong>";
-      return;
-    }
-
-    const avg = scores.reduce((a, b) => a + b, 0) / scores.length;
-    let result = "";
-    if (avg < 1.6) {
-    resultText = `
-    <p><strong>Kritisch – Es besteht akuter Handlungsbedarf!</strong></p>
-    <p>Ihr Unternehmen zeigt gravierende Lücken in Governance, Datenschutz und Risikoanalyse. Es fehlen Prozesse, Verantwortlichkeiten und die Einhaltung regulatorischer Vorgaben wie dem EU AI Act.</p>
-    <p><strong>Empfehlung:</strong> <br>Ich unterstütze Sie beim Aufbau strukturierter, DSGVO-konformer Prozesse, der Risikobewertung sowie bei der rechtskonformen Umsetzung des EU AI Acts.</p>`;
-  } else if (avg < 2.3) {
-    resultText = `
-    <p><strong>Ausbaufähig – Erste Strukturen sind erkennbar.</strong></p>
-    <p>Sie berücksichtigen bereits zentrale Aspekte, aber es bestehen Lücken in Dokumentation, Zuständigkeiten oder Datenschutz-Praxis. Eine klare Roadmap zur Compliance ist jetzt entscheidend.</p>
-    <p><strong>Empfehlung:</strong> <br>Ich begleite Sie beim gezielten Ausbau Ihrer Maßnahmen – praxisnah, rechtskonform und förderfähig nach EU-Vorgaben.</p>`;
-  } else if (avg < 2.8) {
-    resultText = `
-    <p><strong>Gut – Sie sind auf einem guten Weg.</strong></p>
-    <p>Viele relevante Anforderungen sind in Ihrer Organisation verankert, u.a. zu Governance und Risikoanalyse. Jetzt geht es um die systematische Dokumentation und den internen Nachweis.</p>
-    <p><strong>Empfehlung:</strong> <br> Ich unterstütze Sie bei der auditierbaren Verankerung Ihrer Prozesse gemäß EU AI Act.</p>`;
-  } else {
-    resultText = `
-    <p><strong>Sehr gut – Ihre Organisation ist vorbildlich aufgestellt.</strong></p>
-    <p>Sie erfüllen bereits heute die zentralen Anforderungen an KI-Governance, Datenschutz und Risikomanagement. Ihr Vorgehen ist strukturiert und strategisch.</p>
-    <p><strong>Empfehlung:</strong> <br> Nutzen Sie Ihre Stärke gezielt für Förderanträge, interne Schulungen und als vertrauensbildenden Vorteil am Markt. Ich begleite Sie gerne bei diesem nächsten Schritt.</p>`;
-  }
-
-    resultBox.innerHTML = "<h3>Ihre Bewertung:</h3><p><strong>" + resultText + "</strong></p>";
-  }
-
-  function resetQuiz() {
-    document.querySelectorAll('.btn-option').forEach(btn => btn.classList.remove('selected'));
-    document.getElementById('evaluationResult').innerHTML = "";
-  }
-</script>
 </div></section>
 <!-- Danke-Popup -->
 <div id="danke-popup" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:#ffffffee; z-index:10000; text-align:center; padding-top:10%;">
@@ -730,7 +676,7 @@ if (window.location.pathname.includes("thankyou.html")) {
 </label><br/>
 <label>Ihre Nachricht<br/>
 <label>Ihre Bewertung
-<textarea id="bewertungsÜbertrag" name="schnellcheck" readonly="True" rows="5" style="width: 100%; padding: 0.5rem; margin-bottom: 1rem; background:#f2f6fa;"></textarea></label><textarea name="message" required="" rows="5" style="width: 100%; padding: 0.5rem; margin-bottom: 0.5rem;"></textarea>
+<textarea id="bewertungsÜbertrag" name="schnellcheck" readonly="True" rows="5" style="width: 100%; padding: 0.5rem; margin-bottom: 1rem; background:#f2f6fa;"></textarea></label><label>Ihre Nachricht</label><textarea id="bewertungsÜbertrag" name="schnellcheck" readonly="True" rows="4" style="width:100%;background:#f2f6fa;margin-bottom:1rem;"></textarea><label>Ihre Bewertung</label><textarea name="message" required="" rows="5" style="width: 100%; padding: 0.5rem; margin-bottom: 0.5rem;"></textarea>
 </label><br/>
 <p style="font-size: 0.9rem; color: #333;">
 <label>
@@ -824,13 +770,51 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 </script><script>
+function zeigeEmpfehlung() {
+  const blocks = document.querySelectorAll('.frage-block');
+  let scores = [];
+  blocks.forEach(block => {
+    const selected = block.querySelector('.btn-option.selected');
+    if (selected) scores.push(parseInt(selected.dataset.score));
+  });
+
+  const resultBox = document.getElementById('evaluationResult');
+  if (scores.length < 7) {
+    resultBox.innerHTML = "<strong>Bitte beantworten Sie alle 7 Fragen.</strong>";
+    return;
+  }
+
+  const avg = scores.reduce((a, b) => a + b, 0) / scores.length;
+  let resultText = "";
+  if (avg < 1.6) {
+    resultText = `<strong>Kritisch – Es besteht akuter Handlungsbedarf!</strong><br/>
+      Ihr Unternehmen zeigt gravierende Lücken in Governance, Datenschutz und Risikoanalyse. Es fehlen Prozesse, Verantwortlichkeiten und die Einhaltung regulatorischer Vorgaben wie dem EU AI Act.<br/><br/>
+      <strong>Empfehlung:</strong> Ich unterstütze Sie beim Aufbau strukturierter, DSGVO-konformer Prozesse, der Risikobewertung sowie bei der rechtskonformen Umsetzung des EU AI Acts.`;
+  } else if (avg < 2.3) {
+    resultText = `<strong>Ausbaufähig – Erste Strukturen sind erkennbar.</strong><br/>
+      Sie berücksichtigen bereits zentrale Aspekte, aber es bestehen Lücken in Dokumentation, Zuständigkeiten oder Datenschutz-Praxis. Eine klare Roadmap zur Compliance ist jetzt entscheidend.<br/><br/>
+      <strong>Empfehlung:</strong> Ich begleite Sie beim gezielten Ausbau Ihrer Maßnahmen – praxisnah, rechtskonform und förderfähig nach EU-Vorgaben.`;
+  } else if (avg < 2.8) {
+    resultText = `<strong>Gut – Sie sind auf einem guten Weg.</strong><br/>
+      Viele relevante Anforderungen sind in Ihrer Organisation verankert, u.a. zu Governance und Risikoanalyse. Jetzt geht es um die systematische Dokumentation und den internen Nachweis.<br/><br/>
+      <strong>Empfehlung:</strong> Ich unterstütze Sie bei der auditierbaren Verankerung Ihrer Prozesse gemäß EU AI Act.`;
+  } else {
+    resultText = `<strong>Sehr gut – Ihre Organisation ist vorbildlich aufgestellt.</strong><br/>
+      Sie erfüllen bereits heute die zentralen Anforderungen an KI-Governance, Datenschutz und Risikomanagement. Ihr Vorgehen ist strukturiert und strategisch.<br/><br/>
+      <strong>Empfehlung:</strong> Nutzen Sie Ihre Stärke gezielt für Förderanträge, interne Schulungen und als vertrauensbildenden Vorteil am Markt. Ich begleite Sie gerne bei diesem nächsten Schritt.`;
+  }
+
+  const formatted = `<div id="bewertung-box" style="background:#f2f6fa; padding:1rem; border-radius:12px;">${resultText}</div>`;
+  resultBox.innerHTML = `<h3>Ihre Bewertung:</h3>${formatted}`;
+  window.letzteBewertungText = resultText.replace(/<[^>]*>?/gm, '');
+}
+</script><script>
 function öffneKontaktMitBewertung() {
-  const text = document.getElementById("popup-evaluation-text")?.innerHTML || "Keine Bewertung verfügbar.";
-  const plainText = text.replace(/<[^>]*>?/gm, ''); // HTML-Tags entfernen
   const kontaktPopup = document.getElementById("kontakt-popup");
   const ausgabeFeld = document.getElementById("bewertungsÜbertrag");
+
   if (kontaktPopup && ausgabeFeld) {
-    ausgabeFeld.value = plainText;
+    ausgabeFeld.value = window.letzteBewertungText || "Keine Bewertung verfügbar.";
     kontaktPopup.style.display = "block";
     document.getElementById("bewertung-popup").style.display = "none";
   }
