@@ -653,6 +653,17 @@ Die Auswertung erfolgt anonym im Browser und liefert sofort eine klare Einschät
 </div>
 </div>
 <script>
+
+function öffneKontaktMitBewertung() {
+  const bewertung = document.getElementById("evaluationResultText");
+  const popup = document.getElementById("kontakt-popup");
+  if (bewertung && popup) {
+    const sichtbar = document.getElementById("evaluationVisible");
+    if (sichtbar) sichtbar.value = bewertung.innerText.trim();
+    popup.style.display = "block";
+  }
+}
+
 if (window.location.pathname.includes("thankyou.html")) {
   const danke = document.getElementById("danke-popup");
   if (danke) {
@@ -665,7 +676,7 @@ if (window.location.pathname.includes("thankyou.html")) {
 <p>Ich freue mich auf Ihre Nachricht oder eine unverbindliche Anfrage für ein kostenfreies Erstgespräch.</p>
 <form data-netlify="true" name="kontakt">
 <p hidden="">
-<label>Don’t fill this out if you're human: <textarea id="bewertungsÜbertrag" name="schnellcheck" readonly="True" rows="4" style="width:100%; background:#f2f6fa; margin-bottom:1rem;"></textarea><label>Ihre Bewertung</label><input name="bot-field"/></label>
+<label>Don’t fill this out if you're human: <input name="bot-field"/></label>
 </p>
 <label>Ihr Name<br/>
 <input name="name" required="" style="width: 100%; padding: 0.5rem; margin-bottom: 0.5rem;" type="text"/>
@@ -681,8 +692,30 @@ if (window.location.pathname.includes("thankyou.html")) {
   </label>
 </p>
 <button class="btn" type="submit">Nachricht senden</button>
-<input id="hidden-bewertung" name="bewertung" type="hidden"/></form><br/>
-</div><button class="btn" onclick="document.getElementById('kontakt-popup').style.display='none'">Schließen</button></div></div><script>function zeigeKontaktPopup() { document.getElementById('kontakt-popup').style.display = 'block'; }</script><script>
+</form><br/>
+</div><button class="btn" onclick="document.getElementById('kontakt-popup').style.display='none'">Schließen</button></div></div><script>
+
+function öffneKontaktMitBewertung() {
+  const bewertung = document.getElementById("evaluationResultText");
+  const popup = document.getElementById("kontakt-popup");
+  if (bewertung && popup) {
+    const sichtbar = document.getElementById("evaluationVisible");
+    if (sichtbar) sichtbar.value = bewertung.innerText.trim();
+    popup.style.display = "block";
+  }
+}
+function zeigeKontaktPopup() { document.getElementById('kontakt-popup').style.display = 'block'; }</script><script>
+
+function öffneKontaktMitBewertung() {
+  const bewertung = document.getElementById("evaluationResultText");
+  const popup = document.getElementById("kontakt-popup");
+  if (bewertung && popup) {
+    const sichtbar = document.getElementById("evaluationVisible");
+    if (sichtbar) sichtbar.value = bewertung.innerText.trim();
+    popup.style.display = "block";
+  }
+}
+
 document.addEventListener("DOMContentLoaded", function () {
   const kontaktForm = document.querySelector('form[name="kontakt"]');
   if (kontaktForm) {
@@ -707,6 +740,17 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 </script><script>
+
+function öffneKontaktMitBewertung() {
+  const bewertung = document.getElementById("evaluationResultText");
+  const popup = document.getElementById("kontakt-popup");
+  if (bewertung && popup) {
+    const sichtbar = document.getElementById("evaluationVisible");
+    if (sichtbar) sichtbar.value = bewertung.innerText.trim();
+    popup.style.display = "block";
+  }
+}
+
 document.addEventListener("DOMContentLoaded", function () {
   const kontaktForm = document.querySelector('form[name="kontakt"]');
   if (!kontaktForm) return;
@@ -741,6 +785,17 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 </script><script>
+
+function öffneKontaktMitBewertung() {
+  const bewertung = document.getElementById("evaluationResultText");
+  const popup = document.getElementById("kontakt-popup");
+  if (bewertung && popup) {
+    const sichtbar = document.getElementById("evaluationVisible");
+    if (sichtbar) sichtbar.value = bewertung.innerText.trim();
+    popup.style.display = "block";
+  }
+}
+
 document.addEventListener("DOMContentLoaded", function () {
   const foerderForm = document.querySelector('form[name="foerderung"]');
   if (!foerderForm) return;
@@ -766,6 +821,17 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 </script><script>
+
+function öffneKontaktMitBewertung() {
+  const bewertung = document.getElementById("evaluationResultText");
+  const popup = document.getElementById("kontakt-popup");
+  if (bewertung && popup) {
+    const sichtbar = document.getElementById("evaluationVisible");
+    if (sichtbar) sichtbar.value = bewertung.innerText.trim();
+    popup.style.display = "block";
+  }
+}
+
 function zeigeEmpfehlung() {
   const blocks = document.querySelectorAll('.frage-block');
   let scores = [];
@@ -805,6 +871,17 @@ function zeigeEmpfehlung() {
   window.letzteBewertungText = resultText.replace(/<[^>]*>?/gm, '');
 }
 </script><script>
+
+function öffneKontaktMitBewertung() {
+  const bewertung = document.getElementById("evaluationResultText");
+  const popup = document.getElementById("kontakt-popup");
+  if (bewertung && popup) {
+    const sichtbar = document.getElementById("evaluationVisible");
+    if (sichtbar) sichtbar.value = bewertung.innerText.trim();
+    popup.style.display = "block";
+  }
+}
+
 document.addEventListener("DOMContentLoaded", function () {
   const optionButtons = document.querySelectorAll('.btn-option');
   optionButtons.forEach(btn => {
@@ -817,20 +894,27 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 </script><script>
-function öffneKontaktMitBewertung() {
-  // Bewertung berechnen, falls noch nicht geschehen
-  if (typeof zeigeEmpfehlung === 'function') {
-    zeigeEmpfehlung();
-  }
 
+function öffneKontaktMitBewertung() {
+  const bewertung = document.getElementById("evaluationResultText");
+  const popup = document.getElementById("kontakt-popup");
+  if (bewertung && popup) {
+    const sichtbar = document.getElementById("evaluationVisible");
+    if (sichtbar) sichtbar.value = bewertung.innerText.trim();
+    popup.style.display = "block";
+  }
+}
+
+function öffneKontaktMitBewertung() {
+  // Bewertung zuerst berechnen
+  zeigeEmpfehlung();
+
+  // Danach Bewertung übertragen & Popup öffnen
   const kontaktPopup = document.getElementById("kontakt-popup");
   const ausgabeFeld = document.getElementById("bewertungsÜbertrag");
 
   if (kontaktPopup && ausgabeFeld) {
-    setTimeout(() => {
-      ausgabeFeld.value = window.letzteBewertungText || "Keine Bewertung verfügbar.";
-    }, 200); // kleine Verzögerung, um DOM zu aktualisieren
-
+    ausgabeFeld.value = window.letzteBewertungText || "Keine Bewertung verfügbar.";
     kontaktPopup.style.display = "block";
     const bewertungPopup = document.getElementById("bewertung-popup");
     if (bewertungPopup) {
@@ -838,18 +922,7 @@ function öffneKontaktMitBewertung() {
     }
   }
 }
-</script><script>
-function öffneKontaktMitBewertung() {
-    const bewertungText = document.getElementById('evaluationResult')?.innerText || '';
-    const hiddenField = document.getElementById('hidden-bewertung');
-    if (hiddenField) {
-        hiddenField.value = bewertungText.trim();
-    }
-    const popup = document.getElementById("kontakt-popup");
-    if (popup) {
-        popup.style.display = "block";
-    }
-}
+
 </script></body>
 <!-- FRAGEN & ANTWORTEN -->
 <section class="scroll-section" id="faq">
@@ -892,6 +965,17 @@ function scrollToTop() {
 
 </script>
 <script>
+
+function öffneKontaktMitBewertung() {
+  const bewertung = document.getElementById("evaluationResultText");
+  const popup = document.getElementById("kontakt-popup");
+  if (bewertung && popup) {
+    const sichtbar = document.getElementById("evaluationVisible");
+    if (sichtbar) sichtbar.value = bewertung.innerText.trim();
+    popup.style.display = "block";
+  }
+}
+
 function exportSeiteAlsPDF() {
   const element = document.body.cloneNode(true);
 
@@ -1006,6 +1090,17 @@ Diese Website informiert über Pflichten und Empfehlungen zum EU AI Act. Die Inh
 </div>
 </div>
 <script>
+
+function öffneKontaktMitBewertung() {
+  const bewertung = document.getElementById("evaluationResultText");
+  const popup = document.getElementById("kontakt-popup");
+  if (bewertung && popup) {
+    const sichtbar = document.getElementById("evaluationVisible");
+    if (sichtbar) sichtbar.value = bewertung.innerText.trim();
+    popup.style.display = "block";
+  }
+}
+
   function toggleDatenschutzPopup() {
     const modal = document.getElementById('datenschutz-modal');
     modal.style.display = 'block';
@@ -1017,6 +1112,17 @@ Diese Website informiert über Pflichten und Empfehlungen zum EU AI Act. Die Inh
 </svg>
 </button>
 <script>
+
+function öffneKontaktMitBewertung() {
+  const bewertung = document.getElementById("evaluationResultText");
+  const popup = document.getElementById("kontakt-popup");
+  if (bewertung && popup) {
+    const sichtbar = document.getElementById("evaluationVisible");
+    if (sichtbar) sichtbar.value = bewertung.innerText.trim();
+    popup.style.display = "block";
+  }
+}
+
 </script><div id="finalEvaluationText" style="display:none; margin-top: 2rem; font-size: 1.05rem; line-height: 1.6;">
 <h3>Zusammenfassung &amp; Empfehlung</h3>
 <p id="evaluationResult"><strong>Ihre Bewertung erscheint hier nach dem Check.</strong></p>
@@ -1029,7 +1135,18 @@ Diese Website informiert über Pflichten und Empfehlungen zum EU AI Act. Die Inh
 <p>Gemeinsam entwickeln wir eine robuste, auditierbare KI-Strategie – zugeschnitten auf die Anforderungen Ihres Unternehmens. Mit Fokus auf Effizienz, Transparenz und regulatorische Sicherheit.</p>
 <p><em>Setzen Sie auf fundiertes Know-how, unternehmerische Erfahrung und praxisnahe Umsetzung – für einen sicheren und zukunftsfähigen KI-Einsatz.</em></p>
 </div>
-<script>AOS.init();</script>
+<script>
+
+function öffneKontaktMitBewertung() {
+  const bewertung = document.getElementById("evaluationResultText");
+  const popup = document.getElementById("kontakt-popup");
+  if (bewertung && popup) {
+    const sichtbar = document.getElementById("evaluationVisible");
+    if (sichtbar) sichtbar.value = bewertung.innerText.trim();
+    popup.style.display = "block";
+  }
+}
+AOS.init();</script>
 <style>
   .quiz button.active {
     background-color: #f59e0b !important;
