@@ -826,19 +826,23 @@ function öffneKontaktMitBewertung() {
   const kontaktPopup = document.getElementById("kontakt-popup");
   const ausgabeFeld = document.getElementById("bewertungsÜbertrag");
 
-  if (kontaktPopup && ausgabeFeld) {
-    setTimeout(() => {
-      ausgabeFeld.value = window.letzteBewertungText || "Keine Bewertung verfügbar.";
-    }, 200); // kleine Verzögerung, um DOM zu aktualisieren
+  // Bewertung direkt aus dem DOM holen
+  const resultBox = document.getElementById("evaluationResult");
+  const cleanText = resultBox?.innerText?.trim() || "Keine Bewertung verfügbar.";
 
+  if (kontaktPopup && ausgabeFeld) {
+    ausgabeFeld.value = cleanText;
     kontaktPopup.style.display = "block";
+
+    // Optional: Bewertungspopup schließen, falls offen
     const bewertungPopup = document.getElementById("bewertung-popup");
     if (bewertungPopup) {
       bewertungPopup.style.display = "none";
     }
   }
 }
-</script></body>
+</script>
+</body>
 <!-- FRAGEN & ANTWORTEN -->
 <section class="scroll-section" id="faq">
 <div class="section-img">
