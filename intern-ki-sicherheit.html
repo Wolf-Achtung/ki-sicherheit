@@ -818,6 +818,10 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 </script><script>
 function öffneKontaktMitBewertung() {
+  // Bewertung zuerst berechnen
+  zeigeEmpfehlung();
+
+  // Danach Bewertung übertragen & Popup öffnen
   const kontaktPopup = document.getElementById("kontakt-popup");
   const ausgabeFeld = document.getElementById("bewertungsÜbertrag");
 
@@ -830,6 +834,7 @@ function öffneKontaktMitBewertung() {
     }
   }
 }
+
 </script></body>
 <!-- FRAGEN & ANTWORTEN -->
 <section class="scroll-section" id="faq">
