@@ -634,7 +634,7 @@ Die Auswertung erfolgt anonym im Browser und liefert sofort eine klare Einschät
 <button class="btn" onclick="zeigeEmpfehlung()">Auswertung anzeigen</button>
 <button class="btn" onclick="resetQuiz()" style="margin-left: 1rem;">Check zurücksetzen</button>
 </div>
-<div id="evaluationResult"></div>
+<div id="evaluationResult"></div><div style="margin-top:1rem;"><button class="btn" onclick="öffneKontaktMitBewertung()">Ergebnis senden &amp; Kontakt aufnehmen</button></div>
 <script>
   document.querySelectorAll('.btn-option').forEach(btn => {
     btn.addEventListener('click', () => {
@@ -707,7 +707,6 @@ Die Auswertung erfolgt anonym im Browser und liefert sofort eine klare Einschät
 <button class="btn" onclick="document.getElementById('bewertung-popup').style.display='none'">Schließen</button>
 </div>
 </div>
-
 <script>
 if (window.location.pathname.includes("thankyou.html")) {
   const danke = document.getElementById("danke-popup");
@@ -730,7 +729,8 @@ if (window.location.pathname.includes("thankyou.html")) {
 <input name="email" required="" style="width: 100%; padding: 0.5rem; margin-bottom: 0.5rem;" type="email"/>
 </label><br/>
 <label>Ihre Nachricht<br/>
-<textarea name="message" required="" rows="5" style="width: 100%; padding: 0.5rem; margin-bottom: 0.5rem;"></textarea>
+<label>Ihre Bewertung
+<textarea id="bewertungsÜbertrag" name="schnellcheck" readonly="True" rows="5" style="width: 100%; padding: 0.5rem; margin-bottom: 1rem; background:#f2f6fa;"></textarea></label><textarea name="message" required="" rows="5" style="width: 100%; padding: 0.5rem; margin-bottom: 0.5rem;"></textarea>
 </label><br/>
 <p style="font-size: 0.9rem; color: #333;">
 <label>
@@ -738,12 +738,7 @@ if (window.location.pathname.includes("thankyou.html")) {
     Ich habe die <a href="javascript:void(0)" onclick="toggleDatenschutzPopup()">Datenschutzerklärung</a> gelesen und akzeptiert.
   </label>
 </p>
-<p style="font-size: 0.9rem; color: #333;">
-<label>
-<input name="schnellcheckErgebnis" type="checkbox"/>
-            Bitte das Ergebnis des Schnell-Checks mit übermitteln.
-        </label>
-</p><button class="btn" type="submit">Nachricht senden</button>
+<button class="btn" type="submit">Nachricht senden</button>
 </form><br/>
 </div><button class="btn" onclick="document.getElementById('kontakt-popup').style.display='none'">Schließen</button></div></div><script>function zeigeKontaktPopup() { document.getElementById('kontakt-popup').style.display = 'block'; }</script><script>
 document.addEventListener("DOMContentLoaded", function () {
