@@ -703,7 +703,7 @@ Die Auswertung erfolgt anonym im Browser und liefert sofort eine klare Einschät
 <div id="bewertung-popup" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:#000000cc; z-index:10000; text-align:center; padding-top:10%;">
 <div style="background:white; margin:0 auto; padding:2rem; max-width:540px; border-radius:12px; box-shadow:0 0 12px rgba(0,0,0,0.15); font-family:Inter,sans-serif;">
 <h2 style="font-family:'Share Tech Mono', monospace; color:#0c3a5f;">Ihre Bewertung</h2>
-<div id="popup-evaluation-text" style="text-align:left; font-size:1rem; color:#0c3a5f;"></div>
+<div id="popup-evaluation-text" style="background:#f2f6fa; padding:1rem; border-radius:12px; font-size:1rem; color:#0c3a5f;"></div>
 <button class="btn" onclick="document.getElementById('bewertung-popup').style.display='none'">Schließen</button>
 </div>
 </div>
@@ -823,6 +823,18 @@ document.addEventListener("DOMContentLoaded", function () {
     .catch((error) => alert("Formular konnte nicht übermittelt werden: " + error));
   });
 });
+</script><script>
+function öffneKontaktMitBewertung() {
+  const text = document.getElementById("popup-evaluation-text")?.innerHTML || "Keine Bewertung verfügbar.";
+  const plainText = text.replace(/<[^>]*>?/gm, ''); // HTML-Tags entfernen
+  const kontaktPopup = document.getElementById("kontakt-popup");
+  const ausgabeFeld = document.getElementById("bewertungsÜbertrag");
+  if (kontaktPopup && ausgabeFeld) {
+    ausgabeFeld.value = plainText;
+    kontaktPopup.style.display = "block";
+    document.getElementById("bewertung-popup").style.display = "none";
+  }
+}
 </script></body>
 <!-- FRAGEN & ANTWORTEN -->
 <section class="scroll-section" id="faq">
