@@ -834,7 +834,13 @@ document.addEventListener("DOMContentLoaded", function () {
       body: new URLSearchParams(formData).toString(),
     })
     .then(() => {
+      // Formular ausblenden
+      document.getElementById("kontakt-popup").style.display = "none";
+
+      // Danke-Popup anzeigen
       document.getElementById("danke-popup")?.style?.setProperty("display", "block");
+
+      // Formularfelder zurücksetzen
       kontaktForm.reset();
     })
     .catch((error) => alert("Formular konnte nicht übermittelt werden: " + error));
