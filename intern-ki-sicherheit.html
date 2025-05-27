@@ -517,16 +517,16 @@ textarea:focus {
 <!-- FÖRDERUNG & FINANZIERUNG -->
 <section class="scroll-section" id="foerderung">
 <div class="section-img">
-<img alt="Fördermittel gezielt nutzen" src="img/09.png">
+<img alt="Fördermittel gezielt nutzen" src="img/09.png"/>
 <p class="caption">Fördermittel gezielt nutzen</p>
-</img></div>
+</div>
 <div class="section-content">
 <h2 class="typing">Förderung &amp; Finanzierung</h2>
 <p><strong>Nutzen Sie bestehende Fördermittel für Ihre KI-Vorhaben.</strong><br/>
     Je nach Projektart und Unternehmensgröße sind Zuschüsse zwischen 5.000 € und über 100.000 € möglich. Ich prüfe für Sie, ob und welche Programme zu Ihrer Maßnahme passen.</p>
 <p><strong>Förderfähigkeit prüfen lassen:</strong>
 <p>Bitte geben Sie mir dazu einige kurze Informationen:</p>
-<form data-netlify="true" method="POST" name="foerderung">
+<form data-netlify="true" name="foerderung">
 <input name="form-name" type="hidden" value="foerderung"/>
 <p hidden=""><label>Don’t fill this out if you're human: <input name="bot-field"/></label></p>
 <label>Unternehmensgröße<br/>
@@ -578,9 +578,9 @@ textarea:focus {
 <!-- SCHNELL-CHECK & EMPFEHLUNG -->
 </p></div></section><section class="scroll-section" id="schnell-check">
 <div class="section-img">
-<img alt="Status erfassen, Risiken vermeiden" src="img/04.png">
+<img alt="Status erfassen, Risiken vermeiden" src="img/04.png"/>
 <p class="caption">Status erfassen, Risiken vermeiden</p>
-</img></div>
+</div>
 <div class="section-content">
 <h2 class="typing">KI-Schnell-Check &amp; Empfehlung</h2>
 <p>Der Schnell-Check zeigt auf einen Blick, wie gut Ihr Unternehmen auf den KI-Einsatz vorbereitet ist – von Dokumentation über Verantwortung bis Datenschutz.
@@ -707,50 +707,7 @@ Die Auswertung erfolgt anonym im Browser und liefert sofort eine klare Einschät
 <button class="btn" onclick="document.getElementById('bewertung-popup').style.display='none'">Schließen</button>
 </div>
 </div>
-<script>
-function showModal() {
-  document.getElementById("danke-popup").style.display = "block";
-}
-function zeigeEmpfehlung() {
-  const blocks = document.querySelectorAll('.frage-block');
-  let scores = [];
-  blocks.forEach(block => {
-    const selected = block.querySelector('.btn-option.selected');
-    if (selected) scores.push(parseInt(selected.dataset.score));
-  });
 
-  if (scores.length < 7) {
-    alert("Bitte beantworten Sie alle 7 Fragen.");
-    return;
-  }
-
-  const avg = scores.reduce((a, b) => a + b, 0) / scores.length;
-  let resultText = "";
-    if (avg < 1.6) {
-    resultText = `
-    <p><strong>Kritisch – Es besteht akuter Handlungsbedarf.</strong></p>
-    <p>Ihr Unternehmen zeigt gravierende Lücken in Governance, Datenschutz und Risikoanalyse. Es fehlen Prozesse, Verantwortlichkeiten und die Einhaltung regulatorischer Vorgaben wie dem EU AI Act.</p>
-    <p><strong>Empfehlung:</strong> Ich unterstütze Sie beim Aufbau strukturierter, DSGVO-konformer Prozesse sowie bei der rechtskonformen Umsetzung des EU AI Acts.</p>`;
-  } else if (avg < 2.3) {
-    resultText = `
-    <p><strong>Ausbaufähig – Erste Strukturen sind erkennbar.</strong></p>
-    <p>Sie berücksichtigen bereits zentrale Aspekte, aber es bestehen Lücken in Dokumentation, Zuständigkeiten oder Datenschutz-Praxis. Eine klare Roadmap zur Compliance ist jetzt entscheidend.</p>
-    <p><strong>Empfehlung:</strong> Ich begleite Sie beim gezielten Ausbau Ihrer Maßnahmen – praxisnah, rechtskonform und förderfähig nach EU-Vorgaben.</p>`;
-  } else if (avg < 2.8) {
-    resultText = `
-    <p><strong>Gut – Sie sind auf einem guten Weg.</strong></p>
-    <p>Viele relevante Anforderungen sind in Ihrer Organisation verankert, u.a. zu Governance und Risikoanalyse. Jetzt geht es um die systematische Dokumentation und den internen Nachweis.</p>
-    <p><strong>Empfehlung:</strong> Ich unterstütze Sie bei der auditierbaren Verankerung Ihrer Prozesse gemäß EU AI Act.</p>`;
-  } else {
-    resultText = `
-    <p><strong>Sehr gut – Ihre Organisation ist vorbildlich aufgestellt.</strong></p>
-    <p>Sie erfüllen bereits heute die zentralen Anforderungen an KI-Governance, Datenschutz und Risikomanagement. Ihr Vorgehen ist strukturiert und strategisch.</p>
-    <p><strong>Empfehlung:</strong> Nutzen Sie Ihre Stärke gezielt für Förderanträge, interne Schulungen und als vertrauensbildenden Vorteil am Markt. Ich begleite Sie gerne bei diesem nächsten Schritt.</p>`;
-
-  document.getElementById("popup-evaluation-text").innerHTML = resultText;
-  document.getElementById("bewertung-popup").style.display = "block";
-}
-</script>
 <script>
 if (window.location.pathname.includes("thankyou.html")) {
   const danke = document.getElementById("danke-popup");
@@ -846,13 +803,38 @@ document.addEventListener("DOMContentLoaded", function () {
     .catch((error) => alert("Formular konnte nicht übermittelt werden: " + error));
   });
 });
+</script><script>
+document.addEventListener("DOMContentLoaded", function () {
+  const foerderForm = document.querySelector('form[name="foerderung"]');
+  if (!foerderForm) return;
+
+  foerderForm.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const formData = new FormData(foerderForm);
+
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams(formData).toString(),
+    })
+    .then(() => {
+      // Danke-Popup anzeigen
+      document.getElementById("danke-popup")?.style?.setProperty("display", "block");
+
+      // Formular zurücksetzen
+      foerderForm.reset();
+    })
+    .catch((error) => alert("Formular konnte nicht übermittelt werden: " + error));
+  });
+});
 </script></body>
 <!-- FRAGEN & ANTWORTEN -->
 <section class="scroll-section" id="faq">
 <div class="section-img">
-<img alt="direkt ans Ziel" src="img/06.png">
+<img alt="direkt ans Ziel" src="img/06.png"/>
 <p class="caption">direkt ans Ziel</p>
-</img></div>
+</div>
 <div class="section-content">
 <h2 class="typing">Gefahren &amp; Risiken</h2>
 <div class="faq-item">
@@ -1034,57 +1016,5 @@ Diese Website informiert über Pflichten und Empfehlungen zum EU AI Act. Die Inh
 </style>
 
   }
-<script>
-// Button-Auswahllogik aktivieren
-document.querySelectorAll('.frage-block .btn-option').forEach(button => {
-  button.addEventListener('click', () => {
-    const parent = button.closest('.frage-block');
-    parent.querySelectorAll('.btn-option').forEach(btn => btn.classList.remove('selected'));
-    button.classList.add('selected');
-  });
-});
 
-// Popup-Auswertung bei Klick anzeigen
-function zeigeEmpfehlung() {
-  const blocks = document.querySelectorAll('.frage-block');
-  let scores = [];
-  blocks.forEach(block => {
-    const selected = block.querySelector('.btn-option.selected');
-    if (selected) scores.push(parseInt(selected.dataset.score));
-  });
-
-  if (scores.length < 7) {
-    alert("Bitte beantworten Sie alle 7 Fragen.");
-    return;
-  }
-
-  const avg = scores.reduce((a, b) => a + b, 0) / scores.length;
-  let resultText = "";
-
-  if (avg < 1.6) {
-    resultText = `
-      <p><strong>Kritisch – Es besteht akuter Handlungsbedarf.</strong></p>
-      <p>Ihr Unternehmen zeigt gravierende Lücken in Governance, Datenschutz und Risikoanalyse. Es fehlen Prozesse, Verantwortlichkeiten und die Einhaltung regulatorischer Vorgaben wie dem EU AI Act.</p>
-      <p><strong>Empfehlung:</strong> Ich unterstütze Sie beim Aufbau strukturierter, DSGVO-konformer Prozesse sowie bei der rechtskonformen Umsetzung des EU AI Acts.</p>`;
-  } else if (avg < 2.3) {
-    resultText = `
-      <p><strong>Ausbaufähig – Erste Strukturen sind erkennbar.</strong></p>
-      <p>Sie berücksichtigen bereits zentrale Aspekte, aber es bestehen Lücken in Dokumentation, Zuständigkeiten oder Datenschutz-Praxis. Eine klare Roadmap zur Compliance ist jetzt entscheidend.</p>
-      <p><strong>Empfehlung:</strong> Ich begleite Sie beim gezielten Ausbau Ihrer Maßnahmen – praxisnah, rechtskonform und förderfähig nach EU-Vorgaben.</p>`;
-  } else if (avg < 2.8) {
-    resultText = `
-      <p><strong>Gut – Sie sind auf einem guten Weg.</strong></p>
-      <p>Viele relevante Anforderungen sind in Ihrer Organisation verankert, u.a. zu Governance und Risikoanalyse. Jetzt geht es um die systematische Dokumentation und den internen Nachweis.</p>
-      <p><strong>Empfehlung:</strong> Ich unterstütze Sie bei der auditierbaren Verankerung Ihrer Prozesse gemäß EU AI Act.</p>`;
-  } else {
-    resultText = `
-      <p><strong>Sehr gut – Ihre Organisation ist vorbildlich aufgestellt.</strong></p>
-      <p>Sie erfüllen bereits heute die zentralen Anforderungen an KI-Governance, Datenschutz und Risikomanagement. Ihr Vorgehen ist strukturiert und strategisch.</p>
-      <p><strong>Empfehlung:</strong> Nutzen Sie Ihre Stärke gezielt für Förderanträge, interne Schulungen und als vertrauensbildenden Vorteil am Markt. Ich begleite Sie gerne bei diesem nächsten Schritt.</p>`;
-  }
-
-  document.getElementById("popup-evaluation-text").innerHTML = resultText;
-  document.getElementById("bewertung-popup").style.display = "block";
-}
-</script>
 </html>
