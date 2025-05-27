@@ -818,15 +818,19 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 </script><script>
 function öffneKontaktMitBewertung() {
-  // Bewertung zuerst berechnen
-  zeigeEmpfehlung();
+  // Bewertung berechnen, falls noch nicht geschehen
+  if (typeof zeigeEmpfehlung === 'function') {
+    zeigeEmpfehlung();
+  }
 
-  // Danach Bewertung übertragen & Popup öffnen
   const kontaktPopup = document.getElementById("kontakt-popup");
   const ausgabeFeld = document.getElementById("bewertungsÜbertrag");
 
   if (kontaktPopup && ausgabeFeld) {
-    ausgabeFeld.value = window.letzteBewertungText || "Keine Bewertung verfügbar.";
+    setTimeout(() => {
+      ausgabeFeld.value = window.letzteBewertungText || "Keine Bewertung verfügbar.";
+    }, 200); // kleine Verzögerung, um DOM zu aktualisieren
+
     kontaktPopup.style.display = "block";
     const bewertungPopup = document.getElementById("bewertung-popup");
     if (bewertungPopup) {
@@ -834,7 +838,6 @@ function öffneKontaktMitBewertung() {
     }
   }
 }
-
 </script></body>
 <!-- FRAGEN & ANTWORTEN -->
 <section class="scroll-section" id="faq">
