@@ -635,7 +635,6 @@ Die Auswertung erfolgt anonym im Browser und liefert sofort eine klare Einschät
 <button class="btn" onclick="resetQuiz()" style="margin-left: 1rem;">Check zurücksetzen</button>
 </div>
 <div id="evaluationResult"></div><div style="margin-top:1rem;"><button class="btn" onclick="öffneKontaktMitBewertung()">Ergebnis senden &amp; Kontakt aufnehmen</button></div>
-
 </div></section>
 <!-- Danke-Popup -->
 <div id="danke-popup" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:#ffffffee; z-index:10000; text-align:center; padding-top:10%;">
@@ -674,10 +673,7 @@ if (window.location.pathname.includes("thankyou.html")) {
 <label>Ihre E-Mail<br/>
 <input name="email" required="" style="width: 100%; padding: 0.5rem; margin-bottom: 0.5rem;" type="email"/>
 </label><br/>
-<label>Ihre Nachricht<br/>
-<label>Ihre Bewertung
-<textarea id="bewertungsÜbertrag" name="schnellcheck" readonly="True" rows="5" style="width: 100%; padding: 0.5rem; margin-bottom: 1rem; background:#f2f6fa;"></textarea></label><label>Ihre Nachricht</label><textarea id="bewertungsÜbertrag" name="schnellcheck" readonly="True" rows="4" style="width:100%;background:#f2f6fa;margin-bottom:1rem;"></textarea><label>Ihre Bewertung</label><textarea name="message" required="" rows="5" style="width: 100%; padding: 0.5rem; margin-bottom: 0.5rem;"></textarea>
-</label><br/>
+<br/>
 <p style="font-size: 0.9rem; color: #333;">
 <label>
 <input name="datenschutz" required="" type="checkbox"/>
@@ -819,6 +815,18 @@ function öffneKontaktMitBewertung() {
     document.getElementById("bewertung-popup").style.display = "none";
   }
 }
+</script><script>
+document.addEventListener("DOMContentLoaded", function () {
+  const optionButtons = document.querySelectorAll('.btn-option');
+  optionButtons.forEach(btn => {
+    btn.addEventListener('click', function () {
+      const parent = btn.closest('.frage-block');
+      const buttons = parent.querySelectorAll('.btn-option');
+      buttons.forEach(b => b.classList.remove('selected'));
+      btn.classList.add('selected');
+    });
+  });
+});
 </script></body>
 <!-- FRAGEN & ANTWORTEN -->
 <section class="scroll-section" id="faq">
