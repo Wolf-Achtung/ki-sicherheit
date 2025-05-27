@@ -805,17 +805,6 @@ function zeigeEmpfehlung() {
   window.letzteBewertungText = resultText.replace(/<[^>]*>?/gm, '');
 }
 </script><script>
-function öffneKontaktMitBewertung() {
-  const kontaktPopup = document.getElementById("kontakt-popup");
-  const ausgabeFeld = document.getElementById("bewertungsÜbertrag");
-
-  if (kontaktPopup && ausgabeFeld) {
-    ausgabeFeld.value = window.letzteBewertungText || "Keine Bewertung verfügbar.";
-    kontaktPopup.style.display = "block";
-    document.getElementById("bewertung-popup").style.display = "none";
-  }
-}
-</script><script>
 document.addEventListener("DOMContentLoaded", function () {
   const optionButtons = document.querySelectorAll('.btn-option');
   optionButtons.forEach(btn => {
@@ -827,6 +816,20 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 });
+</script><script>
+function öffneKontaktMitBewertung() {
+  const kontaktPopup = document.getElementById("kontakt-popup");
+  const ausgabeFeld = document.getElementById("bewertungsÜbertrag");
+
+  if (kontaktPopup && ausgabeFeld) {
+    ausgabeFeld.value = window.letzteBewertungText || "Keine Bewertung verfügbar.";
+    kontaktPopup.style.display = "block";
+    const bewertungPopup = document.getElementById("bewertung-popup");
+    if (bewertungPopup) {
+      bewertungPopup.style.display = "none";
+    }
+  }
+}
 </script></body>
 <!-- FRAGEN & ANTWORTEN -->
 <section class="scroll-section" id="faq">
