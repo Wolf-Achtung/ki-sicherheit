@@ -663,10 +663,9 @@ if (window.location.pathname.includes("thankyou.html")) {
 </script><div id="kontakt-popup" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:#000000cc; z-index:10000; text-align:center; padding-top:5%;"><div style="background:white; margin:0 auto; padding:2rem; max-width:600px; border-radius:12px; box-shadow:0 0 10px rgba(0,0,0,0.1); font-family:Inter,sans-serif;"><div class="section-content">
 <h2 class="typing">Kontakt &amp; Erstgespräch</h2>
 <p>Ich freue mich auf Ihre Nachricht oder eine unverbindliche Anfrage für ein kostenfreies Erstgespräch.</p>
-<form data-netlify="true" name="kontakt">
-
-<label>Ihr Name<br/>
-<textarea id="bewertungsÜbertrag" name="schnellcheck" readonly="True" rows="4" style="width:100%; background:#f2f6fa; margin-bottom:1rem;"></textarea><label>Ihre Bewertung</label><input name="name" required="" style="width: 100%; padding: 0.5rem; margin-bottom: 0.5rem;" type="text"/>
+<form data-netlify="true" method="POST" name="kontakt" netlify="true">
+<label>Ihre Bewertung<br/>
+<textarea id="bewertungsÜbertrag" name="schnellcheck" readonly="True" rows="4" style="width:100%; background:#f2f6fa; margin-bottom:1rem;"></textarea><label>Ihr Name</label><input name="name" required="" style="width: 100%; padding: 0.5rem; margin-bottom: 0.5rem;" type="text"/>
 </label><br/>
 <label>Ihre E-Mail<br/>
 <input name="email" required="" style="width: 100%; padding: 0.5rem; margin-bottom: 0.5rem;" type="email"/>
@@ -681,64 +680,6 @@ if (window.location.pathname.includes("thankyou.html")) {
 <button class="btn" type="submit">Nachricht senden</button>
 </form><br/>
 </div><button class="btn" onclick="document.getElementById('kontakt-popup').style.display='none'">Schließen</button></div></div><script>function zeigeKontaktPopup() { document.getElementById('kontakt-popup').style.display = 'block'; }</script><script>
-document.addEventListener("DOMContentLoaded", function () {
-  const kontaktForm = document.querySelector('form[name="kontakt"]');
-  if (kontaktForm) {
-    kontaktForm.addEventListener("submit", function () {
-      const checkbox = kontaktForm.querySelector('input[name="schnellcheckErgebnis"]');
-      if (checkbox && checkbox.checked) {
-        const evaluationText = document.getElementById("popup-evaluation-text")?.innerText || "Kein Ergebnis ausgewählt";
-        const hiddenField = document.createElement("input");
-        hiddenField.type = "hidden";
-        hiddenField.name = "schnellcheck";
-        hiddenField.value = evaluationText;
-        kontaktForm.appendChild(hiddenField);
-      }
-    });
-  }
-
-  const foerderForm = document.querySelector('form[name="foerderung"]');
-  if (foerderForm) {
-    foerderForm.addEventListener("submit", function () {
-      showModal();
-    });
-  }
-});
-</script><script>
-document.addEventListener("DOMContentLoaded", function () {
-  const kontaktForm = document.querySelector('form[name="kontakt"]');
-  if (!kontaktForm) return;
-
-  kontaktForm.addEventListener("submit", function (e) {
-    e.preventDefault();
-
-    const formData = new FormData(kontaktForm);
-
-    const checkbox = kontaktForm.querySelector('input[name="schnellcheckErgebnis"]');
-    if (checkbox && checkbox.checked) {
-      const evaluationText = document.getElementById("popup-evaluation-text")?.innerText || "Kein Ergebnis ausgewählt";
-      formData.append("schnellcheck", evaluationText);
-    }
-
-    fetch("/", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: new URLSearchParams(formData).toString(),
-    })
-    .then(() => {
-      // Formular ausblenden
-      document.getElementById("kontakt-popup").style.display = "none";
-
-      // Danke-Popup anzeigen
-      document.getElementById("danke-popup")?.style?.setProperty("display", "block");
-
-      // Formularfelder zurücksetzen
-      kontaktForm.reset();
-    })
-    .catch((error) => alert("Formular konnte nicht übermittelt werden: " + error));
-  });
-});
-</script><script>
 document.addEventListener("DOMContentLoaded", function () {
   const foerderForm = document.querySelector('form[name="foerderung"]');
   if (!foerderForm) return;
