@@ -524,44 +524,37 @@ textarea:focus {
 <h2 class="typing">Förderung &amp; Finanzierung</h2>
 <p><strong>Nutzen Sie bestehende Fördermittel für Ihre KI-Vorhaben.</strong><br/>
     Je nach Projektart und Unternehmensgröße sind Zuschüsse zwischen 5.000 € und über 100.000 € möglich. Ich prüfe für Sie, ob und welche Programme zu Ihrer Maßnahme passen.</p>
-<p><strong>Förderfähigkeit prüfen lassen:</strong>
-<p>Bitte geben Sie mir dazu einige kurze Informationen:</p>
-<form action="https://formsubmit.co/foerderung@ki-sicherheit.jetzt" method="POST" name="foerderung">
-<input name="form-name" type="hidden" value="foerderung"/>
-<p hidden=""><label>Don’t fill this out if you're human: <input name="bot-field"/></label></p>
-<label>Unternehmensgröße<br/>
-<select name="groesse" required="" style="width:100%; padding:0.5rem; margin-bottom:1rem;">
-<option value="">Bitte auswählen</option>
-<option value="Selbständig">Selbständig</option>
-<option value="&lt;10 MA">Weniger als 10 Mitarbeitende</option>
-<option value="10-50 MA">10 bis 50 Mitarbeitende</option>
-<option value="51-250 MA">51 bis 250 Mitarbeitende</option>
-<option value="&gt;250 MA">Mehr als 250 Mitarbeitende</option>
-</select>
-</label>
-<label>Branche<br/>
-<select name="branche" required="" style="width:100%; padding:0.5rem; margin-bottom:1rem;">
-<option value="">Bitte auswählen</option>
-<option value="Finanzdienstleistungen">Finanzdienstleistungen</option>
-<option value="Industrie/Produktion">Industrie/Produktion</option>
-<option value="Einzelhandel">Einzelhandel</option>
-<option value="Logistik &amp; Transport">Logistik &amp; Transport</option>
-<option value="IT &amp; Telekommunikation">IT &amp; Telekommunikation</option>
-<option value="Energieversorgung">Energieversorgung</option>
-<option value="Medien &amp; Unterhaltung">Medien &amp; Unterhaltung</option>
-<option value="Baugewerbe">Baugewerbe</option>
-<option value="Landwirtschaft">Landwirtschaft</option>
-<option value="andere">andere</option>
-</select>
+<h2>Förderfähigkeit prüfen lassen</h2>
+<form action="https://formsubmit.co/foerderung@ki-sicherheit.jetzt" method="POST">
+    <input type="hidden" name="_next" value="https://ki-sicherheit.jetzt/intern-ki-sicherheit.html/thankyou.html">
+    <label for="name">Ihr Name</label>
+    <input type="text" name="Name" id="name" required>
+
+    <label for="company">Unternehmen</label>
+    <input type="text" name="Unternehmen" id="company" required>
+
+    <label for="branche">Branche</label>
+    <select name="Branche" id="branche" required>
+        <option value="" disabled selected>Bitte auswählen</option>
+        <option>Industrie</option>
+        <option>Medien</option>
+        <option>Gesundheitswesen</option>
+        <option>Bildung</option>
+        <option>Verwaltung</option>
+        <option>Handel</option>
+        <option>IT / Software</option>
+        <option>sonstige</option>
+    </select>
 </label>
 <label>Geplante Maßnahme<br/>
 <select name="massnahme" required="" style="width:100%; padding:0.5rem; margin-bottom:1rem;">
 <option value="">Bitte auswählen</option>
-<option value="Beratung &amp; Strategie">Beratung &amp; Strategie</option>
-<option value="KI-Tool-Integration">KI-Tool-Integration</option>
-<option value="Prototyp/F&amp;E">Forschung oder Prototyp-Entwicklung</option>
-<option value="Mitarbeiterschulung">Mitarbeiterschulung / Change Management</option>
-<option value="Unklar">Noch unklar</option>
+<option>Beratung / Strategie</option>
+    <option>Risikoanalyse</option>
+    <option>Datenschutz / Compliance</option>
+    <option>KI-Tool-Integration</option>
+    <option>Mitarbeiterschulung / Change Management</option>
+    <option>noch unklar</option>
 </select>
 </label>
 <label>Ihre E-Mail-Adresse<br/>
@@ -634,7 +627,12 @@ Die Auswertung erfolgt anonym im Browser und liefert sofort eine klare Einschät
 <button class="btn" onclick="zeigeEmpfehlung()">Auswertung anzeigen</button>
 <button class="btn" onclick="resetQuiz()" style="margin-left: 1rem;">Check zurücksetzen</button>
 </div>
-<div id="evaluationResult"></div><div style="margin-top:1rem;"><button class="btn" onclick="öffneKontaktMitBewertung()">Ergebnis senden &amp; Kontakt aufnehmen</button></div>
+<div id="evaluationResult" style="background-color:#eef5fa;padding:1rem;margin-top:1rem;border-radius:5px;"></div>
+
+<div style="margin-top:1rem; display: flex; gap: 1rem; flex-wrap: wrap;">
+  <button class="btn" onclick="öffneKontaktMitBewertung()">Ergebnis senden & Kontakt aufnehmen</button>
+  <button class="btn" onclick="resetQuiz()">Check zurücksetzen</button>
+</div>
 </div></section>
 <!-- Danke-Popup -->
 <div id="danke-popup" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:#ffffffee; z-index:10000; text-align:center; padding-top:10%;">
@@ -661,23 +659,36 @@ if (window.location.pathname.includes("thankyou.html")) {
   }
 }
 </script><div id="kontakt-popup" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:#000000cc; z-index:10000; text-align:center; padding-top:5%;"><div style="background:white; margin:0 auto; padding:2rem; max-width:600px; border-radius:12px; box-shadow:0 0 10px rgba(0,0,0,0.1); font-family:Inter,sans-serif;"><div class="section-content">
-<h2 class="typing">Kontakt &amp; Erstgespräch</h2>
-<p>Ich freue mich auf Ihre Nachricht oder eine unverbindliche Anfrage für ein kostenfreies Erstgespräch.</p>
-<form action="https://formsubmit.co/kontakt@ki-sicherheit.jetzt" method="POST" name="kontakt">
-<label>Ihre Bewertung<br/>
-<textarea id="bewertungsÜbertrag" name="schnellcheck" readonly="True" rows="4" style="width:100%; background:#f2f6fa; margin-bottom:1rem;"></textarea><label>Ihr Name</label><input name="name" required="" style="width: 100%; padding: 0.5rem; margin-bottom: 0.5rem;" type="text"/>
-</label><br/>
-<label>Ihre E-Mail<br/>
-<input name="email" required="" style="width: 100%; padding: 0.5rem; margin-bottom: 0.5rem;" type="email"/>
-</label><br/>
-<br/>
-<p style="font-size: 0.9rem; color: #333;">
-<label>
-<input name="datenschutz" required="" type="checkbox"/>
-    Ich habe die <a href="javascript:void(0)" onclick="toggleDatenschutzPopup()">Datenschutzerklärung</a> gelesen und akzeptiert.
-  </label>
-</p>
-<button class="btn" type="submit">Nachricht senden</button>
+<h2 style="margin-top: 4rem;">Kontakt & Erstgespräch</h2>
+<form action="https://formsubmit.co/kontakt@ki-sicherheit.jetzt" method="POST">
+    <input type="hidden" name="_next" value="https://ki-sicherheit.jetzt/intern-ki-sicherheit.html/thankyou.html">
+    <label for="bewertung">Ihre Bewertung</label>
+    <textarea name="Bewertung" id="bewertung" rows="4">Wird automatisch aus dem Schnell-Check übernommen</textarea>
+
+    <label for="name-kontakt">Ihr Name</label>
+    <input type="text" name="Name" id="name-kontakt" required>
+
+    <label for="unternehmen-kontakt">Unternehmen</label>
+    <input type="text" name="Unternehmen" id="unternehmen-kontakt" required>
+
+    <label for="branche-kontakt">Branche</label>
+    <select name="Branche" id="branche-kontakt" required>
+        <option value="" disabled selected>Bitte auswählen</option>
+        <option>Industrie</option>
+        <option>Gesundheitswesen</option>
+        <option>Bildung</option>
+        <option>Verwaltung</option>
+        <option>Handel</option>
+        <option>IT / Software</option>
+        <option>Sonstige</option>
+    </select>
+
+    <label for="email-kontakt">Ihre E-Mail-Adresse</label>
+    <input type="email" name="E-Mail" id="email-kontakt" required>
+
+    <label><input type="checkbox" required> Ich habe die <a href="/datenschutz.html" target="_blank">Datenschutzerklärung</a> gelesen und akzeptiert.</label>
+
+    <button type="submit">Nachricht senden</button>
 </form><br/>
 </div><button class="btn" onclick="document.getElementById('kontakt-popup').style.display='none'">Schließen</button></div></div><script>function zeigeKontaktPopup() { document.getElementById('kontakt-popup').style.display = 'block'; }</script><script>
 document.addEventListener("DOMContentLoaded", function () {
@@ -972,6 +983,30 @@ Diese Website informiert über Pflichten und Empfehlungen zum EU AI Act. Die Inh
 <p><em>Setzen Sie auf fundiertes Know-how, unternehmerische Erfahrung und praxisnahe Umsetzung – für einen sicheren und zukunftsfähigen KI-Einsatz.</em></p>
 </div>
 <script>AOS.init();</script>
+<script>
+  function resetQuiz() {
+    document.querySelectorAll('.btn-option.selected').forEach(btn => {
+      btn.classList.remove('selected');
+    });
+    document.getElementById('evaluationResult').innerHTML = '';
+  }
+
+  function öffneKontaktMitBewertung() {
+    const result = document.getElementById('evaluationResult');
+    const text = result ? result.textContent.trim() : '';
+    const bewertungField = document.getElementById('bewertung');
+    if (bewertungField && text !== '') {
+      bewertungField.value = text;
+    }
+    const popup = document.getElementById('kontakt-popup');
+    if (popup) {
+      popup.style.display = 'block';
+      document.body.classList.add('popup-open');
+    }
+  }
+</script>
+
+
 <style>
   .quiz button.active {
     background-color: #f59e0b !important;
