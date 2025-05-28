@@ -662,23 +662,29 @@ if (window.location.pathname.includes("thankyou.html")) {
 }
 </script><div id="kontakt-popup" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:#000000cc; z-index:10000; text-align:center; padding-top:5%;"><div style="background:white; margin:0 auto; padding:2rem; max-width:600px; border-radius:12px; box-shadow:0 0 10px rgba(0,0,0,0.1); font-family:Inter,sans-serif;"><div class="section-content">
 <h2 class="typing">Kontakt &amp; Erstgespräch</h2>
+<form action="https://formsubmit.co/kontakt@ki-sicherheit.jetzt" method="POST"><input name="_template" type="hidden" value="box"/><input name="_captcha" type="hidden" value="false"/>
+<input name="_next" type="hidden" value="https://ki-sicherheit.jetzt/thankyou.html"/>
 <p>Ich freue mich auf Ihre Nachricht oder eine unverbindliche Anfrage für ein kostenfreies Erstgespräch.</p>
-<form data-netlify="true" name="kontakt">
-<p hidden="">
-<label>Don’t fill this out if you're human: <textarea id="bewertungsÜbertrag" name="schnellcheck" readonly="readonly" rows="4" style="width:100%; background:#f2f6fa; margin-bottom:1rem;"></textarea><label>Ihre Bewertung</label><input name="bot-field"/></label>
-</p>
-<label>Ihr Name<br/>
-<input name="name" required="" style="width: 100%; padding: 0.5rem; margin-bottom: 0.5rem;" type="text"/>
-</label><br/>
-<label>Ihre E-Mail<br/>
-<input name="email" required="" style="width: 100%; padding: 0.5rem; margin-bottom: 0.5rem;" type="email"/>
-</label><br/>
-<br/>
-<p style="font-size: 0.9rem; color: #333;">
-<label>
-<input name="datenschutz" required="" type="checkbox"/>
-    Ich habe die <a href="javascript:void(0)" onclick="toggleDatenschutzPopup()">Datenschutzerklärung</a> gelesen und akzeptiert.
-  </label>
+<label for="bewertung">Ihre Nachricht</label>
+<label for="name-kontakt">Ihr Name</label>
+<input id="name-kontakt" name="Name" required="" type="text"/>
+<label for="unternehmen-kontakt">Unternehmen</label>
+<input id="unternehmen-kontakt" name="Unternehmen" required="" type="text"/>
+<label for="branche-kontakt">Branche</label>
+<select id="branche-kontakt" name="Branche" required="">
+<option disabled="" selected="" value="">Bitte auswählen</option>
+<option>Industrie</option>
+<option>Medien</option>
+<option>Gesundheitswesen</option>
+<option>Bildung</option>
+<option>Verwaltung</option>
+<option>Handel</option>
+<option>IT / Software</option>
+<option>Sonstige</option>
+</select>
+<label for="email-kontakt">Ihre E-Mail-Adresse</label>
+<input id="email-kontakt" name="E-Mail" required="" type="email"/>
+<label><input required="" type="checkbox"/> Ich habe die <a href="/datenschutz.html" target="_blank">Datenschutzerklärung</a> gelesen und akzeptiert.</label>
 </p>
 <button class="btn" type="submit">Nachricht senden</button>
 </form><br/>
