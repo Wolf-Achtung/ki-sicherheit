@@ -626,7 +626,40 @@ Die Auswertung erfolgt anonym im Browser und liefert sofort eine klare Einschät
         <button onclick="nextFrage(7, 'niemand')">niemand konkretes</button>
       </div>
     </div>
-</div></section>
+
+    <div id="auswertungsblock" style="display:none; margin-top: 3rem;">
+      <h3>Governance</h3>
+      <div class="balken"><div id="balken-governance" class="balken-bar"></div></div>
+      <p id="text-governance">Ergebnis wird berechnet...</p>
+
+      <h3>Dokumentation</h3>
+      <div class="balken"><div id="balken-doku" class="balken-bar"></div></div>
+      <p id="text-doku">Ergebnis wird berechnet...</p>
+
+      <h3>Verantwortung</h3>
+      <div class="balken"><div id="balken-verantwortung" class="balken-bar"></div></div>
+      <p id="text-verantwortung">Ergebnis wird berechnet...</p>
+
+      <h3>Kommunikation</h3>
+      <div class="balken"><div id="balken-kommunikation" class="balken-bar"></div></div>
+      <p id="text-kommunikation">Ergebnis wird berechnet...</p>
+
+      <h3>Datenschutz-Integration</h3>
+      <div class="balken"><div id="balken-datenschutz" class="balken-bar"></div></div>
+      <p id="text-datenschutz">Ergebnis wird berechnet...</p>
+    </div>
+
+    <div id="auswertung" style="display:none; margin-top:2rem;">
+      <h3>Empfehlung & Bewertung</h3>
+      <div id="auswertungstext"></div>
+    </div>
+
+    <div style="text-align:center; margin-top:2rem;">
+      <button class="btn pulse-button" id="restart-button" style="display:none;" onclick="resetQuiz()">Schnell-Check erneut starten</button>
+      
+    </div>
+  </div>
+</section>
 <!-- Danke-Popup -->
 <div id="danke-popup" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:#ffffffee; z-index:10000; text-align:center; padding-top:10%;">
 <div style="background:white; margin:0 auto; padding:2rem; max-width:480px; border-radius:12px; box-shadow:0 0 10px rgba(0,0,0,0.1); font-family:Inter,sans-serif;">
