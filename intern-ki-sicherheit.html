@@ -7,6 +7,7 @@
 <title>KI-Sicherheit.jetzt – Schnell-Check</title>
 <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&amp;family=Inter:wght@400;700&amp;display=swap" rel="stylesheet"/>
 <style>
+  .g-recaptcha { margin-bottom: 1rem; }
   .question-buttons button.selected {
     background-color: #cceeff;
     color: black;
@@ -397,6 +398,7 @@ textarea:focus {
 }
 </style>
 <style>
+  .g-recaptcha { margin-bottom: 1rem; }
   .question-buttons button.selected {
     background-color: #cceeff;
     color: black;
@@ -412,12 +414,14 @@ textarea:focus {
 }
 </style>
 <style>
+  .g-recaptcha { margin-bottom: 1rem; }
   .frage-block .btn-option.selected {
     background-color: #cceeff !important;
     color: black !important;
     border: 1px solid #ffa000;
   }
 <style>
+  .g-recaptcha { margin-bottom: 1rem; }
   .frage-block {
     margin-bottom: 0.1rem; /* Reduzierter Abstand zwischen den Fragen */
   }
@@ -434,6 +438,7 @@ textarea:focus {
   text-decoration: none;
 }
 </style>
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <body>
 <section class="scroll-section" id="start" style="position: relative;">
@@ -525,7 +530,7 @@ textarea:focus {
 <p><strong>Nutzen Sie bestehende Fördermittel für Ihre KI-Vorhaben.</strong><br/>
     Je nach Projektart und Unternehmensgröße sind Zuschüsse zwischen 5.000 € und über 100.000 € möglich. Ich prüfe für Sie, ob und welche Programme zu Ihrer Maßnahme passen.</p>
 <h2>Förderfähigkeit prüfen lassen</h2>
-<form action="https://formsubmit.co/a892dfc1a68be4b2fd556881bf90eb39" method="POST">
+<form action="https://formsubmit.co/foerderung@ki-sicherheit.jetzt" method="POST">
     <input type="hidden" name="_next" value="https://ki-sicherheit.jetzt/thankyou.html">
     <label for="name">Ihr Name</label>
     <input type="text" name="Name" id="name" required>
@@ -566,6 +571,7 @@ textarea:focus {
     Ich habe die <a href="javascript:void(0)" onclick="toggleDatenschutzPopup()">Datenschutzerklärung</a> gelesen und akzeptiert.
   </label>
 </p>
+<div class="g-recaptcha" data-sitekey="6Le4a00rAAAAAIHdWKkEbM9ma1OB0-4O9xqQx5nl"></div>
 <button class="btn" type="submit">Jetzt prüfen lassen</button>
 </form>
 <!-- SCHNELL-CHECK & EMPFEHLUNG -->
@@ -660,7 +666,7 @@ if (window.location.pathname.includes("thankyou.html")) {
 }
 </script><div id="kontakt-popup" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:#000000cc; z-index:10000; text-align:center; padding-top:5%;"><div style="background:white; margin:0 auto; padding:2rem; max-width:600px; border-radius:12px; box-shadow:0 0 10px rgba(0,0,0,0.1); font-family:Inter,sans-serif;"><div class="section-content">
 <h2 style="margin-top: 4rem;">Kontakt & Erstgespräch</h2>
-<form action="https://formsubmit.co/851ff8155346daa741773efc7bf93ff4" method="POST">
+<form action="https://formsubmit.co/kontakt@ki-sicherheit.jetzt" method="POST">
     <input type="hidden" name="_next" value="https://ki-sicherheit.jetzt/intern-ki-sicherheit.html/thankyou.html">
     <label for="bewertung">Ihre Bewertung</label>
     <textarea name="Bewertung" id="bewertung" rows="4">Wird automatisch aus dem Schnell-Check übernommen</textarea>
@@ -688,6 +694,7 @@ if (window.location.pathname.includes("thankyou.html")) {
 
     <label><input type="checkbox" required> Ich habe die <a href="/datenschutz.html" target="_blank">Datenschutzerklärung</a> gelesen und akzeptiert.</label>
 
+<div class="g-recaptcha" data-sitekey="6Le4a00rAAAAAIHdWKkEbM9ma1OB0-4O9xqQx5nl"></div>
 <button class="btn" type="submit">Nachrichten senden</button></form><br/>
 </div><button class="btn" onclick="document.getElementById('kontakt-popup').style.display='none'">Schließen</button></div></div><script>function zeigeKontaktPopup() { document.getElementById('kontakt-popup').style.display = 'block'; }</script><script>
 document.addEventListener("DOMContentLoaded", function () {
@@ -1007,6 +1014,7 @@ Diese Website informiert über Pflichten und Empfehlungen zum EU AI Act. Die Inh
 
 
 <style>
+  .g-recaptcha { margin-bottom: 1rem; }
   .quiz button.active {
     background-color: #f59e0b !important;
     color: #fff !important;
