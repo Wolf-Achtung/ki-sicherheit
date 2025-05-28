@@ -631,49 +631,56 @@ document.addEventListener("DOMContentLoaded", function() {
 
 Die Auswertung erfolgt anonym im Browser und liefert sofort eine klare Einschätzung mit konkretem Handlungsbedarf. Ideal als erste Standortbestimmung.</p>
 <div id="quiz" style="background-color:#f2f6fa; padding:2rem; border-radius:12px;">
-<div class="frage-block" data-id="1">
-1. Gibt es eine zentrale Dokumentation aller eingesetzten KI-Systeme?<br/>
-<button class="btn-option" data-score="3">Ja</button>
-<button class="btn-option" data-score="2">Teilweise</button>
-<button class="btn-option" data-score="1">Nein</button>
+  <button class="accordion">1. Gibt es eine zentrale Dokumentation aller eingesetzten KI-Systeme?</button>
+  <div class="accordion-panel frage-block" data-id="1">
+    <button class="btn-option" data-score="3">Ja</button>
+    <button class="btn-option" data-score="2">Teilweise</button>
+    <button class="btn-option" data-score="1">Nein</button>
+  </div>
+
+  <button class="accordion">2. Sind Verantwortlichkeiten für KI klar benannt?</button>
+  <div class="accordion-panel frage-block" data-id="2">
+    <button class="btn-option" data-score="3">Ja</button>
+    <button class="btn-option" data-score="2">Teilweise</button>
+    <button class="btn-option" data-score="1">Nein</button>
+  </div>
+
+  <button class="accordion">3. Gibt es nachvollziehbare Entscheidungsprozesse bei KI-Nutzung?</button>
+  <div class="accordion-panel frage-block" data-id="3">
+    <button class="btn-option" data-score="3">Ja</button>
+    <button class="btn-option" data-score="2">Teilweise</button>
+    <button class="btn-option" data-score="1">Nein</button>
+  </div>
+
+  <button class="accordion">4. Wurden Risiken bei KI-Einsatz systematisch analysiert?</button>
+  <div class="accordion-panel frage-block" data-id="4">
+    <button class="btn-option" data-score="3">Ja</button>
+    <button class="btn-option" data-score="2">Teilweise</button>
+    <button class="btn-option" data-score="1">Nein</button>
+  </div>
+
+  <button class="accordion">5. Sind Datenschutz-Aspekte bei KI-Nutzung berücksichtigt?</button>
+  <div class="accordion-panel frage-block" data-id="5">
+    <button class="btn-option" data-score="3">Ja</button>
+    <button class="btn-option" data-score="2">Teilweise</button>
+    <button class="btn-option" data-score="1">Nein</button>
+  </div>
+
+  <button class="accordion">6. Gibt es eine Kommunikationsstrategie zu KI-Anwendungen?</button>
+  <div class="accordion-panel frage-block" data-id="6">
+    <button class="btn-option" data-score="3">Ja</button>
+    <button class="btn-option" data-score="2">Teilweise</button>
+    <button class="btn-option" data-score="1">Nein</button>
+  </div>
+
+  <button class="accordion">7. Werden Mitarbeitende gezielt auf KI vorbereitet?</button>
+  <div class="accordion-panel frage-block" data-id="7">
+    <button class="btn-option" data-score="3">Ja</button>
+    <button class="btn-option" data-score="2">Teilweise</button>
+    <button class="btn-option" data-score="1">Nein</button>
+  </div>
 </div>
-<div class="frage-block" data-id="2">
-2. Sind Verantwortlichkeiten für KI klar benannt?<br/>
-<button class="btn-option" data-score="3">Ja</button>
-<button class="btn-option" data-score="2">Teilweise</button>
-<button class="btn-option" data-score="1">Nein</button>
-</div>
-<div class="frage-block" data-id="3">
-3. Gibt es nachvollziehbare Entscheidungsprozesse bei KI-Nutzung?<br/>
-<button class="btn-option" data-score="3">Ja</button>
-<button class="btn-option" data-score="2">Teilweise</button>
-<button class="btn-option" data-score="1">Nein</button>
-</div>
-<div class="frage-block" data-id="4">
-4. Wurden Risiken bei KI-Einsatz systematisch analysiert?<br/>
-<button class="btn-option" data-score="3">Ja</button>
-<button class="btn-option" data-score="2">Teilweise</button>
-<button class="btn-option" data-score="1">Nein</button>
-</div>
-<div class="frage-block" data-id="5">
-5. Sind Datenschutz-Aspekte bei KI-Nutzung berücksichtigt?<br/>
-<button class="btn-option" data-score="3">Ja</button>
-<button class="btn-option" data-score="2">Teilweise</button>
-<button class="btn-option" data-score="1">Nein</button>
-</div>
-<div class="frage-block" data-id="6">
-6. Gibt es eine Kommunikationsstrategie zu KI-Anwendungen?<br/>
-<button class="btn-option" data-score="3">Ja</button>
-<button class="btn-option" data-score="2">Teilweise</button>
-<button class="btn-option" data-score="1">Nein</button>
-</div>
-<div class="frage-block" data-id="7">
-7. Werden Mitarbeitende gezielt auf KI vorbereitet?<br/>
-<button class="btn-option" data-score="3">Ja</button>
-<button class="btn-option" data-score="2">Teilweise</button>
-<button class="btn-option" data-score="1">Nein</button>
-</div>
-</div>
+
 <div style="margin-top: 1.5rem;">
 <button class="btn" onclick="zeigeEmpfehlung()">Auswertung anzeigen</button>
 <button class="btn" onclick="resetQuiz()" style="margin-left: 1rem;">Check zurücksetzen</button>
