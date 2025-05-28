@@ -438,7 +438,7 @@ textarea:focus {
   text-decoration: none;
 }
 </style>
-<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+<script async="" defer="" src="https://www.google.com/recaptcha/api.js"></script>
 </head>
 <body>
 <section class="scroll-section" id="start" style="position: relative;">
@@ -530,53 +530,50 @@ textarea:focus {
 <p><strong>Nutzen Sie bestehende Fördermittel für Ihre KI-Vorhaben.</strong><br/>
     Je nach Projektart und Unternehmensgröße sind Zuschüsse zwischen 5.000 € und über 100.000 € möglich. Ich prüfe für Sie, ob und welche Programme zu Ihrer Maßnahme passen.</p>
 <h2>Förderfähigkeit prüfen lassen</h2>
-<form action="https://formsubmit.co/foerderung@ki-sicherheit.jetzt" method="POST">
-    <input type="hidden" name="_next" value="thankyou.html">
-<input type="hidden" name="_captcha" value="false">
-    <label for="name">Ihr Name</label>
-    <input type="text" name="Name" id="name" required>
+<form action="https://formsubmit.co/foerderung@ki-sicherheit.jetzt" method="POST"><input name="_template" type="hidden" value="box"/><input name="_captcha" type="hidden" value="false"/>
+<input name="_next" type="hidden" value="thankyou.html"/>
+<label for="name">Ihr Name</label>
+<input id="name" name="Name" required="" type="text"/>
+<label for="company">Unternehmen</label>
+<input id="company" name="Unternehmen" required="" type="text"/>
+<label for="branche">Branche</label>
+<select id="branche" name="Branche" required="">
+<option disabled="" selected="" value="">Bitte auswählen</option>
+<option>Industrie</option>
+<option>Medien</option>
+<option>Gesundheitswesen</option>
+<option>Bildung</option>
+<option>Verwaltung</option>
+<option>Handel</option>
+<option>IT / Software</option>
+<option>sonstige</option>
+</select>
 
-    <label for="company">Unternehmen</label>
-    <input type="text" name="Unternehmen" id="company" required>
-
-    <label for="branche">Branche</label>
-    <select name="Branche" id="branche" required>
-        <option value="" disabled selected>Bitte auswählen</option>
-        <option>Industrie</option>
-        <option>Medien</option>
-        <option>Gesundheitswesen</option>
-        <option>Bildung</option>
-        <option>Verwaltung</option>
-        <option>Handel</option>
-        <option>IT / Software</option>
-        <option>sonstige</option>
-    </select>
-</label>
 <label>Geplante Maßnahme<br/>
 <select name="massnahme" required="" style="width:100%; padding:0.5rem; margin-bottom:1rem;">
 <option value="">Bitte auswählen</option>
 <option>Beratung / Strategie</option>
-    <option>Risikoanalyse</option>
-    <option>Datenschutz / Compliance</option>
-    <option>KI-Tool-Integration</option>
-    <option>Mitarbeiterschulung / Change Management</option>
-    <option>noch unklar</option>
+<option>Risikoanalyse</option>
+<option>Datenschutz / Compliance</option>
+<option>KI-Tool-Integration</option>
+<option>Mitarbeiterschulung / Change Management</option>
+<option>noch unklar</option>
 </select>
 </label>
 <label>Ihre E-Mail-Adresse<br/>
-<input name="email" required="" style="width:100%; padding:0.5rem; margin-bottom:1rem;" type="email"/>
-</label>
+<input name="email" required="" style="width:100%; padding:0.5rem; margin-bottom:1rem;" type="email">
+</input></label>
 <p style="font-size: 0.9rem; color: #333;">
 <label>
-<input name="datenschutz" required="" type="checkbox"/>
+<input name="datenschutz" required="" type="checkbox">
     Ich habe die <a href="javascript:void(0)" onclick="toggleDatenschutzPopup()">Datenschutzerklärung</a> gelesen und akzeptiert.
-  </label>
+  </input></label>
 </p>
 <div class="g-recaptcha" data-sitekey="6Le4a00rAAAAAIHdWKkEbM9ma1OB0-4O9xqQx5nl"></div>
 <button class="btn" type="submit">Jetzt prüfen lassen</button>
 </form>
 <!-- SCHNELL-CHECK & EMPFEHLUNG -->
-</p></div></section><section class="scroll-section" id="schnell-check">
+</div></section><section class="scroll-section" id="schnell-check">
 <div class="section-img">
 <img alt="Status erfassen, Risiken vermeiden" src="img/04.png"/>
 <p class="caption">Status erfassen, Risiken vermeiden</p>
@@ -635,10 +632,9 @@ Die Auswertung erfolgt anonym im Browser und liefert sofort eine klare Einschät
 <button class="btn" onclick="resetQuiz()" style="margin-left: 1rem;">Check zurücksetzen</button>
 </div>
 <div id="evaluationResult" style="background-color:#eef5fa;padding:1rem;margin-top:1rem;border-radius:5px;"></div>
-
 <div style="margin-top:1rem; display: flex; gap: 1rem; flex-wrap: wrap;">
-  <button class="btn" onclick="öffneKontaktMitBewertung()">Ergebnis senden & Kontakt aufnehmen</button>
-  <button class="btn" onclick="resetQuiz()">Check zurücksetzen</button>
+<button class="btn" onclick="öffneKontaktMitBewertung()">Ergebnis senden &amp; Kontakt aufnehmen</button>
+<button class="btn" onclick="resetQuiz()">Check zurücksetzen</button>
 </div>
 </div></section>
 <!-- Danke-Popup -->
@@ -666,36 +662,29 @@ if (window.location.pathname.includes("thankyou.html")) {
   }
 }
 </script><div id="kontakt-popup" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:#000000cc; z-index:10000; text-align:center; padding-top:5%;"><div style="background:white; margin:0 auto; padding:2rem; max-width:600px; border-radius:12px; box-shadow:0 0 10px rgba(0,0,0,0.1); font-family:Inter,sans-serif;"><div class="section-content">
-<h2 style="margin-top: 4rem;">Kontakt & Erstgespräch</h2>
-<form action="https://formsubmit.co/kontakt@ki-sicherheit.jetzt" method="POST">
-    <input type="hidden" name="_next" value="thankyou.html">
-<input type="hidden" name="_captcha" value="false">
-    <label for="bewertung">Ihre Bewertung</label>
-    <textarea name="Bewertung" id="bewertung" rows="4">Wird automatisch aus dem Schnell-Check übernommen</textarea>
-
-    <label for="name-kontakt">Ihr Name</label>
-    <input type="text" name="Name" id="name-kontakt" required>
-
-    <label for="unternehmen-kontakt">Unternehmen</label>
-    <input type="text" name="Unternehmen" id="unternehmen-kontakt" required>
-
-    <label for="branche-kontakt">Branche</label>
-    <select name="Branche" id="branche-kontakt" required>
-        <option value="" disabled selected>Bitte auswählen</option>
-        <option>Industrie</option>
-        <option>Gesundheitswesen</option>
-        <option>Bildung</option>
-        <option>Verwaltung</option>
-        <option>Handel</option>
-        <option>IT / Software</option>
-        <option>Sonstige</option>
-    </select>
-
-    <label for="email-kontakt">Ihre E-Mail-Adresse</label>
-    <input type="email" name="E-Mail" id="email-kontakt" required>
-
-    <label><input type="checkbox" required> Ich habe die <a href="/datenschutz.html" target="_blank">Datenschutzerklärung</a> gelesen und akzeptiert.</label>
-
+<h2 style="margin-top: 4rem;">Kontakt &amp; Erstgespräch</h2>
+<form action="https://formsubmit.co/kontakt@ki-sicherheit.jetzt" method="POST"><input name="_template" type="hidden" value="box"/><input name="_captcha" type="hidden" value="false"/>
+<input name="_next" type="hidden" value="https://ki-sicherheit.jetzt/intern-ki-sicherheit.html/thankyou.html"/>
+<label for="bewertung">Ihre Bewertung</label>
+<textarea id="bewertung" name="Bewertung" rows="4">Wird automatisch aus dem Schnell-Check übernommen</textarea>
+<label for="name-kontakt">Ihr Name</label>
+<input id="name-kontakt" name="Name" required="" type="text"/>
+<label for="unternehmen-kontakt">Unternehmen</label>
+<input id="unternehmen-kontakt" name="Unternehmen" required="" type="text"/>
+<label for="branche-kontakt">Branche</label>
+<select id="branche-kontakt" name="Branche" required="">
+<option disabled="" selected="" value="">Bitte auswählen</option>
+<option>Industrie</option>
+<option>Gesundheitswesen</option>
+<option>Bildung</option>
+<option>Verwaltung</option>
+<option>Handel</option>
+<option>IT / Software</option>
+<option>Sonstige</option>
+</select>
+<label for="email-kontakt">Ihre E-Mail-Adresse</label>
+<input id="email-kontakt" name="E-Mail" required="" type="email"/>
+<label><input required="" type="checkbox"/> Ich habe die <a href="/datenschutz.html" target="_blank">Datenschutzerklärung</a> gelesen und akzeptiert.</label>
 <div class="g-recaptcha" data-sitekey="6Le4a00rAAAAAIHdWKkEbM9ma1OB0-4O9xqQx5nl"></div>
 <button class="btn" type="submit">Nachrichten senden</button></form><br/>
 </div><button class="btn" onclick="document.getElementById('kontakt-popup').style.display='none'">Schließen</button></div></div><script>function zeigeKontaktPopup() { document.getElementById('kontakt-popup').style.display = 'block'; }</script><script>
@@ -1013,8 +1002,6 @@ Diese Website informiert über Pflichten und Empfehlungen zum EU AI Act. Die Inh
     }
   }
 </script>
-
-
 <style>
   .g-recaptcha { margin-bottom: 1rem; }
   .quiz button.active {
