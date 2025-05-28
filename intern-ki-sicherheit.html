@@ -775,53 +775,7 @@ function öffneKontaktMitBewertung() {
         }
       });
     });
-    </script><script>
-document.addEventListener("DOMContentLoaded", function () {
-    const questions = document.querySelectorAll(".schnellcheck-question");
-    const auswertungButton = document.querySelector("#auswertung-anzeigen");
-    const kontaktButton = document.querySelector("#kontakt-weiterleiten");
-    const resetButton = document.querySelector("#schnellcheck-zuruecksetzen");
-
-    let currentQuestion = 0;
-    let answers = [];
-
-    function showQuestion(index) {
-        questions.forEach((q, i) => {
-            q.style.display = i === index ? "block" : "none";
-        });
-    }
-
-    function showButtons() {
-        auswertungButton.style.display = "inline-block";
-        kontaktButton.style.display = "inline-block";
-        resetButton.style.display = "inline-block";
-    }
-
-    questions.forEach((q, index) => {
-        const buttons = q.querySelectorAll("button[data-value]");
-        buttons.forEach((btn) => {
-            btn.addEventListener("click", function () {
-                answers[index] = btn.getAttribute("data-value");
-                currentQuestion++;
-                if (currentQuestion < questions.length) {
-                    showQuestion(currentQuestion);
-                } else {
-                    showQuestion(-1);
-                    showButtons();
-                }
-            });
-        });
-    });
-
-    // Anfangszustand
-    if (questions.length > 0) {
-        showQuestion(0);
-        auswertungButton.style.display = "none";
-        kontaktButton.style.display = "none";
-        resetButton.style.display = "none";
-    }
-});
-</script></body>
+    </script></body>
 <!-- KONTAKT & ERSTGESPRÄCH -->
 <section class="scroll-section" id="kontakt" style="display:none;">
 <div class="section-img">
