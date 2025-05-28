@@ -439,53 +439,6 @@ textarea:focus {
 }
 </style>
 <script async="" defer="" src="https://www.google.com/recaptcha/api.js"></script>
-
-<style>
-.accordion {
-  background-color: #002244;
-  color: white;
-  cursor: pointer;
-  padding: 1rem;
-  width: 100%;
-  text-align: left;
-  border: none;
-  outline: none;
-  font-size: 1.1rem;
-  transition: 0.3s;
-  margin-bottom: 0.5rem;
-}
-
-.accordion.active, .accordion:hover {
-  background-color: #003366;
-}
-
-.accordion-panel {
-  padding: 0 1rem;
-  display: none;
-  background-color: #f1f1f1;
-  color: #000;
-  overflow: hidden;
-  margin-bottom: 1rem;
-}
-</style>
-
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-  const acc = document.querySelectorAll(".accordion");
-  acc.forEach(btn => {
-    btn.addEventListener("click", function() {
-      this.classList.toggle("active");
-      const panel = this.nextElementSibling;
-      if (panel.style.display === "block") {
-        panel.style.display = "none";
-      } else {
-        panel.style.display = "block";
-      }
-    });
-  });
-});
-</script>
-
 </head>
 <body>
 <section class="scroll-section" id="start" style="position: relative;">
@@ -595,7 +548,6 @@ document.addEventListener("DOMContentLoaded", function() {
 <option>IT / Software</option>
 <option>sonstige</option>
 </select>
-
 <label>Geplante Maßnahme<br/>
 <select name="massnahme" required="" style="width:100%; padding:0.5rem; margin-bottom:1rem;">
 <option value="">Bitte auswählen</option>
@@ -608,13 +560,13 @@ document.addEventListener("DOMContentLoaded", function() {
 </select>
 </label>
 <label>Ihre E-Mail-Adresse<br/>
-<input name="email" required="" style="width:100%; padding:0.5rem; margin-bottom:1rem;" type="email">
-</input></label>
+<input name="email" required="" style="width:100%; padding:0.5rem; margin-bottom:1rem;" type="email"/>
+</label>
 <p style="font-size: 0.9rem; color: #333;">
 <label>
-<input name="datenschutz" required="" type="checkbox">
+<input name="datenschutz" required="" type="checkbox"/>
     Ich habe die <a href="javascript:void(0)" onclick="toggleDatenschutzPopup()">Datenschutzerklärung</a> gelesen und akzeptiert.
-  </input></label>
+  </label>
 </p>
 <div class="g-recaptcha" data-sitekey="6Le4a00rAAAAAIHdWKkEbM9ma1OB0-4O9xqQx5nl"></div>
 <button class="btn" type="submit">Jetzt prüfen lassen</button>
@@ -631,56 +583,25 @@ document.addEventListener("DOMContentLoaded", function() {
 
 Die Auswertung erfolgt anonym im Browser und liefert sofort eine klare Einschätzung mit konkretem Handlungsbedarf. Ideal als erste Standortbestimmung.</p>
 <div id="quiz" style="background-color:#f2f6fa; padding:2rem; border-radius:12px;">
-  <button class="accordion">1. Gibt es eine zentrale Dokumentation aller eingesetzten KI-Systeme?</button>
-  <div class="accordion-panel frage-block" data-id="1">
-    <button class="btn-option" data-score="3">Ja</button>
-    <button class="btn-option" data-score="2">Teilweise</button>
-    <button class="btn-option" data-score="1">Nein</button>
-  </div>
+<button>1. Gibt es eine zentrale Dokumentation aller eingesetzten KI-Systeme?</button>
+<div class="frage-block" data-id="1">
 
-  <button class="accordion">2. Sind Verantwortlichkeiten für KI klar benannt?</button>
-  <div class="accordion-panel frage-block" data-id="2">
-    <button class="btn-option" data-score="3">Ja</button>
-    <button class="btn-option" data-score="2">Teilweise</button>
-    <button class="btn-option" data-score="1">Nein</button>
-  </div>
 
-  <button class="accordion">3. Gibt es nachvollziehbare Entscheidungsprozesse bei KI-Nutzung?</button>
-  <div class="accordion-panel frage-block" data-id="3">
-    <button class="btn-option" data-score="3">Ja</button>
-    <button class="btn-option" data-score="2">Teilweise</button>
-    <button class="btn-option" data-score="1">Nein</button>
-  </div>
 
-  <button class="accordion">4. Wurden Risiken bei KI-Einsatz systematisch analysiert?</button>
-  <div class="accordion-panel frage-block" data-id="4">
-    <button class="btn-option" data-score="3">Ja</button>
-    <button class="btn-option" data-score="2">Teilweise</button>
-    <button class="btn-option" data-score="1">Nein</button>
-  </div>
-
-  <button class="accordion">5. Sind Datenschutz-Aspekte bei KI-Nutzung berücksichtigt?</button>
-  <div class="accordion-panel frage-block" data-id="5">
-    <button class="btn-option" data-score="3">Ja</button>
-    <button class="btn-option" data-score="2">Teilweise</button>
-    <button class="btn-option" data-score="1">Nein</button>
-  </div>
-
-  <button class="accordion">6. Gibt es eine Kommunikationsstrategie zu KI-Anwendungen?</button>
-  <div class="accordion-panel frage-block" data-id="6">
-    <button class="btn-option" data-score="3">Ja</button>
-    <button class="btn-option" data-score="2">Teilweise</button>
-    <button class="btn-option" data-score="1">Nein</button>
-  </div>
-
-  <button class="accordion">7. Werden Mitarbeitende gezielt auf KI vorbereitet?</button>
-  <div class="accordion-panel frage-block" data-id="7">
-    <button class="btn-option" data-score="3">Ja</button>
-    <button class="btn-option" data-score="2">Teilweise</button>
-    <button class="btn-option" data-score="1">Nein</button>
-  </div>
 </div>
 
+
+<button>3. Gibt es nachvollziehbare Entscheidungsprozesse bei KI-Nutzung?</button>
+
+<button>4. Wurden Risiken bei KI-Einsatz systematisch analysiert?</button>
+
+<button>5. Sind Datenschutz-Aspekte bei KI-Nutzung berücksichtigt?</button>
+
+<button>6. Gibt es eine Kommunikationsstrategie zu KI-Anwendungen?</button>
+
+<button>7. Werden Mitarbeitende gezielt auf KI vorbereitet?</button>
+
+</div>
 <div style="margin-top: 1.5rem;">
 <button class="btn" onclick="zeigeEmpfehlung()">Auswertung anzeigen</button>
 <button class="btn" onclick="resetQuiz()" style="margin-left: 1rem;">Check zurücksetzen</button>
@@ -842,7 +763,29 @@ function öffneKontaktMitBewertung() {
   }
 }
 </script>
-</body>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const quiz = document.getElementById("quiz");
+      let currentIndex = 0;
+      const questions = quiz.querySelectorAll("button, .frage-block");
+      questions.forEach((el, i) => {
+        if (i > 1) el.style.display = "none";
+      });
+
+      quiz.addEventListener("click", function (e) {
+        if (e.target.classList.contains("btn-option")) {
+          const all = quiz.querySelectorAll("button, .frage-block");
+          all[currentIndex].style.display = "none";
+          all[currentIndex + 1].style.display = "none";
+          currentIndex += 2;
+          if (currentIndex < all.length) {
+            all[currentIndex].style.display = "block";
+            all[currentIndex + 1].style.display = "block";
+          }
+        }
+      });
+    });
+    </script></body>
 <!-- KONTAKT & ERSTGESPRÄCH -->
 <section class="scroll-section" id="kontakt" style="display:none;">
 <div class="section-img">
