@@ -407,10 +407,6 @@ textarea:focus {
     display: block;
     margin: auto;
   }
-
-.quiz button.selected {
-    background-color: #003a5d;
-    color: white;
 }
 </style>
 <style>
@@ -810,75 +806,12 @@ function öffneKontaktMitBewertung() {
     }
   }
 }
-</script>
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const quiz = document.getElementById("quiz");
-      let currentIndex = 0;
-      const questions = quiz.querySelectorAll("button, .frage-block");
-      questions.forEach((el, i) => {
-        if (i > 1) el.style.display = "none";
-      });
 
-      quiz.addEventListener("click", function (e) {
-        if (e.target.classList.contains("btn-option")) {
-          const all = quiz.querySelectorAll("button, .frage-block");
-          all[currentIndex].style.display = "none";
-          all[currentIndex + 1].style.display = "none";
-          currentIndex += 2;
-          if (currentIndex < all.length) {
-            all[currentIndex].style.display = "block";
-            all[currentIndex + 1].style.display = "block";
-          }
-        }
-      });
-    });
-    </script><script>
-document.addEventListener("DOMContentLoaded", function () {
-    const questions = document.querySelectorAll(".schnellcheck-question");
-    const auswertungButton = document.querySelector("#auswertung-anzeigen");
-    const kontaktButton = document.querySelector("#kontakt-weiterleiten");
-    const resetButton = document.querySelector("#schnellcheck-zuruecksetzen");
+function resetQuiz() {
+  location.reload();
+}
 
-    let currentQuestion = 0;
-    let answers = [];
 
-    function showQuestion(index) {
-        questions.forEach((q, i) => {
-            q.style.display = i === index ? "block" : "none";
-        });
-    }
-
-    function showButtons() {
-        auswertungButton.style.display = "inline-block";
-        kontaktButton.style.display = "inline-block";
-        resetButton.style.display = "inline-block";
-    }
-
-    questions.forEach((q, index) => {
-        const buttons = q.querySelectorAll("button[data-value]");
-        buttons.forEach((btn) => {
-            btn.addEventListener("click", function () {
-                answers[index] = btn.getAttribute("data-value");
-                currentQuestion++;
-                if (currentQuestion < questions.length) {
-                    showQuestion(currentQuestion);
-                } else {
-                    showQuestion(-1);
-                    showButtons();
-                }
-            });
-        });
-    });
-
-    // Anfangszustand
-    if (questions.length > 0) {
-        showQuestion(0);
-        auswertungButton.style.display = "none";
-        kontaktButton.style.display = "none";
-        resetButton.style.display = "none";
-    }
-});
 </script></body>
 <!-- KONTAKT & ERSTGESPRÄCH -->
 <section class="scroll-section" id="kontakt" style="display:none;">
@@ -1071,28 +1004,7 @@ Diese Website informiert über Pflichten und Empfehlungen zum EU AI Act. Die Inh
 <p><em>Setzen Sie auf fundiertes Know-how, unternehmerische Erfahrung und praxisnahe Umsetzung – für einen sicheren und zukunftsfähigen KI-Einsatz.</em></p>
 </div>
 <script>AOS.init();</script>
-<script>
-  function resetQuiz() {
-    document.querySelectorAll('.btn-option.selected').forEach(btn => {
-      btn.classList.remove('selected');
-    });
-    document.getElementById('evaluationResult').innerHTML = '';
-  }
 
-  function öffneKontaktMitBewertung() {
-    const result = document.getElementById('evaluationResult');
-    const text = result ? result.textContent.trim() : '';
-    const bewertungField = document.getElementById('bewertung');
-    if (bewertungField && text !== '') {
-      bewertungField.value = text;
-    }
-    const popup = document.getElementById('kontakt-popup');
-    if (popup) {
-      popup.style.display = 'block';
-      document.body.classList.add('popup-open');
-    }
-  }
-</script>
 <style>
   .g-recaptcha { margin-bottom: 1rem; }
   .quiz button.active {
