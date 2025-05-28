@@ -439,6 +439,53 @@ textarea:focus {
 }
 </style>
 <script async="" defer="" src="https://www.google.com/recaptcha/api.js"></script>
+
+<style>
+.accordion {
+  background-color: #002244;
+  color: white;
+  cursor: pointer;
+  padding: 1rem;
+  width: 100%;
+  text-align: left;
+  border: none;
+  outline: none;
+  font-size: 1.1rem;
+  transition: 0.3s;
+  margin-bottom: 0.5rem;
+}
+
+.accordion.active, .accordion:hover {
+  background-color: #003366;
+}
+
+.accordion-panel {
+  padding: 0 1rem;
+  display: none;
+  background-color: #f1f1f1;
+  color: #000;
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const acc = document.querySelectorAll(".accordion");
+  acc.forEach(btn => {
+    btn.addEventListener("click", function() {
+      this.classList.toggle("active");
+      const panel = this.nextElementSibling;
+      if (panel.style.display === "block") {
+        panel.style.display = "none";
+      } else {
+        panel.style.display = "block";
+      }
+    });
+  });
+});
+</script>
+
 </head>
 <body>
 <section class="scroll-section" id="start" style="position: relative;">
@@ -531,7 +578,7 @@ textarea:focus {
     Je nach Projektart und Unternehmensgröße sind Zuschüsse zwischen 5.000 € und über 100.000 € möglich. Ich prüfe für Sie, ob und welche Programme zu Ihrer Maßnahme passen.</p>
 <h2>Förderfähigkeit prüfen lassen</h2>
 <form action="https://formsubmit.co/foerderung@ki-sicherheit.jetzt" method="POST"><input name="_template" type="hidden" value="box"/><input name="_captcha" type="hidden" value="false"/>
-<input name="_next" type="hidden" value="https://ki-sicherheit.jetzt/thankyou.html"/>
+<input name="_next" type="hidden" value="thankyou.html"/>
 <label for="name">Ihr Name</label>
 <input id="name" name="Name" required="" type="text"/>
 <label for="company">Unternehmen</label>
@@ -569,7 +616,7 @@ textarea:focus {
     Ich habe die <a href="javascript:void(0)" onclick="toggleDatenschutzPopup()">Datenschutzerklärung</a> gelesen und akzeptiert.
   </input></label>
 </p>
-
+<div class="g-recaptcha" data-sitekey="6Le4a00rAAAAAIHdWKkEbM9ma1OB0-4O9xqQx5nl"></div>
 <button class="btn" type="submit">Jetzt prüfen lassen</button>
 </form>
 <!-- SCHNELL-CHECK & EMPFEHLUNG -->
@@ -664,7 +711,7 @@ if (window.location.pathname.includes("thankyou.html")) {
 </script><div id="kontakt-popup" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:#000000cc; z-index:10000; text-align:center; padding-top:5%;"><div style="background:white; margin:0 auto; padding:2rem; max-width:600px; border-radius:12px; box-shadow:0 0 10px rgba(0,0,0,0.1); font-family:Inter,sans-serif;"><div class="section-content">
 <h2 style="margin-top: 4rem;">Kontakt &amp; Erstgespräch</h2>
 <form action="https://formsubmit.co/kontakt@ki-sicherheit.jetzt" method="POST"><input name="_template" type="hidden" value="box"/><input name="_captcha" type="hidden" value="false"/>
-<input name="_next" type="hidden" value="https://ki-sicherheit.jetzt/thankyou.html"/>
+<input name="_next" type="hidden" value="thankyou.html"/>
 <label for="bewertung">Ihre Bewertung</label>
 <textarea id="bewertung" name="Bewertung" rows="4">Wird automatisch aus dem Schnell-Check übernommen</textarea>
 <label for="name-kontakt">Ihr Name</label>
@@ -675,7 +722,6 @@ if (window.location.pathname.includes("thankyou.html")) {
 <select id="branche-kontakt" name="Branche" required="">
 <option disabled="" selected="" value="">Bitte auswählen</option>
 <option>Industrie</option>
-<option>Medien</option>
 <option>Gesundheitswesen</option>
 <option>Bildung</option>
 <option>Verwaltung</option>
@@ -686,7 +732,7 @@ if (window.location.pathname.includes("thankyou.html")) {
 <label for="email-kontakt">Ihre E-Mail-Adresse</label>
 <input id="email-kontakt" name="E-Mail" required="" type="email"/>
 <label><input required="" type="checkbox"/> Ich habe die <a href="/datenschutz.html" target="_blank">Datenschutzerklärung</a> gelesen und akzeptiert.</label>
-
+<div class="g-recaptcha" data-sitekey="6Le4a00rAAAAAIHdWKkEbM9ma1OB0-4O9xqQx5nl"></div>
 <button class="btn" type="submit">Nachrichten senden</button></form><br/>
 </div><button class="btn" onclick="document.getElementById('kontakt-popup').style.display='none'">Schließen</button></div></div><script>function zeigeKontaktPopup() { document.getElementById('kontakt-popup').style.display = 'block'; }</script><script>
 document.addEventListener("DOMContentLoaded", function () {
@@ -793,7 +839,7 @@ function öffneKontaktMitBewertung() {
 <!-- KONTAKT & ERSTGESPRÄCH -->
 <section class="scroll-section" id="kontakt" style="display:none;">
 <div class="section-img">
-<img alt="Erst-Kontakt" src="img/08.png"/>
+<img alt="der erste Kontakt" src="img/08.png"/>
 <p class="caption">der erste Kontakt</p>
 </div>
 </section>
