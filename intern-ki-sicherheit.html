@@ -48,14 +48,6 @@
       margin-bottom: 1.5rem;
       animation: flicker 1.5s infinite alternate;
     }
- }
-    section#schnell-check {
-      background: #e9f3f9;
-      padding: 2rem;
-      border-radius: 8px;
-      max-width: 700px;
-      margin: 0 auto;
-    }
     @keyframes flicker {
       0% { opacity: 1; }
       100% { opacity: 0.85; }
@@ -416,33 +408,6 @@ textarea:focus {
     margin: auto;
   }
 }
-}
-    .frage {
-      margin-bottom: 1.5rem;
-    }
-    .frage p {
-      font-weight: bold;
-    }
-    .optionen button {
-      background: #073b5a;
-      color: white;
-      border: none;
-      padding: 0.6rem 1.2rem;
-      margin: 0.5rem 0.5rem 0 0;
-      border-radius: 5px;
-      cursor: pointer;
-      font-size: 1rem;
-    }
-    .optionen button:hover {
-      background: #005a8c;
-    }
-    .auswertung {
-      margin-top: 2rem;
-      background: #ffffff;
-      padding: 1.5rem;
-      border-radius: 6px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
 </style>
 <style>
   .g-recaptcha { margin-bottom: 1rem; }
@@ -469,7 +434,7 @@ textarea:focus {
   text-decoration: none;
 }
 </style>
-<script async="" defer="" src="https://www.google.com/recaptcha/api.js"></script>
+
 </head>
 <body>
 <section class="scroll-section" id="start" style="position: relative;">
@@ -603,7 +568,7 @@ textarea:focus {
 <button class="btn" type="submit">Jetzt prüfen lassen</button>
 </form>
 <!-- SCHNELL-CHECK & EMPFEHLUNG -->
-t</div></section><section class="scroll-section" id="schnell-check">
+</div></section><section class="scroll-section" id="schnell-check">
 <div class="section-img">
 <img alt="Status erfassen, Risiken vermeiden" src="img/04.png"/>
 <p class="caption">Status erfassen, Risiken vermeiden</p>
@@ -615,7 +580,7 @@ t</div></section><section class="scroll-section" id="schnell-check">
 Die Auswertung erfolgt anonym im Browser und liefert sofort eine klare Einschätzung mit konkretem Handlungsbedarf. Ideal als erste Standortbestimmung.</p>
 <div id="quiz">
       <div class="frage" id="frage1">
-        <h3>1. Wie setzen Sie KI akuell ein?</h3>
+        <h3>1. Wie setzen Sie KI aktuell ein?</h3>
         <button onclick="nextFrage(1, 'aktiv')">Wir nutzen KI bereits.</button>
         <button onclick="nextFrage(1, 'basic')">Wir testen erste Tools.</button>
         <button onclick="nextFrage(1, 'unsicher')">Bisher noch nicht.</button>
@@ -901,74 +866,6 @@ function resetQuiz() {
 
 
 <script>
-<script>
-    const fragen = [
-      { text: "1. Gibt es eine zentrale Dokumentation aller eingesetzten KI-Systeme?" },
-      { text: "2. Sind Verantwortlichkeiten für KI klar benannt?" },
-      { text: "3. Gibt es nachvollziehbare Entscheidungsprozesse bei KI-Nutzung?" },
-      { text: "4. Wurden Risiken bei KI-Einsatz systematisch analysiert?" },
-      { text: "5. Sind Datenschutz-Aspekte bei KI-Nutzung berücksichtigt?" },
-      { text: "6. Gibt es eine Kommunikationsstrategie zu KI-Anwendungen?" },
-      { text: "7. Werden Mitarbeitende gezielt auf KI vorbereitet?" }
-    ];
-    let antworten = [];
-    let aktuelleFrage = 0;
-
-    const container = document.getElementById("frage-container");
-
-    function zeigeFrage(index) {
-      const frage = fragen[index];
-      container.innerHTML = `
-        <div class="frage">
-          <p>${frage.text}</p>
-          <div class="optionen">
-            <button onclick="antwortAuswaehlen(3)">Ja</button>
-            <button onclick="antwortAuswaehlen(2)">Teilweise</button>
-            <button onclick="antwortAuswaehlen(1)">Nein</button>
-          </div>
-        </div>
-      `;
-    }
-
-    function antwortAuswaehlen(wert) {
-      antworten.push(wert);
-      aktuelleFrage++;
-      if (aktuelleFrage < fragen.length) {
-        zeigeFrage(aktuelleFrage);
-      } else {
-        zeigeAuswertung();
-      }
-    }
-
-    function zeigeAuswertung() {
-      const avg = antworten.reduce((a,b) => a + b) / antworten.length;
-      let resultText = "";
-
-      if (avg < 2) {
-        resultText = `<strong>Kritisch – Es besteht akuter Handlungsbedarf!</strong><br/>
-        Ihr Unternehmen zeigt gravierende Lücken in Governance, Datenschutz und Risikoanalyse. Es fehlen Prozesse, Verantwortlichkeiten und die Einhaltung regulatorischer Vorgaben wie dem EU AI Act.<br/><br/>
-        <strong>Empfehlung:</strong> Ich unterstütze Sie beim Aufbau strukturierter, DSGVO-konformer Prozesse, der Risikobewertung sowie bei der rechtskonformen Umsetzung des EU AI Acts.`;
-      } else if (avg < 2.3) {
-        resultText = `<strong>Ausbaufähig – Erste Strukturen sind erkennbar.</strong><br/>
-        Sie berücksichtigen bereits zentrale Aspekte, aber es bestehen Lücken in Dokumentation, Zuständigkeiten oder Datenschutz-Praxis. Eine klare Roadmap zur Compliance ist jetzt entscheidend.<br/><br/>
-        <strong>Empfehlung:</strong> Ich begleite Sie beim gezielten Ausbau Ihrer Maßnahmen – praxisnah, rechtskonform und förderfähig nach EU-Vorgaben.`;
-      } else if (avg < 2.8) {
-        resultText = `<strong>Gut – Sie sind auf einem guten Weg.</strong><br/>
-        Viele relevante Anforderungen sind in Ihrer Organisation verankert, u.a. zu Governance und Risikoanalyse. Jetzt geht es um die systematische Dokumentation und den internen Nachweis.<br/><br/>
-        <strong>Empfehlung:</strong> Ich unterstütze Sie bei der auditierbaren Verankerung Ihrer Prozesse gemäß EU AI Act.`;
-      } else {
-        resultText = `<strong>Sehr gut – Ihre Organisation ist vorbildlich aufgestellt.</strong><br/>
-        Sie erfüllen bereits heute die zentralen Anforderungen an KI-Governance, Datenschutz und Risikomanagement. Ihr Vorgehen ist strukturiert und strategisch.<br/><br/>
-        <strong>Empfehlung:</strong> Nutzen Sie Ihre Stärke gezielt für Förderanträge, interne Schulungen und als vertrauensbildenden Vorteil am Markt. Ich begleite Sie gerne bei diesem nächsten Schritt.`;
-      }
-
-      document.getElementById("auswertung").style.display = "block";
-      document.getElementById("auswertung").innerHTML = resultText;
-      container.innerHTML = "";
-    }
-
-    zeigeFrage(aktuelleFrage);
-  </script>
 function exportSeiteAlsPDF() {
   const element = document.body.cloneNode(true);
 
@@ -1093,8 +990,7 @@ Diese Website informiert über Pflichten und Empfehlungen zum EU AI Act. Die Inh
 <path d="M12 4l-8 8h5v8h6v-8h5z"></path>
 </svg>
 </button>
-<script>
-</script><div id="finalEvaluationText" style="display:none; margin-top: 2rem; font-size: 1.05rem; line-height: 1.6;">
+<div id="finalEvaluationText" style="display:none; margin-top: 2rem; font-size: 1.05rem; line-height: 1.6;">
 <h3>Zusammenfassung &amp; Empfehlung</h3>
 <p id="evaluationResult"><strong>Ihre Bewertung erscheint hier nach dem Check.</strong></p>
 <p>Ich unterstütze Sie mit:</p>
