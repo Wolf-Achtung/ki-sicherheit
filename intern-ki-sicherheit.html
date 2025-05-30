@@ -625,6 +625,36 @@ Die Auswertung erfolgt anonym im Browser und liefert sofort eine klare Einschät
 <button onclick="nextFrage(7, 'niemand')">niemand konkretes</button>
 </div>
 </div>
+
+<div id="auswertungsblock" style="display:none; margin-top: 3rem;">
+      <h3></h3>
+      <div class="balken"><div id="balken-governance" class=""></div></div>
+      <p id="text-governance"></p>
+
+      <h3></h3>
+      <div class="balken"><div id="balken-doku" class=""></div></div>
+      <p id="text-doku"></p>
+
+      <h3></h3>
+      <div class="balken"><div id="balken-verantwortung" class=""></div></div>
+      <p id="text-verantwortung"></p>
+
+      <h3></h3>
+      <div class="balken"><div id="balken-kommunikation" class=""></div></div>
+      <p id="text-kommunikation"></p>
+
+      <h3>Datenschutz-Integration</h3>
+      <div class="balken"><div id="balken-datenschutz" class=""></div></div>
+      <p id="text-datenschutz"></p>
+    </div>
+
+    <div id="auswertung" style="display:none; margin-top:2rem;">
+      <h3>Empfehlung & Bewertung</h3>
+      <div id="auswertungstext"></div>
+    </div>
+
+    <div style="text-align:center; margin-top:2rem;">
+      <button class="btn pulse-button" id="restart-button" style="display:none;" onclick="resetQuiz()">Schnell-Check erneut starten</button>
 <div style="text-align:center; margin-top:2rem;">
 <button class="btn pulse-button" id="restart-button" onclick="resetQuiz()" style="display:none;">Schnell-Check erneut starten</button>
 </div>
