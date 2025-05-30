@@ -812,7 +812,65 @@ function resetQuiz() {
 }
 
 
-</script></body>
+</script>
+<script>
+  let aktuelleFrage = 1;
+  let antworten = [];
+
+  function nextFrage(frageNr, antwort) {
+    antworten.push(antwort);
+    document.getElementById('frage' + frageNr).style.display = 'none';
+    const naechste = frageNr + 1;
+    if (document.getElementById('frage' + naechste)) {
+      document.getElementById('frage' + naechste).style.display = 'block';
+    } else {
+      zeigeAuswertung();
+    }
+  }
+
+  function zeigeAuswertung() {
+    const mapping = {
+      'aktiv': 3, 'basic': 2, 'unsicher': 1,
+      'chef': 3, 'it': 2, 'keiner': 1,
+      'ja': 3, 'teilweise': 2, 'nein': 1,
+      'vorreiter': 3, 'orientierung': 2, 'risikozone': 1,
+      'bewusst': 3, 'vage': 2, 'ahnungslos': 1,
+      'dokumentiert': 3, 'situativ': 2, 'ignoriert': 1,
+      'team': 3, 'einzelperson': 2, 'niemand': 1
+    };
+
+    let punkte = antworten.map(a => mapping[a] || 0);
+    let avg = punkte.reduce((a, b) => a + b, 0) / punkte.length;
+
+    let text = "";
+    if (avg < 1.6) {
+      text = `<strong>Kritisch – Es besteht akuter Handlungsbedarf!</strong><br/>
+        Ihr Unternehmen zeigt gravierende Lücken in Governance, Datenschutz und Risikoanalyse. Es fehlen Prozesse, Verantwortlichkeiten und die Einhaltung regulatorischer Vorgaben wie dem EU AI Act.<br/><br/>
+        <strong>Empfehlung:</strong> Ich unterstütze Sie beim Aufbau strukturierter, DSGVO-konformer Prozesse, der Risikobewertung sowie bei der rechtskonformen Umsetzung des EU AI Acts.`;
+    } else if (avg < 2.3) {
+      text = `<strong>Ausbaufähig – Erste Strukturen sind erkennbar.</strong><br/>
+        Sie berücksichtigen bereits zentrale Aspekte, aber es bestehen Lücken in Dokumentation, Zuständigkeiten oder Datenschutz-Praxis. Eine klare Roadmap zur Compliance ist jetzt entscheidend.<br/><br/>
+        <strong>Empfehlung:</strong> Ich begleite Sie beim gezielten Ausbau Ihrer Maßnahmen – praxisnah, rechtskonform und förderfähig nach EU-Vorgaben.`;
+    } else if (avg < 2.8) {
+      text = `<strong>Gut – Sie sind auf einem guten Weg.</strong><br/>
+        Viele relevante Anforderungen sind in Ihrer Organisation verankert, u.a. zu Governance und Risikoanalyse. Jetzt geht es um die systematische Dokumentation und den internen Nachweis.<br/><br/>
+        <strong>Empfehlung:</strong> Ich unterstütze Sie bei der auditierbaren Verankerung Ihrer Prozesse gemäß EU AI Act.`;
+    } else {
+      text = `<strong>Sehr gut – Ihre Organisation ist vorbildlich aufgestellt.</strong><br/>
+        Sie erfüllen bereits heute die zentralen Anforderungen an KI-Governance, Datenschutz und Risikomanagement. Ihr Vorgehen ist strukturiert und strategisch.<br/><br/>
+        <strong>Empfehlung:</strong> Nutzen Sie Ihre Stärke gezielt für Förderanträge, interne Schulungen und als vertrauensbildenden Vorteil am Markt. Ich begleite Sie gerne bei diesem nächsten Schritt.`;
+    }
+
+    document.getElementById('auswertungsblock').style.display = 'block';
+    document.getElementById('auswertung').style.display = 'block';
+    document.getElementById('auswertungstext').innerHTML = text;
+
+    document.getElementById('balken-governance').style.width = (avg * 25) + '%';
+    document.getElementById('text-governance').innerText = 'Governance-Punktzahl: ' + avg.toFixed(2);
+  }
+</script>
+</body>
+
 <!-- KONTAKT & ERSTGESPRÄCH -->
 <section class="scroll-section" id="kontakt" style="display:none;">
 <div class="section-img">
