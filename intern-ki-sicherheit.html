@@ -813,64 +813,72 @@ function resetQuiz() {
 
 
 </script>
+<style>
+.progress-bar {
+    height: 10px;
+    border-radius: 5px;
+    background-color: #eee;
+    overflow: hidden;
+    margin-top: 5px;
+}
+.progress-bar-fill {
+    height: 100%;
+    transition: width 0.5s;
+}
+.red { background-color: #e74c3c; }
+.orange { background-color: #f39c12; }
+.green { background-color: #2ecc71; }
+</style>
+
 <script>
-  let aktuelleFrage = 1;
-  let antworten = [];
+function updateBar(id, score) {
+    const el = document.getElementById(id);
+    const fill = el.querySelector(".progress-bar-fill");
+    let width = Math.round((score / 3) * 100);
+    let color = "red";
+    if (score >= 2.8) color = "green";
+    else if (score >= 2.3) color = "orange";
+    fill.style.width = width + "%";
+    fill.className = "progress-bar-fill " + color;
+}
 
-  function nextFrage(frageNr, antwort) {
-    antworten.push(antwort);
-    document.getElementById('frage' + frageNr).style.display = 'none';
-    const naechste = frageNr + 1;
-    if (document.getElementById('frage' + naechste)) {
-      document.getElementById('frage' + naechste).style.display = 'block';
-    } else {
-      zeigeAuswertung();
-    }
-  }
+function finalizeEvaluation() {
+    // Beispiel-Scores
+    updateBar("bar-governance", 2.2);
+    updateBar("bar-documentation", 2.7);
+    updateBar("bar-privacy", 1.9);
 
-  function zeigeAuswertung() {
-    const mapping = {
-      'aktiv': 3, 'basic': 2, 'unsicher': 1,
-      'chef': 3, 'it': 2, 'keiner': 1,
-      'ja': 3, 'teilweise': 2, 'nein': 1,
-      'vorreiter': 3, 'orientierung': 2, 'risikozone': 1,
-      'bewusst': 3, 'vage': 2, 'ahnungslos': 1,
-      'dokumentiert': 3, 'situativ': 2, 'ignoriert': 1,
-      'team': 3, 'einzelperson': 2, 'niemand': 1
-    };
+    document.getElementById("submit-result-button").style.display = "inline-block";
+}
 
-    let punkte = antworten.map(a => mapping[a] || 0);
-    let avg = punkte.reduce((a, b) => a + b, 0) / punkte.length;
+function showContactPopup() {
+    const popup = document.getElementById("kontaktpopup");
+    popup.style.display = "block";
 
-    let text = "";
-    if (avg < 1.6) {
-      text = `<strong>Kritisch – Es besteht akuter Handlungsbedarf!</strong><br/>
-        Ihr Unternehmen zeigt gravierende Lücken in Governance, Datenschutz und Risikoanalyse. Es fehlen Prozesse, Verantwortlichkeiten und die Einhaltung regulatorischer Vorgaben wie dem EU AI Act.<br/><br/>
-        <strong>Empfehlung:</strong> Ich unterstütze Sie beim Aufbau strukturierter, DSGVO-konformer Prozesse, der Risikobewertung sowie bei der rechtskonformen Umsetzung des EU AI Acts.`;
-    } else if (avg < 2.3) {
-      text = `<strong>Ausbaufähig – Erste Strukturen sind erkennbar.</strong><br/>
-        Sie berücksichtigen bereits zentrale Aspekte, aber es bestehen Lücken in Dokumentation, Zuständigkeiten oder Datenschutz-Praxis. Eine klare Roadmap zur Compliance ist jetzt entscheidend.<br/><br/>
-        <strong>Empfehlung:</strong> Ich begleite Sie beim gezielten Ausbau Ihrer Maßnahmen – praxisnah, rechtskonform und förderfähig nach EU-Vorgaben.`;
-    } else if (avg < 2.8) {
-      text = `<strong>Gut – Sie sind auf einem guten Weg.</strong><br/>
-        Viele relevante Anforderungen sind in Ihrer Organisation verankert, u.a. zu Governance und Risikoanalyse. Jetzt geht es um die systematische Dokumentation und den internen Nachweis.<br/><br/>
-        <strong>Empfehlung:</strong> Ich unterstütze Sie bei der auditierbaren Verankerung Ihrer Prozesse gemäß EU AI Act.`;
-    } else {
-      text = `<strong>Sehr gut – Ihre Organisation ist vorbildlich aufgestellt.</strong><br/>
-        Sie erfüllen bereits heute die zentralen Anforderungen an KI-Governance, Datenschutz und Risikomanagement. Ihr Vorgehen ist strukturiert und strategisch.<br/><br/>
-        <strong>Empfehlung:</strong> Nutzen Sie Ihre Stärke gezielt für Förderanträge, interne Schulungen und als vertrauensbildenden Vorteil am Markt. Ich begleite Sie gerne bei diesem nächsten Schritt.`;
-    }
-
-    document.getElementById('auswertungsblock').style.display = 'block';
-    document.getElementById('auswertung').style.display = 'block';
-    document.getElementById('auswertungstext').innerHTML = text;
-
-    document.getElementById('balken-governance').style.width = (avg * 25) + '%';
-    document.getElementById('text-governance').innerText = 'Governance-Punktzahl: ' + avg.toFixed(2);
-  }
+    const resultText = document.getElementById("result-summary").innerText;
+    document.getElementById("bewertungstext").value = resultText;
+}
 </script>
-</body>
 
+<div class="progress-container">
+  <h4>Governance</h4>
+  <div id="bar-governance" class="progress-bar"><div class="progress-bar-fill"></div></div>
+
+  <h4>Dokumentation</h4>
+  <div id="bar-documentation" class="progress-bar"><div class="progress-bar-fill"></div></div>
+
+  <h4>Datenschutz</h4>
+  <div id="bar-privacy" class="progress-bar"><div class="progress-bar-fill"></div></div>
+</div>
+
+<div id="result-summary" style="margin-top: 20px;">
+  <strong>Ausbaufähig – Erste Strukturen sind erkennbar.</strong><br/>
+  Sie berücksichtigen bereits zentrale Aspekte, aber es bestehen Lücken in Dokumentation, Zuständigkeiten oder Datenschutz-Praxis.
+</div>
+
+<button id="submit-result-button" style="display:none; margin-top: 15px;" onclick="showContactPopup()">Ergebnis übermitteln</button>
+
+</body>
 <!-- KONTAKT & ERSTGESPRÄCH -->
 <section class="scroll-section" id="kontakt" style="display:none;">
 <div class="section-img">
