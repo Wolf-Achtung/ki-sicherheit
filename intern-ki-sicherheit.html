@@ -434,6 +434,7 @@ textarea:focus {
   text-decoration: none;
 }
 </style>
+
 </head>
 <body>
 <section class="scroll-section" id="start" style="position: relative;">
@@ -563,13 +564,97 @@ textarea:focus {
     Ich habe die <a href="javascript:void(0)" onclick="toggleDatenschutzPopup()">Datenschutzerklärung</a> gelesen und akzeptiert.
   </label>
 </p>
+
 <button class="btn" type="submit">Jetzt prüfen lassen</button>
 </form>
 <!-- SCHNELL-CHECK & EMPFEHLUNG -->
-</div></section><section id="schnell-check">
-<h2>KI-Schnell-Check &amp; Empfehlung</h2>
-<div id="frage-container"></div>
-<div class="auswertung" id="auswertung" style="display:none;"></div>
+</div></section><section class="scroll-section" id="schnell-check">
+<div class="section-img">
+<img alt="Status erfassen, Risiken vermeiden" src="img/04.png"/>
+<p class="caption">Status erfassen, Risiken vermeiden</p>
+</div>
+<div class="section-content">
+<h2 class="typing">KI-Schnell-Check &amp; Empfehlung</h2>
+<p>Der Schnell-Check zeigt auf einen Blick, wie gut Ihr Unternehmen auf den KI-Einsatz vorbereitet ist – von Dokumentation über Verantwortung bis Datenschutz.
+
+Die Auswertung erfolgt anonym im Browser und liefert sofort eine klare Einschätzung mit konkretem Handlungsbedarf. Ideal als erste Standortbestimmung.</p>
+<div id="quiz">
+      <div class="frage" id="frage1">
+        <h3>1. Wie setzen Sie KI aktuell ein?</h3>
+        <button onclick="nextFrage(1, 'aktiv')">Wir nutzen KI bereits.</button>
+        <button onclick="nextFrage(1, 'basic')">Wir testen erste Tools.</button>
+        <button onclick="nextFrage(1, 'unsicher')">Bisher noch nicht.</button>
+      </div>
+      <div class="frage" id="frage2" style="display: none;">
+        <h3>2. Wer verantwortet den Einsatz?</h3>
+        <button onclick="nextFrage(2, 'chef')">die Geschäftsführung</button>
+        <button onclick="nextFrage(2, 'it')">die IT-Abteilung</button>
+        <button onclick="nextFrage(2, 'keiner')">niemand konkret</button>
+      </div>
+      <div class="frage" id="frage3" style="display: none;">
+        <h3>3. Dokumentieren Sie Entscheidungen?</h3>
+        <button onclick="nextFrage(3, 'ja')">wird klar dokumentiert</button>
+        <button onclick="nextFrage(3, 'teilweise')">teilweise</button>
+        <button onclick="nextFrage(3, 'nein')">noch gar nicht</button>
+      </div>
+      <div class="frage" id="frage4" style="display: none;">
+        <h3>4. Wie steht es um Ihren Datenschutz?</h3>
+        <button onclick="nextFrage(4, 'vorreiter')">Wir sind Vorreiter.</button>
+        <button onclick="nextFrage(4, 'orientierung')">Wir orientieren uns.</button>
+        <button onclick="nextFrage(4, 'risikozone')">noch nicht integriert</button>
+      </div>
+      <div class="frage" id="frage5" style="display: none;">
+        <h3>5. Könnte Ihr Unternehmen aktuell gegen den EU AI Act verstossen?</h3>
+        <button onclick="nextFrage(5, 'bewusst')">vermutlich nicht</button>
+        <button onclick="nextFrage(5, 'vage')">vielleicht in Teilen</button>
+        <button onclick="nextFrage(5, 'ahnungslos')">keine Ahnung</button>
+      </div>
+      <div class="frage" id="frage6" style="display: none;">
+        <h3>6. Wie gehen Sie mit Fehlern im System (auch KI) um?</h3>
+        <button onclick="nextFrage(6, 'dokumentiert')">Wir dokumentieren das.</button>
+        <button onclick="nextFrage(6, 'situativ')">Wir reagieren situativ.</button>
+        <button onclick="nextFrage(6, 'ignoriert')">Wir haben dazu nichts geregelt.</button>
+      </div>
+      <div class="frage" id="frage7" style="display: none;">
+        <h3>7. Wer prüft in Ihrem Unternehmen neue KI-Systeme und Tools?</h3>
+        <button onclick="nextFrage(7, 'team')">ein internes Team</button>
+        <button onclick="nextFrage(7, 'einzelperson')">eine verantwortliche Person</button>
+        <button onclick="nextFrage(7, 'niemand')">niemand konkretes</button>
+      </div>
+    </div>
+
+    <div id="auswertungsblock" style="display:none; margin-top: 3rem;">
+      <h3>Governance</h3>
+      <div class="balken"><div id="balken-governance" class="balken-bar"></div></div>
+      <p id="text-governance">Ergebnis wird berechnet...</p>
+
+      <h3>Dokumentation</h3>
+      <div class="balken"><div id="balken-doku" class="balken-bar"></div></div>
+      <p id="text-doku">Ergebnis wird berechnet...</p>
+
+      <h3>Verantwortung</h3>
+      <div class="balken"><div id="balken-verantwortung" class="balken-bar"></div></div>
+      <p id="text-verantwortung">Ergebnis wird berechnet...</p>
+
+      <h3>Kommunikation</h3>
+      <div class="balken"><div id="balken-kommunikation" class="balken-bar"></div></div>
+      <p id="text-kommunikation">Ergebnis wird berechnet...</p>
+
+      <h3>Datenschutz-Integration</h3>
+      <div class="balken"><div id="balken-datenschutz" class="balken-bar"></div></div>
+      <p id="text-datenschutz">Ergebnis wird berechnet...</p>
+    </div>
+
+    <div id="auswertung" style="display:none; margin-top:2rem;">
+      <h3>Empfehlung & Bewertung</h3>
+      <div id="auswertungstext"></div>
+    </div>
+
+    <div style="text-align:center; margin-top:2rem;">
+      <button class="btn pulse-button" id="restart-button" style="display:none;" onclick="resetQuiz()">Schnell-Check erneut starten</button>
+      
+    </div>
+  </div>
 </section>
 <!-- Danke-Popup -->
 <div id="danke-popup" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:#ffffffee; z-index:10000; text-align:center; padding-top:10%;">
@@ -727,74 +812,7 @@ function resetQuiz() {
 }
 
 
-</script><script>
-    const fragen = [
-      { text: "1. Gibt es eine zentrale Dokumentation aller eingesetzten KI-Systeme?" },
-      { text: "2. Sind Verantwortlichkeiten für KI klar benannt?" },
-      { text: "3. Gibt es nachvollziehbare Entscheidungsprozesse bei KI-Nutzung?" },
-      { text: "4. Wurden Risiken bei KI-Einsatz systematisch analysiert?" },
-      { text: "5. Sind Datenschutz-Aspekte bei KI-Nutzung berücksichtigt?" },
-      { text: "6. Gibt es eine Kommunikationsstrategie zu KI-Anwendungen?" },
-      { text: "7. Werden Mitarbeitende gezielt auf KI vorbereitet?" }
-    ];
-    let antworten = [];
-    let aktuelleFrage = 0;
-
-    const container = document.getElementById("frage-container");
-
-    function zeigeFrage(index) {
-      const frage = fragen[index];
-      container.innerHTML = `
-        <div class="frage">
-          <p>${frage.text}</p>
-          <div class="optionen">
-            <button onclick="antwortAuswaehlen(3)">Ja</button>
-            <button onclick="antwortAuswaehlen(2)">Teilweise</button>
-            <button onclick="antwortAuswaehlen(1)">Nein</button>
-          </div>
-        </div>
-      `;
-    }
-
-    function antwortAuswaehlen(wert) {
-      antworten.push(wert);
-      aktuelleFrage++;
-      if (aktuelleFrage < fragen.length) {
-        zeigeFrage(aktuelleFrage);
-      } else {
-        zeigeAuswertung();
-      }
-    }
-
-    function zeigeAuswertung() {
-      const avg = antworten.reduce((a,b) => a + b) / antworten.length;
-      let resultText = "";
-
-      if (avg < 2) {
-        resultText = `<strong>Kritisch – Es besteht akuter Handlungsbedarf!</strong><br/>
-        Ihr Unternehmen zeigt gravierende Lücken in Governance, Datenschutz und Risikoanalyse. Es fehlen Prozesse, Verantwortlichkeiten und die Einhaltung regulatorischer Vorgaben wie dem EU AI Act.<br/><br/>
-        <strong>Empfehlung:</strong> Ich unterstütze Sie beim Aufbau strukturierter, DSGVO-konformer Prozesse, der Risikobewertung sowie bei der rechtskonformen Umsetzung des EU AI Acts.`;
-      } else if (avg < 2.3) {
-        resultText = `<strong>Ausbaufähig – Erste Strukturen sind erkennbar.</strong><br/>
-        Sie berücksichtigen bereits zentrale Aspekte, aber es bestehen Lücken in Dokumentation, Zuständigkeiten oder Datenschutz-Praxis. Eine klare Roadmap zur Compliance ist jetzt entscheidend.<br/><br/>
-        <strong>Empfehlung:</strong> Ich begleite Sie beim gezielten Ausbau Ihrer Maßnahmen – praxisnah, rechtskonform und förderfähig nach EU-Vorgaben.`;
-      } else if (avg < 2.8) {
-        resultText = `<strong>Gut – Sie sind auf einem guten Weg.</strong><br/>
-        Viele relevante Anforderungen sind in Ihrer Organisation verankert, u.a. zu Governance und Risikoanalyse. Jetzt geht es um die systematische Dokumentation und den internen Nachweis.<br/><br/>
-        <strong>Empfehlung:</strong> Ich unterstütze Sie bei der auditierbaren Verankerung Ihrer Prozesse gemäß EU AI Act.`;
-      } else {
-        resultText = `<strong>Sehr gut – Ihre Organisation ist vorbildlich aufgestellt.</strong><br/>
-        Sie erfüllen bereits heute die zentralen Anforderungen an KI-Governance, Datenschutz und Risikomanagement. Ihr Vorgehen ist strukturiert und strategisch.<br/><br/>
-        <strong>Empfehlung:</strong> Nutzen Sie Ihre Stärke gezielt für Förderanträge, interne Schulungen und als vertrauensbildenden Vorteil am Markt. Ich begleite Sie gerne bei diesem nächsten Schritt.`;
-      }
-
-      document.getElementById("auswertung").style.display = "block";
-      document.getElementById("auswertung").innerHTML = resultText;
-      container.innerHTML = "";
-    }
-
-    zeigeFrage(aktuelleFrage);
-  </script></body>
+</script></body>
 <!-- KONTAKT & ERSTGESPRÄCH -->
 <section class="scroll-section" id="kontakt" style="display:none;">
 <div class="section-img">
@@ -985,6 +1003,7 @@ Diese Website informiert über Pflichten und Empfehlungen zum EU AI Act. Die Inh
 <p><em>Setzen Sie auf fundiertes Know-how, unternehmerische Erfahrung und praxisnahe Umsetzung – für einen sicheren und zukunftsfähigen KI-Einsatz.</em></p>
 </div>
 <script>AOS.init();</script>
+
 <style>
   .g-recaptcha { margin-bottom: 1rem; }
   .quiz button.active {
