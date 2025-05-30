@@ -876,7 +876,33 @@ function resetQuiz() {
             bar.classList.add("red");
         }
     }
-    </script></body>
+    </script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const categoryScores = document.querySelectorAll(".category-score");
+
+    categoryScores.forEach(scoreEl => {
+        const text = scoreEl.textContent;
+        const match = text.match(/Punktzahl: ([\d\.]+)/);
+        if (match) {
+            const value = parseFloat(match[1]);
+            const bar = scoreEl.nextElementSibling;
+            const fill = bar?.querySelector('.progress-fill');
+
+            if (fill) {
+                let color = "gray";
+                if (value < 1.8) color = "#e74c3c"; // rot
+                else if (value < 2.5) color = "#f1c40f"; // gelb
+                else color = "#2ecc71"; // grün
+
+                fill.style.backgroundColor = color;
+                fill.style.width = `${(value / 3) * 100}%`;
+            }
+        }
+    });
+});
+</script>
+</body>
 <!-- KONTAKT & ERSTGESPRÄCH -->
 <section class="scroll-section" id="kontakt" style="display:none;">
 <div class="section-img">
