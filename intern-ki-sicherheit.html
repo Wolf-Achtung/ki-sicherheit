@@ -396,6 +396,11 @@ textarea:focus {
   margin-top: 0.1rem !important;
   margin-bottom: 0.1rem !important;
 }
+
+.progress-bar.green { background-color: #4caf50; }
+.progress-bar.yellow { background-color: #ffeb3b; }
+.progress-bar.orange { background-color: #ff9800; }
+.progress-bar.red { background-color: #f44336; }
 </style>
 <style>
   .g-recaptcha { margin-bottom: 1rem; }
@@ -434,7 +439,6 @@ textarea:focus {
   text-decoration: none;
 }
 </style>
-
 </head>
 <body>
 <section class="scroll-section" id="start" style="position: relative;">
@@ -564,7 +568,6 @@ textarea:focus {
     Ich habe die <a href="javascript:void(0)" onclick="toggleDatenschutzPopup()">Datenschutzerklärung</a> gelesen und akzeptiert.
   </label>
 </p>
-
 <button class="btn" type="submit">Jetzt prüfen lassen</button>
 </form>
 <!-- SCHNELL-CHECK & EMPFEHLUNG -->
@@ -579,82 +582,74 @@ textarea:focus {
 
 Die Auswertung erfolgt anonym im Browser und liefert sofort eine klare Einschätzung mit konkretem Handlungsbedarf. Ideal als erste Standortbestimmung.</p>
 <div id="quiz">
-      <div class="frage" id="frage1">
-        <h3>1. Wie setzen Sie KI aktuell ein?</h3>
-        <button onclick="nextFrage(1, 'aktiv')">Wir nutzen KI bereits.</button>
-        <button onclick="nextFrage(1, 'basic')">Wir testen erste Tools.</button>
-        <button onclick="nextFrage(1, 'unsicher')">Bisher noch nicht.</button>
-      </div>
-      <div class="frage" id="frage2" style="display: none;">
-        <h3>2. Wer verantwortet den Einsatz?</h3>
-        <button onclick="nextFrage(2, 'chef')">die Geschäftsführung</button>
-        <button onclick="nextFrage(2, 'it')">die IT-Abteilung</button>
-        <button onclick="nextFrage(2, 'keiner')">niemand konkret</button>
-      </div>
-      <div class="frage" id="frage3" style="display: none;">
-        <h3>3. Dokumentieren Sie Entscheidungen?</h3>
-        <button onclick="nextFrage(3, 'ja')">wird klar dokumentiert</button>
-        <button onclick="nextFrage(3, 'teilweise')">teilweise</button>
-        <button onclick="nextFrage(3, 'nein')">noch gar nicht</button>
-      </div>
-      <div class="frage" id="frage4" style="display: none;">
-        <h3>4. Wie steht es um Ihren Datenschutz?</h3>
-        <button onclick="nextFrage(4, 'vorreiter')">Wir sind Vorreiter.</button>
-        <button onclick="nextFrage(4, 'orientierung')">Wir orientieren uns.</button>
-        <button onclick="nextFrage(4, 'risikozone')">noch nicht integriert</button>
-      </div>
-      <div class="frage" id="frage5" style="display: none;">
-        <h3>5. Könnte Ihr Unternehmen aktuell gegen den EU AI Act verstossen?</h3>
-        <button onclick="nextFrage(5, 'bewusst')">vermutlich nicht</button>
-        <button onclick="nextFrage(5, 'vage')">vielleicht in Teilen</button>
-        <button onclick="nextFrage(5, 'ahnungslos')">keine Ahnung</button>
-      </div>
-      <div class="frage" id="frage6" style="display: none;">
-        <h3>6. Wie gehen Sie mit Fehlern im System (auch KI) um?</h3>
-        <button onclick="nextFrage(6, 'dokumentiert')">Wir dokumentieren das.</button>
-        <button onclick="nextFrage(6, 'situativ')">Wir reagieren situativ.</button>
-        <button onclick="nextFrage(6, 'ignoriert')">Wir haben dazu nichts geregelt.</button>
-      </div>
-      <div class="frage" id="frage7" style="display: none;">
-        <h3>7. Wer prüft in Ihrem Unternehmen neue KI-Systeme und Tools?</h3>
-        <button onclick="nextFrage(7, 'team')">ein internes Team</button>
-        <button onclick="nextFrage(7, 'einzelperson')">eine verantwortliche Person</button>
-        <button onclick="nextFrage(7, 'niemand')">niemand konkretes</button>
-      </div>
-    </div>
-
-    <div id="auswertungsblock" style="display:none; margin-top: 3rem;">
-      <h3>Governance</h3>
-      <div class="balken"><div id="balken-governance" class="balken-bar"></div></div>
-      <p id="text-governance">Ergebnis wird berechnet...</p>
-
-      <h3>Dokumentation</h3>
-      <div class="balken"><div id="balken-doku" class="balken-bar"></div></div>
-      <p id="text-doku">Ergebnis wird berechnet...</p>
-
-      <h3>Verantwortung</h3>
-      <div class="balken"><div id="balken-verantwortung" class="balken-bar"></div></div>
-      <p id="text-verantwortung">Ergebnis wird berechnet...</p>
-
-      <h3>Kommunikation</h3>
-      <div class="balken"><div id="balken-kommunikation" class="balken-bar"></div></div>
-      <p id="text-kommunikation">Ergebnis wird berechnet...</p>
-
-      <h3>Datenschutz-Integration</h3>
-      <div class="balken"><div id="balken-datenschutz" class="balken-bar"></div></div>
-      <p id="text-datenschutz">Ergebnis wird berechnet...</p>
-    </div>
-
-    <div id="auswertung" style="display:none; margin-top:2rem;">
-      <h3>Empfehlung & Bewertung</h3>
-      <div id="auswertungstext"></div>
-    </div>
-
-    <div style="text-align:center; margin-top:2rem;">
-      <button class="btn pulse-button" id="restart-button" style="display:none;" onclick="resetQuiz()">Schnell-Check erneut starten</button>
-      
-    </div>
-  </div>
+<div class="frage" id="frage1">
+<h3>1. Wie setzen Sie KI aktuell ein?</h3>
+<button onclick="nextFrage(1, 'aktiv')">Wir nutzen KI bereits.</button>
+<button onclick="nextFrage(1, 'basic')">Wir testen erste Tools.</button>
+<button onclick="nextFrage(1, 'unsicher')">Bisher noch nicht.</button>
+</div>
+<div class="frage" id="frage2" style="display: none;">
+<h3>2. Wer verantwortet den Einsatz?</h3>
+<button onclick="nextFrage(2, 'chef')">die Geschäftsführung</button>
+<button onclick="nextFrage(2, 'it')">die IT-Abteilung</button>
+<button onclick="nextFrage(2, 'keiner')">niemand konkret</button>
+</div>
+<div class="frage" id="frage3" style="display: none;">
+<h3>3. Dokumentieren Sie Entscheidungen?</h3>
+<button onclick="nextFrage(3, 'ja')">wird klar dokumentiert</button>
+<button onclick="nextFrage(3, 'teilweise')">teilweise</button>
+<button onclick="nextFrage(3, 'nein')">noch gar nicht</button>
+</div>
+<div class="frage" id="frage4" style="display: none;">
+<h3>4. Wie steht es um Ihren Datenschutz?</h3>
+<button onclick="nextFrage(4, 'vorreiter')">Wir sind Vorreiter.</button>
+<button onclick="nextFrage(4, 'orientierung')">Wir orientieren uns.</button>
+<button onclick="nextFrage(4, 'risikozone')">noch nicht integriert</button>
+</div>
+<div class="frage" id="frage5" style="display: none;">
+<h3>5. Könnte Ihr Unternehmen aktuell gegen den EU AI Act verstossen?</h3>
+<button onclick="nextFrage(5, 'bewusst')">vermutlich nicht</button>
+<button onclick="nextFrage(5, 'vage')">vielleicht in Teilen</button>
+<button onclick="nextFrage(5, 'ahnungslos')">keine Ahnung</button>
+</div>
+<div class="frage" id="frage6" style="display: none;">
+<h3>6. Wie gehen Sie mit Fehlern im System (auch KI) um?</h3>
+<button onclick="nextFrage(6, 'dokumentiert')">Wir dokumentieren das.</button>
+<button onclick="nextFrage(6, 'situativ')">Wir reagieren situativ.</button>
+<button onclick="nextFrage(6, 'ignoriert')">Wir haben dazu nichts geregelt.</button>
+</div>
+<div class="frage" id="frage7" style="display: none;">
+<h3>7. Wer prüft in Ihrem Unternehmen neue KI-Systeme und Tools?</h3>
+<button onclick="nextFrage(7, 'team')">ein internes Team</button>
+<button onclick="nextFrage(7, 'einzelperson')">eine verantwortliche Person</button>
+<button onclick="nextFrage(7, 'niemand')">niemand konkretes</button>
+</div>
+</div>
+<div id="auswertungsblock" style="display:none; margin-top: 3rem;">
+<h3>Governance</h3>
+<div class="balken"><div class="balken-bar" id="balken-governance"></div></div>
+<p id="text-governance">Ergebnis wird berechnet...</p>
+<h3>Dokumentation</h3>
+<div class="balken"><div class="balken-bar" id="balken-doku"></div></div>
+<p id="text-doku">Ergebnis wird berechnet...</p>
+<h3>Verantwortung</h3>
+<div class="balken"><div class="balken-bar" id="balken-verantwortung"></div></div>
+<p id="text-verantwortung">Ergebnis wird berechnet...</p>
+<h3>Kommunikation</h3>
+<div class="balken"><div class="balken-bar" id="balken-kommunikation"></div></div>
+<p id="text-kommunikation">Ergebnis wird berechnet...</p>
+<h3>Datenschutz-Integration</h3>
+<div class="balken"><div class="balken-bar" id="balken-datenschutz"></div></div>
+<p id="text-datenschutz">Ergebnis wird berechnet...</p>
+</div>
+<div id="auswertung" style="display:none; margin-top:2rem;">
+<h3>Empfehlung &amp; Bewertung</h3>
+<div id="auswertungstext"></div>
+</div>
+<div style="text-align:center; margin-top:2rem;">
+<button class="btn pulse-button" id="restart-button" onclick="resetQuiz()" style="display:none;">Schnell-Check erneut starten</button>
+</div>
+</div>
 </section>
 <!-- Danke-Popup -->
 <div id="danke-popup" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:#ffffffee; z-index:10000; text-align:center; padding-top:10%;">
@@ -813,140 +808,75 @@ function resetQuiz() {
 
 
 </script>
-<style>
-.progress-bar {
-    height: 10px;
-    border-radius: 5px;
-    background-color: #eee;
-    overflow: hidden;
-    margin-top: 5px;
-}
-.progress-bar-fill {
-    height: 100%;
-    transition: width 0.5s;
-}
-.red { background-color: #e74c3c; }
-.orange { background-color: #f39c12; }
-.green { background-color: #2ecc71; }
-</style>
-
 <script>
-function updateBar(id, score) {
-    const el = document.getElementById(id);
-    const fill = el.querySelector(".progress-bar-fill");
-    let width = Math.round((score / 3) * 100);
-    let color = "red";
-    if (score >= 2.8) color = "green";
-    else if (score >= 2.3) color = "orange";
-    fill.style.width = width + "%";
-    fill.className = "progress-bar-fill " + color;
-}
+  let aktuelleFrage = 1;
+  let antworten = [];
 
-function finalizeEvaluation() {
-    // Beispiel-Scores
-    updateBar("bar-governance", 2.2);
-    updateBar("bar-documentation", 2.7);
-    updateBar("bar-privacy", 1.9);
+  function nextFrage(frageNr, antwort) {
+    antworten.push(antwort);
+    document.getElementById('frage' + frageNr).style.display = 'none';
+    const naechste = frageNr + 1;
+    if (document.getElementById('frage' + naechste)) {
+      document.getElementById('frage' + naechste).style.display = 'block';
+    } else {
+      zeigeAuswertung();
+    }
+  }
 
-    document.getElementById("submit-result-button").style.display = "inline-block";
-}
+  function zeigeAuswertung() {
+    const mapping = {
+      'aktiv': 3, 'basic': 2, 'unsicher': 1,
+      'chef': 3, 'it': 2, 'keiner': 1,
+      'ja': 3, 'teilweise': 2, 'nein': 1,
+      'vorreiter': 3, 'orientierung': 2, 'risikozone': 1,
+      'bewusst': 3, 'vage': 2, 'ahnungslos': 1,
+      'dokumentiert': 3, 'situativ': 2, 'ignoriert': 1,
+      'team': 3, 'einzelperson': 2, 'niemand': 1
+    };
 
-function showContactPopup() {
-    const popup = document.getElementById("kontaktpopup");
-    popup.style.display = "block";
+    let punkte = antworten.map(a => mapping[a] || 0);
+    let avg = punkte.reduce((a, b) => a + b, 0) / punkte.length;
 
-    const resultText = document.getElementById("result-summary").innerText;
-    document.getElementById("bewertungstext").value = resultText;
-}
+    let text = "";
+    if (avg < 1.6) {
+      text = `<strong>Kritisch – Es besteht akuter Handlungsbedarf!</strong><br/>
+        Ihr Unternehmen zeigt gravierende Lücken in Governance, Datenschutz und Risikoanalyse. Es fehlen Prozesse, Verantwortlichkeiten und die Einhaltung regulatorischer Vorgaben wie dem EU AI Act.<br/><br/>
+        <strong>Empfehlung:</strong> Ich unterstütze Sie beim Aufbau strukturierter, DSGVO-konformer Prozesse, der Risikobewertung sowie bei der rechtskonformen Umsetzung des EU AI Acts.`;
+    } else if (avg < 2.3) {
+      text = `<strong>Ausbaufähig – Erste Strukturen sind erkennbar.</strong><br/>
+        Sie berücksichtigen bereits zentrale Aspekte, aber es bestehen Lücken in Dokumentation, Zuständigkeiten oder Datenschutz-Praxis. Eine klare Roadmap zur Compliance ist jetzt entscheidend.<br/><br/>
+        <strong>Empfehlung:</strong> Ich begleite Sie beim gezielten Ausbau Ihrer Maßnahmen – praxisnah, rechtskonform und förderfähig nach EU-Vorgaben.`;
+    } else if (avg < 2.8) {
+      text = `<strong>Gut – Sie sind auf einem guten Weg.</strong><br/>
+        Viele relevante Anforderungen sind in Ihrer Organisation verankert, u.a. zu Governance und Risikoanalyse. Jetzt geht es um die systematische Dokumentation und den internen Nachweis.<br/><br/>
+        <strong>Empfehlung:</strong> Ich unterstütze Sie bei der auditierbaren Verankerung Ihrer Prozesse gemäß EU AI Act.`;
+    } else {
+      text = `<strong>Sehr gut – Ihre Organisation ist vorbildlich aufgestellt.</strong><br/>
+        Sie erfüllen bereits heute die zentralen Anforderungen an KI-Governance, Datenschutz und Risikomanagement. Ihr Vorgehen ist strukturiert und strategisch.<br/><br/>
+        <strong>Empfehlung:</strong> Nutzen Sie Ihre Stärke gezielt für Förderanträge, interne Schulungen und als vertrauensbildenden Vorteil am Markt. Ich begleite Sie gerne bei diesem nächsten Schritt.`;
+    }
+
+    document.getElementById('auswertungsblock').style.display = 'block';
+    document.getElementById('auswertung').style.display = 'block';
+    document.getElementById('auswertungstext').innerHTML = text;
+
+    document.getElementById('balken-governance').style.width = (avg * 25) + '%';
+    document.getElementById('text-governance').innerText = 'Governance-Punktzahl: ' + avg.toFixed(2);
+  }
 </script>
-
-<div class="progress-container">
-  <h4>Governance</h4>
-  <div id="bar-governance" class="progress-bar"><div class="progress-bar-fill"></div></div>
-
-  <h4>Dokumentation</h4>
-  <div id="bar-documentation" class="progress-bar"><div class="progress-bar-fill"></div></div>
-
-  <h4>Datenschutz</h4>
-  <div id="bar-privacy" class="progress-bar"><div class="progress-bar-fill"></div></div>
-</div>
-
-<div id="result-summary" style="margin-top: 20px;">
-  <strong>Ausbaufähig – Erste Strukturen sind erkennbar.</strong><br/>
-  Sie berücksichtigen bereits zentrale Aspekte, aber es bestehen Lücken in Dokumentation, Zuständigkeiten oder Datenschutz-Praxis.
-</div>
-
-<button id="submit-result-button" style="display:none; margin-top: 15px;" onclick="showContactPopup()">Ergebnis übermitteln</button>
-
-
 <script>
-let antworten = {};
-
-function nextFrage(frageNummer, antwortWert) {
-  antworten["frage" + frageNummer] = antwortWert;
-  const aktuelleFrage = document.getElementById("frage" + frageNummer);
-  if (aktuelleFrage) aktuelleFrage.style.display = "none";
-  const naechsteFrage = document.getElementById("frage" + (frageNummer + 1));
-  if (naechsteFrage) {
-    naechsteFrage.style.display = "block";
-    window.scrollTo({ top: naechsteFrage.offsetTop - 100, behavior: "smooth" });
-  } else {
-    auswertungStarten();
-  }
-}
-
-function auswertungStarten() {
-  document.getElementById("quiz").style.display = "none";
-  document.getElementById("auswertungsblock").style.display = "block";
-  document.getElementById("auswertung").style.display = "block";
-  document.getElementById("restart-button").style.display = "inline-block";
-  const scores = {
-    governance: berechneScore(['frage1', 'frage2']),
-    doku: berechneScore(['frage3']),
-    verantwortung: berechneScore(['frage6', 'frage7']),
-    kommunikation: berechneScore(['frage5']),
-    datenschutz: berechneScore(['frage4'])
-  };
-  setzeBalken("balken-governance", scores.governance);
-  setzeBalken("balken-doku", scores.doku);
-  setzeBalken("balken-verantwortung", scores.verantwortung);
-  setzeBalken("balken-kommunikation", scores.kommunikation);
-  setzeBalken("balken-datenschutz", scores.datenschutz);
-  const durchschnitt = (Object.values(scores).reduce((a, b) => a + b, 0)) / Object.keys(scores).length;
-  const auswertungstext = document.getElementById("auswertungstext");
-  if (durchschnitt < 1.6) {
-    auswertungstext.innerHTML = "<strong style='color:#c0392b;'>Kritisch</strong><br/>Akuter Handlungsbedarf.";
-  } else if (durchschnitt < 2.3) {
-    auswertungstext.innerHTML = "<strong style='color:#f39c12;'>Ausbaufähig</strong><br/>Strukturen sind erkennbar.";
-  } else {
-    auswertungstext.innerHTML = "<strong style='color:#27ae60;'>Gut</strong><br/>Sie sind auf einem guten Weg.";
-  }
-}
-
-function berechneScore(fragenArray) {
-  let score = 0;
-  fragenArray.forEach(f => {
-    const aw = antworten[f];
-    if (["aktiv", "chef", "ja", "vorreiter", "bewusst", "dokumentiert", "team"].includes(aw)) score += 3;
-    else if (["basic", "it", "teilweise", "orientierung", "vage", "situativ", "einzelperson"].includes(aw)) score += 2;
-    else score += 1;
-  });
-  return score / fragenArray.length;
-}
-
-function setzeBalken(id, score) {
-  const balken = document.getElementById(id);
-  if (!balken) return;
-  const prozent = Math.round((score / 3) * 100);
-  balken.style.width = prozent + "%";
-  balken.className = "balken-bar";
-  if (score >= 2.8) balken.classList.add("gruen");
-  else if (score >= 2.3) balken.classList.add("gelb");
-  else balken.classList.add("rot");
-}
-</script>
-
-</body>
+    function updateBarColor(bar, score) {
+        if (score >= 2.8) {
+            bar.classList.add("green");
+        } else if (score >= 2.3) {
+            bar.classList.add("yellow");
+        } else if (score >= 1.5) {
+            bar.classList.add("orange");
+        } else {
+            bar.classList.add("red");
+        }
+    }
+    </script></body>
 <!-- KONTAKT & ERSTGESPRÄCH -->
 <section class="scroll-section" id="kontakt" style="display:none;">
 <div class="section-img">
@@ -1137,7 +1067,6 @@ Diese Website informiert über Pflichten und Empfehlungen zum EU AI Act. Die Inh
 <p><em>Setzen Sie auf fundiertes Know-how, unternehmerische Erfahrung und praxisnahe Umsetzung – für einen sicheren und zukunftsfähigen KI-Einsatz.</em></p>
 </div>
 <script>AOS.init();</script>
-
 <style>
   .g-recaptcha { margin-bottom: 1rem; }
   .quiz button.active {
