@@ -878,6 +878,74 @@ function showContactPopup() {
 
 <button id="submit-result-button" style="display:none; margin-top: 15px;" onclick="showContactPopup()">Ergebnis übermitteln</button>
 
+
+<script>
+let antworten = {};
+
+function nextFrage(frageNummer, antwortWert) {
+  antworten["frage" + frageNummer] = antwortWert;
+  const aktuelleFrage = document.getElementById("frage" + frageNummer);
+  if (aktuelleFrage) aktuelleFrage.style.display = "none";
+  const naechsteFrage = document.getElementById("frage" + (frageNummer + 1));
+  if (naechsteFrage) {
+    naechsteFrage.style.display = "block";
+    window.scrollTo({ top: naechsteFrage.offsetTop - 100, behavior: "smooth" });
+  } else {
+    auswertungStarten();
+  }
+}
+
+function auswertungStarten() {
+  document.getElementById("quiz").style.display = "none";
+  document.getElementById("auswertungsblock").style.display = "block";
+  document.getElementById("auswertung").style.display = "block";
+  document.getElementById("restart-button").style.display = "inline-block";
+  const scores = {
+    governance: berechneScore(['frage1', 'frage2']),
+    doku: berechneScore(['frage3']),
+    verantwortung: berechneScore(['frage6', 'frage7']),
+    kommunikation: berechneScore(['frage5']),
+    datenschutz: berechneScore(['frage4'])
+  };
+  setzeBalken("balken-governance", scores.governance);
+  setzeBalken("balken-doku", scores.doku);
+  setzeBalken("balken-verantwortung", scores.verantwortung);
+  setzeBalken("balken-kommunikation", scores.kommunikation);
+  setzeBalken("balken-datenschutz", scores.datenschutz);
+  const durchschnitt = (Object.values(scores).reduce((a, b) => a + b, 0)) / Object.keys(scores).length;
+  const auswertungstext = document.getElementById("auswertungstext");
+  if (durchschnitt < 1.6) {
+    auswertungstext.innerHTML = "<strong style='color:#c0392b;'>Kritisch</strong><br/>Akuter Handlungsbedarf.";
+  } else if (durchschnitt < 2.3) {
+    auswertungstext.innerHTML = "<strong style='color:#f39c12;'>Ausbaufähig</strong><br/>Strukturen sind erkennbar.";
+  } else {
+    auswertungstext.innerHTML = "<strong style='color:#27ae60;'>Gut</strong><br/>Sie sind auf einem guten Weg.";
+  }
+}
+
+function berechneScore(fragenArray) {
+  let score = 0;
+  fragenArray.forEach(f => {
+    const aw = antworten[f];
+    if (["aktiv", "chef", "ja", "vorreiter", "bewusst", "dokumentiert", "team"].includes(aw)) score += 3;
+    else if (["basic", "it", "teilweise", "orientierung", "vage", "situativ", "einzelperson"].includes(aw)) score += 2;
+    else score += 1;
+  });
+  return score / fragenArray.length;
+}
+
+function setzeBalken(id, score) {
+  const balken = document.getElementById(id);
+  if (!balken) return;
+  const prozent = Math.round((score / 3) * 100);
+  balken.style.width = prozent + "%";
+  balken.className = "balken-bar";
+  if (score >= 2.8) balken.classList.add("gruen");
+  else if (score >= 2.3) balken.classList.add("gelb");
+  else balken.classList.add("rot");
+}
+</script>
+
 </body>
 <!-- KONTAKT & ERSTGESPRÄCH -->
 <section class="scroll-section" id="kontakt" style="display:none;">
