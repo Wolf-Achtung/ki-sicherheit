@@ -94,22 +94,7 @@
       margin-top: 0.3rem;
       z-index: 9999;
     }
-    .balken {
-      background: #eee;
-      border-radius: 20px;
-      height: 20px;
-      overflow: hidden;
-      margin-bottom: 0.5rem;
-    }
-    .balken-bar {
-      height: 100%;
-      width: 0%;
-      transition: width 1s ease-in-out;
-      border-radius: 20px;
-    }
-    .balken-bar.rot { background: #c0392b; }
-    .balken-bar.gelb { background: #f39c12; }
-    .balken-bar.gruen { background: #27ae60; }
+ 
 @media (max-width: 768px) {
   #quiz .frage {
     margin-bottom: 2rem;
@@ -146,15 +131,7 @@
   transform: translateY(0);
 }
 
-/* Balken-Card-Style */
-.balken {
-  background: #eee;
-  border-radius: 20px;
-  height: 20px;
-  overflow: hidden;
-  margin-bottom: 0.5rem;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-}
+
 
 /* Floating Button */
 #pdf-fab {
@@ -643,7 +620,7 @@ Die Auswertung erfolgt anonym im Browser und liefert sofort eine klare Einschät
       <div class="balken"><div id="balken-kommunikation" class=""></div></div>
       <p id="text-kommunikation"></p>
 
-      <h3>Datenschutz-Integration</h3>
+      <h3></h3>
       <div class="balken"><div id="balken-datenschutz" class=""></div></div>
       <p id="text-datenschutz"></p>
     </div>
@@ -869,8 +846,6 @@ function resetQuiz() {
     document.getElementById('auswertung').style.display = 'block';
     document.getElementById('auswertungstext').innerHTML = text;
 
-    document.getElementById('balken-governance').style.width = (avg * 25) + '%';
-    document.getElementById('text-governance').innerText = 'Governance-Punktzahl: ' + avg.toFixed(2);
   }
 </script>
 <script>
