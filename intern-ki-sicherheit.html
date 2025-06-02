@@ -562,6 +562,7 @@ Die Auswertung erfolgt anonym im Browser und liefert sofort eine klare Einschät
 <h2>Förderfähigkeit prüfen lassen</h2>
 
 <form name="foerderung" method="POST" data-netlify="true">
+  <input type="hidden" name="form-name" value="foerderung">
   <input type="hidden" name="form-name" value="foerderung" />
   
 
@@ -965,6 +966,22 @@ document.addEventListener("DOMContentLoaded", function() {
       const popup = document.getElementById("danke-popup");
       if (popup) {
         popup.style.display = "flex";
+      }
+    }
+  });
+</script>
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const params = new URLSearchParams(window.location.search);
+    if (params.get("success") === "true") {
+      const popup = document.getElementById("danke-popup");
+      if (popup) {
+        popup.style.display = "flex";
+        setTimeout(() => {
+          popup.style.display = "none";
+        }, 2000);
       }
     }
   });
