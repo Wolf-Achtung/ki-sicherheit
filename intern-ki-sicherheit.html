@@ -944,6 +944,19 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 </script>
 
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const params = new URLSearchParams(window.location.search);
+    if (params.get("success") === "true") {
+      const popup = document.getElementById("danke-popup");
+      if (popup) {
+        popup.style.display = "flex";
+      }
+    }
+  });
+</script>
+
 </body>
 <!-- KONTAKT & ERSTGESPRÄCH -->
 <section class="scroll-section" id="kontakt" style="display:none;">
