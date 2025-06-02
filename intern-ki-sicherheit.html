@@ -561,7 +561,7 @@ Die Auswertung erfolgt anonym im Browser und liefert sofort eine klare Einschät
     Je nach Projektart und Unternehmensgröße sind Zuschüsse zwischen 5.000 € und über 100.000 € möglich. Ich prüfe für Sie, ob und welche Programme zu Ihrer Maßnahme passen.</p>
 <h2>Förderfähigkeit prüfen lassen</h2>
 
-<form name="foerderung-neu" method="POST" data-netlify="true">
+<form name="foerderung-neu" method="POST" data-netlify="true"><input type="hidden" name="form-name" value="foerderung-neu">
   <input type="hidden" name="form-name" value="foerderung" / value="foerderung-neu">
   
 
@@ -861,7 +861,30 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // FormSubmit-Formular via fetch senden + Dankepopup anzeigen
+  // Netlify-Formular (Förderung) Popup statt Redirect
+  const foerderForm = document.querySelector('form[name="foerderung-neu"]');
+  if (foerderForm) {
+    foerderForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+      const danke = document.getElementById("danke-popup");
+      const formData = new FormData(foerderForm);
+      fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(formData).toString()
+      }).then(() => {
+        if (danke) {
+          danke.style.display = "flex";
+          setTimeout(() => {
+            danke.style.display = "none";
+          }, 2000);
+        }
+        foerderForm.reset();
+      }).catch(err => alert("Fehler beim Absenden."));
+    });
+  }
+
+  // Kontaktformular mit formsubmit via fetch() + Popup
   const kontaktForm = document.querySelector("form[action^='https://formsubmit.co']");
   if (kontaktForm) {
     kontaktForm.addEventListener("submit", function (e) {
