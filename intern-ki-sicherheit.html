@@ -672,264 +672,7 @@ Die Auswertung erfolgt anonym im Browser und liefert sofort eine klare Einschät
 <button class="btn" onclick="document.getElementById('bewertung-popup').style.display='none'">Schließen</button>
 </div>
 </div>
-<script>
-if (window.location.pathname.includes("thankyou.html")) {
-  const danke = document.getElementById("danke-popup");
-  if (danke) {
-    danke.style.display = "block";
-    history.replaceState(null, "", "/");
-  }
-}
-</script><div id="kontakt-popup" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:#000000cc; z-index:10000; text-align:center; padding-top:5%;"><div style="background:white; margin:0 auto; padding:2rem; max-width:600px; border-radius:12px; box-shadow:0 0 10px rgba(0,0,0,0.1); font-family:Inter,sans-serif;"><div class="section-content">
-<h2 style="margin-top: 4rem;">Kontakt &amp; Erstgespräch</h2>
-<form action="https://formsubmit.co/kontakt@ki-sicherheit.jetzt" method="POST"><input name="_template" type="hidden" value="box"/><input name="_captcha" type="hidden" value="false"/>
-<input name="_next" type="hidden" value="thankyou.html"/>
-<label for="bewertung">Ihre Bewertung</label>
-<textarea id="bewertung" name="Bewertung" rows="4">Wird automatisch aus dem Schnell-Check übernommen</textarea>
-<label for="name-kontakt">Ihr Name</label>
-<input id="name-kontakt" name="name" required="" type="text"/>
-<label for="unternehmen-kontakt">Unternehmen</label>
-<input id="unternehmen-kontakt" name="company" required="" type="text"/>
-<label for="branche-kontakt">Branche</label>
-<select id="branche-kontakt" name="industry" required="">
-<option disabled="" selected="" value="">Bitte auswählen</option>
-<option>Industrie</option>
-<option>Gesundheitswesen</option>
-<option>Bildung</option>
-<option>Verwaltung</option>
-<option>Handel</option>
-<option>IT / Software</option>
-<option>Sonstige</option>
-</select>
-<label for="email-kontakt">Ihre E-Mail-Adresse</label>
-<input id="email-kontakt" name="E-Mail" required="" type="email"/>
-<label><input required="" type="checkbox"/> Ich habe die <a href="/datenschutz.html" target="_blank">Datenschutzerklärung</a> gelesen und akzeptiert.</label>
-<div class="g-recaptcha" data-sitekey="6Le4a00rAAAAAIHdWKkEbM9ma1OB0-4O9xqQx5nl"></div>
-<button class="btn" type="submit">Nachrichten senden</button></form><br/>
-</div><button class="btn" onclick="document.getElementById('kontakt-popup').style.display='none'">Schließen</button></div></div><script>function zeigeKontaktPopup() { document.getElementById('kontakt-popup').style.display = 'block'; }</script><script>
-document.addEventListener("DOMContentLoaded", function () {
-  const kontaktForm = document.querySelector('form[name="kontakt"]');
-  if (kontaktForm) {
-    kontaktForm.addEventListener("submit", function () {
-      const checkbox = kontaktForm.querySelector('input[name="schnellcheckErgebnis"]');
-      if (checkbox && checkbox.checked) {
-        const evaluationText = document.getElementById("popup-evaluation-text")?.innerText || "Kein Ergebnis ausgewählt";
-        const hiddenField = document.createElement("input");
-        hiddenField.type = "hidden";
-        hiddenField.name = "schnellcheck";
-        hiddenField.value = evaluationText;
-        kontaktForm.appendChild(hiddenField);
-      }
-    });
-  }
 
-  const foerderForm = document.querySelector('form[name="foerderung"]');
-  if (foerderForm) {
-    foerderForm.addEventListener("submit", function () {
-      showModal();
-    });
-  }
-});
-</script><script>
-function zeigeEmpfehlung() {
-  const blocks = document.querySelectorAll('.frage-block');
-  let scores = [];
-  blocks.forEach(block => {
-    const selected = block.querySelector('.btn-option.selected');
-    if (selected) scores.push(parseInt(selected.dataset.score));
-  });
-
-  const resultBox = document.getElementById('evaluationResult');
-  if (scores.length < 7) {
-    resultBox.innerHTML = "<strong>Bitte beantworten Sie alle 7 Fragen.</strong>";
-    return;
-  }
-
-  const avg = scores.reduce((a, b) => a + b, 0) / scores.length;
-  let resultText = "";
-  if (avg < 1.6) {
-    resultText = `<strong>Kritisch – Es besteht akuter Handlungsbedarf!</strong><br/>
-      Ihr Unternehmen zeigt gravierende Lücken in Governance, Datenschutz und Risikoanalyse. Es fehlen Prozesse, Verantwortlichkeiten und die Einhaltung regulatorischer Vorgaben wie dem EU AI Act.<br/><br/>
-      <strong>Empfehlung:</strong> Ich unterstütze Sie beim Aufbau strukturierter, DSGVO-konformer Prozesse, der Risikobewertung sowie bei der rechtskonformen Umsetzung des EU AI Acts.`;
-  } else if (avg < 2.3) {
-    resultText = `<strong>Ausbaufähig – Erste Strukturen sind erkennbar.</strong><br/>
-      Sie berücksichtigen bereits zentrale Aspekte, aber es bestehen Lücken in Dokumentation, Zuständigkeiten oder Datenschutz-Praxis. Eine klare Roadmap zur Compliance ist jetzt entscheidend.<br/><br/>
-      <strong>Empfehlung:</strong> Ich begleite Sie beim gezielten Ausbau Ihrer Maßnahmen – praxisnah, rechtskonform und förderfähig nach EU-Vorgaben.`;
-  } else if (avg < 2.8) {
-    resultText = `<strong>Gut – Sie sind auf einem guten Weg.</strong><br/>
-      Viele relevante Anforderungen sind in Ihrer Organisation verankert, u.a. zu Governance und Risikoanalyse. Jetzt geht es um die systematische Dokumentation und den internen Nachweis.<br/><br/>
-      <strong>Empfehlung:</strong> Ich unterstütze Sie bei der auditierbaren Verankerung Ihrer Prozesse gemäß EU AI Act.`;
-  } else {
-    resultText = `<strong>Sehr gut – Ihre Organisation ist vorbildlich aufgestellt.</strong><br/>
-      Sie erfüllen bereits heute die zentralen Anforderungen an KI-Governance, Datenschutz und Risikomanagement. Ihr Vorgehen ist strukturiert und strategisch.<br/><br/>
-      <strong>Empfehlung:</strong> Nutzen Sie Ihre Stärke gezielt für Förderanträge, interne Schulungen und als vertrauensbildenden Vorteil am Markt. Ich begleite Sie gerne bei diesem nächsten Schritt.`;
-  }
-
-  const formatted = `<div id="bewertung-box" style="background:#f2f6fa; padding:1rem; border-radius:12px;">${resultText}</div>`;
-  resultBox.innerHTML = `<h3>Ihre Bewertung:</h3>${formatted}`;
-  window.letzteBewertungText = resultText.replace(/<[^>]*>?/gm, '');
-}
-</script><script>
-document.addEventListener("DOMContentLoaded", function () {
-  const optionButtons = document.querySelectorAll('.btn-option');
-  optionButtons.forEach(btn => {
-    btn.addEventListener('click', function () {
-      const parent = btn.closest('.frage-block');
-      const buttons = parent.querySelectorAll('.btn-option');
-      buttons.forEach(b => b.classList.remove('selected'));
-      btn.classList.add('selected');
-    });
-  });
-});
-</script><script>
-function öffneKontaktMitBewertung() {
-  // Bewertung berechnen, falls noch nicht geschehen
-  if (typeof zeigeEmpfehlung === 'function') {
-    zeigeEmpfehlung();
-  }
-
-  const kontaktPopup = document.getElementById("kontakt-popup");
-  const ausgabeFeld = document.getElementById("bewertungsÜbertrag");
-
-  // Bewertung direkt aus dem DOM holen
-  const resultBox = document.getElementById("evaluationResult");
-  const cleanText = resultBox?.innerText?.trim() || "Keine Bewertung verfügbar.";
-
-  if (kontaktPopup && ausgabeFeld) {
-    ausgabeFeld.value = cleanText;
-    kontaktPopup.style.display = "block";
-
-    // Optional: Bewertungspopup schließen, falls offen
-    const bewertungPopup = document.getElementById("bewertung-popup");
-    if (bewertungPopup) {
-      bewertungPopup.style.display = "none";
-    }
-  }
-}
-
-function resetQuiz() {
-  location.reload();
-}
-
-
-</script>
-<script>
-  let aktuelleFrage = 1;
-  let antworten = [];
-
-  function nextFrage(frageNr, antwort) {
-    antworten.push(antwort);
-    document.getElementById('frage' + frageNr).style.display = 'none';
-    const naechste = frageNr + 1;
-    if (document.getElementById('frage' + naechste)) {
-      document.getElementById('frage' + naechste).style.display = 'block';
-    } else {
-      zeigeAuswertung();
-    }
-  }
-
-  function zeigeAuswertung() {
-    const mapping = {
-      'aktiv': 3, 'basic': 2, 'unsicher': 1,
-      'chef': 3, 'it': 2, 'keiner': 1,
-      'ja': 3, 'teilweise': 2, 'nein': 1,
-      'vorreiter': 3, 'orientierung': 2, 'risikozone': 1,
-      'bewusst': 3, 'vage': 2, 'ahnungslos': 1,
-      'dokumentiert': 3, 'situativ': 2, 'ignoriert': 1,
-      'team': 3, 'einzelperson': 2, 'niemand': 1
-    };
-
-    let punkte = antworten.map(a => mapping[a] || 0);
-    let avg = punkte.reduce((a, b) => a + b, 0) / punkte.length;
-
-    let text = "";
-    if (avg < 1.6) {
-      text = `<strong>Kritisch – Es besteht akuter Handlungsbedarf!</strong><br/>
-        Ihr Unternehmen zeigt gravierende Lücken in Governance, Datenschutz und Risikoanalyse. Es fehlen Prozesse, Verantwortlichkeiten und die Einhaltung regulatorischer Vorgaben wie dem EU AI Act.<br/><br/>
-        <strong>Empfehlung:</strong> Ich unterstütze Sie beim Aufbau strukturierter, DSGVO-konformer Prozesse, der Risikobewertung sowie bei der rechtskonformen Umsetzung des EU AI Acts.`;
-    } else if (avg < 2.3) {
-      text = `<strong>Ausbaufähig – Erste Strukturen sind erkennbar.</strong><br/>
-        Sie berücksichtigen bereits zentrale Aspekte, aber es bestehen Lücken in Dokumentation, Zuständigkeiten oder Datenschutz-Praxis. Eine klare Roadmap zur Compliance ist jetzt entscheidend.<br/><br/>
-        <strong>Empfehlung:</strong> Ich begleite Sie beim gezielten Ausbau Ihrer Maßnahmen – praxisnah, rechtskonform und förderfähig nach EU-Vorgaben.`;
-    } else if (avg < 2.8) {
-      text = `<strong>Gut – Sie sind auf einem guten Weg.</strong><br/>
-        Viele relevante Anforderungen sind in Ihrer Organisation verankert, u.a. zu Governance und Risikoanalyse. Jetzt geht es um die systematische Dokumentation und den internen Nachweis.<br/><br/>
-        <strong>Empfehlung:</strong> Ich unterstütze Sie bei der auditierbaren Verankerung Ihrer Prozesse gemäß EU AI Act.`;
-    } else {
-      text = `<strong>Sehr gut – Ihre Organisation ist vorbildlich aufgestellt.</strong><br/>
-        Sie erfüllen bereits heute die zentralen Anforderungen an KI-Governance, Datenschutz und Risikomanagement. Ihr Vorgehen ist strukturiert und strategisch.<br/><br/>
-        <strong>Empfehlung:</strong> Nutzen Sie Ihre Stärke gezielt für Förderanträge, interne Schulungen und als vertrauensbildenden Vorteil am Markt. Ich begleite Sie gerne bei diesem nächsten Schritt.`;
-    }
-
-    document.getElementById('auswertungsblock').style.display = 'block';
-    document.getElementById('auswertung').style.display = 'block';
-    document.getElementById('auswertungstext').innerHTML = text;
-
-  }
-</script>
-<script>
-    function updateBarColor(bar, score) {
-        if (score >= 2.8) {
-            bar.classList.add("green");
-        } else if (score >= 2.3) {
-            bar.classList.add("yellow");
-        } else if (score >= 1.5) {
-            bar.classList.add("orange");
-        } else {
-            bar.classList.add("red");
-        }
-    }
-    </script>
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-    const categoryScores = document.querySelectorAll(".category-score");
-
-    categoryScores.forEach(scoreEl => {
-        const text = scoreEl.textContent;
-        const match = text.match(/Punktzahl: ([\d\.]+)/);
-        if (match) {
-            const value = parseFloat(match[1]);
-            const bar = scoreEl.nextElementSibling;
-            const fill = bar?.querySelector('.progress-fill');
-
-            if (fill) {
-                let color = "gray";
-                if (value < 1.8) color = "#e74c3c"; // rot
-                else if (value < 2.5) color = "#f1c40f"; // gelb
-                else color = "#2ecc71"; // grün
-
-                fill.style.backgroundColor = color;
-                fill.style.width = `${(value / 3) * 100}%`;
-            }
-        }
-    });
-});
-</script>
-
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-  const form = document.querySelector('form[name="foerderung"]');
-  if (form) {
-    form.addEventListener("submit", function (e) {
-      e.preventDefault();
-      fetch("/", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams(new FormData(form)).toString()
-      })
-      .then(() => {
-        const popup = document.getElementById("danke-popup");
-        if (popup) {
-          popup.style.display = "block";
-        }
-        form.reset();
-      })
-      .catch(error => alert("Fehler beim Senden: " + error));
-    });
-  }
-});
-  });
-</script>
 
 
 <script>
@@ -940,6 +683,34 @@ document.addEventListener("DOMContentLoaded", function() {
       if (popup) {
         popup.style.display = "block";
       }
+    }
+  });
+</script>
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const form = document.querySelector('form[name="foerderung-neu"]');
+    if (form) {
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        fetch("/", {
+          method: "POST",
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: new URLSearchParams(new FormData(form)).toString()
+        })
+        .then(() => {
+          const popup = document.getElementById("danke-popup");
+          if (popup) {
+            popup.style.display = "block";
+            setTimeout(() => {
+              popup.style.display = "none";
+            }, 1000);
+          }
+          form.reset();
+        })
+        .catch(error => alert("Fehler beim Senden: " + error));
+      });
     }
   });
 </script>
