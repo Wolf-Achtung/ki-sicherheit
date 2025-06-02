@@ -524,8 +524,6 @@ Die Auswertung erfolgt anonym im Browser und liefert sofort eine klare Einschät
 
     <div style="text-align:center; margin-top:2rem;">
       <button class="btn pulse-button" id="restart-button" style="display:none;" onclick="resetQuiz()">Schnell-Check erneut starten</button>
-<div style="text-align:center; margin-top:2rem;">
-<button class="btn pulse-button" id="restart-button" onclick="resetQuiz()" style="display:none;">Schnell-Check erneut starten</button>
 </div>
 </div>
 </section>
@@ -852,9 +850,18 @@ function resetQuiz() {
 
 
 
+
+
+
+
+
+
+
+
+
 <script>
 document.addEventListener("DOMContentLoaded", function () {
-  // Formularversand für Netlify ohne Reload
+  // Form-Verarbeitung für beide Formulare
   function handleForm(formName) {
     const form = document.querySelector(`form[name="${formName}"]`);
     if (form) {
@@ -882,18 +889,16 @@ document.addEventListener("DOMContentLoaded", function () {
   handleForm("foerderung-neu");
   handleForm("kontaktformular");
 
-  // Zeige Bewertungs-Button nach Schnellcheck-Ergebnis
-  const auswertungObserver = new MutationObserver(() => {
-    const auswertung = document.getElementById("popup-ergebnis");
-    const bewertungCopy = document.getElementById("bewertung-copy");
-    if (auswertung && auswertung.style.display !== "none" && bewertungCopy) {
-      bewertungCopy.style.display = "block";
-    }
-  });
-
-  const auswertungPopup = document.getElementById("popup-ergebnis");
-  if (auswertungPopup) {
-    auswertungObserver.observe(auswertungPopup, { attributes: true, childList: true, subtree: true });
+  // Optional: Zeige Button "Zum Kontakt inkl. Bewertung" wenn Auswertung da
+  const popup = document.getElementById("popup-ergebnis");
+  const button = document.getElementById("bewertung-copy");
+  if (popup && button) {
+    const observer = new MutationObserver(() => {
+      if (popup.style.display === "block") {
+        button.style.display = "block";
+      }
+    });
+    observer.observe(popup, { attributes: true, attributeFilter: ["style"] });
   }
 });
 
