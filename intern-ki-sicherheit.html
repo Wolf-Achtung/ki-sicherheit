@@ -674,7 +674,8 @@ Die Auswertung erfolgt anonym im Browser und liefert sofort eine klare Einschät
 </div>
 <div id="kontakt-popup" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:#000000cc; z-index:10000; text-align:center; padding-top:5%;"><div style="background:white; margin:0 auto; padding:2rem; max-width:600px; border-radius:12px; box-shadow:0 0 10px rgba(0,0,0,0.1); font-family:Inter,sans-serif;"><div class="section-content">
 <h2 style="margin-top: 4rem;">Kontakt &amp; Erstgespräch</h2>
-<form action="https://formsubmit.co/kontakt@ki-sicherheit.jetzt" method="POST"><input name="_template" type="hidden" value="box"/><input name="_captcha" type="hidden" value="false"/>
+<form name="kontaktformular" method="POST" data-netlify="true">
+<input type="hidden" name="form-name" value="kontaktformular"><input name="_template" type="hidden" value="box"/><input name="_captcha" type="hidden" value="false"/>
 <input name="_next" type="hidden" value="thankyou.html"/>
 <label for="bewertung">Ihre Bewertung</label>
 <textarea id="bewertung" name="Bewertung" rows="4">Wird automatisch aus dem Schnell-Check übernommen</textarea>
@@ -847,6 +848,9 @@ function resetQuiz() {
 
 
 
+
+
+
 <script>
 document.addEventListener("DOMContentLoaded", function () {
   // Bewertung vom Schnellcheck ins Kontaktformular übernehmen
@@ -884,16 +888,17 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // Kontaktformular mit formsubmit via fetch() + Popup
-  const kontaktForm = document.querySelector("form[action^='https://formsubmit.co']");
+  // Netlify-Formular (Kontakt) identisch behandeln
+  const kontaktForm = document.querySelector('form[name="kontaktformular"]');
   if (kontaktForm) {
     kontaktForm.addEventListener("submit", function (e) {
       e.preventDefault();
       const danke = document.getElementById("danke-popup");
       const formData = new FormData(kontaktForm);
-      fetch(kontaktForm.action, {
+      fetch("/", {
         method: "POST",
-        body: formData
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(formData).toString()
       }).then(() => {
         if (danke) {
           danke.style.display = "flex";
