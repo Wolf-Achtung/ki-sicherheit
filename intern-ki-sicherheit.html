@@ -672,15 +672,7 @@ Die Auswertung erfolgt anonym im Browser und liefert sofort eine klare Einschät
 <button class="btn" onclick="document.getElementById('bewertung-popup').style.display='none'">Schließen</button>
 </div>
 </div>
-<script>
-if (window.location.pathname.includes("thankyou.html")) {
-  const danke = document.getElementById("danke-popup");
-  if (danke) {
-    danke.style.display = "block";
-    history.replaceState(null, "", "/");
-  }
-}
-</script><div id="kontakt-popup" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:#000000cc; z-index:10000; text-align:center; padding-top:5%;"><div style="background:white; margin:0 auto; padding:2rem; max-width:600px; border-radius:12px; box-shadow:0 0 10px rgba(0,0,0,0.1); font-family:Inter,sans-serif;"><div class="section-content">
+<div id="kontakt-popup" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:#000000cc; z-index:10000; text-align:center; padding-top:5%;"><div style="background:white; margin:0 auto; padding:2rem; max-width:600px; border-radius:12px; box-shadow:0 0 10px rgba(0,0,0,0.1); font-family:Inter,sans-serif;"><div class="section-content">
 <h2 style="margin-top: 4rem;">Kontakt &amp; Erstgespräch</h2>
 <form action="https://formsubmit.co/kontakt@ki-sicherheit.jetzt" method="POST"><input name="_template" type="hidden" value="box"/><input name="_captcha" type="hidden" value="false"/>
 <input name="_next" type="hidden" value="thankyou.html"/>
@@ -851,6 +843,33 @@ function resetQuiz() {
 
 
 
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const form = document.querySelector("form[name='foerderung-neu']");
+  if (form) {
+    form.addEventListener("submit", function (event) {
+      event.preventDefault();
+      const dankePopup = document.getElementById("danke-popup");
+      const formData = new FormData(form);
+
+      fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(formData).toString()
+      }).then(() => {
+        if (dankePopup) {
+          dankePopup.style.display = "block";
+          setTimeout(() => {
+            dankePopup.style.display = "none";
+          }, 2000);
+        }
+        form.reset();
+      }).catch(error => alert("Fehler beim Senden: " + error));
+    });
+  }
+});
+</script>
 </body>
 <!-- KONTAKT & ERSTGESPRÄCH -->
 <section class="scroll-section" id="kontakt" style="display:none;">
