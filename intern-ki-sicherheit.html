@@ -563,7 +563,7 @@ Die Auswertung erfolgt anonym im Browser und liefert sofort eine klare Einschät
 
 <form name="foerderung" method="POST" data-netlify="true">
   <input type="hidden" name="form-name" value="foerderung" />
-  <input type="hidden" name="redirect" value="/thankyou.html" />
+  
 
   <label for="name">Ihr Name</label>
   <input id="name" name="name" required type="text" />
@@ -928,6 +928,19 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   }
 });
+  });
+</script>
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const params = new URLSearchParams(window.location.search);
+    if (params.get("success") === "true") {
+      const popup = document.getElementById("danke-popup");
+      if (popup) {
+        popup.style.display = "block";
+      }
+    }
   });
 </script>
 
