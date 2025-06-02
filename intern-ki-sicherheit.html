@@ -686,6 +686,7 @@ Die Auswertung erfolgt anonym im Browser und liefert sofort eine klare Einschät
 <select id="branche-kontakt" name="industry" required="">
 <option disabled="" selected="" value="">Bitte auswählen</option>
 <option>Industrie</option>
+<option>Medien</option>
 <option>Gesundheitswesen</option>
 <option>Bildung</option>
 <option>Verwaltung</option>
@@ -844,32 +845,46 @@ function resetQuiz() {
 
 
 
+
+
 <script>
 document.addEventListener("DOMContentLoaded", function () {
-  const form = document.querySelector("form[name='foerderung-neu']");
-  if (form) {
-    form.addEventListener("submit", function (event) {
-      event.preventDefault();
-      const dankePopup = document.getElementById("danke-popup");
-      const formData = new FormData(form);
+  // Bewertung vom Schnellcheck ins Kontaktformular übernehmen
+  const bewertungsfeld = document.getElementById("kontakt-bewertung");
+  const öffner = document.querySelector('[data-open="kontakt"]');
+  if (öffner && bewertungsfeld) {
+    öffner.addEventListener("click", function () {
+      const popupErgebnis = document.querySelector("#popup-ergebnis strong");
+      if (popupErgebnis) {
+        bewertungsfeld.value = popupErgebnis.innerText.trim();
+      }
+    });
+  }
 
-      fetch("/", {
+  // FormSubmit-Formular via fetch senden + Dankepopup anzeigen
+  const kontaktForm = document.querySelector("form[action^='https://formsubmit.co']");
+  if (kontaktForm) {
+    kontaktForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+      const danke = document.getElementById("danke-popup");
+      const formData = new FormData(kontaktForm);
+      fetch(kontaktForm.action, {
         method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams(formData).toString()
+        body: formData
       }).then(() => {
-        if (dankePopup) {
-          dankePopup.style.display = "block";
+        if (danke) {
+          danke.style.display = "flex";
           setTimeout(() => {
-            dankePopup.style.display = "none";
+            danke.style.display = "none";
           }, 2000);
         }
-        form.reset();
-      }).catch(error => alert("Fehler beim Senden: " + error));
+        kontaktForm.reset();
+      }).catch(err => alert("Fehler beim Absenden."));
     });
   }
 });
 </script>
+
 </body>
 <!-- KONTAKT & ERSTGESPRÄCH -->
 <section class="scroll-section" id="kontakt" style="display:none;">
@@ -905,11 +920,11 @@ document.addEventListener("DOMContentLoaded", function () {
 <div style="flex: 1 1 300px; min-width: 280px;">
 <h3>Datenschutzerklärung</h3>
 <p style="margin: 0.25rem 0;"><strong>Der Schutz Ihrer persönlichen Daten ist mir ein besonderes Anliegen.</strong></p>
-<h4 style="margin-top: 1rem;">1. Kontakt mit mir</h4>
+<h4 style="margin-top: 1rem;">Kontakt mit mir</h4>
 <p style="margin: 0.25rem 0;">Wenn Sie per Formular oder E-Mail Kontakt aufnehmen, werden Ihre Angaben zur Bearbeitung sechs Monate gespeichert.</p>
-<h4 style="margin-top: 1rem;">2. Cookies</h4>
+<h4 style="margin-top: 1rem;">Cookies</h4>
 <p style="margin: 0.25rem 0;">Diese Website verwendet keine Cookies zur Nutzerverfolgung oder Analyse.</p>
-<h4 style="margin-top: 1rem;">3. Ihre Rechte laut DSGVO</h4>
+<h4 style="margin-top: 1rem;">Ihre Rechte laut DSGVO</h4>
 <ul style="margin: 0.5rem 0 0 1rem; padding-left: 1rem;">
 <li>Auskunft, Berichtigung oder Löschung Ihrer Daten</li>
 <li>Datenübertragbarkeit</li>
