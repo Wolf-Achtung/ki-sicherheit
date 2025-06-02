@@ -590,6 +590,10 @@ Die Auswertung erfolgt anonym im Browser und liefert sofort eine klare Einschät
   <option>noch unklar</option>
 </select>
 </label>
+
+<label>Projektidee<br/>
+<textarea name="Projektidee" rows="3" style="width:100%; padding:0.5rem; margin-bottom:1rem;" placeholder="Kurze Beschreibung Ihres KI-Vorhabens"></textarea>
+</label>
 <label>Ihre E-Mail-Adresse<br/>
 <input name="email" required style="width:100%; padding:0.5rem; margin-bottom:1rem;" type="email"/>
 </label>
@@ -899,27 +903,26 @@ document.addEventListener("DOMContentLoaded", function() {
 
 <script>
   document.addEventListener("DOMContentLoaded", function () {
-    const form = document.querySelector('form[name="foerderung"]');
-    if (form) {
-      form.addEventListener("submit", function (e) {
-        e.preventDefault();
-        fetch("/", {
-          method: "POST",
-          headers: { "Content-Type": "application/x-www-form-urlencoded" },
-          body: new URLSearchParams(new FormData(form)).toString()
-        })
-        .then(() => {
-          const popup = document.getElementById("popup-danke");
-          if (popup) {
-            popup.style.display = "block";
-          } else {
-            alert("Vielen Dank! Ihre Anfrage wurde gesendet.");
-          }
-          form.reset();
-        })
-        .catch(error => alert("Fehler beim Senden: " + error));
-      });
-    }
+  const form = document.querySelector('form[name="foerderung"]');
+  if (form) {
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(new FormData(form)).toString()
+      })
+      .then(() => {
+        const popup = document.getElementById("danke-popup");
+        if (popup) {
+          popup.style.display = "block";
+        }
+        form.reset();
+      })
+      .catch(error => alert("Fehler beim Senden: " + error));
+    });
+  }
+});
   });
 </script>
 
