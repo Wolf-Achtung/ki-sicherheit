@@ -566,13 +566,13 @@ Die Auswertung erfolgt anonym im Browser und liefert sofort eine klare Einschät
   <input type="hidden" name="redirect" value="/thankyou.html" />
 
   <label for="name">Ihr Name</label>
-  <input id="name" name="Ihr Name" required type="text" />
+  <input id="name" name="name" required type="text" />
 
   <label for="company">Unternehmen</label>
-  <input id="company" name="Unternehmen" required type="text" />
+  <input id="company" name="company" required type="text" />
 
   <label for="branche">Branche</label>
-  <select id="branche" name="Branche" required>
+  <select id="branche" name="industry" required>
     <option disabled selected value="">Bitte auswählen</option>
     <option>Industrie</option>
     <option>Medien</option>
@@ -585,7 +585,7 @@ Die Auswertung erfolgt anonym im Browser und liefert sofort eine klare Einschät
   </select>
 
   <label for="massnahme">Geplante Maßnahme</label>
-  <select id="massnahme" name="Geplante Maßnahme" required>
+  <select id="massnahme" name="plan" required>
     <option disabled selected value="">Bitte auswählen</option>
     <option>Beratung / Strategie</option>
     <option>Risikoanalyse</option>
@@ -596,14 +596,14 @@ Die Auswertung erfolgt anonym im Browser und liefert sofort eine klare Einschät
   </select>
 
   <label for="projektidee">Projektidee</label>
-  <textarea id="projektidee" name="Projektidee" rows="3" placeholder="Kurze Beschreibung Ihres KI-Vorhabens"></textarea>
+  <textarea id="projektidee" name="project" rows="3" placeholder="Kurze Beschreibung Ihres KI-Vorhabens"></textarea>
 
   <label for="email">Ihre E-Mail</label>
-  <input id="email" name="Ihre E-Mail" required type="email" />
+  <input id="email" name="email" required type="email" />
 
   <p style="font-size: 0.9rem; color: #333;">
     <label>
-      <input name="Datenschutz akzeptiert" required type="checkbox" />
+      <input name="privacy" required type="checkbox" />
       Ich habe die <a href="javascript:void(0)" onclick="toggleDatenschutzPopup()">Datenschutzerklärung</a> gelesen und akzeptiert.
     </label>
   </p>
@@ -687,11 +687,11 @@ if (window.location.pathname.includes("thankyou.html")) {
 <label for="bewertung">Ihre Bewertung</label>
 <textarea id="bewertung" name="Bewertung" rows="4">Wird automatisch aus dem Schnell-Check übernommen</textarea>
 <label for="name-kontakt">Ihr Name</label>
-<input id="name-kontakt" name="Ihr Name" required="" type="text"/>
+<input id="name-kontakt" name="name" required="" type="text"/>
 <label for="unternehmen-kontakt">Unternehmen</label>
-<input id="unternehmen-kontakt" name="Unternehmen" required="" type="text"/>
+<input id="unternehmen-kontakt" name="company" required="" type="text"/>
 <label for="branche-kontakt">Branche</label>
-<select id="branche-kontakt" name="Branche" required="">
+<select id="branche-kontakt" name="industry" required="">
 <option disabled="" selected="" value="">Bitte auswählen</option>
 <option>Industrie</option>
 <option>Gesundheitswesen</option>
