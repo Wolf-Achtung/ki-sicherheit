@@ -910,6 +910,27 @@ document.addEventListener("DOMContentLoaded", function () {
 }
 </script>
 
+
+<script>
+function bewertungInKontaktformularÜbernehmen() {
+  const auswertung = document.getElementById("auswertungstext");
+  const bewertung = document.getElementById("bewertung");
+  const popup = document.getElementById("kontakt-popup");
+
+  if (auswertung && bewertung) {
+    bewertung.value = auswertung.innerText.trim();
+  }
+
+  if (popup) {
+    popup.style.display = "block";
+  }
+}
+
+function schnellCheckNeuStarten() {
+  window.location.reload();
+}
+</script>
+
 </body>
 <!-- KONTAKT & ERSTGESPRÄCH -->
 <section class="scroll-section" id="kontakt" style="display:none;">
