@@ -561,16 +561,15 @@ Die Auswertung erfolgt anonym im Browser und liefert sofort eine klare Einschät
     Je nach Projektart und Unternehmensgröße sind Zuschüsse zwischen 5.000 € und über 100.000 € möglich. Ich prüfe für Sie, ob und welche Programme zu Ihrer Maßnahme passen.</p>
 <h2>Förderfähigkeit prüfen lassen</h2>
 
-<form name="foerderung" method="POST" data-netlify="true">
-  <input type="hidden" name="form-name" value="foerderung">
-  <input type="hidden" name="form-name" value="foerderung" />
+<form name="foerderung-neu" method="POST" data-netlify="true">
+  <input type="hidden" name="form-name" value="foerderung" / value="foerderung-neu">
   
 
   <label for="name">Ihr Name</label>
-  <input name="name" id="name" name="name" required type="text" />
+  <input id="name" name="name" required type="text" />
 
   <label for="company">Unternehmen</label>
-  <input name="company" id="company" name="company" required type="text" />
+  <input id="company" name="company" required type="text" />
 
   <label for="branche">Branche</label>
   <select id="branche" name="industry" required>
@@ -940,48 +939,6 @@ document.addEventListener("DOMContentLoaded", function() {
       const popup = document.getElementById("danke-popup");
       if (popup) {
         popup.style.display = "block";
-      }
-    }
-  });
-</script>
-
-
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const params = new URLSearchParams(window.location.search);
-    if (params.get("success") === "true") {
-      const popup = document.getElementById("danke-popup");
-      if (popup) {
-        popup.style.display = "flex";
-      }
-    }
-  });
-</script>
-
-
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const params = new URLSearchParams(window.location.search);
-    if (params.get("success") === "true") {
-      const popup = document.getElementById("danke-popup");
-      if (popup) {
-        popup.style.display = "flex";
-      }
-    }
-  });
-</script>
-
-
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const params = new URLSearchParams(window.location.search);
-    if (params.get("success") === "true") {
-      const popup = document.getElementById("danke-popup");
-      if (popup) {
-        popup.style.display = "flex";
-        setTimeout(() => {
-          popup.style.display = "none";
-        }, 2000);
       }
     }
   });
