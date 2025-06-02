@@ -561,7 +561,7 @@ Die Auswertung erfolgt anonym im Browser und liefert sofort eine klare Einschät
     Je nach Projektart und Unternehmensgröße sind Zuschüsse zwischen 5.000 € und über 100.000 € möglich. Ich prüfe für Sie, ob und welche Programme zu Ihrer Maßnahme passen.</p>
 <h2>Förderfähigkeit prüfen lassen</h2>
 
-<form name="foerderung-neu" method="POST" data-netlify="true"><input type="hidden" name="form-name" value="foerderung-neu">
+<form name="foerderung-neu" method="POST" data-netlify="true">
   <input type="hidden" name="form-name" value="foerderung" / value="foerderung-neu">
   
 
@@ -672,11 +672,17 @@ Die Auswertung erfolgt anonym im Browser und liefert sofort eine klare Einschät
 <button class="btn" onclick="document.getElementById('bewertung-popup').style.display='none'">Schließen</button>
 </div>
 </div>
-<div id="kontakt-popup" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:#000000cc; z-index:10000; text-align:center; padding-top:5%;"><div style="background:white; margin:0 auto; padding:2rem; max-width:600px; border-radius:12px; box-shadow:0 0 10px rgba(0,0,0,0.1); font-family:Inter,sans-serif;"><div class="section-content">
+<script>
+if (window.location.pathname.includes("thankyou.html")) {
+  const danke = document.getElementById("danke-popup");
+  if (danke) {
+    danke.style.display = "block";
+    history.replaceState(null, "", "/");
+  }
+}
+</script><div id="kontakt-popup" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:#000000cc; z-index:10000; text-align:center; padding-top:5%;"><div style="background:white; margin:0 auto; padding:2rem; max-width:600px; border-radius:12px; box-shadow:0 0 10px rgba(0,0,0,0.1); font-family:Inter,sans-serif;"><div class="section-content">
 <h2 style="margin-top: 4rem;">Kontakt &amp; Erstgespräch</h2>
-<form name="kontaktformular" method="POST" data-netlify="true">
-<input type="hidden" name="form-name" value="kontaktformular">
-<input type="hidden" name="form-name" value="kontaktformular"><input name="_template" type="hidden" value="box"/><input name="_captcha" type="hidden" value="false"/>
+<form action="https://formsubmit.co/kontakt@ki-sicherheit.jetzt" method="POST"><input name="_template" type="hidden" value="box"/><input name="_captcha" type="hidden" value="false"/>
 
 <label for="bewertung">Ihre Bewertung</label>
 <textarea id="bewertung" name="Bewertung" rows="4">Wird automatisch aus dem Schnell-Check übernommen</textarea>
@@ -688,7 +694,6 @@ Die Auswertung erfolgt anonym im Browser und liefert sofort eine klare Einschät
 <select id="branche-kontakt" name="industry" required="">
 <option disabled="" selected="" value="">Bitte auswählen</option>
 <option>Industrie</option>
-<option>Medien</option>
 <option>Gesundheitswesen</option>
 <option>Bildung</option>
 <option>Verwaltung</option>
@@ -847,19 +852,9 @@ function resetQuiz() {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
 <script>
 document.addEventListener("DOMContentLoaded", function () {
+  // Formularversand für Netlify ohne Reload
   function handleForm(formName) {
     const form = document.querySelector(`form[name="${formName}"]`);
     if (form) {
@@ -886,6 +881,20 @@ document.addEventListener("DOMContentLoaded", function () {
 
   handleForm("foerderung-neu");
   handleForm("kontaktformular");
+
+  // Zeige Bewertungs-Button nach Schnellcheck-Ergebnis
+  const auswertungObserver = new MutationObserver(() => {
+    const auswertung = document.getElementById("popup-ergebnis");
+    const bewertungCopy = document.getElementById("bewertung-copy");
+    if (auswertung && auswertung.style.display !== "none" && bewertungCopy) {
+      bewertungCopy.style.display = "block";
+    }
+  });
+
+  const auswertungPopup = document.getElementById("popup-ergebnis");
+  if (auswertungPopup) {
+    auswertungObserver.observe(auswertungPopup, { attributes: true, childList: true, subtree: true });
+  }
 });
 
 function bewertungInKontaktformularÜbernehmen() {
@@ -893,7 +902,7 @@ function bewertungInKontaktformularÜbernehmen() {
   const kontaktPopup = document.getElementById("kontakt-popup");
   const textarea = document.getElementById("bewertung");
 
-  if (textarea) {
+  if (textarea && bewertungsText) {
     textarea.value = bewertungsText.trim();
   }
 
@@ -938,11 +947,11 @@ function bewertungInKontaktformularÜbernehmen() {
 <div style="flex: 1 1 300px; min-width: 280px;">
 <h3>Datenschutzerklärung</h3>
 <p style="margin: 0.25rem 0;"><strong>Der Schutz Ihrer persönlichen Daten ist mir ein besonderes Anliegen.</strong></p>
-<h4 style="margin-top: 1rem;">Kontakt mit mir</h4>
+<h4 style="margin-top: 1rem;">1. Kontakt mit mir</h4>
 <p style="margin: 0.25rem 0;">Wenn Sie per Formular oder E-Mail Kontakt aufnehmen, werden Ihre Angaben zur Bearbeitung sechs Monate gespeichert.</p>
-<h4 style="margin-top: 1rem;">Cookies</h4>
+<h4 style="margin-top: 1rem;">2. Cookies</h4>
 <p style="margin: 0.25rem 0;">Diese Website verwendet keine Cookies zur Nutzerverfolgung oder Analyse.</p>
-<h4 style="margin-top: 1rem;">Ihre Rechte laut DSGVO</h4>
+<h4 style="margin-top: 1rem;">3. Ihre Rechte laut DSGVO</h4>
 <ul style="margin: 0.5rem 0 0 1rem; padding-left: 1rem;">
 <li>Auskunft, Berichtigung oder Löschung Ihrer Daten</li>
 <li>Datenübertragbarkeit</li>
