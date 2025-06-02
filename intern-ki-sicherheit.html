@@ -562,48 +562,52 @@ Die Auswertung erfolgt anonym im Browser und liefert sofort eine klare Einschät
 <h2>Förderfähigkeit prüfen lassen</h2>
 
 <form name="foerderung" method="POST" data-netlify="true">
-<input type="hidden" name="form-name" value="foerderung"/>
-<label for="name">Ihr Name</label>
-<input id="name" name="Ihr Name" required type="text"/>
-<label for="company">Unternehmen</label>
-<input id="company" name="Unternehmen" required type="text"/>
-<label for="branche">Branche</label>
-<select id="branche" name="Branche" required>
-  <option disabled selected value="">Bitte auswählen</option>
-  <option>Industrie</option>
-  <option>Medien</option>
-  <option>Gesundheitswesen</option>
-  <option>Bildung</option>
-  <option>Verwaltung</option>
-  <option>Handel</option>
-  <option>IT / Software</option>
-  <option>sonstige</option>
-</select>
-<label>Geplante Maßnahme<br/>
-<select name="Geplante Maßnahme" required style="width:100%; padding:0.5rem; margin-bottom:1rem;">
-  <option value="">Bitte auswählen</option>
-  <option>Beratung / Strategie</option>
-  <option>Risikoanalyse</option>
-  <option>Datenschutz / Compliance</option>
-  <option>KI-Tool-Integration</option>
-  <option>Mitarbeiterschulung / Change Management</option>
-  <option>noch unklar</option>
-</select>
-</label>
+  <input type="hidden" name="form-name" value="foerderung" />
 
-<label>Projektidee<br/>
-<textarea name="Projektidee" rows="3" style="width:100%; padding:0.5rem; margin-bottom:1rem;" placeholder="Kurze Beschreibung Ihres KI-Vorhabens"></textarea>
-</label>
-<label>Ihre E-Mail-Adresse<br/>
-<input name="E-Mail" required style="width:100%; padding:0.5rem; margin-bottom:1rem;" type="email"/>
-</label>
-<p style="font-size: 0.9rem; color: #333;">
-<label>
-<input name="Datenschutz akzeptiert" required type="checkbox"/>
-  Ich habe die <a href="javascript:void(0)" onclick="toggleDatenschutzPopup()">Datenschutzerklärung</a> gelesen und akzeptiert.
-</label>
-</p>
-<button class="btn" type="submit">Jetzt prüfen lassen</button>
+  <label for="name">Ihr Name</label>
+  <input id="name" name="Ihr Name" required type="text" />
+
+  <label for="company">Unternehmen</label>
+  <input id="company" name="Unternehmen" required type="text" />
+
+  <label for="branche">Branche</label>
+  <select id="branche" name="Branche" required>
+    <option disabled selected value="">Bitte auswählen</option>
+    <option>Industrie</option>
+    <option>Medien</option>
+    <option>Gesundheitswesen</option>
+    <option>Bildung</option>
+    <option>Verwaltung</option>
+    <option>Handel</option>
+    <option>IT / Software</option>
+    <option>Sonstige</option>
+  </select>
+
+  <label for="massnahme">Geplante Maßnahme</label>
+  <select id="massnahme" name="Geplante Maßnahme" required>
+    <option disabled selected value="">Bitte auswählen</option>
+    <option>Beratung / Strategie</option>
+    <option>Risikoanalyse</option>
+    <option>Datenschutz / Compliance</option>
+    <option>KI-Tool-Integration</option>
+    <option>Mitarbeiterschulung / Change Management</option>
+    <option>noch unklar</option>
+  </select>
+
+  <label for="projektidee">Projektidee</label>
+  <textarea id="projektidee" name="Projektidee" rows="3" placeholder="Kurze Beschreibung Ihres KI-Vorhabens"></textarea>
+
+  <label for="email">Ihre E-Mail</label>
+  <input id="email" name="Ihre E-Mail" required type="email" />
+
+  <p style="font-size: 0.9rem; color: #333;">
+    <label>
+      <input name="Datenschutz akzeptiert" required type="checkbox" />
+      Ich habe die <a href="javascript:void(0)" onclick="toggleDatenschutzPopup()">Datenschutzerklärung</a> gelesen und akzeptiert.
+    </label>
+  </p>
+
+  <button class="btn" type="submit">Jetzt prüfen lassen</button>
 </form>
 
 <!-- SCHNELL-CHECK & EMPFEHLUNG -->
