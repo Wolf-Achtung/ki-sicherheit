@@ -902,14 +902,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
-function bewertungInKontaktformularÜbernehmen() {
-  const bewertungsText = document.getElementById("auswertungstext")?.innerText || "Keine Bewertung verfügbar.";
-  const kontaktPopup = document.getElementById("kontakt-popup");
-  const textarea = document.getElementById("bewertung");
 
-  if (textarea && bewertungsText) {
-    textarea.value = bewertungsText.trim();
-  }
 
   if (kontaktPopup) {
     kontaktPopup.style.display = "block";
