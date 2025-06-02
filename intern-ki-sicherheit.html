@@ -675,6 +675,7 @@ Die Auswertung erfolgt anonym im Browser und liefert sofort eine klare Einschät
 <div id="kontakt-popup" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:#000000cc; z-index:10000; text-align:center; padding-top:5%;"><div style="background:white; margin:0 auto; padding:2rem; max-width:600px; border-radius:12px; box-shadow:0 0 10px rgba(0,0,0,0.1); font-family:Inter,sans-serif;"><div class="section-content">
 <h2 style="margin-top: 4rem;">Kontakt &amp; Erstgespräch</h2>
 <form name="kontaktformular" method="POST" data-netlify="true">
+<input type="hidden" name="form-name" value="kontaktformular">
 <input type="hidden" name="form-name" value="kontaktformular"><input name="_template" type="hidden" value="box"/><input name="_captcha" type="hidden" value="false"/>
 <input name="_next" type="hidden" value="thankyou.html"/>
 <label for="bewertung">Ihre Bewertung</label>
@@ -851,65 +852,49 @@ function resetQuiz() {
 
 
 
+
+
+
 <script>
 document.addEventListener("DOMContentLoaded", function () {
-  // Bewertung vom Schnellcheck ins Kontaktformular übernehmen
+  // Bewertung ins Kontaktformular übernehmen
   const bewertungsfeld = document.getElementById("kontakt-bewertung");
   const öffner = document.querySelector('[data-open="kontakt"]');
   if (öffner && bewertungsfeld) {
     öffner.addEventListener("click", function () {
       const popupErgebnis = document.querySelector("#popup-ergebnis strong");
       if (popupErgebnis) {
-        bewertungsfeld.value = popupErgebnis.innerText.trim();
+        bewertungsfeld.value = popupErgebnis.textContent.trim();
       }
     });
   }
 
-  // Netlify-Formular (Förderung) Popup statt Redirect
-  const foerderForm = document.querySelector('form[name="foerderung-neu"]');
-  if (foerderForm) {
-    foerderForm.addEventListener("submit", function (e) {
-      e.preventDefault();
-      const danke = document.getElementById("danke-popup");
-      const formData = new FormData(foerderForm);
-      fetch("/", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams(formData).toString()
-      }).then(() => {
-        if (danke) {
-          danke.style.display = "flex";
-          setTimeout(() => {
-            danke.style.display = "none";
-          }, 2000);
-        }
-        foerderForm.reset();
-      }).catch(err => alert("Fehler beim Absenden."));
-    });
+  function handleForm(formName) {
+    const form = document.querySelector(`form[name="${formName}"]`);
+    if (form) {
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        const danke = document.getElementById("danke-popup");
+        const formData = new FormData(form);
+        fetch("/", {
+          method: "POST",
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: new URLSearchParams(formData).toString()
+        }).then(() => {
+          if (danke) {
+            danke.style.display = "flex";
+            setTimeout(() => {
+              danke.style.display = "none";
+            }, 2000);
+          }
+          form.reset();
+        }).catch(err => alert("Fehler beim Absenden: " + err));
+      });
+    }
   }
 
-  // Netlify-Formular (Kontakt) identisch behandeln
-  const kontaktForm = document.querySelector('form[name="kontaktformular"]');
-  if (kontaktForm) {
-    kontaktForm.addEventListener("submit", function (e) {
-      e.preventDefault();
-      const danke = document.getElementById("danke-popup");
-      const formData = new FormData(kontaktForm);
-      fetch("/", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams(formData).toString()
-      }).then(() => {
-        if (danke) {
-          danke.style.display = "flex";
-          setTimeout(() => {
-            danke.style.display = "none";
-          }, 2000);
-        }
-        kontaktForm.reset();
-      }).catch(err => alert("Fehler beim Absenden."));
-    });
-  }
+  handleForm("foerderung-neu");
+  handleForm("kontaktformular");
 });
 </script>
 
