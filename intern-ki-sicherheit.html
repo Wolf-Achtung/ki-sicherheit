@@ -578,17 +578,43 @@ Die Auswertung erfolgt anonym im Browser und liefert sofort eine klare Einschät
 <label for="projektidee">Projektidee</label>
 <textarea id="projektidee" name="project" placeholder="Kurze Beschreibung Ihres KI-Vorhabens" rows="3"></textarea>
 <label for="email">Ihre E-Mail</label>
-<input id="email" name="email" required="" type="email"/>
+<input id="email" name="email" required="" type="email">
 <p style="font-size: 0.9rem; color: #333;">
 <label>
-<input name="privacy" required="" type="checkbox"/>
+<input name="privacy" required="" type="checkbox">
       Ich habe die <a href="javascript:void(0)" onclick="toggleDatenschutzPopup()">Datenschutzerklärung</a> gelesen und akzeptiert.
-    </label>
+    </input></label>
 </p>
 <button class="btn" type="submit">Jetzt prüfen lassen</button>
-</form>
+</input></form>
 <!-- SCHNELL-CHECK & EMPFEHLUNG -->
 </div></section>
+<section class="py-16 px-6 bg-white" id="kontakt">
+<div class="max-w-3xl mx-auto">
+<h2 class="text-3xl font-bold mb-6">Kontakt &amp; Erstgespräch</h2>
+<form data-netlify="true" data-netlify-honeypot="bot-field" method="POST" name="kontaktformular-neu" onsubmit="event.preventDefault(); document.getElementById('danke-popup').classList.remove('hidden'); setTimeout(() =&gt; { document.getElementById('danke-popup').classList.add('hidden'); }, 2000); this.submit();">
+<input name="form-name" type="hidden" value="kontaktformular-neu"/>
+<div class="mb-4">
+<label class="block font-semibold mb-1">Ihr Name</label>
+<input class="w-full border border-gray-300 p-2 rounded" name="name" required="" type="text"/>
+</div>
+<div class="mb-4">
+<label class="block font-semibold mb-1">Ihre Bewertung</label>
+<input class="w-full border border-gray-300 p-2 rounded" id="kontakt-bewertung" name="bewertung" placeholder="Wird automatisch aus dem Schnell-Check übernommen" readonly="" type="text"/>
+</div>
+<div class="mb-4">
+<label class="block font-semibold mb-1">Ihre Nachricht</label>
+<textarea class="w-full border border-gray-300 p-2 rounded" name="nachricht" required=""></textarea>
+</div>
+<div class="mb-4">
+<label class="block font-semibold mb-1">Ihre E-Mail</label>
+<input class="w-full border border-gray-300 p-2 rounded" name="email" required="" type="email"/>
+</div>
+<button class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700" type="submit">Nachricht senden</button>
+</form>
+</div>
+</section>
+
 <!-- LEISTUNGEN & LÖSUNGEN -->
 <!-- PROFIL & MOTIVATION -->
 <section class="scroll-section" id="profil">
@@ -885,7 +911,25 @@ function schnellCheckNeuStarten() {
   window.location.reload();
 }
 </script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  function handleFormSubmit(formId, popupId) {
+    const form = document.querySelector(`form[name="${formId}"]`);
+    const popup = document.getElementById(popupId);
+    if (!form || !popup) return;
 
+    form.addEventListener("submit", function () {
+      popup.style.display = "flex";
+      setTimeout(() => {
+        popup.style.display = "none";
+      }, 2000);
+    });
+  }
+
+  handleFormIntercept("kontaktformular-neu", "danke-popup");
+  handleFormIntercept("foerderung-neu", "danke-popup");
+});
+</script>
 <script>
 function handleFormIntercept(formId, popupId) {
   const form = document.querySelector(`form[name="${formId}"]`);
@@ -913,64 +957,7 @@ function handleFormIntercept(formId, popupId) {
   });
 }
 </script>
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  const kontaktForm = document.forms["kontaktformular"];
-  const kontaktPopup = document.getElementById("danke-popup");
-
-  if (kontaktForm) {
-    kontaktForm.addEventListener("submit", function (event) {
-      event.preventDefault();
-
-      const formData = new FormData(kontaktForm);
-      fetch("/", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams(formData).toString(),
-      })
-      .then(() => {
-        kontaktPopup.classList.remove("hidden");
-        setTimeout(() => {
-          kontaktPopup.classList.add("hidden");
-        }, 2000);
-        kontaktForm.reset();
-      })
-      .catch((error) => console.error(error));
-    });
-  }
-});
-</script><script>
-document.addEventListener("DOMContentLoaded", function () {
-  const forms = ["foerderung-neu", "kontaktformular-neu"];
-  forms.forEach(formName => {
-    const form = document.forms[formName];
-    if (!form) return;
-
-    form.addEventListener("submit", function (e) {
-      e.preventDefault();
-
-      const formData = new FormData(form);
-      const action = form.getAttribute("action") || "/";
-      const popup = document.getElementById("danke-popup");
-
-      fetch("/", {
-        method: "POST",
-        body: formData,
-        headers: { "Content-Type": "application/x-www-form-urlencoded" }
-      }).then(() => {
-        if (popup) {
-          popup.classList.remove("hidden");
-          setTimeout(() => popup.classList.add("hidden"), 2000);
-        }
-        form.reset();
-        if (formName === "kontaktformular-neu") {
-          document.getElementById("kontakt-popup").classList.add("hidden");
-        }
-      }).catch(err => console.error("Form error:", err));
-    });
-  });
-});
-</script></body>
+</body>
 <!-- KONTAKT & ERSTGESPRÄCH -->
 <section class="scroll-section" id="kontakt" style="display:none;">
 <div class="section-img">
