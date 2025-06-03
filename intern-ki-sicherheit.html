@@ -439,7 +439,6 @@ textarea:focus {
 </div>
 </div>
 </section>
-
 <section class="scroll-section" id="schnell-check">
 <div class="section-img">
 <img alt="Status erfassen, Risiken vermeiden" src="img/04.png"/>
@@ -494,40 +493,32 @@ Die Auswertung erfolgt anonym im Browser und liefert sofort eine klare Einschät
 <button onclick="nextFrage(7, 'niemand')">niemand konkretes</button>
 </div>
 </div>
-
 <div id="auswertungsblock" style="display:none; margin-top: 3rem;">
-      <h3></h3>
-      <div class="balken"><div id="balken-governance" class=""></div></div>
-      <p id="text-governance"></p>
-
-      <h3></h3>
-      <div class="balken"><div id="balken-doku" class=""></div></div>
-      <p id="text-doku"></p>
-
-      <h3></h3>
-      <div class="balken"><div id="balken-verantwortung" class=""></div></div>
-      <p id="text-verantwortung"></p>
-
-      <h3></h3>
-      <div class="balken"><div id="balken-kommunikation" class=""></div></div>
-      <p id="text-kommunikation"></p>
-
-      <h3></h3>
-      <div class="balken"><div id="balken-datenschutz" class=""></div></div>
-      <p id="text-datenschutz"></p>
-    </div>
-
-    <div id="auswertung" style="display:none; margin-top:2rem;">
-      <h3>Empfehlung & Bewertung</h3>
-      <div id="auswertungstext"></div>
-    </div>
-
-    <div style="text-align:center; margin-top:2rem;">
-      <button class="btn pulse-button" id="restart-button" style="display:none;" onclick="resetQuiz()">Schnell-Check erneut starten</button>
+<h3></h3>
+<div class="balken"><div class="" id="balken-governance"></div></div>
+<p id="text-governance"></p>
+<h3></h3>
+<div class="balken"><div class="" id="balken-doku"></div></div>
+<p id="text-doku"></p>
+<h3></h3>
+<div class="balken"><div class="" id="balken-verantwortung"></div></div>
+<p id="text-verantwortung"></p>
+<h3></h3>
+<div class="balken"><div class="" id="balken-kommunikation"></div></div>
+<p id="text-kommunikation"></p>
+<h3></h3>
+<div class="balken"><div class="" id="balken-datenschutz"></div></div>
+<p id="text-datenschutz"></p>
+</div>
+<div id="auswertung" style="display:none; margin-top:2rem;">
+<h3>Empfehlung &amp; Bewertung</h3>
+<div id="auswertungstext"></div>
+</div>
+<div style="text-align:center; margin-top:2rem;">
+<button class="btn pulse-button" id="restart-button" onclick="resetQuiz()" style="display:none;">Schnell-Check erneut starten</button>
 </div>
 </div>
 </section>
-
 <section class="scroll-section" id="leistungen">
 <div class="section-img">
 <img alt="Lösungen, die sich rechnen" src="img/03.png"/>
@@ -547,7 +538,6 @@ Die Auswertung erfolgt anonym im Browser und liefert sofort eine klare Einschät
 <a class="btn" href="#foerderung" style="margin-right 1rem;: text-decoration: none;">Förderfähigkeit prüfen</a>
 </div>
 </section>
-
 <section class="scroll-section" id="foerderung">
 <div class="section-img">
 <img alt="Fördermittel gezielt nutzen" src="img/09.png"/>
@@ -558,61 +548,48 @@ Die Auswertung erfolgt anonym im Browser und liefert sofort eine klare Einschät
 <p><strong>Nutzen Sie bestehende Fördermittel für Ihre KI-Vorhaben.</strong><br/>
     Je nach Projektart und Unternehmensgröße sind Zuschüsse zwischen 5.000 € und über 100.000 € möglich. Ich prüfe für Sie, ob und welche Programme zu Ihrer Maßnahme passen.</p>
 <h2>Förderfähigkeit prüfen lassen</h2>
+<form data-netlify="true" method="POST" name="foerderung-neu"><input name="form-name" type="hidden" value="foerderung-neu"/>
 
-<form name="foerderung-neu" method="POST" data-netlify="true"><input type="hidden" name="form-name" value="foerderung-neu">
-  <input type="hidden" name="form-name" value="foerderung" / value="foerderung-neu">
-  
-
-  <label for="name">Ihr Name</label>
-  <input id="name" name="name" required type="text" />
-
-  <label for="company">Unternehmen</label>
-  <input id="company" name="company" required type="text" />
-
-  <label for="branche">Branche</label>
-  <select id="branche" name="industry" required>
-    <option disabled selected value="">Bitte auswählen</option>
-    <option>Industrie</option>
-    <option>Medien</option>
-    <option>Gesundheitswesen</option>
-    <option>Bildung</option>
-    <option>Verwaltung</option>
-    <option>Handel</option>
-    <option>IT / Software</option>
-    <option>Sonstige</option>
-  </select>
-
-  <label for="massnahme">Geplante Maßnahme</label>
-  <select id="massnahme" name="plan" required>
-    <option disabled selected value="">Bitte auswählen</option>
-    <option>Beratung / Strategie</option>
-    <option>Risikoanalyse</option>
-    <option>Datenschutz / Compliance</option>
-    <option>KI-Tool-Integration</option>
-    <option>Mitarbeiterschulung / Change Management</option>
-    <option>noch unklar</option>
-  </select>
-
-  <label for="projektidee">Projektidee</label>
-  <textarea id="projektidee" name="project" rows="3" placeholder="Kurze Beschreibung Ihres KI-Vorhabens"></textarea>
-
-  <label for="email">Ihre E-Mail</label>
-  <input id="email" name="email" required type="email" />
-
-  <p style="font-size: 0.9rem; color: #333;">
-    <label>
-      <input name="privacy" required type="checkbox" />
+<label for="name">Ihr Name</label>
+<input id="name" name="name" required="" type="text">
+<label for="company">Unternehmen</label>
+<input id="company" name="company" required="" type="text">
+<label for="branche">Branche</label>
+<select id="branche" name="industry" required="">
+<option disabled="" selected="" value="">Bitte auswählen</option>
+<option>Industrie</option>
+<option>Medien</option>
+<option>Gesundheitswesen</option>
+<option>Bildung</option>
+<option>Verwaltung</option>
+<option>Handel</option>
+<option>IT / Software</option>
+<option>Sonstige</option>
+</select>
+<label for="massnahme">Geplante Maßnahme</label>
+<select id="massnahme" name="plan" required="">
+<option disabled="" selected="" value="">Bitte auswählen</option>
+<option>Beratung / Strategie</option>
+<option>Risikoanalyse</option>
+<option>Datenschutz / Compliance</option>
+<option>KI-Tool-Integration</option>
+<option>Mitarbeiterschulung / Change Management</option>
+<option>noch unklar</option>
+</select>
+<label for="projektidee">Projektidee</label>
+<textarea id="projektidee" name="project" placeholder="Kurze Beschreibung Ihres KI-Vorhabens" rows="3"></textarea>
+<label for="email">Ihre E-Mail</label>
+<input id="email" name="email" required="" type="email"/>
+<p style="font-size: 0.9rem; color: #333;">
+<label>
+<input name="privacy" required="" type="checkbox"/>
       Ich habe die <a href="javascript:void(0)" onclick="toggleDatenschutzPopup()">Datenschutzerklärung</a> gelesen und akzeptiert.
     </label>
-  </p>
-
-  <button class="btn" type="submit">Jetzt prüfen lassen</button>
-</form>
-
+</p>
+<button class="btn" type="submit">Jetzt prüfen lassen</button>
+</input></input></form>
 <!-- SCHNELL-CHECK & EMPFEHLUNG -->
 </div></section>
-
-
 <!-- LEISTUNGEN & LÖSUNGEN -->
 <!-- PROFIL & MOTIVATION -->
 <section class="scroll-section" id="profil">
@@ -652,7 +629,6 @@ Die Auswertung erfolgt anonym im Browser und liefert sofort eine klare Einschät
 </div>
 </section>
 <!-- FÖRDERUNG & FINANZIERUNG -->
-
 <!-- Danke-Popup -->
 <div id="danke-popup" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:#ffffffee; z-index:10000; text-align:center; padding-top:10%;">
 <div style="background:white; margin:0 auto; padding:2rem; max-width:480px; border-radius:12px; box-shadow:0 0 10px rgba(0,0,0,0.1); font-family:Inter,sans-serif;">
@@ -679,8 +655,7 @@ if (window.location.pathname.includes("thankyou.html")) {
 }
 </script><div id="kontakt-popup" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:#000000cc; z-index:10000; text-align:center; padding-top:5%;"><div style="background:white; margin:0 auto; padding:2rem; max-width:600px; border-radius:12px; box-shadow:0 0 10px rgba(0,0,0,0.1); font-family:Inter,sans-serif;"><div class="section-content">
 <h2 style="margin-top: 4rem;">Kontakt &amp; Erstgespräch</h2>
-<form name="kontaktformular" method="POST" data-netlify="true"><input name="_template" type="hidden" value="box"/><input name="_captcha" type="hidden" value="false"/>
-
+<form data-netlify="true" method="POST" name="kontaktformular-neu"><input name="form-name" type="hidden" value="kontaktformular-neu"/>
 <label for="bewertung">Ihr Anliegen</label>
 <textarea id="bewertung" name="Bewertung" rows="4"></textarea>
 <label for="name-kontakt">Ihr Name</label>
@@ -842,23 +817,6 @@ function resetQuiz() {
         }
     }
     </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <script>
 document.addEventListener("DOMContentLoaded", function () {
   // Form-Verarbeitung für beide Formulare
@@ -909,8 +867,6 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 }
 </script>
-
-
 <script>
 function bewertungInKontaktformularÜbernehmen() {
   const auswertung = document.getElementById("auswertungstext");
@@ -930,8 +886,6 @@ function schnellCheckNeuStarten() {
   window.location.reload();
 }
 </script>
-
-
 <script>
 document.addEventListener("DOMContentLoaded", function () {
   function handleFormSubmit(formId, popupId) {
@@ -939,28 +893,18 @@ document.addEventListener("DOMContentLoaded", function () {
     const popup = document.getElementById(popupId);
     if (!form || !popup) return;
 
-    form.addEventListener("submit", function (event) {
-      event.preventDefault();
-      const formData = new FormData(form);
-      fetch("/", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams(formData).toString()
-      }).then(() => {
-        popup.classList.remove("hidden");
-        setTimeout(() => {
-          popup.classList.add("hidden");
-          form.reset();
-        }, 2000);
-      }).catch(e => alert("Fehler beim Senden des Formulars."));
+    form.addEventListener("submit", function () {
+      popup.style.display = "flex";
+      setTimeout(() => {
+        popup.style.display = "none";
+      }, 2000);
     });
   }
 
-  handleFormSubmit("kontaktformular", "danke-popup");
+  handleFormSubmit("kontaktformular-neu", "danke-popup");
   handleFormSubmit("foerderung-neu", "danke-popup");
 });
 </script>
-
 </body>
 <!-- KONTAKT & ERSTGESPRÄCH -->
 <section class="scroll-section" id="kontakt" style="display:none;">
@@ -996,7 +940,7 @@ document.addEventListener("DOMContentLoaded", function () {
 <div style="flex: 1 1 300px; min-width: 280px;">
 <h3>Datenschutzerklärung</h3>
 <p style="margin: 0.25rem 0;">Der Schutz Ihrer persönlichen Daten ist mir ein besonderes Anliegen.</p>
-<h4 style="margin-top: 1rem;"Kontakt</h4>
+<h4 h4="" kontakt<="" style="margin-top: 1rem;">
 <p style="margin: 0.25rem 0;">Wenn Sie per Formular oder E-Mail Kontakt aufnehmen, werden Ihre Angaben zur Bearbeitung sechs Monate gespeichert.</p>
 <h4 style="margin-top: 1rem;">Cookies</h4>
 <p style="margin: 0.25rem 0;">Diese Website verwendet keine Cookies zur Nutzerverfolgung oder Analyse.</p>
@@ -1007,7 +951,7 @@ document.addEventListener("DOMContentLoaded", function () {
 <li>Widerruf erteilter Einwilligungen</li>
 <li>Beschwerde bei der Datenschutzbehörde</li>
 </ul>
-</div>
+</h4></div>
 </div>
 </div>
 </section>
