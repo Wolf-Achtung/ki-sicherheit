@@ -549,11 +549,10 @@ Die Auswertung erfolgt anonym im Browser und liefert sofort eine klare Einschät
     Je nach Projektart und Unternehmensgröße sind Zuschüsse zwischen 5.000 € und über 100.000 € möglich. Ich prüfe für Sie, ob und welche Programme zu Ihrer Maßnahme passen.</p>
 <h2>Förderfähigkeit prüfen lassen</h2>
 <form data-netlify="true" method="POST" name="foerderung-neu"><input name="form-name" type="hidden" value="foerderung-neu"/>
-
 <label for="name">Ihr Name</label>
-<input id="name" name="name" required="" type="text">
+<input id="name" name="name" required="" type="text"/>
 <label for="company">Unternehmen</label>
-<input id="company" name="company" required="" type="text">
+<input id="company" name="company" required="" type="text"/>
 <label for="branche">Branche</label>
 <select id="branche" name="industry" required="">
 <option disabled="" selected="" value="">Bitte auswählen</option>
@@ -579,15 +578,15 @@ Die Auswertung erfolgt anonym im Browser und liefert sofort eine klare Einschät
 <label for="projektidee">Projektidee</label>
 <textarea id="projektidee" name="project" placeholder="Kurze Beschreibung Ihres KI-Vorhabens" rows="3"></textarea>
 <label for="email">Ihre E-Mail</label>
-<input id="email" name="email" required="" type="email"/>
+<input id="email" name="email" required="" type="email">
 <p style="font-size: 0.9rem; color: #333;">
 <label>
-<input name="privacy" required="" type="checkbox"/>
+<input name="privacy" required="" type="checkbox">
       Ich habe die <a href="javascript:void(0)" onclick="toggleDatenschutzPopup()">Datenschutzerklärung</a> gelesen und akzeptiert.
-    </label>
+    </input></label>
 </p>
 <button class="btn" type="submit">Jetzt prüfen lassen</button>
-</input></input></form>
+</input></form>
 <!-- SCHNELL-CHECK & EMPFEHLUNG -->
 </div></section>
 <!-- LEISTUNGEN & LÖSUNGEN -->
@@ -932,7 +931,33 @@ function handleFormIntercept(formId, popupId) {
   });
 }
 </script>
-</body>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const kontaktForm = document.forms["kontaktformular"];
+  const kontaktPopup = document.getElementById("danke-popup");
+
+  if (kontaktForm) {
+    kontaktForm.addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      const formData = new FormData(kontaktForm);
+      fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(formData).toString(),
+      })
+      .then(() => {
+        kontaktPopup.classList.remove("hidden");
+        setTimeout(() => {
+          kontaktPopup.classList.add("hidden");
+        }, 2000);
+        kontaktForm.reset();
+      })
+      .catch((error) => console.error(error));
+    });
+  }
+});
+</script></body>
 <!-- KONTAKT & ERSTGESPRÄCH -->
 <section class="scroll-section" id="kontakt" style="display:none;">
 <div class="section-img">
