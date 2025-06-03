@@ -901,9 +901,36 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  handleFormSubmit("kontaktformular-neu", "danke-popup");
-  handleFormSubmit("foerderung-neu", "danke-popup");
+  handleFormIntercept("kontaktformular-neu", "danke-popup");
+  handleFormIntercept("foerderung-neu", "danke-popup");
 });
+</script>
+<script>
+function handleFormIntercept(formId, popupId) {
+  const form = document.querySelector(`form[name="${formId}"]`);
+  const popup = document.getElementById(popupId);
+
+  if (!form || !popup) return;
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    const formData = new FormData(form);
+
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams(formData).toString(),
+    })
+      .then(() => {
+        popup.style.display = "block";
+        setTimeout(() => {
+          popup.style.display = "none";
+        }, 2000);
+        form.reset();
+      })
+      .catch((error) => alert("Fehler beim Senden: " + error.message));
+  });
+}
 </script>
 </body>
 <!-- KONTAKT & ERSTGESPRÄCH -->
