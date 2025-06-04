@@ -445,52 +445,46 @@ textarea:focus {
 <p class="caption">Status erfassen, Risiken vermeiden</p>
 </div>
 <div class="section-content">
-<h2 class="typing">KI-Schnell-Check &amp; Empfehlung</h2>
-<p>Der Schnell-Check zeigt auf einen Blick, wie gut Ihr Unternehmen auf den KI-Einsatz vorbereitet ist – von Dokumentation über Verantwortung bis Datenschutz.
+<h2 class="typing">Kostenfreier KI-Risiko-Check</h2>
+<p>Wie sicher und regelkonform ist der KI-Einsatz in Ihrem Unternehmen? Mit diesem anonymen Schnell-Check erhalten Sie eine erste Einschätzung zu Risiken und Chancen – basierend auf EU AI Act & DSGVO.</p>
 
-Die Auswertung erfolgt anonym im Browser und liefert sofort eine klare Einschätzung mit konkretem Handlungsbedarf. Ideal als erste Standortbestimmung.</p>
+Die Auswertung erfolgt anonym im Browser, keine Anmeldung nötig.</p>
 <div id="quiz">
 <div class="frage" id="frage1">
-<h3>1. Wie setzen Sie KI aktuell ein?</h3>
-<button onclick="nextFrage(1, 'aktiv')">Wir nutzen KI bereits.</button>
-<button onclick="nextFrage(1, 'basic')">Wir testen erste Tools.</button>
-<button onclick="nextFrage(1, 'unsicher')">Bisher noch nicht.</button>
-</div>
-<div class="frage" id="frage2" style="display: none;">
-<h3>2. Wer verantwortet den Einsatz?</h3>
-<button onclick="nextFrage(2, 'chef')">die Geschäftsführung</button>
-<button onclick="nextFrage(2, 'it')">die IT-Abteilung</button>
-<button onclick="nextFrage(2, 'keiner')">niemand konkret</button>
-</div>
-<div class="frage" id="frage3" style="display: none;">
-<h3>3. Dokumentieren Sie Entscheidungen?</h3>
-<button onclick="nextFrage(3, 'ja')">wird klar dokumentiert</button>
-<button onclick="nextFrage(3, 'teilweise')">teilweise</button>
-<button onclick="nextFrage(3, 'nein')">noch gar nicht</button>
-</div>
-<div class="frage" id="frage4" style="display: none;">
-<h3>4. Wie steht es um Ihren Datenschutz?</h3>
-<button onclick="nextFrage(4, 'vorreiter')">Wir sind Vorreiter.</button>
-<button onclick="nextFrage(4, 'orientierung')">Wir orientieren uns.</button>
-<button onclick="nextFrage(4, 'risikozone')">noch nicht integriert</button>
-</div>
-<div class="frage" id="frage5" style="display: none;">
-<h3>5. Könnte Ihr Unternehmen aktuell gegen den EU AI Act verstossen?</h3>
-<button onclick="nextFrage(5, 'bewusst')">vermutlich nicht</button>
-<button onclick="nextFrage(5, 'vage')">vielleicht in Teilen</button>
-<button onclick="nextFrage(5, 'ahnungslos')">keine Ahnung</button>
-</div>
-<div class="frage" id="frage6" style="display: none;">
-<h3>6. Wie gehen Sie mit Fehlern im System (auch KI) um?</h3>
-<button onclick="nextFrage(6, 'dokumentiert')">Wir dokumentieren das.</button>
-<button onclick="nextFrage(6, 'situativ')">Wir reagieren situativ.</button>
-<button onclick="nextFrage(6, 'ignoriert')">Wir haben dazu nichts geregelt.</button>
-</div>
-<div class="frage" id="frage7" style="display: none;">
-<h3>7. Wer prüft in Ihrem Unternehmen neue KI-Systeme und Tools?</h3>
-<button onclick="nextFrage(7, 'team')">ein internes Team</button>
-<button onclick="nextFrage(7, 'einzelperson')">eine verantwortliche Person</button>
-<button onclick="nextFrage(7, 'niemand')">niemand konkretes</button>
+<h3>1. Setzen Sie in Ihrem Unternehmen bereits KI ein?</h3>
+<button>Ja, regelmäßig</button>
+<button>Wir testen erste Tools</button>
+<button>Noch nicht</button>
+
+<h3>2. Gibt es eine benannte Verantwortung für den KI-Einsatz?</h3>
+<button>Ja, eindeutig geregelt</button>
+<button>Teilweise</button>
+<button>Nein</button>
+
+<h3>3. Wird dokumentiert, welche Tools Sie einsetzen und warum?</h3>
+<button>Ja, strukturiert</button>
+<button>Teilweise</button>
+<button>Gar nicht</button>
+
+<h3>4. Wissen Sie, ob Ihre Tools personenbezogene Daten verarbeiten?</h3>
+<button>Ja, und wir beachten das</button>
+<button>Unsicher</button>
+<button>Nein, das ist nicht geregelt</button>
+
+<h3>5. Sind Ihre Teams für den Umgang mit KI geschult?</h3>
+<button>Ja, mehrfach geschult</button>
+<button>Einzelne Personen</button>
+<button>Nein</button>
+
+<h3>6. Haben Sie sich schon mit dem EU AI Act beschäftigt?</h3>
+<button>Ja, intensiv</button>
+<button>Oberflächlich</button>
+<button>Noch gar nicht</button>
+
+<h3>7. Wie gehen Sie mit Fehlern in KI-Systemen um?</h3>
+<button>Wir dokumentieren sie</button>
+<button>Wir entscheiden situativ</button>
+<button>Es gibt keine Regelung</button>
 </div>
 </div>
 <div id="auswertungsblock" style="display:none; margin-top: 3rem;">
