@@ -445,52 +445,52 @@ textarea:focus {
 <p class="caption">Status erfassen, Risiken vermeiden</p>
 </div>
 <div class="section-content">
-<h2 class="typing">Kostenfreier KI-Risiko-Check &amp; Empfehlung</h2>
-<p>Wie sicher und regelkonform ist der KI-Einsatz in Ihrem Unternehmen? Mit diesem anonymen Schnell-Check erhalten Sie eine erste Einschätzung zu Risiken und Chancen – basierend auf EU AI Act & DSGVO.</p>
+<h2 class="typing">KI-Schnell-Check &amp; Empfehlung</h2>
+<p>Der Schnell-Check zeigt auf einen Blick, wie gut Ihr Unternehmen auf den KI-Einsatz vorbereitet ist – von Dokumentation über Verantwortung bis Datenschutz.
 
-<p>Die Auswertung erfolgt anonym im Browser, keine Anmeldung nötig.</p>
+Die Auswertung erfolgt anonym im Browser und liefert sofort eine klare Einschätzung mit konkretem Handlungsbedarf. Ideal als erste Standortbestimmung.</p>
 <div id="quiz">
 <div class="frage" id="frage1">
-<h3>1. Setzen Sie in Ihrem Unternehmen bereits KI ein?</h3>
-<button onclick="nextFrage(1, 'aktiv')">ja, regelmäßig</button>
-<button onclick="nextFrage(1, 'basic')">Wir testen erste Tools</button>
-<button onclick="nextFrage(1, 'unsicher')">noch nicht</button>
+<h3>1. Wie setzen Sie KI aktuell ein?</h3>
+<button onclick="nextFrage(1, 'aktiv')">Wir nutzen KI bereits.</button>
+<button onclick="nextFrage(1, 'basic')">Wir testen erste Tools.</button>
+<button onclick="nextFrage(1, 'unsicher')">Bisher noch nicht.</button>
 </div>
 <div class="frage" id="frage2" style="display: none;">
-<h3>2. Gibt es eine benannte Verantwortung für den KI-Einsatz?</h3>
-<button onclick="nextFrage(2, 'chef')">ja, eindeutig geregelt</button>
-<button onclick="nextFrage(2, 'it')">teilweise</button>
+<h3>2. Wer verantwortet den Einsatz?</h3>
+<button onclick="nextFrage(2, 'chef')">die Geschäftsführung</button>
+<button onclick="nextFrage(2, 'it')">die IT-Abteilung</button>
 <button onclick="nextFrage(2, 'keiner')">niemand konkret</button>
 </div>
 <div class="frage" id="frage3" style="display: none;">
-<h3>3. Wird dokumentiert, welche Tools Sie einsetzen und wozu?</h3>
+<h3>3. Dokumentieren Sie Entscheidungen?</h3>
 <button onclick="nextFrage(3, 'ja')">wird klar dokumentiert</button>
 <button onclick="nextFrage(3, 'teilweise')">teilweise</button>
-<button onclick="nextFrage(3, 'nein')">nein</button>
+<button onclick="nextFrage(3, 'nein')">noch gar nicht</button>
 </div>
 <div class="frage" id="frage4" style="display: none;">
-<h3>4. Wissen Sie, ob Ihre Tools personenbezogene Daten verarbeiten?</h3>
-<button onclick="nextFrage(4, 'vorreiter')">ja, wir beachten das</button>
-<button onclick="nextFrage(4, 'orientierung')">unsicher</button>
+<h3>4. Wie steht es um Ihren Datenschutz?</h3>
+<button onclick="nextFrage(4, 'vorreiter')">Wir sind Vorreiter.</button>
+<button onclick="nextFrage(4, 'orientierung')">Wir orientieren uns.</button>
 <button onclick="nextFrage(4, 'risikozone')">noch nicht integriert</button>
 </div>
 <div class="frage" id="frage5" style="display: none;">
-<h3>5. Sind Ihre Mitarbeiter:innen für den Umgang mit KI geschult?</h3>
-<button onclick="nextFrage(5, 'bewusst')">ja, geschult</button>
-<button onclick="nextFrage(5, 'vage')">einzelne Personen</button>
-<button onclick="nextFrage(5, 'ahnungslos')">nein</button>
+<h3>5. Könnte Ihr Unternehmen aktuell gegen den EU AI Act verstossen?</h3>
+<button onclick="nextFrage(5, 'bewusst')">vermutlich nicht</button>
+<button onclick="nextFrage(5, 'vage')">vielleicht in Teilen</button>
+<button onclick="nextFrage(5, 'ahnungslos')">keine Ahnung</button>
 </div>
 <div class="frage" id="frage6" style="display: none;">
-<h3>6. Haben Sie sich schon mit dem EU AI Act beschäftigt?</h3>
-<button onclick="nextFrage(6, 'dokumentiert')">ja</button>
-<button onclick="nextFrage(6, 'situativ')">oberflächlich</button>
-<button onclick="nextFrage(6, 'ignoriert')">nein</button>
+<h3>6. Wie gehen Sie mit Fehlern im System (auch KI) um?</h3>
+<button onclick="nextFrage(6, 'dokumentiert')">Wir dokumentieren das.</button>
+<button onclick="nextFrage(6, 'situativ')">Wir reagieren situativ.</button>
+<button onclick="nextFrage(6, 'ignoriert')">Wir haben dazu nichts geregelt.</button>
 </div>
 <div class="frage" id="frage7" style="display: none;">
-<h3>7. Wie gehen Sie mit Fehlern in KI-Systemen um?</h3>
-<button onclick="nextFrage(7, 'team')">wir dokumentieren</button>
-<button onclick="nextFrage(7, 'einzelperson')">wir entscheiden situativ</button>
-<button onclick="nextFrage(7, 'niemand')">es gibt keine Reglung</button>
+<h3>7. Wer prüft in Ihrem Unternehmen neue KI-Systeme und Tools?</h3>
+<button onclick="nextFrage(7, 'team')">ein internes Team</button>
+<button onclick="nextFrage(7, 'einzelperson')">eine verantwortliche Person</button>
+<button onclick="nextFrage(7, 'niemand')">niemand konkretes</button>
 </div>
 </div>
 <div id="auswertungsblock" style="display:none; margin-top: 3rem;">
@@ -578,18 +578,17 @@ textarea:focus {
 <label for="projektidee">Projektidee</label>
 <textarea id="projektidee" name="project" placeholder="Kurze Beschreibung Ihres KI-Vorhabens" rows="3"></textarea>
 <label for="email">Ihre E-Mail</label>
-<input id="email" name="email" required="" type="email">
+<input id="email" name="email" required="" type="email"/>
 <p style="font-size: 0.9rem; color: #333;">
 <label>
-<input name="privacy" required="" type="checkbox">
+<input name="privacy" required="" type="checkbox"/>
       Ich habe die <a href="javascript:void(0)" onclick="toggleDatenschutzPopup()">Datenschutzerklärung</a> gelesen und akzeptiert.
-    </input></label>
+    </label>
 </p>
 <button class="btn" type="submit">Jetzt prüfen lassen</button>
-</input></form>
+</form>
 <!-- SCHNELL-CHECK & EMPFEHLUNG -->
 </div></section>
-
 <!-- LEISTUNGEN & LÖSUNGEN -->
 <!-- PROFIL & MOTIVATION -->
 <section class="scroll-section" id="profil">
@@ -1285,7 +1284,7 @@ function handleFormInterceptKontakt(formId, popupId) {
 <p style="margin: 0.25rem 0;">Alle Inhalte dieser Website unterliegen dem deutschen Urheberrecht.</p>
 <h4 style="margin-top: 1rem;">Hinweis zum EU AI Act</h4>
 <p style="margin: 0.25rem 0;">Diese Website informiert über Pflichten und Empfehlungen zum EU AI Act. Die Inhalte stellen keine Rechtsberatung dar.</p>
-</div>
+</p></div>
 <div style="flex: 1 1 300px; min-width: 280px;">
 <h3>Datenschutzerklärung</h3>
 <p style="margin: 0.25rem 0;">Der Schutz Ihrer persönlichen Daten ist mir ein besonderes Anliegen.</p>
@@ -1543,47 +1542,7 @@ function handleFormInterceptKontakt(formId, popupId) {
 }
 
 </script>
- <script>
-    const buttons = document.querySelectorAll('#questions button');
-    let answers = [];
-    buttons.forEach((btn, index) => {
-      btn.addEventListener('click', () => {
-        const group = Math.floor(index / 3);
-        answers[group] = index % 3;
 
-        if (answers.filter(a => a !== undefined).length === 7) {
-          const total = answers.reduce((sum, val) => sum + val, 0);
-          const avg = total / answers.length;
-
-          let resultTitle = '';
-          let resultText = '';
-
-          if (avg < 0.5) {
-            resultTitle = '🟢 Fast konform';
-            resultText = 'Sie sind auf einem sehr guten Weg – viele Vorgaben werden beachtet. Mit wenig Aufwand erreichen Sie vollständige Nachweisfähigkeit.';
-          } else if (avg < 1.5) {
-            resultTitle = '🟠 Verbesserung nötig';
-            resultText = 'Sie haben bereits einige Strukturen, aber es fehlen klare Verantwortlichkeiten oder dokumentierte Prozesse. Eine gezielte Weiterentwicklung ist wichtig.';
-          } else {
-            resultTitle = '🔴 Risikozone';
-            resultText = 'Aktuell bestehen deutliche Schwachstellen in Verantwortung, Datenschutz und Vorbereitung auf den AI Act. Jetzt besteht akuter Handlungsbedarf.';
-          }
-
-          const resultHTML = `
-            <h3>Ihr Ergebnis: ${resultTitle}</h3>
-            <p>${resultText}</p>
-            <p><strong>Empfehlung:</strong> Lassen Sie sich Ihren Status bescheinigen und erhalten Sie konkrete Hinweise – <a href="https://check.ki-sicherheit.jetzt">Jetzt KI-Check Pro starten</a>.</p>
-            <p style="text-align:left; margin-top:2rem;">
-              <strong>✔️ Sie wollen auf Nummer sicher gehen?</strong><br/>
-              <a class="btn" href="https://check.ki-sicherheit.jetzt">Jetzt KI-Check Pro starten</a>
-            </p>
-          `;
-          document.getElementById('result').innerHTML = resultHTML;
-          window.scrollTo({ top: document.getElementById('result').offsetTop, behavior: 'smooth' });
-        }
-      });
-    });
-  </script>
   }
 
 </html>
