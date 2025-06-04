@@ -517,11 +517,6 @@ textarea:focus {
 <div style="text-align:center; margin-top:2rem;">
 <button class="btn pulse-button" id="restart-button" onclick="resetQuiz()" style="display:none;">Schnell-Check erneut starten</button>
 </div>
-<p style="text-align:center; margin-top:2rem;">
-        <strong>✔️ Sie wollen auf Nummer sicher gehen?</strong><br/>
-        <a class="btn" href="https://check.ki-sicherheit.jetzt">Jetzt KI-Check Pro starten</a>
-      </p>
-    </section>
 </div>
 </section>
 <section class="scroll-section" id="leistungen">
@@ -1548,7 +1543,47 @@ function handleFormInterceptKontakt(formId, popupId) {
 }
 
 </script>
+ <script>
+    const buttons = document.querySelectorAll('#questions button');
+    let answers = [];
+    buttons.forEach((btn, index) => {
+      btn.addEventListener('click', () => {
+        const group = Math.floor(index / 3);
+        answers[group] = index % 3;
 
+        if (answers.filter(a => a !== undefined).length === 7) {
+          const total = answers.reduce((sum, val) => sum + val, 0);
+          const avg = total / answers.length;
+
+          let resultTitle = '';
+          let resultText = '';
+
+          if (avg < 0.5) {
+            resultTitle = '🟢 Fast konform';
+            resultText = 'Sie sind auf einem sehr guten Weg – viele Vorgaben werden beachtet. Mit wenig Aufwand erreichen Sie vollständige Nachweisfähigkeit.';
+          } else if (avg < 1.5) {
+            resultTitle = '🟠 Verbesserung nötig';
+            resultText = 'Sie haben bereits einige Strukturen, aber es fehlen klare Verantwortlichkeiten oder dokumentierte Prozesse. Eine gezielte Weiterentwicklung ist wichtig.';
+          } else {
+            resultTitle = '🔴 Risikozone';
+            resultText = 'Aktuell bestehen deutliche Schwachstellen in Verantwortung, Datenschutz und Vorbereitung auf den AI Act. Jetzt besteht akuter Handlungsbedarf.';
+          }
+
+          const resultHTML = `
+            <h3>Ihr Ergebnis: ${resultTitle}</h3>
+            <p>${resultText}</p>
+            <p><strong>Empfehlung:</strong> Lassen Sie sich Ihren Status bescheinigen und erhalten Sie konkrete Hinweise – <a href="https://check.ki-sicherheit.jetzt">Jetzt KI-Check Pro starten</a>.</p>
+            <p style="text-align:left; margin-top:2rem;">
+              <strong>✔️ Sie wollen auf Nummer sicher gehen?</strong><br/>
+              <a class="btn" href="https://check.ki-sicherheit.jetzt">Jetzt KI-Check Pro starten</a>
+            </p>
+          `;
+          document.getElementById('result').innerHTML = resultHTML;
+          window.scrollTo({ top: document.getElementById('result').offsetTop, behavior: 'smooth' });
+        }
+      });
+    });
+  </script>
   }
 
 </html>
