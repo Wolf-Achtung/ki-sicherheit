@@ -1262,6 +1262,50 @@ function handleFormInterceptKontakt(formId, popupId) {
 }
 
 </script>
+
+<script>
+  const buttons = document.querySelectorAll('#questions button');
+  let answers = [];
+
+  buttons.forEach((btn, index) => {
+    btn.addEventListener('click', () => {
+      const group = Math.floor(index / 3);
+      answers[group] = index % 3;
+
+      const allAnswered = answers.filter(a => a !== undefined).length === 7;
+      if (allAnswered) {
+        const total = answers.reduce((sum, val) => sum + val, 0);
+        const avg = total / answers.length;
+
+        let resultText = '';
+        let resultColor = '';
+        if (avg < 0.8) {
+          resultText = 'Ihre KI-Nutzung weist aktuell ein sehr hohes Risiko auf.';
+          resultColor = 'red';
+        } else if (avg < 1.6) {
+          resultText = 'Ihre KI-Nutzung weist aktuell ein moderates Risiko auf.';
+          resultColor = 'orange';
+        } else {
+          resultText = 'Ihre KI-Nutzung ist aktuell vergleichsweise sicher.';
+          resultColor = 'green';
+        }
+
+        const resultHTML = `
+          <div class="ampel ampel-${resultColor}">${resultText}</div>
+          <p><strong>Empfehlung:</strong> Lassen Sie sich Ihren Status bescheinigen und erhalten Sie konkrete Hinweise – <a href="https://check.ki-sicherheit.jetzt">Jetzt KI-Check Pro starten</a>.</p>
+          <p style="text-align:left; margin-top:2rem;">
+            <strong>✔️ Sie wollen auf Nummer sicher gehen?</strong><br/>
+            <a class="btn" href="https://check.ki-sicherheit.jetzt">Jetzt KI-Check Pro starten</a>
+          </p>
+        `;
+
+        document.getElementById('result').innerHTML = resultHTML;
+        window.scrollTo({ top: document.getElementById('result').offsetTop, behavior: 'smooth' });
+      }
+    });
+  });
+</script>
+
 </body>
 <!-- RECHTLICHES & TRANSPARENZ -->
 <section class="scroll-section" id="rechtliches">
