@@ -453,8 +453,8 @@ Die Auswertung erfolgt anonym im Browser - keine Anmeldung nötig.</p>
 <div class="frage" id="frage1">
 <h3>1. Setzen Sie in Ihrem Unternehmen bereits KI ein?</h3>
 <button onclick="nextFrage(1, 'aktiv')">ja</button>
-<button onclick="nextFrage(1, 'basic')">manchmal</button>
-<button onclick="nextFrage(1, 'unsicher')">noch nicht</button>
+<button onclick="nextFrage(1, 'basic')">teilweise</button>
+<button onclick="nextFrage(1, 'unsicher')">nein</button>
 </div>
 <div class="frage" id="frage2" style="display: none;">
 <h3>2. Ist die Verantwortung für den KI-Einsatz geregelt?</h3>
@@ -478,12 +478,12 @@ Die Auswertung erfolgt anonym im Browser - keine Anmeldung nötig.</p>
 <h3>5. Sind Ihre Mitarbeiter:innen für den Umgang mit KI geschult?</h3>
 <button onclick="nextFrage(5, 'bewusst')">ja</button>
 <button onclick="nextFrage(5, 'vage')">teilweise</button>
-<button onclick="nextFrage(5, 'ahnungslos')">keine Ahnung</button>
+<button onclick="nextFrage(5, 'ahnungslos')">nein</button>
 </div>
 <div class="frage" id="frage6" style="display: none;">
 <h3>6. Haben Sie sich schon mit dem EU AI Act beschäftigt?</h3>
 <button onclick="nextFrage(6, 'dokumentiert')">ja</button>
-<button onclick="nextFrage(6, 'situativ')">oberflächlich</button>
+<button onclick="nextFrage(6, 'situativ')">teilweise</button>
 <button onclick="nextFrage(6, 'ignoriert')">nein</button>
 </div>
 <div class="frage" id="frage7" style="display: none;">
@@ -511,7 +511,7 @@ Die Auswertung erfolgt anonym im Browser - keine Anmeldung nötig.</p>
 <p id="text-datenschutz"></p>
 </div>
 <div id="auswertung" style="display:none; margin-top:2rem;">
-<h3>Empfehlung &amp; Bewertung</h3>
+<h3>Kurz-Bewertung:</h3>
 <div id="auswertungstext"></div>
 </div>
 <div style="text-align:center; margin-top:2rem;">
@@ -932,8 +932,8 @@ function handleFormInterceptKontakt(formId, popupId) {
     document.getElementById('auswertungsblock').style.display = 'block';
     document.getElementById('auswertung').style.display = 'block';
     text += `<p style="text-align:left; margin-top:2rem;">
-  <strong>Gehen Sie auf Nummer sicher:</strong><br/><br>
-  <a class="btn" href="https://check.ki-sicherheit.jetzt" style="margin-top: 1rem;">Jetzt KI-Check Pro starten</a>
+  <strong>Gehen Sie JETZT auf Nummer sicher:</strong><br/><br>
+  <a class="btn" href="https://check.ki-sicherheit.jetzt" style="margin-top: 1rem;">KI-Check Pro starten</a>
 </p>`;
 
 document.getElementById('auswertungstext').innerHTML = text;
@@ -1297,15 +1297,15 @@ function handleFormInterceptKontakt(formId, popupId) {
           <div class="ampel ampel-${resultColor}">${resultText}</div>
           <p><strong>Empfehlung:</strong> Lassen Sie sich Ihren Status bescheinigen und erhalten Sie konkrete Hinweise – <a href="https://check.ki-sicherheit.jetzt">Jetzt KI-Check Pro starten</a>.</p>
           <p style="text-align:left; margin-top:2rem;">
-            <strong>Gehen Sie jetzt auf Nummer sicher:</strong><br/>
-            <a class="btn" href="https://check.ki-sicherheit.jetzt" style="margin-top: 1rem;">Jetzt KI-Check Pro starten</a>
+            <strong>Gehen Sie JETZT auf Nummer sicher:</strong><br/>
+            <a class="btn" href="https://check.ki-sicherheit.jetzt" style="margin-top: 1rem;">KI-Check Pro starten</a>
           </p>
         `;
 
         resultHTML += `
 <p style="text-align:left; margin-top:2rem;">
-  <strong>Gehen Sie jetzt auf Nummer sicher:</strong><br/>
-  <a class="btn" href="https://check.ki-sicherheit.jetzt" style="margin-top: 1rem;">Jetzt KI-Check Pro starten</a>
+  <strong>Gehen Sie JETZT auf Nummer sicher:</strong><br/>
+  <a class="btn" href="https://check.ki-sicherheit.jetzt" style="margin-top: 1rem;">KI-Check Pro starten</a>
 </p>
 `;
 document.getElementById('result').innerHTML = resultHTML;
