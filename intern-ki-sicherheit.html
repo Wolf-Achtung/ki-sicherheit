@@ -914,19 +914,19 @@ function handleFormInterceptKontakt(formId, popupId) {
     if (avg < 1.6) {
       text = `<strong>Kritisch – Es besteht akuter Handlungsbedarf!</strong><br/>
         Ihr Unternehmen zeigt gravierende Lücken in Governance, Datenschutz und Risikoanalyse. Es fehlen Prozesse, Verantwortlichkeiten und die Einhaltung regulatorischer Vorgaben wie dem EU AI Act.<br/><br/>
-        <strong>Empfehlung:</strong> Ich unterstütze Sie beim Aufbau strukturierter, DSGVO-konformer Prozesse, der Risikobewertung sowie bei der rechtskonformen Umsetzung des EU AI Acts.`;
+        <strong>Tipp:</strong> Mit dem <strong>KI-Check Pro</strong> erhalten Sie eine individuelle Auswertung als PDF inklusive Handlungsempfehlungen, Badge und steuerlich absetzbarer Dokumentation.`;
     } else if (avg < 2.3) {
       text = `<strong>Ausbaufähig – Erste Strukturen sind erkennbar.</strong><br/>
         Sie berücksichtigen bereits zentrale Aspekte, aber es bestehen Lücken in Dokumentation, Zuständigkeiten oder Datenschutz-Praxis. Eine klare Roadmap zur Compliance ist jetzt entscheidend.<br/><br/>
-        <strong>Empfehlung:</strong> Ich begleite Sie beim gezielten Ausbau Ihrer Maßnahmen – praxisnah, rechtskonform und förderfähig nach EU-Vorgaben.`;
+        <strong>Tipp:</strong> Mit dem <strong>KI-Check Pro</strong> erhalten Sie eine individuelle Auswertung als PDF inklusive Handlungsempfehlungen, Badge und steuerlich absetzbarer Dokumentation.`;
     } else if (avg < 2.8) {
       text = `<strong>Gut – Sie sind auf einem guten Weg.</strong><br/>
         Viele relevante Anforderungen sind in Ihrer Organisation verankert, u.a. zu Governance und Risikoanalyse. Jetzt geht es um die systematische Dokumentation und den internen Nachweis.<br/><br/>
-        <strong>Empfehlung:</strong> Ich unterstütze Sie bei der auditierbaren Verankerung Ihrer Prozesse gemäß EU AI Act.`;
+        <strong>Tipp:</strong> Mit dem <strong>KI-Check Pro</strong> erhalten Sie eine individuelle Auswertung als PDF inklusive Handlungsempfehlungen, Badge und steuerlich absetzbarer Dokumentation.`;
     } else {
       text = `<strong>Sehr gut – Ihre Organisation ist vorbildlich aufgestellt.</strong><br/>
         Sie erfüllen bereits heute die zentralen Anforderungen an KI-Governance, Datenschutz und Risikomanagement. Ihr Vorgehen ist strukturiert und strategisch.<br/><br/>
-        <strong>Empfehlung:</strong> Nutzen Sie Ihre Stärke gezielt für Förderanträge, interne Schulungen und als vertrauensbildenden Vorteil am Markt. Ich begleite Sie gerne bei diesem nächsten Schritt.`;
+        <strong>Tipp:</strong> Mit dem <strong>KI-Check Pro</strong> erhalten Sie eine individuelle Auswertung als PDF inklusive Handlungsempfehlungen, Badge und steuerlich absetzbarer Dokumentation.`;
     }
 
     document.getElementById('auswertungsblock').style.display = 'block';
@@ -1297,14 +1297,14 @@ function handleFormInterceptKontakt(formId, popupId) {
           <div class="ampel ampel-${resultColor}">${resultText}</div>
           <p><strong>Empfehlung:</strong> Lassen Sie sich Ihren Status bescheinigen und erhalten Sie konkrete Hinweise – <a href="https://check.ki-sicherheit.jetzt">Jetzt KI-Check Pro starten</a>.</p>
           <p style="text-align:left; margin-top:2rem;">
-            <strong>✔️ Sie wollen auf Nummer sicher gehen?</strong><br/>
+            <strong>Gehen Sie jetzt auf Nummer sicher:</strong><br/>
             <a class="btn" href="https://check.ki-sicherheit.jetzt" style="margin-top: 1rem;">Jetzt KI-Check Pro starten</a>
           </p>
         `;
 
         resultHTML += `
 <p style="text-align:left; margin-top:2rem;">
-  <strong>✔️ Sie wollen auf Nummer sicher gehen?</strong><br/>
+  <strong>Gehen Sie jetzt auf Nummer sicher:</strong><br/>
   <a class="btn" href="https://check.ki-sicherheit.jetzt" style="margin-top: 1rem;">Jetzt KI-Check Pro starten</a>
 </p>
 `;
