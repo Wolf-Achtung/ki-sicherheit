@@ -172,4 +172,14 @@ footer \{\
 #nachweise .section-img img:hover \{\
   transform: scale(1.35) translate(-20px,20px);\
 \}\
+.section-img img \{\
+  border: 5px solid red !important;\
+  filter: brightness(2) saturate(5) !important;\
+  animation: testSpin 2s linear infinite !important;\
+\}\
+\
+@keyframes testSpin \{\
+  0% \{ transform: rotate(0deg) scale(1); \}\
+  100% \{ transform: rotate(360deg) scale(1.2); \}\
+\}\
 }
