@@ -98,50 +98,50 @@ footer \{\
 /* === Sanfte, endlose Animationen pro Sektion === */\
 \
 #start .section-img img \{\
-  animation: zoomDriftStart 25s ease-in-out infinite alternate;\
+  animation: zoomDriftStart 20s ease-in-out infinite alternate;\
 \}\
 @keyframes zoomDriftStart \{\
   0% \{ transform: scale(1) translate(0,0); \}\
-  100% \{ transform: scale(1.05) translate(10px, -10px); \}\
+  100% \{ transform: scale(1.08) translate(15px, -15px); \}\
 \}\
 \
 #schnell-check .section-img img \{\
-  animation: pulseSchnell 20s ease-in-out infinite alternate;\
+  animation: pulseSchnell 18s ease-in-out infinite alternate;\
 \}\
 @keyframes pulseSchnell \{\
   0% \{ transform: scale(1); \}\
-  100% \{ transform: scale(1.03); \}\
+  100% \{ transform: scale(1.06); \}\
 \}\
 \
 #leistungen .section-img img \{\
-  animation: driftLeistungen 30s ease-in-out infinite alternate;\
+  animation: driftLeistungen 25s ease-in-out infinite alternate;\
 \}\
 @keyframes driftLeistungen \{\
-  0% \{ transform: scale(1.05) translate(0,0); \}\
-  100% \{ transform: scale(1) translate(-10px,0); \}\
+  0% \{ transform: scale(1.08) translate(0,0); \}\
+  100% \{ transform: scale(1) translate(-15px,0); \}\
 \}\
 \
 #foerderung .section-img img \{\
-  animation: floatFoerderung 35s ease-in-out infinite alternate;\
+  animation: floatFoerderung 30s ease-in-out infinite alternate;\
 \}\
 @keyframes floatFoerderung \{\
   0% \{ transform: translateY(0); \}\
-  100% \{ transform: translateY(-5px); \}\
+  100% \{ transform: translateY(-10px); \}\
 \}\
 \
 #profil .section-img img \{\
-  animation: rotateProfil 40s ease-in-out infinite alternate;\
+  animation: rotateProfil 35s ease-in-out infinite alternate;\
 \}\
 @keyframes rotateProfil \{\
   0% \{ transform: rotate(0deg); \}\
-  100% \{ transform: rotate(0.5deg); \}\
+  100% \{ transform: rotate(1deg); \}\
 \}\
 \
 #nachweise .section-img img \{\
-  animation: zoomDriftNachweise 30s ease-in-out infinite alternate;\
+  animation: zoomDriftNachweise 25s ease-in-out infinite alternate;\
 \}\
 @keyframes zoomDriftNachweise \{\
   0% \{ transform: scale(1) translate(0,0); \}\
-  100% \{ transform: scale(1.04) translate(-8px, 8px); \}\
+  100% \{ transform: scale(1.07) translate(-12px, 12px); \}\
 \}\
 }
