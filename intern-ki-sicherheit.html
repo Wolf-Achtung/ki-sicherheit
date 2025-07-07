@@ -9,108 +9,46 @@
 <body>
   <!-- Hauptinhalt -->
   <main>
+    <!-- 1. Bereich -->
     <section class="scroll-section" id="start" style="position: relative;">
-<div class="section-img">
-<img alt="KI Beratung" src="img/01.png"/>
-<p class="caption">KI verantwortungsvoll nutzen</p>
-</div>
-<div class="section-content">
-<h2 class="typing">Die KI ist bereit. Sind Sie es auch?</h2>
-<p>Der sichere Einsatz von KI ist kein Zufall – sondern das Ergebnis fundierten Know-hows und strukturierter Vorbereitung. Mit dem EU AI Act verpflichtet sich der Mittelstand zu Transparenz, Nachvollziehbarkeit und Verantwortung im Umgang mit KI.</p>
-<p>Viele Unternehmen unterschätzen den Aufwand für eine KI-konforme Umsetzung. Es braucht Wissen über technische Risiken, regulatorische Anforderungen und organisatorische Maßnahmen. Nur dann können Sie vermeiden, dass Ihnen KI zur rechtlichen oder reputativen Belastung wird.</p>
-<ul>
-<li><strong>Welche Risiken birgt generative KI im Tagesgeschäft?</strong></li>
-<li><strong>Was bedeutet Risikoeinstufung nach EU AI Act konkret?</strong></li>
-<li><strong>Welche Pflichten haben Mittelständler heute schon?</strong></li>
-<li><strong>Welche Chancen ergeben sich aus guter Vorbereitung?</strong></li>
-</ul>
-<p>Wir machen dieses Wissen zugänglich – durch Beratung, Dokumentation und individuelle Risikoanalysen. Klar, verständlich und auditierbar.</p>
-<div style="margin-top: 2rem;">
-<a class="btn" href="#schnell-check" style="margin-right: 1rem; text-decoration: none;">Zum KI-Schnell-Check</a>
-</div>
-</div>
-</section>
-<section class="scroll-section" id="schnell-check">
-<div class="section-img">
-<img alt="Status erfassen, Risiken vermeiden" src="img/04.png"/>
-<p class="caption">Status erfassen, Risiken vermeiden</p>
-</div>
-<div class="section-content">
-<h2 class="typing">Kostenfreier KI-Risiko-Check &amp; Empfehlung</h2>
-<p>Wie sicher und regelkonform ist der KI-Einsatz in Ihrem Unternehmen? Mit diesem anonymen Schnell-Check erhalten Sie eine erste Einschätzung zu Risiken und Chancen – basierend auf EU AI Act & DSGVO.
+      <div class="section-img">
+        <img alt="KI Beratung" src="img/01.png"/>
+        <p class="caption">KI verantwortungsvoll nutzen</p>
+      </div>
+      <div class="section-content">
+        <h2 class="typing">Die KI ist bereit. Sind Sie es auch?</h2>
+        <p>Der sichere Einsatz von KI ist kein Zufall – sondern das Ergebnis fundierten Know-hows und strukturierter Vorbereitung. Mit dem EU AI Act verpflichtet sich der Mittelstand zu Transparenz, Nachvollziehbarkeit und Verantwortung im Umgang mit KI.</p>
+        <p>Viele Unternehmen unterschätzen den Aufwand für eine KI-konforme Umsetzung. Es braucht Wissen über technische Risiken, regulatorische Anforderungen und organisatorische Maßnahmen. Nur dann können Sie vermeiden, dass Ihnen KI zur rechtlichen oder reputativen Belastung wird.</p>
+        <ul>
+          <li><strong>Welche Risiken birgt generative KI im Tagesgeschäft?</strong></li>
+          <li><strong>Was bedeutet Risikoeinstufung nach EU AI Act konkret?</strong></li>
+          <li><strong>Welche Pflichten haben Mittelständler heute schon?</strong></li>
+          <li><strong>Welche Chancen ergeben sich aus guter Vorbereitung?</strong></li>
+        </ul>
+        <p>Wir machen dieses Wissen zugänglich – durch Beratung, Dokumentation und individuelle Risikoanalysen. Klar, verständlich und auditierbar.</p>
+        <div style="margin-top: 2rem;">
+          <a class="btn" href="#schnell-check" style="margin-right: 1rem; text-decoration: none;">Zum KI-Schnell-Check</a>
+        </div>
+      </div>
+    </section>
 
-Die Auswertung erfolgt anonym im Browser - keine Anmeldung nötig.</p>
-<div id="quiz">
-<div class="frage" id="frage1">
-<h3>1. Setzen Sie in Ihrem Unternehmen bereits KI ein?</h3>
-<button onclick="nextFrage(1, 'aktiv')">ja</button>
-<button onclick="nextFrage(1, 'basic')">teilweise</button>
-<button onclick="nextFrage(1, 'unsicher')">nein</button>
-</div>
-<div class="frage" id="frage2" style="display: none;">
-<h3>2. Ist die Verantwortung für den KI-Einsatz geregelt?</h3>
-<button onclick="nextFrage(2, 'chef')">ja</button>
-<button onclick="nextFrage(2, 'it')">teilweise</button>
-<button onclick="nextFrage(2, 'keiner')">nein</button>
-</div>
-<div class="frage" id="frage3" style="display: none;">
-<h3>3. Wird dokumentiert, welche Tools Sie einsetzen und warum?</h3>
-<button onclick="nextFrage(3, 'ja')">ja</button>
-<button onclick="nextFrage(3, 'teilweise')">teilweise</button>
-<button onclick="nextFrage(3, 'nein')">nein</button>
-</div>
-<div class="frage" id="frage4" style="display: none;">
-<h3>4. Wissen Sie, ob Ihre Tools personenbezogene Daten verarbeiten?</h3>
-<button onclick="nextFrage(4, 'vorreiter')">ja</button>
-<button onclick="nextFrage(4, 'orientierung')">unsicher</button>
-<button onclick="nextFrage(4, 'risikozone')">nein</button>
-</div>
-<div class="frage" id="frage5" style="display: none;">
-<h3>5. Sind Ihre Mitarbeiter:innen für den Umgang mit KI geschult?</h3>
-<button onclick="nextFrage(5, 'bewusst')">ja</button>
-<button onclick="nextFrage(5, 'vage')">teilweise</button>
-<button onclick="nextFrage(5, 'ahnungslos')">nein</button>
-</div>
-<div class="frage" id="frage6" style="display: none;">
-<h3>6. Haben Sie sich schon mit dem EU AI Act beschäftigt?</h3>
-<button onclick="nextFrage(6, 'dokumentiert')">ja</button>
-<button onclick="nextFrage(6, 'situativ')">teilweise</button>
-<button onclick="nextFrage(6, 'ignoriert')">nein</button>
-</div>
-<div class="frage" id="frage7" style="display: none;">
-<h3>7. Dokumentieren Sie Fehler in KI-Systemen?</h3>
-<button onclick="nextFrage(7, 'team')">ja</button>
-<button onclick="nextFrage(7, 'einzelperson')">teilweise</button>
-<button onclick="nextFrage(7, 'niemand')">nein</button>
-</div>
-</div>
-<div id="auswertungsblock" style="display:none; margin-top: 3rem;">
-<h3></h3>
-<div class="balken"><div class="" id="balken-governance"></div></div>
-<p id="text-governance"></p>
-<h3></h3>
-<div class="balken"><div class="" id="balken-doku"></div></div>
-<p id="text-doku"></p>
-<h3></h3>
-<div class="balken"><div class="" id="balken-verantwortung"></div></div>
-<p id="text-verantwortung"></p>
-<h3></h3>
-<div class="balken"><div class="" id="balken-kommunikation"></div></div>
-<p id="text-kommunikation"></p>
-<h3></h3>
-<div class="balken"><div class="" id="balken-datenschutz"></div></div>
-<p id="text-datenschutz"></p>
-</div>
-<div id="auswertung" style="display:none; margin-top:2rem;">
-<h3>Kurz-Bewertung:</h3>
-<div id="auswertungstext"></div>
-</div>
-<div style="text-align:center; margin-top:2rem;">
-<button class="btn pulse-button" id="restart-button" onclick="resetQuiz()" style="display:none;">Schnell-Check erneut starten</button>
-</div>
-</div>
-</section>
-<section class="scroll-section" id="leistungen">
+    <!-- KI-Risiko-Check / Quiz dynamisch -->
+    <section class="scroll-section" id="schnell-check">
+      <div class="section-img">
+        <img alt="Status erfassen, Risiken vermeiden" src="img/04.png"/>
+        <p class="caption">Status erfassen, Risiken vermeiden</p>
+      </div>
+      <div class="section-content">
+        <h2 class="typing">Kostenfreier KI-Risiko-Check & Empfehlung</h2>
+        <p>
+          Wie sicher und regelkonform ist der KI-Einsatz in Ihrem Unternehmen? Mit diesem anonymen Schnell-Check erhalten Sie eine erste Einschätzung zu Risiken und Chancen – basierend auf EU AI Act & DSGVO.<br>
+          Die Auswertung erfolgt anonym im Browser – keine Anmeldung nötig.
+        </p>
+        <div id="quiz"></div>
+      </div>
+    </section>
+
+   <section class="scroll-section" id="leistungen">
 <div class="section-img">
 <img alt="Lösungen, die sich rechnen" src="img/03.png"/>
 <p class="caption">Lösungen, die sich rechnen</p>
@@ -263,22 +201,6 @@ Die Auswertung erfolgt anonym im Browser - keine Anmeldung nötig.</p>
 </div>
 </section>
   </main>
-<script>
-  // Sichtbarkeit von Sections beim Scrollen animieren (IntersectionObserver)
-  document.addEventListener("DOMContentLoaded", function() {
-    const sections = document.querySelectorAll('.scroll-section');
-    const observer = new window.IntersectionObserver(
-      (entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-          }
-        });
-      }, { threshold: 0.1 }
-    );
-    sections.forEach(section => observer.observe(section));
-  });
-</script>
 
   <!-- Sticky Footer -->
   <footer>
@@ -293,111 +215,64 @@ Die Auswertung erfolgt anonym im Browser - keine Anmeldung nötig.</p>
     </div>
   </footer>
 
-  <!-- =================== SCRIPTS (KOMPAKT & MODERN) =================== -->
+  <!-- Scripts -->
   <script>
-    // === Fördermittel-Formular AJAX-Handling ===
-    document.addEventListener('DOMContentLoaded', function() {
-      var foerderForm = document.getElementById('foerderForm');
-      if (foerderForm) {
-        foerderForm.addEventListener('submit', function(e) {
-          e.preventDefault();
-          // ... Dein Förderformular-Handling hier ...
-          // Z.B. AJAX-Request, Modal öffnen, usw.
-        });
-      }
-
-      // === KI-Kurz-Check Handling ===
-      var kurzCheckForm = document.getElementById('kurzCheckForm');
-      if (kurzCheckForm) {
-        kurzCheckForm.addEventListener('submit', function(e) {
-          e.preventDefault();
-          // ... Dein Kurz-Check-Handling hier ...
-          // Z.B. AJAX-Request, Ergebnis anzeigen, etc.
-        });
-      }
-
-      // === Kontaktformular (falls benötigt) ===
-      var kontaktForm = document.getElementById('kontaktForm');
-      if (kontaktForm) {
-        kontaktForm.addEventListener('submit', function(e) {
-          e.preventDefault();
-          // ... Dein Kontaktformular-Handling hier ...
-        });
-      }
-    });
-    // ======= ENDE SCRIPTS =======
-<script>
-const questions = [
-  { 
-    question: "1. Setzen Sie in Ihrem Unternehmen bereits KI ein?",
-    answers: ["ja", "teilweise", "nein"]
-  },
-  { 
-    question: "2. Ist die Verantwortung für den KI-Einsatz geregelt?",
-    answers: ["ja", "teilweise", "nein"]
-  },
-  {
-    question: "3. Wird dokumentiert, welche Tools Sie einsetzen und warum?",
-    answers: ["ja", "teilweise", "nein"]
-  },
-  {
-    question: "4. Wissen Sie, ob Ihre Tools personenbezogene Daten verarbeiten?",
-    answers: ["ja", "unsicher", "nein"]
-  },
-  {
-    question: "5. Sind Ihre Mitarbeiter:innen für den Umgang mit KI geschult?",
-    answers: ["ja", "teilweise", "nein"]
-  },
-  {
-    question: "6. Haben Sie sich schon mit dem EU AI Act beschäftigt?",
-    answers: ["ja", "teilweise", "nein"]
-  },
-  {
-    question: "7. Gibt es in Ihrem Unternehmen einen Datenschutzbeauftragten?",
-    answers: ["ja", "teilweise", "nein"]
-  }
-];
-
-let currentQuestion = 0;
-let userAnswers = [];
-
-function renderQuestion() {
-  const quiz = document.getElementById('quiz');
-  quiz.innerHTML = '';
-  if(currentQuestion < questions.length){
-    const q = questions[currentQuestion];
-    const questionElem = document.createElement('h2');
-    questionElem.textContent = q.question;
-    quiz.appendChild(questionElem);
-
-    const btnContainer = document.createElement('div');
-    btnContainer.style.display = "flex";
-    btnContainer.style.gap = "1.5rem";
-    btnContainer.style.marginTop = "2rem";
-
-    q.answers.forEach((a, idx) => {
-      const btn = document.createElement('button');
-      btn.textContent = a;
-      btn.className = "quiz-btn";
-      btn.onclick = () => {
-        userAnswers.push(a);
-        currentQuestion++;
-        renderQuestion();
-      };
-      btnContainer.appendChild(btn);
+    // Sichtbarkeit von Sections beim Scrollen animieren (IntersectionObserver)
+    document.addEventListener("DOMContentLoaded", function() {
+      const sections = document.querySelectorAll('.scroll-section');
+      const observer = new window.IntersectionObserver(
+        (entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+            }
+          });
+        }, { threshold: 0.1 }
+      );
+      sections.forEach(section => observer.observe(section));
     });
 
-    quiz.appendChild(btnContainer);
-  } else {
-    // Auswertung
-    quiz.innerHTML = `<h2>Vielen Dank!</h2><p>Sie erhalten jetzt Ihre individuelle KI-Risiko-Auswertung und Empfehlungen.</p>`;
-    // Hier kannst du weitere Logik für die Auswertung und Empfehlungen ergänzen
-  }
-}
-
-document.addEventListener("DOMContentLoaded", renderQuestion);
-</script>
-
+    // Dynamisches Quiz
+    const questions = [
+      { question: "1. Setzen Sie in Ihrem Unternehmen bereits KI ein?", answers: ["ja", "teilweise", "nein"] },
+      { question: "2. Ist die Verantwortung für den KI-Einsatz geregelt?", answers: ["ja", "teilweise", "nein"] },
+      { question: "3. Wird dokumentiert, welche Tools Sie einsetzen und warum?", answers: ["ja", "teilweise", "nein"] },
+      { question: "4. Wissen Sie, ob Ihre Tools personenbezogene Daten verarbeiten?", answers: ["ja", "unsicher", "nein"] },
+      { question: "5. Sind Ihre Mitarbeiter:innen für den Umgang mit KI geschult?", answers: ["ja", "teilweise", "nein"] },
+      { question: "6. Haben Sie sich schon mit dem EU AI Act beschäftigt?", answers: ["ja", "teilweise", "nein"] },
+      { question: "7. Gibt es in Ihrem Unternehmen einen Datenschutzbeauftragten?", answers: ["ja", "teilweise", "nein"] }
+    ];
+    let currentQuestion = 0;
+    let userAnswers = [];
+    function renderQuestion() {
+      const quiz = document.getElementById('quiz');
+      quiz.innerHTML = '';
+      if(currentQuestion < questions.length){
+        const q = questions[currentQuestion];
+        const questionElem = document.createElement('h2');
+        questionElem.textContent = q.question;
+        quiz.appendChild(questionElem);
+        const btnContainer = document.createElement('div');
+        btnContainer.style.display = "flex";
+        btnContainer.style.gap = "1.5rem";
+        btnContainer.style.marginTop = "2rem";
+        q.answers.forEach((a, idx) => {
+          const btn = document.createElement('button');
+          btn.textContent = a;
+          btn.className = "quiz-btn";
+          btn.onclick = () => {
+            userAnswers.push(a);
+            currentQuestion++;
+            renderQuestion();
+          };
+          btnContainer.appendChild(btn);
+        });
+        quiz.appendChild(btnContainer);
+      } else {
+        quiz.innerHTML = `<h2>Vielen Dank!</h2><p>Sie erhalten jetzt Ihre individuelle KI-Risiko-Auswertung und Empfehlungen.</p>`;
+      }
+    }
+    document.addEventListener("DOMContentLoaded", renderQuestion);
   </script>
 </body>
 </html>
