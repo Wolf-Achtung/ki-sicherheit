@@ -11,10 +11,10 @@
 </head>
 <body>
   <main>
-    <!-- 1. Bereich -->
+    <!-- 1. Section: Header/Intro -->
     <section class="scroll-section" id="start">
       <div class="section-img">
-        <img alt="KI Beratung" src="img/01.png"/>
+        <img src="img/01.png" alt="KI Beratung" />
         <p class="caption">KI verantwortungsvoll nutzen</p>
       </div>
       <div class="section-content">
@@ -34,10 +34,10 @@
       </div>
     </section>
 
-    <!-- KI-Risiko-Check -->
+    <!-- 2. Section: KI-Risiko-Schnell-Check -->
     <section class="scroll-section" id="schnell-check">
       <div class="section-img">
-        <img alt="Status erfassen, Risiken vermeiden" src="img/04.png"/>
+        <img src="img/04.png" alt="Status erfassen, Risiken vermeiden"/>
         <p class="caption">Status erfassen, Risiken vermeiden</p>
       </div>
       <div class="section-content">
@@ -46,14 +46,14 @@
           Wie sicher und regelkonform ist der KI-Einsatz in Ihrem Unternehmen? Mit diesem anonymen Schnell-Check erhalten Sie eine erste Einschätzung zu Risiken und Chancen – basierend auf EU AI Act & DSGVO.<br>
           Die Auswertung erfolgt anonym im Browser – keine Anmeldung nötig.
         </p>
-        <div id="quiz"></div>
+        <div id="quiz-app"></div>
       </div>
     </section>
 
-    <!-- Leistungen & Lösungen -->
+    <!-- 3. Section: Leistungen & Lösungen -->
     <section class="scroll-section" id="leistungen">
       <div class="section-img">
-        <img alt="Lösungen, die sich rechnen" src="img/03.png"/>
+        <img src="img/03.png" alt="Lösungen, die sich rechnen"/>
         <p class="caption">Lösungen, die sich rechnen</p>
       </div>
       <div class="section-content">
@@ -71,10 +71,10 @@
       </div>
     </section>
 
-    <!-- Förderung -->
+    <!-- 4. Section: Förderung & Formular -->
     <section class="scroll-section" id="foerderung">
       <div class="section-img">
-        <img alt="Fördermittel gezielt nutzen" src="img/09.png"/>
+        <img src="img/09.png" alt="Fördermittel gezielt nutzen"/>
         <p class="caption">Fördermittel gezielt nutzen</p>
       </div>
       <div class="section-content">
@@ -82,7 +82,8 @@
         <p><strong>Nutzen Sie bestehende Fördermittel für Ihre KI-Vorhaben.</strong><br>
           Je nach Projektart und Unternehmensgröße sind Zuschüsse weit über 100.000 € möglich. Ich prüfe für Sie, ob und welche Programme zu Ihrer Maßnahme passen.</p>
         <h2>Förderfähigkeit prüfen lassen</h2>
-        <form data-netlify="true" method="POST" name="foerderung-neu"><input name="form-name" type="hidden" value="foerderung-neu"/>
+        <form data-netlify="true" method="POST" name="foerderung-neu">
+          <input name="form-name" type="hidden" value="foerderung-neu"/>
           <label for="name">Ihr Name</label>
           <input id="name" name="name" required="" type="text"/>
           <label for="company">Unternehmen</label>
@@ -127,10 +128,10 @@
       </div>
     </section>
 
-    <!-- Profil & Motivation -->
+    <!-- 5. Section: Profil & Motivation -->
     <section class="scroll-section" id="profil">
       <div class="section-img">
-        <img alt="Verantwortung fördern" src="img/02.png"/>
+        <img src="img/02.png" alt="Verantwortung fördern"/>
         <p class="caption">Verantwortung fördern</p>
       </div>
       <div class="section-content">
@@ -143,10 +144,10 @@
       </div>
     </section>
 
-    <!-- Vertrauen & Nachweis -->
+    <!-- 6. Section: Vertrauen & Nachweis -->
     <section class="scroll-section" id="nachweise">
       <div class="section-img">
-        <img alt="Sicherheit inkludiert" src="img/13.png"/>
+        <img src="img/13.png" alt="Sicherheit inkludiert"/>
         <p class="caption">Sicherheit inkludiert</p>
       </div>
       <div class="section-content">
@@ -159,17 +160,17 @@
         </ul>
         <p><strong>Verantwortung aus Erfahrung:</strong> Als langjähriger Geschäftsführer in der digitalen Kreation mit Kunden aus der internationalen Film- und Medienbranche bin ich vertraut mit komplexen Entscheidungen, Investitionen und nachhaltiger Umsetzung. Dieses Praxiswissen prägt meine KI-Beratung – fundiert, wirtschaftlich und verantwortungsvoll.</p>
         <div class="logo-reihe">
-          <img alt="TÜV" src="img/tuev-logo-transparent.png"/>
-          <img alt="DSGVO" src="img/dsgvo.svg"/>
-          <img alt="EU AI Act" src="img/eu-ai.svg"/>
+          <img src="img/tuev-logo-transparent.png" alt="TÜV"/>
+          <img src="img/dsgvo.svg" alt="DSGVO"/>
+          <img src="img/eu-ai.svg" alt="EU AI Act"/>
         </div>
       </div>
     </section>
 
-    <!-- Rechtliches & Transparenz -->
+    <!-- 7. Section: Rechtliches & Transparenz -->
     <section class="scroll-section" id="rechtliches">
       <div class="section-img">
-        <img alt="Vertrauen durch Offenheit" src="img/08.png"/>
+        <img src="img/08.png" alt="Vertrauen durch Offenheit"/>
         <p class="caption">Vertrauen durch Offenheit</p>
       </div>
       <div class="section-content">
@@ -209,70 +210,105 @@
     </section>
   </main>
 
-  <!-- Minimaler Sticky Footer -->
+  <!-- Footer wie in der einfachen Datei -->
   <footer>
     <a href="https://ki-sicherheit.jetzt" target="_blank">ki-sicherheit.jetzt</a> – Wolf Hohl, Berlin
   </footer>
 
-  <!-- Scripts -->
+  <!-- SCRIPTS: nur die nötigen & funktionierenden, inkl. federnder Section-Transitions & Quiz! -->
   <script>
-    // Snap-Scroll Smooth mit Feder-Effekt
+    // Feder-Effekt für Sections (IntersectionObserver)
     document.addEventListener("DOMContentLoaded", function() {
-      const main = document.querySelector('main');
-      main.style.scrollBehavior = 'smooth';
-      // Intersection Observer für Sichtbarkeit
       const sections = document.querySelectorAll('.scroll-section');
       const observer = new window.IntersectionObserver(
         (entries) => {
           entries.forEach(entry => {
             if (entry.isIntersecting) {
               entry.target.classList.add('visible');
+            } else {
+              entry.target.classList.remove('visible');
             }
           });
-        }, { threshold: 0.1 }
+        }, { threshold: 0.14 }
       );
       sections.forEach(section => observer.observe(section));
     });
 
-    // Quiz
-    const questions = [
-      { question: "1. Setzen Sie in Ihrem Unternehmen bereits KI ein?", answers: ["ja", "teilweise", "nein"] },
-      { question: "2. Wer ist für den KI-Einsatz verantwortlich?", answers: ["ja", "teilweise", "nein"] },
-      { question: "3. Dokumentieren Sie den Einsatz von KI?", answers: ["ja", "teilweise", "nein"] },
-      { question: "4. Verarbeiten Sie mit KI personenbezogene Daten?", answers: ["ja", "unsicher", "nein"] },
-      { question: "5. Sind Ihre Mitarbeiter:innen für den Umgang mit KI geschult?", answers: ["ja", "teilweise", "nein"] },
-      { question: "6. Haben Sie sich schon mit dem EU AI Act beschäftigt?", answers: ["ja", "teilweise", "nein"] },
-      { question: "7. Gibt es in Ihrem Unternehmen einen Datenschutzbeauftragten?", answers: ["ja", "teilweise", "nein"] }
-    ];
-    let currentQuestion = 0;
-    let userAnswers = [];
-    function renderQuestion() {
-      const quiz = document.getElementById('quiz');
-      quiz.innerHTML = '';
-      if(currentQuestion < questions.length){
-        const q = questions[currentQuestion];
-        const questionElem = document.createElement('h2');
-        questionElem.textContent = q.question;
-        quiz.appendChild(questionElem);
-        const btnContainer = document.createElement('div');
-        btnContainer.className = "button-container";
-        q.answers.forEach((a, idx) => {
-          const btn = document.createElement('button');
-          btn.textContent = a;
-          btn.className = "quiz-btn";
-          btn.onclick = () => {
-            userAnswers.push(a);
-            currentQuestion++;
-            renderQuestion();
-          };
-          btnContainer.appendChild(btn);
-        });
-        quiz.appendChild(btnContainer);
-      } else {
-        quiz.innerHTML = `<h2>Vielen Dank!</h2><p>Sie erhalten jetzt Ihre individuelle KI-Risiko-Auswertung und Empfehlungen.</p>`;
+    // Schnell-Check/Quiz wie in der komplizierten Datei
+    document.addEventListener("DOMContentLoaded", function() {
+      const questions = [
+        {
+          question: "Setzen Sie in Ihrem Unternehmen bereits KI ein?",
+          answers: ["ja", "teilweise", "nein"]
+        },
+        {
+          question: "Ist die Verantwortung für den KI-Einsatz geregelt?",
+          answers: ["ja", "teilweise", "nein"]
+        },
+        {
+          question: "Wird dokumentiert, welche Tools Sie einsetzen und warum?",
+          answers: ["ja", "teilweise", "nein"]
+        },
+        {
+          question: "Wissen Sie, ob Ihre Tools personenbezogene Daten verarbeiten?",
+          answers: ["ja", "unsicher", "nein"]
+        },
+        {
+          question: "Sind Ihre Mitarbeiter:innen für den Umgang mit KI geschult?",
+          answers: ["ja", "teilweise", "nein"]
+        },
+        {
+          question: "Haben Sie sich schon mit dem EU AI Act beschäftigt?",
+          answers: ["ja", "teilweise", "nein"]
+        },
+        {
+          question: "Gibt es in Ihrem Unternehmen einen Datenschutzbeauftragten?",
+          answers: ["ja", "teilweise", "nein"]
+        }
+      ];
+
+      const quizEl = document.getElementById("quiz-app");
+      let current = 0;
+      let userAnswers = [];
+
+      function renderQuestion() {
+        quizEl.innerHTML = '';
+        if (current < questions.length) {
+          const q = questions[current];
+          const qBox = document.createElement("div");
+          qBox.className = "quiz-box";
+          qBox.innerHTML = `<h3>${q.question}</h3>`;
+          const btnRow = document.createElement("div");
+          btnRow.className = "button-row";
+          q.answers.forEach(answer => {
+            const btn = document.createElement("button");
+            btn.className = "quiz-btn";
+            btn.textContent = answer;
+            btn.onclick = () => {
+              userAnswers.push(answer);
+              current++;
+              renderQuestion();
+            };
+            btnRow.appendChild(btn);
+          });
+          qBox.appendChild(btnRow);
+          quizEl.appendChild(qBox);
+        } else {
+          // Simple Auswertung
+          let risk = 0;
+          if (userAnswers.includes("nein") || userAnswers.includes("unsicher")) risk++;
+          if (userAnswers.filter(a => a === "teilweise").length >= 3) risk++;
+          quizEl.innerHTML =
+            `<div class="quiz-result">
+              <h3>Vielen Dank für Ihre Antworten!</h3>
+              <p><strong>Ihr KI-Risiko-Level:</strong> ${risk === 0 ? "Niedrig" : risk === 1 ? "Mittel" : "Hoch"}</p>
+              <p>${risk === 0 ? "Ihre Organisation ist schon sehr gut aufgestellt!" : risk === 1 ? "Sie haben bereits einiges vorbereitet – ein Check lohnt sich dennoch!" : "Es bestehen einige Risiken, eine strukturierte Analyse ist zu empfehlen."}</p>
+            </div>`;
+        }
       }
-    }
-    document.addEventListener("DOMContentLoaded", renderQuestion);
+
+      renderQuestion();
+    });
   </script>
 </body>
 </html>
