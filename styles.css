@@ -11,26 +11,30 @@ body {
 /* Sticky Footer: Immer unten */
 html, body {
   height: 100%;
+  margin: 0;
+  height: 0;
 }
 body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  background: #fafbfc;
 }
 main {
   flex: 1 0 auto;
   width: 100%;
+  margin-top: 48px;
 }
 footer {
   flex-shrink: 0;
   width: 100%;
-  background: #fff;
-  border-top: 1.5px solid #e6eef8;
+  background: #192b3e;
+  color: #fff;
   text-align: center;
-  padding: 28px 12px 20px 12px;
-  font-size: 0.95em;
-  color: #8191b5;
-  box-shadow: 0 -2px 20px #e8eef7;
+  padding: 24px 0 12px 0;
+  font-size: 1rem;
+  position: relative;
+  bottom: 0;
 }
 .footer .lizenz {
   font-size: 0.90em;
@@ -343,4 +347,51 @@ textarea:focus {
 .faq-item .faq-answer {
   font-size: 1rem;
   margin-bottom: 0.5rem;
+}
+.quiz-section {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 32px 16px 32px 16px;
+}
+
+.quiz-section h1 {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 3rem;
+  color: #3a5a6d;
+  font-weight: bold;
+  letter-spacing: 0.08em;
+  margin-bottom: 1.5rem;
+}
+
+.quiz-section .intro {
+  font-size: 2rem;
+  color: #193651;
+  margin-bottom: 2.2rem;
+  max-width: 1000px;
+}
+
+#quiz h2 {
+  color: #133350;
+  font-size: 2.2rem;
+  font-weight: bold;
+  margin-bottom: 1.8rem;
+}
+
+.quiz-btn {
+  background: #093757;
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  padding: 0.9rem 2.5rem;
+  font-size: 2rem;
+  font-family: inherit;
+  font-weight: 500;
+  cursor: pointer;
+  margin: 0.2rem 0.6rem 0.2rem 0;
+  transition: background 0.15s, box-shadow 0.15s;
+  box-shadow: 0 2px 8px rgba(12, 50, 80, 0.03);
+}
+
+.quiz-btn:hover {
+  background: #194a69;
 }

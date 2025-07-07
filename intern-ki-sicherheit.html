@@ -326,6 +326,78 @@ Die Auswertung erfolgt anonym im Browser - keine Anmeldung nötig.</p>
       }
     });
     // ======= ENDE SCRIPTS =======
+<script>
+const questions = [
+  { 
+    question: "1. Setzen Sie in Ihrem Unternehmen bereits KI ein?",
+    answers: ["ja", "teilweise", "nein"]
+  },
+  { 
+    question: "2. Ist die Verantwortung für den KI-Einsatz geregelt?",
+    answers: ["ja", "teilweise", "nein"]
+  },
+  {
+    question: "3. Wird dokumentiert, welche Tools Sie einsetzen und warum?",
+    answers: ["ja", "teilweise", "nein"]
+  },
+  {
+    question: "4. Wissen Sie, ob Ihre Tools personenbezogene Daten verarbeiten?",
+    answers: ["ja", "unsicher", "nein"]
+  },
+  {
+    question: "5. Sind Ihre Mitarbeiter:innen für den Umgang mit KI geschult?",
+    answers: ["ja", "teilweise", "nein"]
+  },
+  {
+    question: "6. Haben Sie sich schon mit dem EU AI Act beschäftigt?",
+    answers: ["ja", "teilweise", "nein"]
+  },
+  {
+    question: "7. Gibt es in Ihrem Unternehmen einen Datenschutzbeauftragten?",
+    answers: ["ja", "teilweise", "nein"]
+  }
+];
+
+let currentQuestion = 0;
+let userAnswers = [];
+
+function renderQuestion() {
+  const quiz = document.getElementById('quiz');
+  quiz.innerHTML = '';
+  if(currentQuestion < questions.length){
+    const q = questions[currentQuestion];
+    const questionElem = document.createElement('h2');
+    questionElem.textContent = q.question;
+    quiz.appendChild(questionElem);
+
+    const btnContainer = document.createElement('div');
+    btnContainer.style.display = "flex";
+    btnContainer.style.gap = "1.5rem";
+    btnContainer.style.marginTop = "2rem";
+
+    q.answers.forEach((a, idx) => {
+      const btn = document.createElement('button');
+      btn.textContent = a;
+      btn.className = "quiz-btn";
+      btn.onclick = () => {
+        userAnswers.push(a);
+        currentQuestion++;
+        renderQuestion();
+      };
+      btnContainer.appendChild(btn);
+    });
+
+    quiz.appendChild(btnContainer);
+  } else {
+    // Auswertung
+    quiz.innerHTML = `<h2>Vielen Dank!</h2><p>Sie erhalten jetzt Ihre individuelle KI-Risiko-Auswertung und Empfehlungen.</p>`;
+    // Hier kannst du weitere Logik für die Auswertung und Empfehlungen ergänzen
+  }
+}
+
+document.addEventListener("DOMContentLoaded", renderQuestion);
+</script>
+
   </script>
 </body>
 </html>
