@@ -59,7 +59,7 @@ section:not(:first-child) {
 
 /* Bildgröße, Captions */
 .section-img {
-  flex: 0 0 280px;
+  flex: 1 1 300px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;   /* Bild links */
@@ -71,7 +71,7 @@ section:not(:first-child) {
 .section-img img,
 img.illu,
 img.badge {
-  max-width: 260px;
+  max-width: 300px;
   width: 100%;
   height: auto;
   border-radius: 15px;
@@ -100,17 +100,18 @@ img.badge { max-width: 400px; margin: 32px 0; }
 
 /* Headline & Typografie */
 h1, h2, h3, .hero-title, .typing {
-  font-family: 'IBM Plex Mono', 'Share Tech Mono', 'Fira Mono', 'Roboto Mono', monospace;
+  font-family: 'IBM Plex Mono', 'Share Tech Mono', 'Roboto Mono', monospace;
   font-weight: 500;
   color: #23415c;
   margin-top: 0;
   letter-spacing: 0.01em;
 }
 h1, h2.typing {
-  font-size: 2.5rem;
-  font-weight: 400;
-  margin-bottom: 1.5rem;
-  line-height: 1.18;
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 2rem;
+      font-weight: bold;
+      margin-bottom: 1.5rem;
+      animation: flicker 1.5s infinite alternate;
 }
 .typing {
   font-size: 2.1rem;
