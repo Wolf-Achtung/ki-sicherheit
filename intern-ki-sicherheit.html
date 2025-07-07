@@ -263,6 +263,22 @@ Die Auswertung erfolgt anonym im Browser - keine Anmeldung nötig.</p>
 </div>
 </section>
   </main>
+<script>
+  // Sichtbarkeit von Sections beim Scrollen animieren (IntersectionObserver)
+  document.addEventListener("DOMContentLoaded", function() {
+    const sections = document.querySelectorAll('.scroll-section');
+    const observer = new window.IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, { threshold: 0.1 }
+    );
+    sections.forEach(section => observer.observe(section));
+  });
+</script>
 
   <!-- Sticky Footer -->
   <footer>
