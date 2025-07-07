@@ -82,7 +82,7 @@ img.badge { max-width: 400px; margin: 32px 0; }
 
 /* Headline & Typografie */
 h1, h2, h3, .hero-title, .typing {
-  font-family: 'IBM Plex Mono', 'Fira Mono', 'Roboto Mono', 'Menlo', monospace;
+  font-family: 'Share Tech Mono', monospace;
   font-weight: 500;
   color: #23415c;
   margin-top: 0;
