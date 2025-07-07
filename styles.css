@@ -33,7 +33,7 @@ main {
   margin: 0 auto;
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: flex-start;        /* WICHTIG: Alles oben ausrichten */
   justify-content: center;
   scroll-snap-align: start;
   padding: 7vh 0 7vh 0;
@@ -42,7 +42,15 @@ main {
   gap: 60px;
   border-bottom: 1px solid #e2e8f0;
   opacity: 0.99;
-  transition: box-shadow 0.3s cubic-bezier(.5,1.8,.5,1), opacity 0.3s;
+  transition: transform 0.5s cubic-bezier(.16,1.2,.44,1), box-shadow 0.3s, opacity 0.3s;
+}
+.scroll-section.visible {
+  transform: translateY(0px) scale(1.00);
+  opacity: 1;
+}
+.scroll-section:not(.visible) {
+  transform: translateY(28px) scale(0.985);
+  opacity: 0.92;
 }
 section:not(:first-child) {
   border-top: 1px solid #e2e8f0;
@@ -51,25 +59,34 @@ section:not(:first-child) {
 
 /* Bildgröße, Captions */
 .section-img {
-  flex: 0 0 300px;
+  flex: 0 0 280px;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: flex-start;   /* Bild links */
   justify-content: flex-start;
-  margin-top: -30px;
+  min-height: 220px;        /* Bildhöhe gleich! */
+  margin-top: 0;
+  margin-bottom: 0;
 }
 .section-img img,
 img.illu,
 img.badge {
-  max-width: 300px;
+  max-width: 260px;
   width: 100%;
   height: auto;
   border-radius: 15px;
-  margin-bottom: 11px;
+  margin-bottom: 12px;
   box-shadow: 0 2px 14px #0001;
 }
 img.badge { max-width: 400px; margin: 32px 0; }
-.caption { font-size: 1.03rem; color: #6c7a8a; margin-bottom: 2px; text-align: left; padding-left: 4px; }
+.caption {
+  font-size: 1.03rem;
+  color: #6c7a8a;
+  margin-bottom: 9px; /* Mehr Abstand nach Caption, sorgt für ruhigen Abstand */
+  text-align: left;
+  padding-left: 4px;
+  min-height: 18px;
+}
 
 /* Hauptcontent */
 .section-content {
@@ -77,27 +94,27 @@ img.badge { max-width: 400px; margin: 32px 0; }
   min-width: 220px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
+  padding-top: 22px;      /* Hier Abstand, damit Headline etwas tiefer als Bild startet */
 }
 
 /* Headline & Typografie */
 h1, h2, h3, .hero-title, .typing {
-  font-family: 'Share Tech Mono', monospace;
+  font-family: 'IBM Plex Mono', 'Share Tech Mono', 'Fira Mono', 'Roboto Mono', monospace;
   font-weight: 500;
   color: #23415c;
   margin-top: 0;
   letter-spacing: 0.01em;
 }
 h1, h2.typing {
-  font-family: 'Share Tech Mono', monospace;
-      font-size: 2rem;
-      font-weight: bold;
-      margin-bottom: 1.5rem;
-      animation: flicker 1.5s infinite alternate;
+  font-size: 2.5rem;
+  font-weight: 400;
+  margin-bottom: 1.5rem;
+  line-height: 1.18;
 }
 .typing {
   font-size: 2.1rem;
-  font-weight: 500;
+  font-weight: 400;
   margin-bottom: 16px;
   line-height: 1.18;
 }
@@ -111,7 +128,7 @@ p {
   font-size: 1.09rem;
   color: #19304b;
   margin-bottom: 10px;
-  line-height: 1.44;
+  line-height: 1.37; /* Etwas enger */
 }
 ul {
   margin: 13px 0 14px 22px;
@@ -237,7 +254,7 @@ footer .logo { max-width: 38px; margin-bottom: 6px; }
 @media (max-width: 950px) {
   .scroll-section { flex-direction: column; gap: 9px; align-items: center; }
   .section-img { margin-top: 0; align-items: center; }
-  .section-content { max-width: 99vw; }
+  .section-content { max-width: 99vw; padding-top: 12px;}
   .impressum-box { flex-direction: column; gap: 12px; }
   .logo-reihe img { max-height: 39px; }
   h1, h2.typing, .typing { font-size: 1.47rem; }
