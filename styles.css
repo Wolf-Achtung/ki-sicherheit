@@ -8,8 +8,8 @@ html, body {
 
 body {
   min-height: 100vh;
-  font-family: 'IBM Plex Sans', Arial, sans-serif;
-  color: #17364d;
+  font-family: 'Share Tech Mono', monospace;
+  color: #224664;
   line-height: 1.55;
   letter-spacing: 0.01em;
 }
@@ -35,27 +35,23 @@ main {
   background: #f9fafb;
 }
 
-/* HEADLINE STYLES WIE SCREENSHOT */
-.hero-headline {
-  font-family: 'IBM Plex Mono', 'Share Tech Mono', monospace;
-  font-size: 2.5rem;
-  font-weight: 400;
-  line-height: 1.12;
+.section-headline, h1.section-headline, h2.section-headline {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 3.2rem;
+  font-weight: 700;
+  line-height: 1.08;
   letter-spacing: 0.01em;
   margin-bottom: 1.5rem;
   margin-top: 0;
-  color: #22334b;
-  max-width: 520px;
+  color: #224664;
+  max-width: 540px;
   white-space: pre-line;
+  text-align: left;
 }
 
-.typing, h2.typing {
-  font-family: 'IBM Plex Mono', 'Roboto Mono', monospace;
-  font-size: 1.35rem;
-  font-weight: 500;
-  color: #23415c;
-  margin-bottom: 12px;
-  letter-spacing: 0.01em;
+h2.section-headline {
+  font-size: 2.2rem;
+  margin-bottom: 1.15rem;
 }
 
 .section-img {
@@ -65,13 +61,14 @@ main {
   align-items: flex-start;
   justify-content: flex-start;
   min-width: 210px;
+  margin-top: 0;
 }
 .section-img img {
   max-width: 310px;
   width: 100%;
   height: auto;
   border-radius: 15px;
-  margin-bottom: 13px;
+  margin-bottom: 7px;
   box-shadow: 0 2px 14px #0001;
 }
 .caption {
@@ -89,7 +86,7 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  padding-top: 12px;
+  padding-top: 10px;
 }
 
 ul {
@@ -305,7 +302,7 @@ footer {
 
 body.modal-open { overflow: hidden; }
 
-/* RESPONSIVE */
+/* Responsive */
 @media (max-width: 1150px) {
   .scroll-section { max-width: 98vw; gap: 14px; }
 }
@@ -315,13 +312,12 @@ body.modal-open { overflow: hidden; }
   .section-content { max-width: 99vw; padding-top: 9px; }
   .impressum-box { flex-direction: column; gap: 12px; }
   .footer-logos img { max-height: 32px; }
-  .hero-headline { font-size: 1.47rem; }
+  .section-headline, h1.section-headline, h2.section-headline { font-size: 2.0rem; }
 }
 @media (max-width: 600px) {
-  .hero-headline { font-size: 1.10rem; }
+  .section-headline, h1.section-headline, h2.section-headline { font-size: 1.17rem; }
   .btn, .pro-btn, .quiz-btn { font-size: 0.95rem; padding: 9px 15px; }
-  img.illu, .section-img img { max-width: 97vw; }
+  .section-img img { max-width: 97vw; }
   .section-img { margin-bottom: 0.3em; }
   main { padding: 0 2vw 14px 2vw; }
 }
-
