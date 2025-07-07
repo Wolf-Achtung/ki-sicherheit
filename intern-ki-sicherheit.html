@@ -18,7 +18,11 @@
         <p class="caption">KI verantwortungsvoll nutzen</p>
       </div>
       <div class="section-content">
-        <h2 class="typing">Die KI ist bereit. Sind Sie es auch?</h2>
+        <!-- Headline wie im Screenshot -->
+        <h1 class="hero-headline">
+          Die KI ist bereit.<br>
+          Sind Sie es auch?
+        </h1>
         <p>Der sichere Einsatz von KI ist kein Zufall – sondern das Ergebnis fundierten Know-hows und strukturierter Vorbereitung. Mit dem EU AI Act verpflichtet sich der Mittelstand zu Transparenz, Nachvollziehbarkeit und Verantwortung im Umgang mit KI.</p>
         <p>Viele Unternehmen unterschätzen den Aufwand für eine KI-konforme Umsetzung. Es braucht Wissen über technische Risiken, regulatorische Anforderungen und organisatorische Maßnahmen. Nur dann können Sie vermeiden, dass Ihnen KI zur rechtlichen oder reputativen Belastung wird.</p>
         <ul>
@@ -210,31 +214,151 @@
     </section>
   </main>
 
-  <!-- Footer wie in der einfachen Datei -->
+  <!-- FOOTER MIT LOGOS UND MODALS -->
   <footer>
-    <a href="https://ki-sicherheit.jetzt" target="_blank">ki-sicherheit.jetzt</a> – Wolf Hohl, Berlin
+    <div class="footer-links">
+      <a href="#" onclick="openModal('datenschutz-modal');return false;">Datenschutz</a> |
+      <a href="#" onclick="openModal('kontakt-modal');return false;">Kontakt</a> |
+      <a href="#rechtliches">Rechtliches & Transparenz</a> |
+      <a href="#" onclick="openModal('agb-modal');return false;">AGB</a>
+    </div>
+    <div class="footer-logos">
+      <img src="img/dsgvo.svg" alt="DSGVO" />
+      <img src="img/eu-ai.svg" alt="EU AI" />
+      <img src="img/ki-ready-2025.png" alt="KI Ready" />
+      <img src="img/tuev-logo-transparent.png" alt="TÜV" />
+    </div>
+    <div class="footer-copyright">
+      © 2025 KI-Sicherheit.jetzt – Wolf Hohl, Berlin
+    </div>
   </footer>
 
-  <!-- SCRIPTS: nur die nötigen & funktionierenden, inkl. federnder Section-Transitions & Quiz! -->
+  <!-- MODALS -->
+  <!-- Datenschutz-Modal -->
+  <div class="modal" id="datenschutz-modal">
+    <div class="modal-content">
+      <span class="modal-close" onclick="closeModal('datenschutz-modal')">&times;</span>
+      <iframe src="datenschutz.html" width="100%" height="400px" style="border:0;"></iframe>
+    </div>
+  </div>
+  <!-- Kontakt-Modal -->
+  <div class="modal" id="kontakt-modal">
+    <div class="modal-content">
+      <span class="modal-close" onclick="closeModal('kontakt-modal')">&times;</span>
+      <h2>Kontakt</h2>
+      <form id="kontakt-form" autocomplete="off">
+        <label for="k-name">Ihr Name</label>
+        <input id="k-name" name="name" type="text" required>
+        <label for="k-email">Ihre E-Mail</label>
+        <input id="k-email" name="email" type="email" required>
+        <label for="k-msg">Ihre Nachricht</label>
+        <textarea id="k-msg" name="msg" rows="4" required></textarea>
+        <button type="submit" class="btn">Absenden</button>
+      </form>
+      <div id="kontakt-danke" style="display:none; margin-top:12px; color:#267a2c;">
+        Vielen Dank, Ihre Nachricht wurde gesendet!
+      </div>
+    </div>
+  </div>
+  <!-- AGB-Modal -->
+  <div class="modal" id="agb-modal">
+    <div class="modal-content">
+      <span class="modal-close" onclick="closeModal('agb-modal')">&times;</span>
+      <h2>Allgemeine Geschäftsbedingungen (AGB)</h2>
+      <p>
+        <strong>1. Geltungsbereich</strong><br>
+        Diese Website richtet sich ausschließlich an Geschäftskunden (B2B).<br><br>
+        <strong>2. Leistungen</strong><br>
+        Alle angebotenen Leistungen dienen der Information, Beratung und Unterstützung in Fragen der KI-Konformität. Es findet keine Rechtsberatung statt.<br><br>
+        <strong>3. Haftungsausschluss</strong><br>
+        Die Nutzung der Inhalte erfolgt auf eigene Verantwortung. Eine Haftung für direkte oder indirekte Schäden wird ausgeschlossen.<br><br>
+        <strong>4. Datenschutz</strong><br>
+        Es gilt die Datenschutzerklärung.<br><br>
+        <strong>5. Erfüllungsort, Gerichtsstand</strong><br>
+        Es gilt deutsches Recht, Gerichtsstand ist Berlin.<br>
+      </p>
+    </div>
+  </div>
+
+  <!-- SCRIPTS: Feder-Scrolling, Popups, Kontakt-Form, Quiz-Logik -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
   <script>
-    // Feder-Effekt für Sections (IntersectionObserver)
+    // Federndes Snap-Scrolling (immer volle Section nach oben!)
     document.addEventListener("DOMContentLoaded", function() {
       const sections = document.querySelectorAll('.scroll-section');
-      const observer = new window.IntersectionObserver(
-        (entries) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('visible');
-            } else {
-              entry.target.classList.remove('visible');
-            }
-          });
-        }, { threshold: 0.14 }
-      );
-      sections.forEach(section => observer.observe(section));
+      let isScrolling = false;
+
+      function scrollToSection(target) {
+        if (isScrolling) return;
+        isScrolling = true;
+        gsap.to(window, {
+          duration: 1.1,
+          scrollTo: {y: target.offsetTop, autoKill: false},
+          ease: "elastic.out(1, 0.55)",
+          onComplete: () => { isScrolling = false; }
+        });
+      }
+      let currentSection = 0;
+      function findCurrentSection() {
+        const scrollY = window.scrollY + window.innerHeight / 2;
+        let idx = 0;
+        for (let i = 0; i < sections.length; i++) {
+          if (sections[i].offsetTop <= scrollY) idx = i;
+        }
+        return idx;
+      }
+      document.addEventListener('wheel', function(e) {
+        if (isScrolling) return;
+        if (e.deltaY > 32) {
+          // Nach unten scrollen
+          if (currentSection < sections.length - 1) {
+            scrollToSection(sections[currentSection + 1]);
+            currentSection++;
+            e.preventDefault();
+          }
+        } else if (e.deltaY < -32) {
+          // Nach oben scrollen
+          if (currentSection > 0) {
+            scrollToSection(sections[currentSection - 1]);
+            currentSection--;
+            e.preventDefault();
+          }
+        }
+      }, { passive: false });
+
+      // Initial zur ersten sichtbaren Section scrollen
+      currentSection = findCurrentSection();
+      scrollToSection(sections[currentSection]);
+      window.addEventListener("resize", function(){
+        currentSection = findCurrentSection();
+      });
     });
 
-    // Schnell-Check/Quiz wie in der komplizierten Datei
+    // Modal-Popups (Datenschutz, Kontakt, AGB)
+    function openModal(id) {
+      document.getElementById(id).style.display = "flex";
+      document.body.classList.add("modal-open");
+    }
+    function closeModal(id) {
+      document.getElementById(id).style.display = "none";
+      document.body.classList.remove("modal-open");
+    }
+    // Schließen bei Klick auf Overlay
+    document.querySelectorAll('.modal').forEach(modal => {
+      modal.addEventListener('click', function(e) {
+        if (e.target === modal) closeModal(modal.id);
+      });
+    });
+
+    // Kontakt-Form (Fake-Absenden)
+    document.getElementById('kontakt-form').onsubmit = function(e) {
+      e.preventDefault();
+      this.style.display = "none";
+      document.getElementById('kontakt-danke').style.display = "block";
+    };
+
+    // Quiz-Logik mit ausführlicherem Ergebnis und CTA-Button
     document.addEventListener("DOMContentLoaded", function() {
       const questions = [
         {
@@ -266,7 +390,6 @@
           answers: ["ja", "teilweise", "nein"]
         }
       ];
-
       const quizEl = document.getElementById("quiz-app");
       let current = 0;
       let userAnswers = [];
@@ -294,19 +417,31 @@
           qBox.appendChild(btnRow);
           quizEl.appendChild(qBox);
         } else {
-          // Simple Auswertung
+          // Auswertung
           let risk = 0;
           if (userAnswers.includes("nein") || userAnswers.includes("unsicher")) risk++;
           if (userAnswers.filter(a => a === "teilweise").length >= 3) risk++;
+          let level = risk === 0 ? "Niedrig" : risk === 1 ? "Mittel" : "Hoch";
+          let msg = '';
+          if (risk === 0) {
+            msg = "Ihre Organisation ist schon sehr gut aufgestellt! Sie haben Prozesse und Verantwortlichkeiten klar geregelt. Bleiben Sie am Ball: KI-Regularien entwickeln sich stetig weiter.";
+          } else if (risk === 1) {
+            msg = "Sie haben bereits wichtige Maßnahmen ergriffen, doch es gibt noch Verbesserungspotenzial. Prüfen Sie gezielt Schwachstellen – und sichern Sie Ihr Unternehmen ab, bevor neue KI-Regeln verpflichtend werden.";
+          } else {
+            msg = "Es bestehen deutliche Risiken! Wenn Sie jetzt nicht handeln, drohen rechtliche und wirtschaftliche Nachteile. Nutzen Sie unseren professionellen KI-Check Pro für eine strukturierte Analyse und handfeste Empfehlungen.";
+          }
           quizEl.innerHTML =
             `<div class="quiz-result">
               <h3>Vielen Dank für Ihre Antworten!</h3>
-              <p><strong>Ihr KI-Risiko-Level:</strong> ${risk === 0 ? "Niedrig" : risk === 1 ? "Mittel" : "Hoch"}</p>
-              <p>${risk === 0 ? "Ihre Organisation ist schon sehr gut aufgestellt!" : risk === 1 ? "Sie haben bereits einiges vorbereitet – ein Check lohnt sich dennoch!" : "Es bestehen einige Risiken, eine strukturierte Analyse ist zu empfehlen."}</p>
+              <p><strong>Ihr KI-Risiko-Level:</strong> ${level}</p>
+              <p>${msg}</p>
+              <div class="pro-check-tip">
+                <strong>Tipp:</strong> Mit unserem vertiefenden <b>KI-Check Pro</b> erhalten Sie eine individuelle Bewertung, konkrete Handlungsempfehlungen und eine rechtssichere Dokumentation für Prüfungen & Förderanträge.
+              </div>
+              <a class="btn pro-btn" href="#foerderung">KI-Check Pro starten</a>
             </div>`;
         }
       }
-
       renderQuestion();
     });
   </script>
