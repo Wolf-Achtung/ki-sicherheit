@@ -5,6 +5,7 @@ html, body {
   background: #f9fafb;
 }
 
+/* ===== Body ===== */
 body {
   min-height: 100vh;
   display: flex;
@@ -15,6 +16,7 @@ body {
   letter-spacing: 0.01em;
 }
 
+/* ===== Main Scroll Layout ===== */
 main {
   flex: 1 0 auto;
   display: flex;
@@ -23,9 +25,13 @@ main {
   overflow-y: scroll;
   scroll-snap-type: y mandatory;
   scroll-behavior: smooth;
+  /* scrollbar hidden */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
+main::-webkit-scrollbar { display: none; }
 
-/* Section Snap & Layout */
+/* ===== Section Snap & Abstand oben/unten ===== */
 .scroll-section {
   min-height: 100vh;
   width: 100%;
@@ -33,13 +39,14 @@ main {
   margin: 0 auto;
   display: flex;
   flex-direction: row;
-  align-items: flex-start;        /* WICHTIG: Alles oben ausrichten */
+  align-items: flex-start;
   justify-content: center;
   scroll-snap-align: start;
-  padding: 7vh 0 7vh 0;
+  /* Mehr Abstand nach oben/unten */
+  padding: 12vh 0 8vh 0;
   box-sizing: border-box;
   background: #f9fafb;
-  gap: 60px;
+  gap: 34px; /* Weniger Abstand Bild/Text */
   border-bottom: 1px solid #e2e8f0;
   opacity: 0.99;
   transition: transform 0.5s cubic-bezier(.16,1.2,.44,1), box-shadow 0.3s, opacity 0.3s;
@@ -57,48 +64,49 @@ section:not(:first-child) {
   padding-top: 38px;
 }
 
-/* Bildgröße, Captions */
+/* ===== Bild (Section) ===== */
 .section-img {
   flex: 1 1 300px;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;   /* Bild links */
+  align-items: flex-start;
   justify-content: flex-start;
-  min-height: 220px;        /* Bildhöhe gleich! */
+  min-height: 220px;
   margin-top: 0;
   margin-bottom: 0;
 }
 .section-img img,
 img.illu,
 img.badge {
-  max-width: 300px;
+  max-width: 320px;
   width: 100%;
   height: auto;
   border-radius: 15px;
-  margin-bottom: 12px;
+  margin-bottom: 11px;
   box-shadow: 0 2px 14px #0001;
 }
 img.badge { max-width: 400px; margin: 32px 0; }
 .caption {
-  font-size: 1.03rem;
+  font-size: 1.01rem;
   color: #6c7a8a;
-  margin-bottom: 9px; /* Mehr Abstand nach Caption, sorgt für ruhigen Abstand */
+  margin-bottom: 8px;
   text-align: left;
   padding-left: 4px;
   min-height: 18px;
 }
 
-/* Hauptcontent */
+/* ===== Content Block (Text) ===== */
 .section-content {
   max-width: 620px;
   min-width: 220px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  padding-top: 22px;      /* Hier Abstand, damit Headline etwas tiefer als Bild startet */
+  /* Headline ein paar Pixel tiefer */
+  padding-top: 25px;
 }
 
-/* Headline & Typografie */
+/* ===== Headlines ===== */
 h1, h2, h3, .hero-title, .typing {
   font-family: 'IBM Plex Mono', 'Share Tech Mono', 'Roboto Mono', monospace;
   font-weight: 500;
@@ -106,12 +114,12 @@ h1, h2, h3, .hero-title, .typing {
   margin-top: 0;
   letter-spacing: 0.01em;
 }
-h1, h2.typing {
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 2rem;
-      font-weight: bold;
-      margin-bottom: 1.5rem;
-      animation: flicker 1.5s infinite alternate;
+h1, .hero-title {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 2.26rem;
+  font-weight: bold;
+  margin-bottom: 1.4rem;
+  line-height: 1.18;
 }
 .typing {
   font-size: 2.1rem;
@@ -124,23 +132,23 @@ h3 { font-size: 1.16rem; margin-bottom: 8px; font-weight: bold; }
 h4 { font-size: 1.01rem; margin-top: 15px; margin-bottom: 4px; color: #19304b; font-weight: 600;}
 strong { font-weight: 600; color: #133350; }
 
-/* Copytext & Listen */
+/* ===== Copytext & Listen ===== */
 p {
   font-size: 1.09rem;
   color: #19304b;
-  margin-bottom: 10px;
-  line-height: 1.37; /* Etwas enger */
+  margin-bottom: 9px;
+  line-height: 1.34;
 }
 ul {
   margin: 13px 0 14px 22px;
   padding: 0;
   font-size: 1.07rem;
   color: #17364d;
-  line-height: 1.33;
+  line-height: 1.30;
 }
 li { margin-bottom: 0.3em; }
 
-/* Buttons */
+/* ===== Buttons ===== */
 .btn, button, .quiz-btn, .cta-btn {
   background: #08385d;
   color: #fff;
@@ -166,7 +174,7 @@ li { margin-bottom: 0.3em; }
 .button-row { margin-top: 1.3em; }
 .quiz-btn { min-width: 110px; padding: 10px 26px; font-size: 1.06rem; margin-right: 18px; }
 
-/* Quiz Fragen & Button-Container */
+/* ===== Quiz Fragen & Button-Container ===== */
 #quiz h2 { color: #133350; font-size: 1.15rem; font-weight: bold; margin-bottom: 1.1rem; }
 #quiz .button-container {
   display: flex;
@@ -176,7 +184,7 @@ li { margin-bottom: 0.3em; }
   flex-wrap: wrap;
 }
 
-/* Formular */
+/* ===== Formular ===== */
 input[type="text"], input[type="email"], select, textarea {
   width: 100%;
   font-size: 1rem;
@@ -195,13 +203,13 @@ input:focus, select:focus, textarea:focus {
 }
 textarea { min-height: 50px; resize: vertical; }
 
-/* Checkbox */
+/* ===== Checkbox ===== */
 input[type="checkbox"] {
   accent-color: #003b5a;
   border-radius: 7px;
 }
 
-/* Logos */
+/* ===== Logos ===== */
 .logo-reihe {
   display: flex;
   align-items: center;
@@ -214,7 +222,7 @@ input[type="checkbox"] {
   margin-bottom: 0;
 }
 
-/* Footer Sticky minimal */
+/* ===== Footer Sticky minimal ===== */
 footer {
   background: #162335;
   color: #fff;
@@ -233,7 +241,7 @@ footer {
 footer a { color: #f2cc77; text-decoration: underline; font-weight: 500; }
 footer .logo { max-width: 38px; margin-bottom: 6px; }
 
-/* Zweispaltig: Rechtliches & Transparenz */
+/* ===== Zweispaltig: Rechtliches & Transparenz ===== */
 .impressum-box {
   display: flex;
   gap: 36px;
@@ -248,12 +256,12 @@ footer .logo { max-width: 38px; margin-bottom: 6px; }
   min-width: 210px;
 }
 
-/* Responsive Design */
+/* ===== Responsive Design ===== */
 @media (max-width: 1150px) {
-  .scroll-section { max-width: 98vw; gap: 19px; }
+  .scroll-section { max-width: 98vw; gap: 14px; }
 }
 @media (max-width: 950px) {
-  .scroll-section { flex-direction: column; gap: 9px; align-items: center; }
+  .scroll-section { flex-direction: column; gap: 7px; align-items: center; }
   .section-img { margin-top: 0; align-items: center; }
   .section-content { max-width: 99vw; padding-top: 12px;}
   .impressum-box { flex-direction: column; gap: 12px; }
@@ -268,5 +276,3 @@ footer .logo { max-width: 38px; margin-bottom: 6px; }
   .section-img { margin-bottom: 0.3em; }
   main { padding: 0 2vw 14px 2vw; }
 }
-main::-webkit-scrollbar { display: none; }
-main { -ms-overflow-style: none; scrollbar-width: none; }
