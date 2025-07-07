@@ -51,7 +51,7 @@ section:not(:first-child) {
 
 /* Bildgröße, Captions */
 .section-img {
-  flex: 0 0 250px;
+  flex: 0 0 300px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -61,14 +61,14 @@ section:not(:first-child) {
 .section-img img,
 img.illu,
 img.badge {
-  max-width: 230px;
+  max-width: 300px;
   width: 100%;
   height: auto;
   border-radius: 15px;
   margin-bottom: 11px;
   box-shadow: 0 2px 14px #0001;
 }
-img.badge { max-width: 340px; margin: 32px 0; }
+img.badge { max-width: 400px; margin: 32px 0; }
 .caption { font-size: 1.03rem; color: #6c7a8a; margin-bottom: 2px; text-align: left; padding-left: 4px; }
 
 /* Hauptcontent */
