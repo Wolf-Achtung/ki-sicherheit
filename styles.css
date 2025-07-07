@@ -3,191 +3,206 @@ html, body {
   margin: 0;
   padding: 0;
 }
+
 body {
-  font-family: 'Inter', sans-serif;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background: #fdfdfd;
-  color: #0c3a5f;
+  font-family: 'Inter', 'Fira Mono', 'Roboto Mono', 'Menlo', 'Consolas', monospace;
+  background: #fafbfc;
+  color: #17364d;
   line-height: 1.6;
 }
+
 main {
   flex: 1 0 auto;
-  width: 100%;
-  padding-top: 72px; /* Weißraum oben */
-}
-@media (max-width: 600px) {
-  main {
-    padding-top: 36px;
-  }
-}
-/* Extra Abstand nur für die erste Section, falls gewünscht: */
-section.scroll-section:first-of-type {
-  margin-top: 24px;
-}
-
-/* Footer Sticky immer unten */
-footer {
-  flex-shrink: 0;
-  width: 100%;
-  background: #192b3e;
-  color: #fff;
-  text-align: center;
-  padding: 24px 0 12px 0;
-  font-size: 1rem;
-  position: relative;
-  bottom: 0;
-}
-.footer .lizenz {
-  font-size: 0.90em;
-  color: #a1adc7;
-  margin-top: 10px;
-}
-@media (max-width: 800px) {
-  footer { padding: 16px 5px 12px 5px; font-size: 0.90em; }
-}
-
-/* Seitenstruktur & Section */
-section.scroll-section {
-  padding: 3rem 1.5rem;
-  max-width: 1080px;
-  margin: 0 auto;
   display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
+  flex-direction: column;
+  height: 100vh;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
 }
+
+/* Section: immer volle Höhe, zentriert, snap */
+.scroll-section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  scroll-snap-align: start;
+  padding: 6vh 0 6vh 0;
+  box-sizing: border-box;
+  background: #fafbfc;
+  gap: 40px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+section:not(:first-child) {
+  border-top: 1px solid #e2e8f0;
+  padding-top: 32px;
+}
+
 .section-img {
-  align-self: flex-start;
-  flex: 1 1 300px;
-  max-width: 300px;
+  flex: 0 0 210px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
 }
-.section-content {
-  flex: 2 1 600px;
-}
-
-/* Überschriften & Animation */
-h1, h2.typing {
-  font-family: 'Share Tech Mono', monospace;
-  font-size: 2rem;
-  font-weight: bold;
-  margin-bottom: 1.5rem;
-  animation: flicker 1.5s infinite alternate;
-}
-@keyframes flicker {
-  0% { opacity: 1; }
-  100% { opacity: 0.85; }
-}
-
-/* Bild */
-img {
+.section-img img,
+img.illu,
+img.badge {
+  max-width: 210px;
   width: 100%;
   height: auto;
   border-radius: 12px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 14px #0001;
+}
+img.badge { max-width: 340px; margin: 28px 0; }
+
+.section-content {
+  max-width: 630px;
+  min-width: 240px;
 }
 
-/* Button-Stile */
-.btn,
-#quiz button,
-.quiz-btn {
-  background-color: #0c3a5f;
-  color: white;
-  border: none;
-  padding: 0.9rem 2.5rem;
-  border-radius: 30px;
-  font-size: 2rem;
-  font-family: inherit;
-  font-weight: 500;
-  cursor: pointer;
-  margin: 0.2rem 0.6rem 0.2rem 0;
-  transition: background 0.2s, transform 0.2s, box-shadow 0.15s;
-  box-shadow: 0 2px 8px rgba(12, 50, 80, 0.03);
-  display: inline-block;
-}
-.btn:hover,
-#quiz button:hover,
-.quiz-btn:hover {
-  background-color: #194a69;
-  transform: scale(1.04);
-}
-
-/* Quiz: Layout für Frage & Button-Container */
-#quiz h2 {
-  color: #133350;
-  font-size: 2.2rem;
-  font-weight: bold;
-  margin-bottom: 1.8rem;
-}
-#quiz .button-container {
+.logo-reihe {
   display: flex;
-  gap: 1.5rem;
-  justify-content: flex-start;
-  margin-top: 2rem;
+  align-items: center;
+  gap: 1.5vw;
+  margin-top: 1.5rem;
+}
+.logo-reihe img {
+  max-height: 54px;
+  max-width: 140px;
+  margin-bottom: 0;
+}
+
+/* Überschriften */
+h1, h2, h3, .hero-title, .typing {
+  font-family: 'Fira Mono', 'Roboto Mono', 'Menlo', 'Consolas', monospace;
+  font-weight: bold;
+  color: #2b4661;
+  margin-top: 0;
+  letter-spacing: 0.01em;
+}
+h1 { font-size: 2.4rem; margin-bottom: 16px; }
+h2, .typing { font-size: 2rem; margin-bottom: 16px; }
+h3 { font-size: 1.5rem; margin-bottom: 10px; }
+.caption { font-size: 0.96rem; color: #56677a; margin-bottom: 6px; }
+
+/* Buttons */
+button, .btn, .quiz-btn, .cta-btn {
+  background: #08385d;
+  color: #fff;
+  border: none;
+  border-radius: 32px;
+  font-size: 1.18rem;
+  font-weight: 500;
+  padding: 12px 32px;
+  margin: 18px 10px 0 0;
+  cursor: pointer;
+  transition: background 0.16s, transform 0.14s;
+  box-shadow: 0 2px 8px 0 rgba(20,44,73,0.06);
+  outline: none;
+  text-decoration: none;
+  display: inline-block;
+  letter-spacing: 0.02em;
+}
+button:hover, .btn:hover, .quiz-btn:hover, .cta-btn:hover {
+  background: #1863a7;
+  transform: translateY(-2px) scale(1.03);
+}
+.quiz-btn {
+  font-size: 1.18rem;
+  min-width: 110px;
+  padding: 11px 30px;
+}
+
+/* Formularelemente */
+input[type="text"], input[type="email"], select, textarea {
+  width: 100%;
+  font-size: 1rem;
+  padding: 10px 16px;
+  margin: 8px 0 18px 0;
+  border-radius: 10px;
+  border: 2px solid #3c5871;
+  background: #fff;
+  outline: none;
+  box-sizing: border-box;
+  transition: border 0.18s;
+}
+input:focus, select:focus, textarea:focus {
+  border: 2px solid #08385d;
+}
+textarea {
+  min-height: 50px;
+  resize: vertical;
+}
+
+/* Checkboxen */
+input[type="checkbox"] {
+  accent-color: #003b5a;
+  border-radius: 8px;
+}
+
+/* Listen */
+ul { margin: 14px 0 14px 20px; padding: 0; }
+li { margin-bottom: 0.5em; }
+
+/* Footer sticky/unten */
+footer {
+  background: #162335;
+  color: #fff;
+  width: 100%;
+  padding: 36px 0 16px 0;
+  text-align: center;
+  border-top: 2px solid #c5d3e2;
+  font-size: 0.97rem;
+  letter-spacing: 0.02em;
+  flex-shrink: 0;
+  position: sticky;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+}
+footer a { color: #f2cc77; text-decoration: underline; }
+footer .logo { max-width: 44px; margin-bottom: 8px; }
+footer .lizenz { font-size: 0.8em; color: #e5e5e5; margin-top: 1em; }
+
+.impressum-box {
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+  margin-top: 24px;
+  text-align: left;
+  color: #13304a;
   flex-wrap: wrap;
 }
-
-.quiz-section {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 32px 16px 32px 16px;
-}
-.quiz-section h1 {
-  font-family: 'Share Tech Mono', monospace;
-  font-size: 3rem;
-  color: #3a5a6d;
-  font-weight: bold;
-  letter-spacing: 0.08em;
-  margin-bottom: 1.5rem;
-}
-.quiz-section .intro {
-  font-size: 2rem;
-  color: #193651;
-  margin-bottom: 2.2rem;
-  max-width: 1000px;
-}
-
-/* Inputfelder */
-input[type="text"],
-input[type="email"],
-select,
-textarea {
-  border: 2px solid #0c3a5f;
-  border-radius: 12px;
-  font-family: inherit;
-  padding: 0.65rem;
-  margin-bottom: 1rem;
-  width: 100%;
-  box-sizing: border-box;
-  background: #f9f9fc;
-  transition: border 0.3s ease;
-}
-input:focus,
-select:focus,
-textarea:focus {
-  outline: none;
-  border-color: #092a4c;
-  background: #ffffff;
-}
-
-/* Animierte Section Transitions */
-.scroll-section {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-}
-.scroll-section.visible {
-  opacity: 1;
-  transform: translateY(0);
+.impressum-box > div {
+  flex: 1 1 270px;
+  min-width: 210px;
 }
 
 /* Responsive Anpassungen */
-@media (max-width: 768px) {
-  .quiz-section { padding: 16px 4px; }
-  #quiz .button-container { flex-direction: column; gap: 1.1rem; }
-  main { padding-top: 36px; }
+@media (max-width: 1050px) {
+  main { padding: 0 8px 24px 8px; }
+  section, .scroll-section { gap: 20px; }
+}
+@media (max-width: 900px) {
+  .scroll-section { flex-direction: column; gap: 10px; align-items: center; }
+  .section-content { max-width: 96vw; }
+  .impressum-box { flex-direction: column; gap: 10px; }
 }
 @media (max-width: 600px) {
-  .quiz-section { padding: 8px 2px; }
-  main { padding-top: 28px; }
+  h1 { font-size: 1.3rem; }
+  h2, .typing { font-size: 1.08rem; }
+  button, .btn, .quiz-btn, .cta-btn { font-size: 0.99rem; padding: 10px 12px; }
+  img.illu, .section-img img, img.badge { max-width: 98vw; }
+  .section-img { margin-bottom: 0.4em; }
+  main { padding: 0 2vw 24px 2vw; }
 }
 
+main::-webkit-scrollbar { display: none; }
+main { -ms-overflow-style: none; scrollbar-width: none; }
