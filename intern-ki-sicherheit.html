@@ -133,7 +133,8 @@
       <p style="font-size: 0.96rem; color: #333;">
         <label>
           <input name="privacy" required type="checkbox"/>
-          Ich habe die <a href="#rechtliches">Datenschutzerklärung</a> gelesen und akzeptiert.
+          Ich habe die <a href="#" id="open-legal-modal">Datenschutzerklärung</a>
+ gelesen und akzeptiert.
         </label>
       </p>
       <button class="btn" type="submit">Jetzt prüfen lassen</button>
@@ -253,26 +254,7 @@ document.getElementById('modal-close-btn').addEventListener('click', function() 
     </section>
   </main>
 
-  <!-- Footer -->
-  <footer>
-    <nav class="footer-links">
-      <a href="datenschutz.html" onclick="window.open(this.href, 'PopupFenster', 'width=800,height=600'); return false;" >Datenschutz</a> |
-      <a href="#" onclick="openModal('kontakt-modal');return false;">Kontakt</a> |
-      <a href="#rechtliches">Rechtliches & Transparenz</a> |
-      <a href="#" onclick="openModal('agb-modal');return false;">AGB</a>
-    </nav>
 
-  <div class="logo-reihe">
-  <img src="img/tuev-logo-transparent.png" alt="TÜV" style="height: 110px; margin:0 12px; vertical-align: middle;">
-<img src="img/eu-ai.svg" alt="AI-Ready" style="height: 60px; margin:0 12px; vertical-align: middle;">
-<img src="img/ki-ready-2025.png" alt="AI-Ready" style="height: 90px; margin:0 12px; vertical-align: middle;">
-          <img src="img/dsgvo.svg" alt="DSGVO" style="height: 60px; margin:0 12px; vertical-align: middle;">
-        </div>
-<div class="footer-copyright">
-      © 2025 KI-Sicherheit.jetzt – TÜV-zertifiziertes KI-Management Wolf Hohl, Berlin
-    </div>
-    
-  </footer>
 
   <!-- MODALS -->
   <!-- Datenschutz-Modal -->
@@ -435,5 +417,65 @@ document.getElementById('modal-close-btn').addEventListener('click', function() 
       renderQuestion();
     });
   </script>
+<!-- Floating Icon -->
+<div id="legal-fab" class="legal-fab" title="Rechtliches & Datenschutz">§</div>
+
+<!-- Modal -->
+<div id="legal-modal" class="legal-modal">
+  <div class="legal-modal-content">
+    <span class="legal-modal-close">&times;</span>
+    <h2>Datenschutzerklärung</h2>
+    <p><strong>Verantwortlich:</strong><br>
+      Wolf Hohl<br>
+      Greifswalder Str. 224a<br>
+      10405 Berlin
+    </p>
+    <a class="legal-btn" href="mailto:info@ki-sicherheit.jetzt">E-Mail schreiben</a>
+    <p><strong>1. Kontaktaufnahme:</strong> Bei Nutzung des Formulars oder E-Mail-Kontakt werden Ihre Angaben zur Bearbeitung gespeichert (max. 6 Monate).</p>
+    <p><strong>2. Keine Cookies:</strong> Diese Website setzt keine Tracking-Cookies ein.</p>
+    <p><strong>3. Ihre Rechte laut DSGVO:</strong></p>
+    <ul>
+      <li>Auskunft, Berichtigung, Löschung</li>
+      <li>Datenübertragbarkeit</li>
+      <li>Widerruf von Einwilligungen</li>
+      <li>Beschwerde bei der Aufsichtsbehörde</li>
+    </ul>
+    <p><strong>Hinweis:</strong> Diese Seite dient der Information und ersetzt keine Rechtsberatung.</p>
+    <hr>
+    <h3>Rechtliche Hinweise</h3>
+    <p><strong>Haftungsausschluss:</strong><br>
+      Diese Website dient ausschließlich der Information. Trotz sorgfältiger Prüfung übernehme ich keine Haftung für Inhalte externer Links.
+    </p>
+    <p><strong>Urheberrecht:</strong><br>
+      Alle Inhalte dieser Website unterliegen dem deutschen Urheberrecht.
+    </p>
+    <p><strong>Hinweis zum EU AI Act:</strong><br>
+      Diese Website informiert über Pflichten und Empfehlungen zum EU AI Act. Die Inhalte stellen keine Rechtsberatung dar.
+    </p>
+    <button class="legal-btn" onclick="closeLegalModal()">Schließen</button>
+  </div>
+</div>
+
+<script>
+function closeLegalModal() {
+  document.getElementById('legal-modal').classList.remove('show');
+}
+document.getElementById('legal-fab').onclick = function() {
+  document.getElementById('legal-modal').classList.add('show');
+}
+document.getElementById('open-legal-modal').onclick = function(e){
+  e.preventDefault();
+  document.getElementById('legal-modal').classList.add('show');
+};
+document.querySelector('.legal-modal-close').onclick = closeLegalModal;
+document.getElementById('legal-modal').onclick = function(e) {
+  if(e.target === this) closeLegalModal();
+};
+document.addEventListener('keydown', function(e){
+  if(e.key === 'Escape') closeLegalModal();
+});
+
+</script>
+
 </body>
 </html>

@@ -2,6 +2,7 @@ html, body {
   height: 100%;
   margin: 0;
   padding: 0;
+  padding-bottom: 60px;
   background: #f9fafb;
   scroll-snap-type: y mandatory;
   scroll-behavior: smooth;
@@ -189,72 +190,109 @@ input[type="checkbox"] {
   accent-color: #003b5a;
   border-radius: 7px;
 }
+/* Floating Icon Button */
+.legal-fab {
+  position: fixed;
+  bottom: 26px;
+  right: 26px;
+  background: #f6f8fa;
+  color: #254463;
+  border-radius: 50%;
+  box-shadow: 0 2px 10px #1d2a3e2b;
+  width: 44px; height: 44px;
+  font-size: 1.7rem;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  z-index: 9989;
+  transition: background 0.2s;
+}
+.legal-fab:hover { background: #e7eefa; }
 
-/* Footer und Logos */
-footer {
+/* Modal Overlay */
+.legal-modal {
+  display: none; position: fixed;
+  z-index: 9999;
+  left: 0; top: 0; right: 0; bottom: 0;
+  background: rgba(40,60,80,0.18);
+  align-items: center; justify-content: center;
+}
+.legal-modal.show { display: flex; }
+.legal-modal-content {
   background: #fff;
-  color: #fff;
-  width: 100%;
-  padding: 15px 0 8px 0;
-  text-align: center;
-  border-top: 2px solid #c5d3e2;
-  font-size: 1.05rem;
-  letter-spacing: 0.01em;
-  flex-shrink: 0;
+  color: #153354;
+  padding: 36px 36px 30px 36px;
+  border-radius: 17px;
+  box-shadow: 0 8px 40px #25446324;
+  width: 95vw; max-width: 440px;
+  margin: 12vw auto 0 auto;
+  font-size: 1.13rem;
   position: relative;
-  left: 0;
-  z-index: 100;
-  margin-top: 0;
+  text-align: left;
+  animation: modalPopIn 0.3s cubic-bezier(.35,1.39,.49,1) ;
 }
-.footer-links {
-  margin-bottom: 10px;
-  font-size: 1.07rem;
-  color: #06315c;
+@keyframes modalPopIn {
+  0%   { transform: scale(0.90); opacity:0; }
+  90%  { transform: scale(1.05);}
+  100% { transform: scale(1); opacity:1; }
 }
-.footer-links a {
-  color: #06315c;
-  opacity: 0.83;
-  text-decoration: underline;
-  margin: 0 9px;
+.legal-modal-close {
+  position: absolute; right: 28px; top: 18px;
+  font-size: 2.2rem;
+  color: #7a8799;
+  cursor: pointer;
+  transition: color 0.17s;
   font-weight: 400;
-  transition: opacity 0.16s;
+  line-height: 1;
 }
-.footer-links a:hover {
-  opacity: 1;
+.legal-modal-close:hover { color: #d15b47; }
+.legal-modal-content h2 {
+  margin-top: 0;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #153354;
+  letter-spacing: -0.01em;
 }
-.footer-logos {
-  display: flex;
-  gap: 18px;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 11px;
+.legal-modal-content h3 {
+  margin: 22px 0 12px 0;
+  font-size: 1.28rem;
+  color: #223355;
 }
-.footer-logos img {
-  max-height: 39px;
-  min-width: 34px;
-  margin-bottom: 0;
-  filter: grayscale(0.1);
+.legal-modal-content ul {
+  margin: 0 0 8px 20px; padding: 0;
+  list-style: disc;
 }
-.footer-copyright {
-  font-size: 0.97rem;
-  color: #06315c;
-  margin-top: 6px;
-  opacity: 0.87;
+.legal-modal-content li {
+  margin: 0 0 4px 0;
+  font-size: 1rem;
+}
+.legal-modal-content hr {
+  margin: 26px 0 18px 0;
+  border: none; border-top: 1.5px solid #e1e7f0;
+}
+.legal-btn {
+  background: #163c5a;
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  padding: 11px 28px;
+  font-size: 1.14rem;
+  font-weight: 500;
+  margin: 17px 0 19px 0;
+  cursor: pointer;
+  transition: background 0.17s;
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+}
+.legal-btn:hover {
+  background: #1a2841;
+}
+@media (max-width: 520px) {
+  .legal-modal-content { padding: 22px 9vw; font-size: 1.04rem;}
+  .legal-modal-content h2 { font-size: 1.3rem;}
+  .legal-btn { font-size: 1rem; padding: 9px 16px;}
 }
 
-.impressum-box {
-  display: flex;
-  gap: 36px;
-  justify-content: center;
-  margin-top: 19px;
-  text-align: left;
-  color: #13304a;
-  flex-wrap: wrap;
-}
-.impressum-box > div {
-  flex: 1 1 340px;
-  min-width: 210px;
-}
 
 /* MODAL POPUPS */
 .modal {
