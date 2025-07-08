@@ -88,18 +88,6 @@ h2.section-headline {
   justify-content: flex-start;
   padding-top: 10px;
 }
-@media (min-width: 1025px) {
-  html, body {
-    scroll-snap-type: y mandatory;
-  }
-
-  section.scroll-section {
-    scroll-snap-align: start;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-  }
-}
 
 ul {
   margin: 13px 0 14px 22px;
