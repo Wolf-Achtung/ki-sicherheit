@@ -75,61 +75,105 @@
     </section>
 
     <!-- Section 4: Förderung -->
-    <section class="scroll-section" id="foerderung">
-      <div class="section-img">
-        <img src="img/09.png" alt="Fördermittel gezielt nutzen"/>
-        <p class="caption"></p>
-      </div>
-      <div class="section-content">
-        <h2 class="section-headline">Förderung &amp; Finanzierung</h2>
-        <p><strong>Nutzen Sie regionale, nationale und europaweite Fördermittel für Ihre KI-Vorhaben.</strong><br>
-          Je nach Projektart und Unternehmensgröße sind Zuschüsse weit über 100.000 € möglich. Ich prüfe für Sie, ob und welche Programme zu Ihrer Maßnahme passen.</p>
-        <h2>Förderfähigkeit prüfen lassen</h2>
-        <form data-netlify="true" method="POST" name="foerderung-neu">
-          <input name="form-name" type="hidden" value="foerderung-neu"/>
-          <label for="name">Ihr Name</label>
-          <input id="name" name="name" required="" type="text"/>
-          <label for="company">Unternehmen</label>
-          <input id="company" name="company" required="" type="text"/>
-          <label for="branche">Branche</label>
-          <select id="branche" name="industry" required="">
-            <option disabled="" selected="" value="">Bitte auswählen</option>
-            <option>Marketing & Werbung</option>
-            <option>Beratung & Dienstleistungen</option>
-            <option>Finanzen & Versicherungen</option>
-            <option>IT & Software</option>
-            <option>Handwerk</option>
-            <option>Gesundheitswesen</option>
-            <option>Bauwesen</option>
-            <option>Handel & E-Commerce</option>
-            <option>Industrie & Produktion</option>
-            <option>Bildung</option>
-            <option>Sonstige</option>
-          </select>
-          <label for="massnahme">Geplante Maßnahme</label>
-          <select id="massnahme" name="plan" required="">
-            <option disabled="" selected="" value="">Bitte auswählen</option>
-            <option>Beratung / Strategie</option>
-            <option>Risikoanalyse</option>
-            <option>Datenschutz / Compliance</option>
-            <option>KI-Tool-Integration, z.B. KI-Agents</option>
-            <option>Mitarbeiterschulung / Change Management</option>
-            <option>noch unklar</option>
-          </select>
-          <label for="projektidee">Projektidee</label>
-          <textarea id="projektidee" name="project" placeholder="Kurze Beschreibung Ihres KI-Vorhabens" rows="3"></textarea>
-          <label for="email">Ihre E-Mail</label>
-          <input id="email" name="email" required="" type="email"/>
-          <p style="font-size: 0.96rem; color: #333;">
-            <label>
-              <input name="privacy" required="" type="checkbox"/>
-              Ich habe die <a href="#rechtliches">Datenschutzerklärung</a> gelesen und akzeptiert.
-            </label>
-          </p>
-<a class="btn" href="submit">Jetzt prüfen lassen</a>
-        </form>
-      </div>
-    </section>
+<section class="scroll-section" id="foerderung">
+  <div class="section-img">
+    <img src="img/09.png" alt="Fördermittel gezielt nutzen"/>
+    <p class="caption"></p>
+  </div>
+  <div class="section-content">
+    <h2 class="section-headline">Förderung &amp; Finanzierung</h2>
+    <p><strong>Nutzen Sie regionale, nationale und europaweite Fördermittel für Ihre KI-Vorhaben.</strong><br>
+      Je nach Projektart und Unternehmensgröße sind Zuschüsse weit über 100.000 € möglich. Ich prüfe für Sie, ob und welche Programme zu Ihrer Maßnahme passen.</p>
+    <h2>Förderfähigkeit prüfen lassen</h2>
+    <form 
+      name="foerderung-neu"
+      method="POST"
+      data-netlify="true"
+      data-netlify-honeypot="bot-field"
+      id="foerderung-form"
+      onsubmit="event.preventDefault(); showNetlifySuccessPopup();"
+    >
+      <input type="hidden" name="form-name" value="foerderung-neu" />
+      <p style="display:none">
+        <label>Don’t fill this out: <input name="bot-field" /></label>
+      </p>
+      <label for="name">Ihr Name</label>
+      <input id="name" name="name" required type="text"/>
+      <label for="company">Unternehmen</label>
+      <input id="company" name="company" required type="text"/>
+      <label for="branche">Branche</label>
+      <select id="branche" name="industry" required>
+        <option disabled selected value="">Bitte auswählen</option>
+        <option>Marketing & Werbung</option>
+        <option>Beratung & Dienstleistungen</option>
+        <option>Finanzen & Versicherungen</option>
+        <option>IT & Software</option>
+        <option>Handwerk</option>
+        <option>Gesundheitswesen</option>
+        <option>Bauwesen</option>
+        <option>Handel & E-Commerce</option>
+        <option>Industrie & Produktion</option>
+        <option>Bildung</option>
+        <option>Sonstige</option>
+      </select>
+      <label for="massnahme">Geplante Maßnahme</label>
+      <select id="massnahme" name="plan" required>
+        <option disabled selected value="">Bitte auswählen</option>
+        <option>Beratung / Strategie</option>
+        <option>Risikoanalyse</option>
+        <option>Datenschutz / Compliance</option>
+        <option>KI-Tool-Integration, z.B. KI-Agents</option>
+        <option>Mitarbeiterschulung / Change Management</option>
+        <option>noch unklar</option>
+      </select>
+      <label for="projektidee">Projektidee</label>
+      <textarea id="projektidee" name="project" placeholder="Kurze Beschreibung Ihres KI-Vorhabens" rows="3"></textarea>
+      <label for="email">Ihre E-Mail</label>
+      <input id="email" name="email" required type="email"/>
+      <p style="font-size: 0.96rem; color: #333;">
+        <label>
+          <input name="privacy" required type="checkbox"/>
+          Ich habe die <a href="#rechtliches">Datenschutzerklärung</a> gelesen und akzeptiert.
+        </label>
+      </p>
+      <button class="btn" type="submit">Jetzt prüfen lassen</button>
+    </form>
+  </div>
+</section>
+
+<!-- Netlify Success Popup -->
+<div id="foerderung-modal" style="display:none;position:fixed;z-index:9999;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.30);justify-content:center;align-items:center;">
+  <div style="background:#fff;max-width:420px;margin:auto;padding:2rem 2.5rem 2rem 2.5rem;border-radius:1rem;text-align:center;box-shadow:0 10px 40px rgba(0,0,0,0.15);">
+    <h2 style="font-family:'Share Tech Mono',monospace;font-size:2rem;">Vielen Dank!</h2>
+    <p style="font-size:1.2rem;">Ihre Anfrage wurde erfolgreich übermittelt.<br/>Ich melde mich in Kürze persönlich bei Ihnen.</p>
+    <button class="btn" id="modal-close-btn" style="margin-top:1.5rem;">Zurück zur Profil & Motivation</button>
+  </div>
+</div>
+
+<script>
+// Netlify-Form Success Handling & Popup-Logik
+function showNetlifySuccessPopup() {
+  // Formular verstecken, Popup zeigen
+  document.getElementById('foerderung-form').style.display = 'none';
+  document.getElementById('foerderung-modal').style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+}
+
+// Popup schließen und zu "Profil & Motivation" springen
+document.getElementById('modal-close-btn').addEventListener('click', function() {
+  document.getElementById('foerderung-modal').style.display = 'none';
+  document.body.style.overflow = '';
+  // Zur Profil-Sektion springen
+  const profil = document.getElementById('profil') || document.querySelector('[id*="profil"]');
+  if(profil) profil.scrollIntoView({behavior:'smooth'});
+  // Formular zurücksetzen für weiteren Gebrauch
+  setTimeout(() => {
+    document.getElementById('foerderung-form').reset();
+    document.getElementById('foerderung-form').style.display = '';
+  }, 600);
+});
+</script>
+
 
     <!-- Section 5: Profil -->
     <section class="scroll-section" id="profil">
