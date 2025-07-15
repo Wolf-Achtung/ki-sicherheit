@@ -374,3 +374,36 @@ body.modal-open { overflow: hidden; }
   .section-img { margin-bottom: 0.3em; }
   main { padding: 0 2vw 14px 2vw; }
 }
+/* ===========================================
+   Platzsparendes Design für Section #foerderung
+   =========================================== */
+
+/* 1. Maximalbreite im Container */
+#foerderung .section-content {
+  max-width: 600px;
+  margin: 0 auto; /* zentriert */
+}
+
+/* 2. Kleinere Felder & luftiger */
+#foerderung form input,
+#foerderung form select,
+#foerderung form textarea {
+  padding: 8px 12px;
+  font-size: 0.96rem;
+}
+
+/* 3. Zweispaltig auf großen Bildschirmen */
+@media (min-width: 900px) {
+  #foerderung form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  /* Elemente, die trotzdem volle Breite brauchen */
+  #foerderung form textarea,
+  #foerderung form button,
+  #foerderung form p {
+    grid-column: span 2;
+  }
+}
