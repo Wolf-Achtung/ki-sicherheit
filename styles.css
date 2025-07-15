@@ -400,13 +400,20 @@ body.modal-open { overflow: hidden; }
     gap: 20px;
   }
 
-  /* Elemente, die trotzdem volle Breite brauchen */
-  #foerderung form textarea,
-  #foerderung form button,
-  #foerderung form p {
+  /* Diese Felder sollen nebeneinander */
+  #name, #company, #branche, #massnahme {
+    grid-column: auto;
+  }
+
+  /* Alles andere weiter über beide Spalten */
+  #projektidee,
+  #email,
+  #foerderung form p,
+  #foerderung form button {
     grid-column: span 2;
   }
 }
+
 /* Rechtliches kompakter */
 #rechtliches .section-content {
   max-width: 700px;
