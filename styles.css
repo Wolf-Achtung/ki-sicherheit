@@ -385,7 +385,7 @@ body.modal-open { overflow: hidden; }
 #foerderung form {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 10px 15px; /* vertikal 10px, horizontal 15px */
+  gap: 6px 10px; /* vertikal 10px, horizontal 12px */
   align-items: center;
 }
 
