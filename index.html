@@ -443,9 +443,9 @@ document.getElementById('modal-close-btn').addEventListener('click', function() 
 <div id="legal-fab" class="legal-fab" title="Rechtliches & Datenschutz">§</div>
 
 <!-- Modal -->
-<div id="legal-modal" class="legal-modal">
-  <div class="legal-modal-content">
-    <span class="legal-modal-close">&times;</span>
+<div id="privacy-modal" class="privacy-modal">
+  <div class="privacy-modal-content">
+    <span class="privacy-modal-close">&times;</span>
     <h2>Datenschutzerklärung</h2>
     <p><strong>Verantwortlich:</strong><br>
       Wolf Hohl<br>
@@ -461,44 +461,20 @@ document.getElementById("mail-link").addEventListener("click", function(e){
 });
 </script>
 
-    <p><strong>1. Kontaktaufnahme:</strong> Bei Nutzung des Formulars oder E-Mail-Kontakt werden Ihre Angaben zur Bearbeitung gespeichert (max. 6 Monate).</p>
-    <p><strong>2. Keine Cookies:</strong> Diese Website setzt keine Tracking-Cookies ein.</p>
-    <p><strong>3. Ihre Rechte laut DSGVO:</strong></p>
-    <ul>
-      <li>Auskunft, Berichtigung, Löschung</li>
-      <li>Datenübertragbarkeit</li>
-      <li>Widerruf von Einwilligungen</li>
-      <li>Beschwerde bei der Aufsichtsbehörde</li>
-    </ul>
-    <p><strong>Hinweis:</strong> Diese Seite dient der Information und ersetzt keine Rechtsberatung.</p>
-    <hr>
-    <h3>Rechtliche Hinweise</h3>
-    <p><strong>Haftungsausschluss:</strong><br>
-      Diese Website dient ausschließlich der Information. Trotz sorgfältiger Prüfung übernehme ich keine Haftung für Inhalte externer Links.
-    </p>
-    <p><strong>Urheberrecht:</strong><br>
-      Alle Inhalte dieser Website unterliegen dem deutschen Urheberrecht.
-    </p>
-    <p><strong>Hinweis zum EU AI Act:</strong><br>
-      Diese Website informiert über Pflichten und Empfehlungen zum EU AI Act. Die Inhalte stellen keine Rechtsberatung dar.
-    </p>
-    <button class="legal-btn" onclick="closeLegalModal()">Schließen</button>
-  </div>
-</div>
-
+    
 <script>
 function closeLegalModal() {
-  document.getElementById('legal-modal').classList.remove('show');
+  document.getElementById('privacy-modal').classList.remove('show');
 }
 document.getElementById('legal-fab').onclick = function() {
-  document.getElementById('legal-modal').classList.add('show');
+  document.getElementById('privacy-modal').classList.add('show');
 }
 document.getElementById('open-privacy-modal').onclick = function(e){
   e.preventDefault();
-  document.getElementById('legal-modal').classList.add('show');
+  document.getElementById('privacy-modal').classList.add('show');
 };
-document.querySelector('.legal-modal-close').onclick = closeLegalModal;
-document.getElementById('legal-modal').onclick = function(e) {
+document.querySelector('.privacy-modal-close').onclick = closeLegalModal;
+document.getElementById('privacy-modal').onclick = function(e) {
   if(e.target === this) closeLegalModal();
 };
 document.addEventListener('keydown', function(e){
