@@ -363,7 +363,6 @@ body.modal-open { overflow: hidden; }
   .scroll-section { flex-direction: column; gap: 10px; align-items: center; }
   .section-img { align-items: center; margin-bottom: 0.4em; }
   .section-content { max-width: 99vw; padding-top: 10vh; }
-  .impressum-box { flex-direction: column; gap: 12px; }
   .footer-logos img { max-height: 32px; }
   .section-headline, h1.section-headline, h2.section-headline { font-size: 2.0rem; }
 }
