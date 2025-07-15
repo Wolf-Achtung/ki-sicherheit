@@ -463,5 +463,6 @@ body.modal-open { overflow: hidden; }
   right: 16px;
   font-size: 1.8rem;
   cursor: pointer;
+  z-index: 10000;
 }
 
