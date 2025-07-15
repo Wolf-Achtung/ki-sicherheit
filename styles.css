@@ -1,432 +1,211 @@
-html, body {
-  height: 100%;
+
+/* ================ Baseline & Standard ================ */
+body {
+  font-family: "Share Tech Mono", monospace;
+  color: #204769;
+  font-size: 1.11rem;
+  line-height: 1.34;
+  background: #f9fbfa;
   margin: 0;
   padding: 0;
-  padding-bottom: 60px;
-  background: #f9fafb;
-  scroll-snap-type: y mandatory;
-  scroll-behavior: smooth;
 }
 
-body {
-  min-height: 100vh;
-  font-family: 'Inter', sans-serif;
-  color: #224664;
-  line-height: 1.55;
-  letter-spacing: 0.01em;
-}
-
-main {
-  flex: 1 0 auto;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-
-.scroll-section {
-  min-height: 100vh;
-  max-width: 1100px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  justify-content: center;
-  padding: 10vh 0 8vh 0;
-  gap: 36px;
-  box-sizing: border-box;
-  background: #f9fafb;
-}
-
-.section-headline, h1.section-headline, h2.section-headline {
-  font-family: 'Share Tech Mono', monospace;
-  font-size: 3.2rem;
-  font-weight: 700;
-  line-height: 1.08;
-  letter-spacing: 0.01em;
-  margin-bottom: 1.5rem;
-  margin-top: 0;
-  color: #224664;
-  max-width: 540px;
-  white-space: pre-line;
-  text-align: left;
-}
-
-h2.section-headline {
-  font-size: 2.2rem;
-  margin-bottom: 1.15rem;
-}
-
-.section-img {
-  flex: 1 1 300px;
-  display: flex;
-  padding-top: 10vh;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
-  min-width: 210px;
-  margin-top: 0;
-}
-.section-img img {
-  max-width: 310px;
-  width: 100%;
-  height: auto;
-  border-radius: 15px;
-  margin-bottom: 7px;
-  box-shadow: 0 2px 14px #0001;
-}
-.caption {
-  font-size: 1.01rem;
-  color: #6c7a8a;
-  margin-bottom: 8px;
-  text-align: left;
-  padding-left: 4px;
-  min-height: 18px;
+h1, h2, h3, h4 {
+  color: #204769;
+  font-weight: 600;
 }
 
 .section-content {
-  max-width: 630px;
-  min-width: 220px;
-  display: flex;
-  flex-direction: column;
-  scroll-snap-align: start;
-  justify-content: flex-start;
-  padding-top: 10vh;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 1rem;
 }
 
-ul {
-  margin: 13px 0 14px 22px;
-  padding: 0;
-  font-size: 1.07rem;
-  color: #17364d;
-  line-height: 1.30;
+/* Förderformular immer zweispaltig */
+#foerderung form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
 }
-li { margin-bottom: 0.3em; }
-strong { font-weight: 600; color: #133350; }
-p { font-size: 1.11rem; margin-bottom: 9px; color: #19304b; line-height: 1.34; }
-.button-row { 
-  margin-top: 1.3em; 
+#name, #company, #branche, #massnahme {
+  grid-column: auto;
+}
+#projektidee,
+#email,
+#foerderung form p,
+#foerderung form button {
+  grid-column: span 2;
 }
 
-.btn, .quiz-btn, .pro-btn, button, a.btn {
-  background: #08385d;
+/* Rechtliches immer zweispaltig */
+#rechtliches .impressum-box {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+#rechtliches .section-content p,
+#rechtliches .section-content li {
+  font-size: 1.11rem;
+  line-height: 1.34;
+}
+
+/* ================ Buttons & Links ================ */
+.btn {
+  display: inline-block;
+  padding: 10px 26px;
+  margin-top: 12px;
+  background: #204769;
   color: #fff;
   border: none;
-  border-radius: 29px;
-  font-size: 1.13rem;
-  font-weight: 500;
-  padding: 13px 42px;
-  margin: 13px 13px 0 0;
-  cursor: pointer;
-  transition: background 0.13s, transform 0.13s, box-shadow 0.15s;
-  box-shadow: 0 2px 10px 0 rgba(20, 44, 73, 0.10);
-  outline: none;
+  border-radius: 50px;
   text-decoration: none;
-  display: inline-block;        /* Stelle sicher, dass es inline-block ist */
-  letter-spacing: 0.01em;
-  min-width: 220px;             /* Einheitliche Mindestbreite */
-  max-width: 340px;             /* Optional: Maximalbreite, anpassbar */
   text-align: center;
+  font-size: 1.1rem;
+  transition: background 0.3s;
+}
+.btn:hover {
+  background: #32608a;
+  cursor: pointer;
 }
 
-.btn:hover, .quiz-btn:hover, .pro-btn:hover {
-  background: #1863a7;
-  transform: translateY(-2px) scale(1.045);
-  box-shadow: 0 7px 20px #07354d33;
-}
-
-.quiz-btn {
-  min-width: 110px;
-  padding: 10px 26px;
-  font-size: 1.06rem;
-  margin-right: 18px;
-}
-.pro-btn {
-  font-size: 1.13rem;
-  font-weight: bold;
-  padding: 14px 62px;
-  margin: 26px 0 0 0;
-  background: #faad13;
-  color: #222;
-  border: none;
-  box-shadow: 0 2px 12px #ffcb6b22;
-}
-
-#quiz-app .quiz-box {
-  background: #f7faff;
-  border-radius: 13px;
-  padding: 18px 21px 19px 21px;
-  margin-bottom: 17px;
-  box-shadow: 0 2px 13px #20406112;
-}
-#quiz-app .quiz-result {
-  background: #e7eefc;
-  border-radius: 13px;
-  padding: 22px 23px 24px 23px;
-  margin-top: 10px;
-  box-shadow: 0 2px 11px #223e6031;
-  text-align: left;
-}
-.pro-check-tip {
-  margin-top: 24px;
-  margin-bottom: 9px;
-  font-size: 1.09rem;
-  color: #074f74;
-}
-
-input[type="text"], input[type="email"], select, textarea {
+/* ================ Tables (Admin) ================ */
+table {
+  border-collapse: collapse;
   width: 100%;
-  font-size: 1rem;
-  padding: 9px 16px;
-  margin: 8px 0 14px 0;
-  border-radius: 9px;
-  border: 2px solid #3c5871;
-  background: #f7faff;
-  outline: none;
-  box-sizing: border-box;
-  transition: border 0.16s;
+  margin-top: 20px;
 }
-input:focus, select:focus, textarea:focus {
-  border: 2px solid #08385d;
-  background: #fff;
+th, td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: left;
+  vertical-align: top;
 }
-textarea {
-  min-height: 50px;
-  resize: vertical;
+th {
+  background: #e0f4ff;
 }
-input[type="checkbox"] {
-  accent-color: #003b5a;
-  border-radius: 7px;
-}
-/* Floating Icon Button */
+
+/* ================ Floating § Button ================ */
 .legal-fab {
   position: fixed;
   bottom: 24px;
   right: 24px;
-  background: #254463;
+  background: #204769;
   color: #fff;
-  font-size: 2.2rem;
-  width: 48px;
-  height: 48px;
+  width: 46px;
+  height: 46px;
+  font-size: 1.6rem;
   border-radius: 50%;
-  box-shadow: 0 4px 24px rgba(40,60,100,0.15);
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   z-index: 9999;
-  transition: background 0.15s;
 }
 .legal-fab:hover {
-  background: #163049;
+  background: #32608a;
 }
 
-/* Modal Overlay */
+/* ================ Modal ================ */
 .legal-modal {
-  display: none; position: fixed;
-  z-index: 9999;
-  left: 0; top: 0; right: 0; bottom: 0;
-  background: rgba(40,60,80,0.18);
-  align-items: center; justify-content: center;
-}
-.legal-modal.show { display: flex; }
-.legal-modal-content {
-  background: #fff;
-  color: #153354;
-  padding: 36px 36px 30px 36px;
-  border-radius: 17px;
-  box-shadow: 0 8px 40px #25446324;
-  width: 95vw; max-width: 440px;
-  margin: 12vw auto 0 auto;
-  font-size: 1.13rem;
-  position: relative;
-  text-align: left;
-  animation: modalPopIn 0.3s cubic-bezier(.35,1.39,.49,1) ;
-}
-@keyframes modalPopIn {
-  0%   { transform: scale(0.90); opacity:0; }
-  90%  { transform: scale(1.05);}
-  100% { transform: scale(1); opacity:1; }
-}
-.legal-modal-close {
-  position: absolute; right: 28px; top: 18px;
-  font-size: 2.2rem;
-  color: #7a8799;
-  cursor: pointer;
-  transition: color 0.17s;
-  font-weight: 400;
-  line-height: 1;
-}
-.legal-modal-close:hover { color: #d15b47; }
-.legal-modal-content h2 {
-  margin-top: 0;
-  font-size: 1.3rem;
-  font-weight: 700;
-  color: #153354;
-  letter-spacing: -0.01em;
-}
-.legal-modal-content h3 {
-  margin: 22px 0 12px 0;
-  font-size: 1.28rem;
-  color: #223355;
-}
-.legal-modal-content ul {
-  margin: 0 0 8px 20px; padding: 0;
-  list-style: disc;
-}
-.legal-modal-content li {
-  margin: 0 0 4px 0;
-  font-size: 1rem;
-}
-.legal-modal-content hr {
-  margin: 26px 0 18px 0;
-  border: none; border-top: 1.5px solid #e1e7f0;
-}
-.legal-btn {
-  background: #163c5a;
-  color: #fff;
-  border: none;
-  border-radius: 12px;
-  padding: 9px 16px;
-  font-size: 1rem;
-  font-weight: 500;
-  margin: 17px 0 19px 0;
-  cursor: pointer;
-  transition: background 0.17s;
-  display: inline-block;
-  text-align: center;
-  text-decoration: none;
-}
-.legal-btn:hover {
-  background: #1a2841;
-}
-@media (max-width: 520px) {
-  .legal-modal-content { padding: 18px 7vw; font-size: 1rem;}
-  .legal-modal-content h2 { font-size: 1.3rem;}
-  .legal-btn { font-size: 1rem; padding: 9px 16px;}
-}
-
-
-/* MODAL POPUPS */
-.modal {
-  display: none;
   position: fixed;
-  z-index: 1100;
-  left: 0; top: 0; width: 100vw; height: 100vh;
-  background: rgba(12,19,32,0.60);
+  top:0; left:0;
+  width:100%;
+  height:100%;
+  background: rgba(0,0,0,0.3);
+  display: none;
   align-items: center;
   justify-content: center;
+  z-index: 9999;
 }
-.modal-content {
+.legal-modal.show {
+  display: flex;
+}
+.legal-modal-content {
   background: #fff;
-  border-radius: 16px;
-  padding: 37px 32px 29px 32px;
-  max-width: 420px;
-  width: 96vw;
-  box-shadow: 0 10px 36px #071e3433;
+  padding: 36px 36px;
+  width: 95vw;
+  max-width: 440px;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
   position: relative;
-  font-size: 1.05rem;
-  text-align: left;
 }
-.modal-close {
-  position: absolute; top: 18px; right: 22px;
-  font-size: 1.85rem;
-  color: #29495c;
-  font-weight: 400;
+.legal-modal-content h2 {
+  font-size: 1.6rem;
+}
+.legal-modal-close {
+  position: absolute;
+  right: 14px;
+  top: 10px;
+  font-size: 1.8rem;
   cursor: pointer;
-  transition: color 0.14s;
 }
-.modal-close:hover { color: #bc2b0c; }
-.modal h2 { font-size: 1.18rem; margin-bottom: 17px; }
-#kontakt-form label { display:block; margin:11px 0 3px 0; }
-#kontakt-form input, #kontakt-form textarea {
-  width:100%; margin-bottom:11px;
-  border-radius: 7px; border: 1.5px solid #b5c3d0;
-  font-size: 1.04rem; padding: 8px 12px;
-}
-#kontakt-form button {
-  width:100%; margin-top:8px;
-  background: #074f74;
-  font-weight: 500; font-size:1.07rem;
-}
-#kontakt-danke {
-  text-align:center; font-weight:500; font-size:1.09rem;
-  margin-top:23px;
+@media (max-width: 520px) {
+  .legal-modal-content {
+    padding: 18px 7vw;
+    font-size: 1rem;
+  }
+  .legal-modal-content h2 {
+    font-size: 1.3rem;
+  }
 }
 
-body.modal-open { overflow: hidden; }
-
-/* Responsive */
-@media (max-width: 1150px) {
-  .scroll-section { max-width: 98vw; gap: 14px; }
+/* ================ Quiz Buttons ================ */
+.quiz-btn {
+  background: #204769;
+  color: #fff;
+  padding: 10px 20px;
+  margin: 6px;
+  border: none;
+  border-radius: 30px;
+  font-size: 1rem;
+  cursor: pointer;
 }
+.quiz-btn:hover {
+  background: #32608a;
+}
+.button-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+/* ================ Captions ================ */
+.caption {
+  text-align: center;
+  font-size: 0.88rem;
+  color: #555;
+  margin-top: 6px;
+}
+
+/* ================ Scroll Sections ================ */
+.scroll-section {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  padding: 30px 20px;
+}
+.scroll-section .section-img {
+  flex: 1 1 280px;
+  max-width: 300px;
+  text-align: center;
+}
+.scroll-section .section-img img {
+  width: 100%;
+  border-radius: 12px;
+}
+.scroll-section .section-content {
+  flex: 2 1 400px;
+  padding: 0 20px;
+}
+
 @media (max-width: 950px) {
-  .scroll-section { flex-direction: column; gap: 10px; align-items: center; }
-  .section-img { align-items: center; margin-bottom: 0.4em; }
-  .section-content { max-width: 99vw; padding-top: 10vh; }
-  .impressum-box { flex-direction: column; gap: 12px; }
-  .footer-logos img { max-height: 32px; }
-  .section-headline, h1.section-headline, h2.section-headline { font-size: 2.0rem; }
-}
-@media (max-width: 600px) {
-  .section-headline, h1.section-headline, h2.section-headline { font-size: 1.17rem; }
-  .btn, .pro-btn, .quiz-btn { font-size: 0.95rem; padding: 9px 15px; }
-  .section-img img { max-width: 97vw; }
-  .section-img { margin-bottom: 0.3em; }
-  main { padding: 0 2vw 14px 2vw; }
-}
-/* ===========================================
-   Platzsparendes Design für Section #foerderung
-   =========================================== */
-
-/* 1. Maximalbreite im Container */
-#foerderung .section-content {
-  max-width: 600px;
-  margin: 0 auto; /* zentriert */
-}
-
-/* 2. Kleinere Felder & luftiger */
-#foerderung form input,
-#foerderung form select,
-#foerderung form textarea {
-  padding: 8px 12px;
-  font-size: 0.96rem;
-}
-
-/* 3. Zweispaltig auf großen Bildschirmen */
-@media (min-width: 900px) {
-  #foerderung form {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
+  .scroll-section {
+    flex-direction: column;
+    text-align: center;
   }
-
-  /* Diese Felder sollen nebeneinander */
-  #name, #company, #branche, #massnahme {
-    grid-column: auto;
+  .scroll-section .section-content {
+    padding: 20px 0;
   }
-
-  /* Alles andere weiter über beide Spalten */
-  #projektidee,
-  #email,
-  #foerderung form p,
-  #foerderung form button {
-    grid-column: span 2;
-  }
-}
-
-/* Rechtliches kompakter */
-#rechtliches .section-content {
-  max-width: 700px;
-  margin: 0 auto;
-}
-#rechtliches .section-content h3,
-#rechtliches .section-content h4 {
-  margin-top: 1rem;
-  margin-bottom: 0.5rem;
-  font-size: 1.1rem;
-}
-#rechtliches .section-content p,
-#rechtliches .section-content li {
-  font-size: 0.95rem;
-  line-height: 1.5;
 }
