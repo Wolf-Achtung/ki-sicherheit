@@ -407,3 +407,19 @@ body.modal-open { overflow: hidden; }
     grid-column: span 2;
   }
 }
+/* Rechtliches kompakter */
+#rechtliches .section-content {
+  max-width: 700px;
+  margin: 0 auto;
+}
+#rechtliches .section-content h3,
+#rechtliches .section-content h4 {
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+}
+#rechtliches .section-content p,
+#rechtliches .section-content li {
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
