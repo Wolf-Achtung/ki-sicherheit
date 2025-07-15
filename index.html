@@ -443,15 +443,34 @@ document.getElementById('modal-close-btn').addEventListener('click', function() 
 
 <!-- Modal -->
 <div id="privacy-modal" class="privacy-modal">
-  <div class="privacy-modal-content">
+  <div class="privacy-modal-content" style="max-width:800px; max-height:90vh; overflow-y:auto; padding:2rem;">
     <span class="privacy-modal-close">&times;</span>
-    <h2>Datenschutzerklärung</h2>
-    <p><strong>Verantwortlich:</strong><br>
-      Wolfi Hohl<br>
-      Greifswalder Str. 224a<br>
-      10405 Berlin
-    </p>
-    <a class="legal-btn" href="#" id="mail-link">E-Mail schreiben</a>
+    
+    <h1>Datenschutzerklärung</h1>
+
+    <h2>Verantwortliche Stelle</h2>
+    <p>Wolf Hohl, TÜV-zertifiziertes KI-Management<br>
+    Berlin, Deutschland<br>
+    E-Mail: kontakt@ki-sicherheit.jetzt</p>
+
+    <h2>Datenverarbeitung durch KI-Tools</h2>
+    <p>Zur Erstellung Ihres Executive-Briefings verarbeiten wir Ihre Angaben mittels eines Sprachmodells (GPT).
+    Die Verarbeitung kann auf Servern außerhalb der EU stattfinden. Es werden ausschließlich die von Ihnen angegebenen Informationen übermittelt.
+    Eine Speicherung über den Analyseprozess hinaus erfolgt nicht.</p>
+
+    <h2>Rechtsgrundlage & Widerruf</h2>
+    <p><strong>Rechtsgrundlage:</strong> Ihre Einwilligung gem. Art. 6 Abs. 1 lit. a DSGVO.</p>
+    <p><strong>Widerruf:</strong> Sie können Ihre Einwilligung jederzeit mit Wirkung für die Zukunft widerrufen. Senden Sie hierzu einfach eine E-Mail an <a href="mailto:kontakt@ki-sicherheit.jetzt">kontakt@ki-sicherheit.jetzt</a>.</p>
+
+    <h2>Haftungshinweis</h2>
+    <p>Die generierten Auswertungen stellen keine Rechts- oder Steuerberatung dar. Für die Umsetzung bleibt Ihr Unternehmen verantwortlich.</p>
+
+    <h2>Weitere Hinweise</h2>
+    <p>Mehr Informationen zu allgemeinen Datenschutzrechten finden Sie bei Ihrer Aufsichtsbehörde oder unter <a href="https://eur-lex.europa.eu/eli/reg/2016/679/oj">EU-DSGVO</a>.</p>
+
+    <p style="margin-top:1rem;">© 2025 KI-Sicherheit.jetzt</p>
+  </div>
+</div>
 
 <script>
 document.getElementById("mail-link").addEventListener("click", function(e){
