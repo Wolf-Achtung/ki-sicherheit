@@ -374,7 +374,7 @@ body.modal-open { overflow: hidden; }
   main { padding: 0 2vw 14px 2vw; }
 }
 /* ===========================================
-   Platzsparendes Design für Section #foerderung
+   Kompaktes Förder-Formular (weniger Abstand)
    =========================================== */
 
 #foerderung .section-content {
@@ -382,31 +382,27 @@ body.modal-open { overflow: hidden; }
   margin: 0 auto;
 }
 
-/* Zweispaltiges Grid für Formular */
 #foerderung form {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 16px;
-}
-
-#foerderung form label {
-  grid-column: span 2;
-  font-size: 0.95rem;
+  gap: 10px 15px; /* vertikal 10px, horizontal 15px */
+  align-items: center;
 }
 
 #foerderung form input,
-#foerderung form select {
-  width: 100%;
-  padding: 8px 12px;
+#foerderung form select,
+#foerderung form textarea {
+  padding: 8px 10px;
   font-size: 0.95rem;
 }
 
-/* Erste vier Felder nebeneinander */
-#name, #company, #branche, #massnahme {
+#name,
+#company,
+#branche,
+#massnahme {
   grid-column: auto;
 }
 
-/* Textarea, E-Mail & Checkbox & Button über volle Breite */
 #projektidee,
 #email,
 #foerderung form p,
@@ -414,12 +410,6 @@ body.modal-open { overflow: hidden; }
   grid-column: span 2;
 }
 
-/* Responsiv: untereinander auf kleineren Bildschirmen */
-@media (max-width: 700px) {
-  #foerderung form {
-    grid-template-columns: 1fr;
-  }
-}
 
 /* ===========================================
    Zweispaltiges Layout für Section #rechtliches
