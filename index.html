@@ -98,62 +98,86 @@
     Wir prüfen individuell, ob und welche Programme optimal zu Ihrem Vorhaben passen.
   </p>
   <h2>Förderfähigkeit prüfen lassen</h2>
-    <form 
-      name="foerderung-neu"
-      method="POST"
-      action="/thankyou.html"
-      data-netlify="true"
-      data-netlify-honeypot="bot-field"
-      id="foerderung-form"
-    >
-      <input type="hidden" name="form-name" value="foerderung-neu" />
-      <p style="display:none">
-        <label>Don’t fill this out: <input name="bot-field" /></label>
-      </p>
-      <label for="name">Ihr Name</label>
-      <input id="name" name="name" required type="text"/>
-      <label for="company">Unternehmen</label>
-      <input id="company" name="company" required type="text"/>
-      <label for="branche">Branche</label>
-      <select id="branche" name="industry" required>
-        <option disabled selected value="">Bitte auswählen</option>
-        <option>Marketing & Werbung</option>
-        <option>Beratung & Dienstleistungen</option>
-        <option>Finanzen & Versicherungen</option>
-        <option>IT & Software</option>
-        <option>Medien & Kreativwirtschaft</option>
-        <option>Verwaltung</option>
-        <option>Gesundheitswesen</option>
-        <option>Bauwesen & Architektur</option>
-        <option>Handel & E-Commerce</option>
-        <option>Transport & Logistik</option>
-        <option>Industrie & Produktion</option>
-        <option>Bildung</option>
-        <option>Sonstige</option>
-      </select>
-      <label for="massnahme">Geplante Maßnahme</label>
-      <select id="massnahme" name="plan" required>
-        <option disabled selected value="">Bitte auswählen</option>
-        <option>Beratung / Strategie</option>
-        <option>Risikoanalyse</option>
-        <option>Datenschutz / Compliance</option>
-        <option>KI-Tool-Integration, z.B. KI-Agents</option>
-        <option>Mitarbeiterschulung / Change Management</option>
-        <option>noch unklar</option>
-      </select>
-      <label for="projektidee">Projektidee</label>
-      <textarea id="projektidee" name="project" placeholder="Kurze Beschreibung Ihres KI-Vorhabens" rows="3"></textarea>
-      <label for="email">Ihre E-Mail</label>
-      <input id="email" name="email" required type="email"/>
-      <p style="font-size: 0.96rem; color: #333;">
-        <label>
-          <input name="privacy" required type="checkbox"/>
-          Ich habe die <a href="#" id="open-legal-modal">Datenschutzerklärung</a>
- gelesen und akzeptiert.
-        </label>
-      </p>
-      <button class="btn" type="submit">Jetzt prüfen lassen</button>
-    </form>
+<form 
+  name="foerderung-neu"
+  method="POST"
+  action="/thankyou.html"
+  data-netlify="true"
+  data-netlify-honeypot="bot-field"
+  id="foerderung-form"
+>
+  <input type="hidden" name="form-name" value="foerderung-neu" />
+  <p style="display:none">
+    <label>Don’t fill this out: <input name="bot-field" /></label>
+  </p>
+
+  <div class="form-group">
+    <label for="name">Ihr Name</label>
+    <input id="name" name="name" required type="text"/>
+  </div>
+
+  <div class="form-group">
+    <label for="company">Unternehmen</label>
+    <input id="company" name="company" required type="text"/>
+  </div>
+
+  <div class="form-group">
+    <label for="branche">Branche</label>
+    <select id="branche" name="industry" required>
+      <option disabled selected value="">Bitte auswählen</option>
+      <option>Marketing & Werbung</option>
+      <option>Beratung & Dienstleistungen</option>
+      <option>Finanzen & Versicherungen</option>
+      <option>IT & Software</option>
+      <option>Medien & Kreativwirtschaft</option>
+      <option>Verwaltung</option>
+      <option>Gesundheitswesen</option>
+      <option>Bauwesen & Architektur</option>
+      <option>Handel & E-Commerce</option>
+      <option>Transport & Logistik</option>
+      <option>Industrie & Produktion</option>
+      <option>Bildung</option>
+      <option>Sonstige</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="massnahme">Geplante Maßnahme</label>
+    <select id="massnahme" name="plan" required>
+      <option disabled selected value="">Bitte auswählen</option>
+      <option>Beratung / Strategie</option>
+      <option>Risikoanalyse</option>
+      <option>Datenschutz / Compliance</option>
+      <option>KI-Tool-Integration, z.B. KI-Agents</option>
+      <option>Mitarbeiterschulung / Change Management</option>
+      <option>noch unklar</option>
+    </select>
+  </div>
+
+  <div class="form-group" style="grid-column: span 2;">
+    <label for="projektidee">Projektidee</label>
+    <textarea id="projektidee" name="project" placeholder="Kurze Beschreibung Ihres KI-Vorhabens" rows="3"></textarea>
+  </div>
+
+  <div class="form-group" style="grid-column: span 2;">
+    <label for="email">Ihre E-Mail</label>
+    <input id="email" name="email" required type="email"/>
+  </div>
+
+  <div class="form-group" style="grid-column: span 2;">
+    <p style="font-size: 0.96rem; color: #333;">
+      <label>
+        <input name="privacy" required type="checkbox"/>
+        Ich habe die <a href="#" id="open-legal-modal">Datenschutzerklärung</a> gelesen und akzeptiert.
+      </label>
+    </p>
+  </div>
+
+  <div class="form-group" style="grid-column: span 2;">
+    <button class="btn" type="submit">Jetzt prüfen lassen</button>
+  </div>
+</form>
+
   </div>
 </section>
 
@@ -255,41 +279,57 @@ document.getElementById('modal-close-btn').addEventListener('click', function() 
     </section>
 
     <!-- Section 7: Rechtliches & Transparenz -->
-    <section class="scroll-section" id="rechtliches">
-      <div class="section-img">
-        <img src="img/08.webp" alt="Vertrauen durch Offenheit"/>
-        <p class="caption"></p>
-      </div>
-      <div class="section-content">
-        <h2 class="section-headline">Rechtliches &amp; Transparenz</h2>
-        <div class="impressum-box">
-          <div>
-            <h3>Verantwortlich für den Inhalt:</h3>
-            <p>Wolf Hohl<br>
-            Greifswalder Str. 224a<br>
-            10405 Berlin</p>
+   <section class="scroll-section" id="rechtliches">
+  <div class="section-img">
+    <img src="img/08.webp" alt="Vertrauen durch Offenheit"/>
+    <p class="caption"></p>
+  </div>
+  <div class="section-content">
+    <h2 class="section-headline">Rechtliches &amp; Transparenz</h2>
+    <div class="rechtliches-grid">
+      <div>
+        <h3>Impressum</h3>
+        <p><strong>Wolf Hohl</strong><br>
+          Greifswalder Str. 224a<br>
+          10405 Berlin
+        </p>
+        <a class="legal-btn" href="mailto:kontakt@ki-sicherheit.jetzt">E-Mail schreiben</a>
 
-            <h4>Haftungsausschluss:</h4>
-            <p>Diese Website dient ausschließlich der Information. Trotz sorgfältiger Prüfung übernehme ich keine Haftung für Inhalte externer Links.</p>
-            <h4>Urheberrecht:</h4>
-            <p>Alle Inhalte dieser Website unterliegen dem deutschen Urheberrecht, alle Bilder wurden mit Hilfe von Midjourney erzeugt.</p>
-            <h4>Hinweis zum EU AI Act:</h4>
-            <p>Diese Website bietet einen Überblick über Pflichten und Empfehlungen zum Einsatz von KI in Unternehmen, informiert über Fördermöglichkeiten sowie über Risiken und rechtliche Vorgaben im Zusammenhang mit dem EU AI Act. Die bereitgestellten Inhalte ersetzen keine Rechtsberatung.</p>
-            <h4>Kontakt:</h4>
-            <p>Wenn Sie per Formular oder E-Mail Kontakt aufnehmen, werden Ihre Angaben zur Bearbeitung 6 Monate gespeichert.</p>
-            <h4>Cookies:</h4>
-            <p>Diese Website verwendet keine Cookies zur Nutzerverfolgung oder Analyse.</p>
-            <h4>Ihre Rechte laut DSGVO:</h4>
-            <ul>
-              <li>Auskunft, Berichtigung oder Löschung Ihrer Daten</li>
-              <li>Datenübertragbarkeit</li>
-              <li>Widerruf erteilter Einwilligungen</li>
-              <li>Beschwerde bei der Datenschutzbehörde</li>
-            </ul>
-          </div>
-        </div>
+        <h4>Verantwortlich für den Inhalt</h4>
+        <p>Wolf Hohl, Adresse wie oben.</p>
+
+        <h4>Haftungsausschluss:</h4>
+        <p>Diese Website dient ausschließlich der Information. Trotz sorgfältiger Prüfung übernehme ich keine Haftung für Inhalte externer Links.</p>
+
+        <h4>Urheberrecht:</h4>
+        <p>Alle Inhalte dieser Website unterliegen dem deutschen Urheberrecht, alle Bilder wurden mit Hilfe von Midjourney erzeugt.</p>
+
+        <h4>Hinweis zum EU AI Act:</h4>
+        <p>Diese Website bietet einen Überblick über Pflichten und Empfehlungen zum Einsatz von KI in Unternehmen, informiert über Fördermöglichkeiten sowie über Risiken und rechtliche Vorgaben im Zusammenhang mit dem EU AI Act. Die bereitgestellten Inhalte ersetzen keine Rechtsberatung.</p>
       </div>
-    </section>
+
+      <div>
+        <h3>Datenschutzerklärung</h3>
+        <p><strong>Der Schutz Ihrer persönlichen Daten ist mir ein besonderes Anliegen.</strong></p>
+
+        <h4>1. Kontakt mit mir</h4>
+        <p>Wenn Sie per Formular oder E-Mail Kontakt aufnehmen, werden Ihre Angaben zur Bearbeitung sechs Monate gespeichert.</p>
+
+        <h4>2. Cookies</h4>
+        <p>Diese Website verwendet keine Cookies zur Nutzerverfolgung oder Analyse.</p>
+
+        <h4>3. Ihre Rechte laut DSGVO</h4>
+        <ul>
+          <li>Auskunft, Berichtigung oder Löschung Ihrer Daten</li>
+          <li>Datenübertragbarkeit</li>
+          <li>Widerruf erteilter Einwilligungen</li>
+          <li>Beschwerde bei der Datenschutzbehörde</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
   </main>
 
 
