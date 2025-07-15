@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
   <title>KI-Sicherheit: Fördermittel & KI-Kurz-Check</title>
+  <meta name="description" content="TÜV-zertifizierte KI-Beratung & EU AI Act-Check für Mittelstand. Risikoanalyse, Fördermittel, DSGVO-konform & auditierbar. Jetzt kostenlos prüfen!">
   <link rel="stylesheet" href="styles.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,12 +20,12 @@
       </div>
 <div class="section-content">
   <h2 class="section-headline">
-    Die KI ist bereit.<br>
+    Die KI ist bereit.
     Sind Sie es auch?
   </h2>
   <p>
     Mit <strong>TÜV-zertifizierter Sicherheit</strong> in die KI-Zukunft: Der erfolgreiche Einsatz von KI ist keine Raketenwissenschaft – sondern das Ergebnis unabhängiger Prüfung, fundierter Expertise und strukturierter Vorbereitung. 
-    Als <strong>TÜV Austria-zertifizierter KI-Manager</strong> begleite ich Ihr Unternehmen dabei, sämtliche Anforderungen des EU AI Acts transparent, nachvollziehbar und rechtssicher umzusetzen.
+    Als <strong>TÜV-zertifizierter KI-Manager</strong> begleite ich Ihr Unternehmen dabei, sämtliche Anforderungen des EU AI Acts transparent, nachvollziehbar und rechtssicher umzusetzen.
   </p>
   <ul>
     <li><strong>Welche Risiken birgt generative KI im Tagesgeschäft?</strong></li>
@@ -467,7 +468,15 @@ document.getElementById('modal-close-btn').addEventListener('click', function() 
       Greifswalder Str. 224a<br>
       10405 Berlin
     </p>
-    <a class="legal-btn" href="mailto:info@ki-sicherheit.jetzt">E-Mail schreiben</a>
+    <a class="legal-btn" href="#" id="mail-link">E-Mail schreiben</a>
+
+<script>
+document.getElementById("mail-link").addEventListener("click", function(e){
+  e.preventDefault();
+  window.location.href = "mailto:" + "kontakt" + "@" + "ki-sicherheit.jetzt";
+});
+</script>
+
     <p><strong>1. Kontaktaufnahme:</strong> Bei Nutzung des Formulars oder E-Mail-Kontakt werden Ihre Angaben zur Bearbeitung gespeichert (max. 6 Monate).</p>
     <p><strong>2. Keine Cookies:</strong> Diese Website setzt keine Tracking-Cookies ein.</p>
     <p><strong>3. Ihre Rechte laut DSGVO:</strong></p>
