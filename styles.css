@@ -55,6 +55,9 @@ h2.section-headline {
   font-size: 2.2rem;
   margin-bottom: 1.15rem;
 }
+.section-content h3 {
+  margin-bottom: 0.5rem;  /* vorher war standardmäßig größer */
+}
 
 .section-img {
   flex: 1 1 300px;
@@ -430,8 +433,8 @@ body.modal-open { overflow: hidden; }
 
 #rechtliches .rechtliches-grid p,
 #rechtliches .rechtliches-grid li {
-  font-size: 0.95rem;
-  line-height: 1.5;
+  font-size: 1.07rem;
+  line-height: 1.45;
 }
 .privacy-modal {
   position: fixed;
