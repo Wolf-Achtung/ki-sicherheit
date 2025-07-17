@@ -61,11 +61,14 @@ h2.section-headline {
 #start .section-content {
   padding-top: 10vh;
 }
+#start .section-img {
+  padding-top: 14vh;
+}
 #rechtliches .section-content {
   padding-top: 4vh;
 }
 #rechtliches .section-img {
-  padding-top: 0;
+  padding-top: 4vh;
   margin-top: 0;
   align-self: start;
 }
