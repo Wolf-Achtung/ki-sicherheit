@@ -15,7 +15,7 @@
     <!-- Section 1: Header -->
     <section class="scroll-section" id="start">
       <div class="section-img">
-        <img src="img/01.webp" alt="KI Beratung" />
+        <img src="img/01.webp" alt="KI Beratung" data-img-effect="glow" />
         <p class="caption"></p>
       </div>
 <div class="section-content">
@@ -45,7 +45,7 @@
     <!-- Section 2: Schnell-Check -->
     <section class="scroll-section" id="schnell-check">
       <div class="section-img">
-        <img src="img/04.webp" alt="Status erfassen, Risiken vermeiden"/>
+        <img src="img/04.webp" alt="Status erfassen" data-img-effect="light-sweep" />
         <p class="caption"></p>
       </div>
       <div class="section-content">
@@ -60,7 +60,7 @@
 
     <section class="scroll-section" id="leistungen-profil">
   <div class="section-img">
-    <img src="img/07.webp" alt="KI-Strategie und Vertrauen" />
+    <img src="img/07.webp" alt="KI-Strategie" data-img-effect="pulse" />
     <p class="caption"></p>
   </div>
   <div class="section-content">
@@ -97,7 +97,7 @@
     <!-- Section 4: Förderung -->
 <section class="scroll-section" id="foerderung">
   <div class="section-img">
-    <img src="img/09.webp" alt="Fördermittel gezielt nutzen"/>
+    <img src="img/09.webp" alt="Fördermittel" data-img-effect="soft-shadow" />
     <p class="caption"></p>
   </div>
 <div class="section-content">
@@ -226,7 +226,7 @@ document.getElementById('modal-close-btn').addEventListener('click', function() 
     <!-- Section 7: Rechtliches & Transparenz -->
    <section class="scroll-section" id="rechtliches">
   <div class="section-img">
-    <img src="img/08.webp" alt="Vertrauen durch Offenheit"/>
+    <img src="img/08.webp" alt="Vertrauen durch Offenheit" data-img-effect="micro-move" />
     <p class="caption"></p>
   </div>
   <div class="section-content">
@@ -436,7 +436,35 @@ document.getElementById('modal-close-btn').addEventListener('click', function() 
       }
       renderQuestion();
     });
-  </script>
+  </script><script>
+document.addEventListener("DOMContentLoaded", function() {
+  // Intersection Observer für Bildanimationen
+  const effectMap = {
+    "glow": "img-glow",
+    "light-sweep": "img-light-sweep",
+    "pulse": "img-pulse",
+    "soft-shadow": "img-soft-shadow",
+    "micro-move": "img-micro-move"
+  };
+  const imgs = document.querySelectorAll('img[data-img-effect]');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      const img = entry.target;
+      const effect = img.getAttribute('data-img-effect');
+      if (entry.isIntersecting && effect && effectMap[effect]) {
+        img.classList.add(effectMap[effect]);
+        // Falls Light Sweep: auch um Eltern-Container wrappen, damit das ::after sichtbar wird
+        if(effect === "light-sweep") img.parentElement.classList.add("img-light-sweep");
+      } else {
+        img.classList.remove(...Object.values(effectMap));
+        if(effect === "light-sweep") img.parentElement.classList.remove("img-light-sweep");
+      }
+    });
+  }, { threshold: 0.18 });
+  imgs.forEach(img => observer.observe(img));
+});
+</script>
+
 <!-- Floating Icon -->
 <div id="legal-fab" class="legal-fab" title="Rechtliches & Datenschutz">§</div>
 

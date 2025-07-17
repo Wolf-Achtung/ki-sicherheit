@@ -494,3 +494,67 @@ body.modal-open { overflow: hidden; }
   font-size: 1.8rem;
   cursor: pointer;
 }
+/* === KI-Bild-Effekte === */
+
+.img-glow {
+  box-shadow: 0 0 60px 10px #94befa, 0 2px 8px #5552 inset !important;
+  filter: brightness(1.15) contrast(1.10);
+  animation: glowPulse 3.2s infinite alternate;
+}
+@keyframes glowPulse {
+  0% { box-shadow: 0 0 60px 10px #7bb3fa, 0 2px 8px #5552 inset; }
+  100% { box-shadow: 0 0 80px 20px #c7e0ff, 0 2px 8px #7774 inset; }
+}
+
+.img-light-sweep {
+  position: relative;
+  overflow: hidden;
+}
+.img-light-sweep::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: -40%;
+  left: -50%;
+  width: 50%;
+  height: 180%;
+  background: linear-gradient(120deg, rgba(255,255,255,0) 60%, rgba(255,255,255,0.4) 80%, rgba(255,255,255,0));
+  transform: skewX(-22deg);
+  animation: sweep 2.6s infinite;
+  pointer-events: none;
+}
+@keyframes sweep {
+  0% { left: -60%;}
+  80% { left: 110%;}
+  100% { left: 110%;}
+}
+
+.img-pulse {
+  animation: imgPulse 2.2s infinite;
+  filter: brightness(1.11) saturate(1.15);
+}
+@keyframes imgPulse {
+  0% { filter: brightness(1.11) saturate(1.15);}
+  50% { filter: brightness(1.21) saturate(1.35);}
+  100% { filter: brightness(1.11) saturate(1.15);}
+}
+
+.img-soft-shadow {
+  box-shadow: 0 4px 32px 0 #b5e7ff60, 0 1px 16px #1112 !important;
+  animation: shadowMove 3.3s infinite alternate;
+}
+@keyframes shadowMove {
+  0% { box-shadow: 0 4px 32px 0 #b5e7ff90, 0 1px 16px #1112; }
+  100% { box-shadow: 0 8px 44px 0 #fbc2ff60, 0 1px 16px #8883; }
+}
+
+.img-micro-move {
+  animation: microMove 7s infinite linear;
+}
+@keyframes microMove {
+  0% { transform: translateY(0) scale(1);}
+  35% { transform: translateY(-3px) scale(1.01);}
+  60% { transform: translateX(2px) scale(0.995);}
+  90% { transform: translateY(2px) scale(1);}
+  100% { transform: translateY(0) scale(1);}
+}
