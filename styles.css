@@ -66,7 +66,10 @@ h2.section-headline {
 }
 #rechtliches .section-img {
   padding-top: 0;
+  margin-top: 0;
+  align-self: start;
 }
+
 
 .section-img {
   flex: 1 1 300px;
