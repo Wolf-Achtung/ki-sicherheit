@@ -234,7 +234,7 @@ document.getElementById('modal-close-btn').addEventListener('click', function() 
           Wolf Hohl<br>Greifswalder Str. 224a<br>
           10405 Berlin
         </p>
-        <a id="mail-link" class="legal-btn" href="#">E-Mail schreiben</a>
+        <a id="mail-link1" class="legal-btn" href="javascript:schicken();">E-Mail schreiben</a>
 
         <h4>Haftungsausschluss:</h4>
         <p>Diese Website dient ausschließlich der Information. Trotz sorgfältiger Prüfung übernehme ich keine Haftung für Inhalte externer Links.</p>
@@ -478,7 +478,7 @@ document.addEventListener("DOMContentLoaded", function() {
     <h2>Verantwortliche Stelle</h2>
     <p>Wolf Hohl, TÜV-zertifiziertes KI-Management<br>
     Berlin, Deutschland<br>
-<a id="mail-link" class="legal-btn" href="#">E-Mail schreiben</a>
+    <a id="mail-link2" class="legal-btn" href="javascript:schicken();">E-Mail schreiben</a>
 
 
     <h2>Datenverarbeitung durch KI-Tools</h2>
@@ -501,10 +501,16 @@ document.addEventListener("DOMContentLoaded", function() {
 </div>
 
 <script>
+  /*
 document.getElementById("mail-link").addEventListener("click", function(e){
   e.preventDefault();
   window.location.href = "mailto:" + "kontakt" + "@" + "ki-sicherheit.jetzt";
 });
+*/
+  function schicken() {
+  window.location.href = "mailto:" + "kontakt" + "@" + "ki-sicherheit.jetzt";
+  return false;
+}
 </script>
 
     
