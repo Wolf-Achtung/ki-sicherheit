@@ -446,6 +446,188 @@
 }
 
 /* ===========================================
+   OUTLOOK / AUSBLICK SECTION
+   =========================================== */
+
+.outlook-section {
+  background: linear-gradient(135deg, rgba(34, 70, 100, 0.03) 0%, rgba(250, 173, 19, 0.03) 100%);
+  border-radius: 16px;
+  padding: 40px;
+  margin-bottom: 60px;
+  border: 1px solid rgba(34, 70, 100, 0.08);
+}
+
+.outlook-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.outlook-header h2 {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  color: var(--color-primary);
+  margin-bottom: 8px;
+}
+
+.outlook-header p {
+  color: var(--color-text-light);
+  font-size: 0.95rem;
+}
+
+/* Timeline */
+.outlook-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.outlook-item {
+  display: flex;
+  gap: 24px;
+  background: #fff;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 2px 8px rgba(34, 70, 100, 0.06);
+  border-left: 4px solid var(--color-primary);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.outlook-item:hover {
+  transform: translateX(4px);
+  box-shadow: 0 4px 16px rgba(34, 70, 100, 0.1);
+}
+
+.outlook-item--urgent {
+  border-left-color: #dc3545;
+  background: linear-gradient(90deg, rgba(220, 53, 69, 0.03) 0%, #fff 20%);
+}
+
+/* Date Box */
+.outlook-date {
+  flex-shrink: 0;
+  width: 70px;
+  text-align: center;
+  padding: 8px;
+  background: var(--color-primary);
+  border-radius: 8px;
+  color: #fff;
+}
+
+.outlook-item--urgent .outlook-date {
+  background: #dc3545;
+}
+
+.outlook-day {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.outlook-month {
+  display: block;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  opacity: 0.9;
+  margin-top: 4px;
+}
+
+/* Content */
+.outlook-content {
+  flex: 1;
+}
+
+.outlook-content h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  margin: 8px 0;
+}
+
+.outlook-content p {
+  font-size: 0.9rem;
+  color: var(--color-text-light);
+  line-height: 1.5;
+  margin-bottom: 8px;
+}
+
+.outlook-content em {
+  font-size: 0.85rem;
+  color: #888;
+}
+
+/* Badges */
+.outlook-badge {
+  display: inline-block;
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 4px;
+  background: var(--color-primary);
+  color: #fff;
+}
+
+.outlook-badge--urgent {
+  background: #dc3545;
+  animation: pulse 2s infinite;
+}
+
+.outlook-badge--aiact {
+  background: var(--color-accent);
+  color: var(--color-primary);
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+/* Link */
+.outlook-link {
+  display: inline-block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+.outlook-link:hover {
+  color: var(--color-accent);
+  text-decoration: underline;
+}
+
+/* Note Box */
+.outlook-note {
+  background: rgba(250, 173, 19, 0.1);
+  border-left: 4px solid var(--color-accent);
+  padding: 16px 20px;
+  border-radius: 0 8px 8px 0;
+  margin-top: 24px;
+  font-size: 0.9rem;
+}
+
+/* Section Divider */
+.section-divider {
+  text-align: center;
+  margin: 40px 0;
+  padding: 24px 0;
+  border-top: 1px solid rgba(34, 70, 100, 0.1);
+}
+
+.section-divider h2 {
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  color: var(--color-primary);
+  margin-bottom: 8px;
+}
+
+.section-divider p {
+  color: var(--color-text-light);
+  font-size: 0.9rem;
+}
+
+/* ===========================================
    RESPONSIVE
    =========================================== */
 
@@ -484,5 +666,31 @@
   .comparison-table th,
   .comparison-table td {
     padding: 10px 12px;
+  }
+
+  /* Outlook responsive */
+  .outlook-section {
+    padding: 24px;
+  }
+
+  .outlook-item {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .outlook-date {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 16px;
+  }
+
+  .outlook-day {
+    font-size: 1.2rem;
+  }
+
+  .outlook-month {
+    margin-top: 0;
   }
 }
