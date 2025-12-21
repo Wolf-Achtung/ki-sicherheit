@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NIS2-Umsetzungsgesetz 2025: Was Unternehmen jetzt tun müssen | KI-Sicherheit.jetzt</title>
+  <meta name="description" content="Das NIS2-Gesetz gilt seit 6.12.2025 ohne Übergangsfrist. 29.500 Unternehmen betroffen. Pflichten, Fristen, Bußgelder – und was das mit KI zu tun hat.">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="NIS2 ist da – Was deutsche Unternehmen jetzt wissen müssen">
+  <meta property="og:description" content="Das NIS2-Umsetzungsgesetz gilt seit dem 6. Dezember 2025. Rund 29.500 Unternehmen sind betroffen.">
+  <meta property="og:type" content="article">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../css/news.css">
+  <style>
+    /* Base Styles */
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
+      background: #f9fafb;
+      color: #224664;
+      line-height: 1.55;
+    }
+    body { padding-top: 60px; }
+
+    /* Header */
+    .site-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: rgba(249, 250, 251, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(34, 70, 100, 0.1);
+      z-index: 1000;
+      padding: 12px 24px;
+    }
+    .header-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .nav-logo {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #224664;
+      text-decoration: none;
+    }
+    .nav-links {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
+    .nav-links a {
+      font-size: 0.9rem;
+      color: #224664;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: #faad13; }
+    .nav-highlight {
+      background: #faad13 !important;
+      color: #224664 !important;
+      padding: 8px 16px !important;
+      border-radius: 6px;
+      font-weight: 600;
+    }
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+    }
+    .nav-toggle span {
+      width: 24px;
+      height: 2px;
+      background: #224664;
+      display: block;
+    }
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: white;
+        flex-direction: column;
+        padding: 16px 24px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      }
+      .nav-links.active { display: flex; }
+      .nav-toggle { display: flex; }
+    }
+
+    /* Footer */
+    .site-footer {
+      background: #224664;
+      padding: 40px 24px 30px;
+    }
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+    .footer-brand p {
+      color: rgba(255,255,255,0.9);
+      font-size: 0.95rem;
+      margin: 0 0 4px;
+    }
+    .footer-brand a {
+      color: #faad13;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .footer-credential {
+      font-size: 0.85rem !important;
+      color: rgba(255,255,255,0.6) !important;
+    }
+    @media (max-width: 600px) {
+      .footer-inner { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="https://ki-sicherheit.jetzt" class="nav-logo">KI-Sicherheit.jetzt</a>
+      <nav class="nav-links">
+        <a href="https://ki-sicherheit.jetzt/#start">Start</a>
+        <a href="https://ki-sicherheit.jetzt/#leistungen-profil">Leistungen</a>
+        <a href="https://report.ki-sicherheit.jetzt" class="nav-highlight">KI-Report</a>
+        <a href="./" style="font-weight: 600;">Aktuell</a>
+        <a href="https://ki-sicherheit.jetzt/#rechtliches">Kontakt</a>
+      </nav>
+      <button class="nav-toggle" aria-label="Menü">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main class="article-page">
+    <article class="article">
+      <header class="article-header">
+        <a href="index.html" class="article-back">← Zurück zur Übersicht</a>
+        <span class="news-date">21. Dezember 2025</span>
+        <span class="news-category">Cybersicherheit</span>
+        <h1>NIS2 ist da – Was deutsche Unternehmen jetzt wissen müssen</h1>
+        <p class="article-intro">Das NIS2-Umsetzungsgesetz ist am 6. Dezember 2025 in Kraft getreten – ohne Übergangsfrist. Rund 29.500 Unternehmen in Deutschland sind betroffen und müssen sofort handeln.</p>
+      </header>
+
+      <div class="article-content">
+
+        <h2>Was ist NIS2?</h2>
+        <p>Die NIS2-Richtlinie ist eine EU-weite Regelung zur Stärkung der Cybersicherheit. Sie ersetzt die bisherige NIS-Richtlinie von 2016 und erweitert den Anwendungsbereich deutlich: von ca. 4.500 auf rund 29.500 Unternehmen allein in Deutschland.</p>
+
+        <h2>Wer ist betroffen?</h2>
+        <p>Zwei Kriterien müssen erfüllt sein:</p>
+
+        <div class="info-box">
+          <h3>1. Sektor</h3>
+          <p>Unternehmen aus einem der 18 festgelegten Sektoren: Energie, Verkehr, Bankwesen, Gesundheit, Trinkwasser, Abwasser, Digitale Infrastruktur, IKT-Dienste, Öffentliche Verwaltung, Weltraum, Post, Abfall, Chemie, Lebensmittel, Verarbeitendes Gewerbe, Digitale Dienste, Forschung.</p>
+        </div>
+
+        <div class="info-box">
+          <h3>2. Größe</h3>
+          <p>Ab 50 Mitarbeiter <strong>ODER</strong> über 10 Mio. EUR Jahresumsatz.</p>
+        </div>
+
+        <div class="warning-box">
+          <strong>Wichtig:</strong> Unternehmen müssen selbst prüfen, ob sie betroffen sind – es gibt keine Benachrichtigung durch Behörden!
+        </div>
+
+        <h2>Was müssen betroffene Unternehmen tun?</h2>
+
+        <h3>Sofort</h3>
+        <ul>
+          <li>Selbstprüfung: Bin ich betroffen? (BSI-Betroffenheitsprüfung nutzen)</li>
+          <li>Registrierung bei "Mein Unternehmenskonto" (MUK) – empfohlen bis 31.12.2025</li>
+        </ul>
+
+        <h3>Innerhalb von 3 Monaten (bis März 2026)</h3>
+        <ul>
+          <li>Registrierung beim BSI-Portal (geht ab 6. Januar 2026 online)</li>
+        </ul>
+
+        <h3>Laufende Pflichten</h3>
+        <ul>
+          <li>Risikomanagementmaßnahmen implementieren und dokumentieren</li>
+          <li>Meldepflicht bei Cybervorfällen: Frühwarnung innerhalb 24h, detaillierte Meldung innerhalb 72h, Abschlussbericht innerhalb 1 Monat</li>
+          <li>Lieferketten-Sicherheit: Dienstleister vertraglich zu Sicherheitsstandards verpflichten</li>
+          <li>Regelmäßige Schulungen für Geschäftsleitung</li>
+        </ul>
+
+        <h2>Geschäftsführer-Haftung</h2>
+        <div class="warning-box">
+          <strong>Neu und wichtig:</strong> Die Geschäftsleitung haftet persönlich! Pflicht zur Genehmigung UND Überwachung der Cybersicherheitsmaßnahmen. Pflicht zur eigenen Schulung in Cybersicherheit.
+        </div>
+
+        <h2>Bußgelder</h2>
+        <div class="info-box info-box--highlight">
+          <p><strong>Besonders wichtige Einrichtungen:</strong> Bis 10 Mio. EUR oder 2% des weltweiten Jahresumsatzes</p>
+          <p><strong>Wichtige Einrichtungen:</strong> Bis 7 Mio. EUR oder 1,4% des weltweiten Jahresumsatzes</p>
+        </div>
+
+        <h2>Zusammenhang mit KI</h2>
+        <p>NIS2 betrifft auch Unternehmen, die KI-Systeme einsetzen oder entwickeln:</p>
+        <ul>
+          <li>KI-Infrastruktur muss ins Risikomanagement einbezogen werden</li>
+          <li>Cloud-basierte KI-Dienste (ChatGPT, Copilot etc.) sind Teil der Lieferkette</li>
+          <li>Datenschutz und Cybersicherheit greifen ineinander</li>
+          <li>Der EU AI Act ergänzt NIS2 mit spezifischen KI-Anforderungen</li>
+        </ul>
+
+        <h2>Checkliste: Nächste Schritte</h2>
+        <div class="checklist">
+          <label><input type="checkbox"> Betroffenheitsprüfung durchführen (BSI-Tool)</label>
+          <label><input type="checkbox"> Geschäftsleitung informieren (Haftungsthema!)</label>
+          <label><input type="checkbox"> Bei MUK registrieren (bis 31.12.2025)</label>
+          <label><input type="checkbox"> Gap-Analyse: Welche Maßnahmen fehlen?</label>
+          <label><input type="checkbox"> Meldeprozesse definieren</label>
+          <label><input type="checkbox"> Lieferanten-Verträge prüfen</label>
+          <label><input type="checkbox"> Schulungsplan für Geschäftsleitung erstellen</label>
+        </div>
+
+        <h2>Weiterführende Links</h2>
+        <ul class="link-list">
+          <li><a href="https://www.bsi.bund.de/DE/Themen/Regulierte-Wirtschaft/NIS-2-regulierte-Unternehmen/" target="_blank" rel="noopener">BSI: NIS-2-regulierte Unternehmen</a></li>
+          <li><a href="https://www.bundesregierung.de/breg-de/aktuelles/nis-2-richtlinie-deutschland-2373174" target="_blank" rel="noopener">Bundesregierung: NIS-2-Richtlinie</a></li>
+          <li><a href="https://www.openkritis.de/it-sicherheitsgesetz/nis2-umsetzung-gesetz-cybersicherheit.html" target="_blank" rel="noopener">OpenKRITIS: NIS2-Umsetzung</a></li>
+        </ul>
+
+      </div>
+
+      <!-- CTA am Ende -->
+      <footer class="article-footer">
+        <div class="article-cta">
+          <h2>Wie steht Ihr Unternehmen bei KI und Digitalisierung da?</h2>
+          <p>Der kostenlose KI-Status-Report gibt Ihnen einen strukturierten Überblick – inklusive Handlungsempfehlungen und Förderprogramm-Infos.</p>
+          <a href="https://report.ki-sicherheit.jetzt" class="cta-report">Jetzt Report starten →</a>
+        </div>
+      </footer>
+
+    </article>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <p>Ein Projekt von <a href="https://ki-sicherheit.jetzt">Wolf Hohl | KI-Sicherheit.jetzt</a></p>
+        <p class="footer-credential">TÜV-zertifizierter KI-Manager · Berlin</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelector('.nav-toggle')?.addEventListener('click', function() {
+      document.querySelector('.nav-links').classList.toggle('active');
+    });
+  </script>
+</body>
+</html>
