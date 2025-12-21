@@ -575,3 +575,265 @@ body.modal-open { overflow: hidden; }
   60%  { filter: hue-rotate(80deg) saturate(1.2) brightness(1.09);}
   100% { filter: hue-rotate(0deg) saturate(1.13) brightness(1);}
 }
+
+/* ===========================================
+   Header Navigation
+   =========================================== */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgba(249, 250, 251, 0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(34, 70, 100, 0.1);
+  z-index: 10000;
+  padding: 12px 24px;
+}
+
+.header-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-logo {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #224664;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.nav-logo img {
+  height: 32px;
+  width: auto;
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.nav-links a {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  color: #224664;
+  text-decoration: none;
+  transition: color 0.2s ease;
+  padding: 6px 0;
+}
+
+.nav-links a:hover {
+  color: #faad13;
+}
+
+.nav-highlight {
+  background: #faad13 !important;
+  color: #224664 !important;
+  padding: 8px 16px !important;
+  border-radius: 6px;
+  font-weight: 600;
+}
+
+.nav-highlight:hover {
+  background: #e09800 !important;
+  color: #224664 !important;
+}
+
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+}
+
+.nav-toggle span {
+  width: 24px;
+  height: 2px;
+  background: #224664;
+  transition: transform 0.2s ease;
+  display: block;
+}
+
+/* Body-Padding für fixed Header */
+body.has-nav {
+  padding-top: 60px;
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.98);
+    flex-direction: column;
+    padding: 16px 24px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    gap: 8px;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-links a {
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(34, 70, 100, 0.08);
+  }
+
+  .nav-toggle {
+    display: flex;
+  }
+
+  .nav-highlight {
+    text-align: center;
+    margin-top: 8px;
+  }
+}
+
+/* ===========================================
+   CTA-Buttons für Report
+   =========================================== */
+.cta-report {
+  background: linear-gradient(135deg, #faad13 0%, #e09800 100%) !important;
+  color: #224664 !important;
+  font-family: 'Share Tech Mono', monospace;
+  font-weight: 700;
+}
+
+.cta-report:hover {
+  transform: translateY(-2px) scale(1.045);
+  box-shadow: 0 4px 12px rgba(250, 173, 19, 0.4);
+}
+
+.cta-report-large {
+  background: linear-gradient(135deg, #faad13 0%, #e09800 100%);
+  color: #224664;
+  font-family: 'Share Tech Mono', monospace;
+  font-weight: 700;
+  padding: 16px 32px;
+  border-radius: 8px;
+  text-decoration: none;
+  display: inline-block;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  font-size: 1.1rem;
+}
+
+.cta-report-large:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(250, 173, 19, 0.4);
+}
+
+/* Report Teaser Box */
+.report-teaser {
+  background: rgba(34, 70, 100, 0.05);
+  border-left: 4px solid #faad13;
+  padding: 20px 24px;
+  margin: 32px 0 0 0;
+  border-radius: 0 8px 8px 0;
+}
+
+.report-teaser h3 {
+  font-family: 'Share Tech Mono', monospace;
+  color: #224664;
+  margin: 0 0 12px 0;
+  font-size: 1.3rem;
+}
+
+.report-teaser p {
+  margin-bottom: 16px;
+  font-size: 1rem;
+}
+
+/* ===========================================
+   Site Footer
+   =========================================== */
+.site-footer {
+  background: #224664;
+  padding: 40px 24px 30px;
+  margin-top: 0;
+}
+
+.footer-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 32px;
+}
+
+.footer-brand {
+  text-align: left;
+}
+
+.footer-brand p {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.95rem;
+  margin: 0 0 8px 0;
+}
+
+.footer-brand a {
+  color: #faad13;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.footer-brand a:hover {
+  text-decoration: underline;
+}
+
+.footer-credential {
+  font-size: 0.85rem !important;
+  color: rgba(255, 255, 255, 0.6) !important;
+}
+
+.footer-links {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.footer-links a {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.2s;
+}
+
+.footer-links a:hover {
+  color: #faad13;
+}
+
+.footer-divider {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+@media (max-width: 600px) {
+  .footer-inner {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-brand {
+    text-align: center;
+  }
+
+  .footer-links {
+    justify-content: center;
+  }
+}
