@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aktuell – KI, Datenschutz & Cybersicherheit | KI-Sicherheit.jetzt</title>
+  <meta name="description" content="Aktuelle Entwicklungen zu KI-Regulierung, DSGVO und Cybersicherheit für deutsche Unternehmen. NIS2, EU AI Act und mehr.">
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="../css/news.css">
+</head>
+<body class="has-nav">
+
+  <!-- Header Navigation (identisch zur Startseite) -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="/" class="nav-logo">
+        <img src="../img/ki-sicherheit-logo.webp" alt="KI-Sicherheit">
+        KI-Sicherheit.jetzt
+      </a>
+      <nav class="nav-links">
+        <a href="/#start">Start</a>
+        <a href="/#leistungen-profil">Leistungen</a>
+        <a href="/#foerderung">Förderung</a>
+        <a href="https://report.ki-sicherheit.jetzt" class="nav-highlight">KI-Report</a>
+        <a href="/aktuell/" class="nav-active">Aktuell</a>
+        <a href="/#rechtliches">Kontakt</a>
+      </nav>
+      <button class="nav-toggle" aria-label="Menü öffnen">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main class="news-page">
+
+    <!-- Page Header -->
+    <section class="news-header">
+      <h1>Aktuell</h1>
+      <p>Neuigkeiten zu KI, Datenschutz & Cybersicherheit für deutsche Unternehmen</p>
+    </section>
+
+    <!-- News Grid -->
+    <section class="news-grid">
+
+      <!-- Artikel 1: NIS2 (LIVE) -->
+      <article class="news-card">
+        <div class="news-card-header">
+          <span class="news-date">21. Dezember 2025</span>
+          <span class="news-badge news-badge--new">NEU</span>
+        </div>
+        <span class="news-category">Cybersicherheit</span>
+        <h2><a href="nis2-dezember-2025.html">NIS2 ist da – Was deutsche Unternehmen jetzt wissen müssen</a></h2>
+        <p>Das NIS2-Umsetzungsgesetz ist am 6. Dezember 2025 in Kraft getreten – ohne Übergangsfrist. Rund 29.500 Unternehmen in Deutschland sind betroffen und müssen sofort handeln.</p>
+        <div class="news-card-footer">
+          <span class="news-readtime">5 Min. Lesezeit</span>
+          <a href="nis2-dezember-2025.html" class="news-link">Weiterlesen →</a>
+        </div>
+      </article>
+
+      <!-- Artikel 2: EU AI Act (DEMNÄCHST) -->
+      <article class="news-card news-card--upcoming">
+        <div class="news-card-header">
+          <span class="news-date">Januar 2026</span>
+          <span class="news-badge news-badge--soon">DEMNÄCHST</span>
+        </div>
+        <span class="news-category">KI-Regulierung</span>
+        <h2>EU AI Act – Diese Pflichten gelten bereits</h2>
+        <p>AI Literacy Pflicht seit Februar 2025, verbotene KI-Praktiken, GPAI-Regeln seit August 2025 – und was 2026 noch kommt.</p>
+        <div class="news-card-footer">
+          <span class="news-readtime">Artikel in Vorbereitung</span>
+        </div>
+      </article>
+
+      <!-- Artikel 3: ChatGPT DSGVO (DEMNÄCHST) -->
+      <article class="news-card news-card--upcoming">
+        <div class="news-card-header">
+          <span class="news-date">Januar 2026</span>
+          <span class="news-badge news-badge--soon">DEMNÄCHST</span>
+        </div>
+        <span class="news-category">Datenschutz</span>
+        <h2>ChatGPT im Unternehmen – DSGVO-konform nutzen</h2>
+        <p>Consumer vs. Business-Version, Auftragsverarbeitungsvertrag (AVV), praktische Tipps und europäische Alternativen.</p>
+        <div class="news-card-footer">
+          <span class="news-readtime">Artikel in Vorbereitung</span>
+        </div>
+      </article>
+
+    </section>
+
+    <!-- CTA Section -->
+    <section class="news-cta">
+      <h2>Wie steht Ihr Unternehmen da?</h2>
+      <p>Der kostenlose KI-Status-Report gibt Ihnen einen strukturierten Überblick – mit Handlungsempfehlungen und Förderprogramm-Infos.</p>
+      <a href="https://report.ki-sicherheit.jetzt" class="cta-button">Zum KI-Status-Report →</a>
+    </section>
+
+  </main>
+
+  <!-- Footer (identisch zur Startseite) -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <p><strong>KI-Sicherheit.jetzt</strong></p>
+        <p class="footer-credential">Wolf Hohl · TÜV-zertifizierter KI-Manager · Berlin</p>
+      </div>
+      <div class="footer-links">
+        <a href="https://report.ki-sicherheit.jetzt">KI-Status-Report</a>
+        <span class="footer-divider">|</span>
+        <a href="/aktuell/">Aktuelles</a>
+        <span class="footer-divider">|</span>
+        <a href="/#rechtliches">Impressum & Datenschutz</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Mobile Navigation Toggle -->
+  <script>
+    document.querySelector('.nav-toggle')?.addEventListener('click', function() {
+      document.querySelector('.nav-links').classList.toggle('active');
+    });
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        document.querySelector('.nav-links').classList.remove('active');
+      });
+    });
+  </script>
+
+</body>
+</html>
