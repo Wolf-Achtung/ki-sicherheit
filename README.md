@@ -17,7 +17,9 @@ Die Website richtet sich an mittelständische Unternehmen und Entscheider:innen,
 
 ## Features & Highlights
 
-- **KI-Schnell-Check** (Risiko-Check, anonymer Browser-Quiz)
+- **Cyberangriffs-Check** (Haupteinstieg): fünf Fragen zur Reaktionslücke,
+  ausgeliefert unter `https://make.ki-sicherheit.jetzt/cyber-check.html`
+- **KI-Schnell-Check** (Zweitwahl: Risiko-Check zu EU AI Act & DSGVO, anonymer Browser-Quiz)
 - **Beratungsleistungen:** Strategie, Auditvorbereitung, Nachweis & Förderfähigkeit
 - **Fördermittel-Formular:** Einfaches Prüf-Formular, Netlify-Integration
 - **Recht & Datenschutz:** Transparente Infos zu DSGVO & EU AI Act
@@ -66,6 +68,33 @@ Effekte werden **nur bei Sichtbarkeit** im Viewport aktiviert.
 
 ---
 
+## Cyberangriffs-Check (Haupteinstieg)
+
+Der Check läuft **nicht** in diesem Repository. Er liegt im App-Frontend
+(`make-ki-frontend`) und wird von dort ausgeliefert:
+
+```
+https://make.ki-sicherheit.jetzt/cyber-check.html
+```
+
+Diese Adresse steht an drei Stellen im HTML:
+
+| Datei | Stelle |
+|---|---|
+| `index.html` | Button „Reaktionslücke ermitteln" in Section 2 |
+| `index.html` | Footer-Link „Cyberangriffs-Check" |
+| `aktuell/*.html` | Footer-Link „Cyberangriffs-Check" (vier Dateien) |
+
+Wechselt die Domain, ändern sich nur diese Links — die Marketing-Seite
+ruft keine API auf und braucht deshalb kein CORS.
+
+**Sprachregeln für alle Texte rund um den Check:** Der Check bewertet
+Angaben, keine Systeme. Keine Zusicherung von Schutz oder Sicherheit.
+Die Wörter „Resilienz" und „Kronjuwelen" kommen im sichtbaren Text nicht
+vor. Das Produkt heißt „Cyberangriffs-Check", in dieser Schreibweise.
+
+---
+
 ## Floating-Icon (Legal/Datenschutz-Button)
 
 - Das **@-Symbol** rechts unten (`.legal-fab`) öffnet das Datenschutz-Modal.
@@ -111,4 +140,4 @@ Feedback jederzeit willkommen!
 
 ---
 
-**Letztes Update:** Juli 2025
+**Letztes Update:** August 2026
